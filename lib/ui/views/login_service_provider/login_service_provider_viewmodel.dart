@@ -7,9 +7,7 @@ import '../../../app/app.locator.dart';
 class LoginServiceProviderViewModel extends FormViewModel {
   final _navigationService = locator<NavigationService>();
 
-  void siginInWithGoogle() {
-
-  }
+  void siginInWithGoogle() {}
 
   void siginInWithEmail() {
     _navigationService.replaceWithServiceProviderHomeScreenView();

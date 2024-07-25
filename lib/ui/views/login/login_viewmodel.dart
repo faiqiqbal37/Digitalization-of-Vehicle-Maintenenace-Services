@@ -11,7 +11,7 @@ class LoginViewModel extends FormViewModel {
 
   void siginInWithEmail() {}
 
-  void navigateToRegister(){
+  void navigateToRegister() {
     _navigationService.navigateToCustomerRegisterView();
   }
 
