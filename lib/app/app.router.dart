@@ -5,13 +5,23 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:disertation/ui/views/customer_register/customer_register_view.dart'
+    as _i7;
 import 'package:disertation/ui/views/home/home_view.dart' as _i2;
+import 'package:disertation/ui/views/initial_selection_screen/initial_selection_screen_view.dart'
+    as _i8;
 import 'package:disertation/ui/views/login/login_view.dart' as _i4;
+import 'package:disertation/ui/views/login_service_provider/login_service_provider_view.dart'
+    as _i9;
+import 'package:disertation/ui/views/service_provider_home_screen/service_provider_home_screen_view.dart'
+    as _i5;
+import 'package:disertation/ui/views/service_provider_register/service_provider_register_view.dart'
+    as _i6;
 import 'package:disertation/ui/views/startup/startup_view.dart' as _i3;
-import 'package:flutter/material.dart' as _i5;
+import 'package:flutter/material.dart' as _i10;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i6;
+import 'package:stacked_services/stacked_services.dart' as _i11;
 
 class Routes {
   static const homeView = '/home-view';
@@ -20,10 +30,26 @@ class Routes {
 
   static const loginView = '/login-view';
 
+  static const serviceProviderHomeScreenView =
+      '/service-provider-home-screen-view';
+
+  static const serviceProviderRegisterView = '/service-provider-register-view';
+
+  static const customerRegisterView = '/customer-register-view';
+
+  static const initialSelectionScreenView = '/initial-selection-screen-view';
+
+  static const loginServiceProviderView = '/login-service-provider-view';
+
   static const all = <String>{
     homeView,
     startupView,
     loginView,
+    serviceProviderHomeScreenView,
+    serviceProviderRegisterView,
+    customerRegisterView,
+    initialSelectionScreenView,
+    loginServiceProviderView,
   };
 }
 
@@ -41,24 +67,74 @@ class StackedRouter extends _i1.RouterBase {
       Routes.loginView,
       page: _i4.LoginView,
     ),
+    _i1.RouteDef(
+      Routes.serviceProviderHomeScreenView,
+      page: _i5.ServiceProviderHomeScreenView,
+    ),
+    _i1.RouteDef(
+      Routes.serviceProviderRegisterView,
+      page: _i6.ServiceProviderRegisterView,
+    ),
+    _i1.RouteDef(
+      Routes.customerRegisterView,
+      page: _i7.CustomerRegisterView,
+    ),
+    _i1.RouteDef(
+      Routes.initialSelectionScreenView,
+      page: _i8.InitialSelectionScreenView,
+    ),
+    _i1.RouteDef(
+      Routes.loginServiceProviderView,
+      page: _i9.LoginServiceProviderView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i5.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i5.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.LoginView: (data) {
-      return _i5.MaterialPageRoute<dynamic>(
+      return _i10.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.LoginView(),
+        settings: data,
+      );
+    },
+    _i5.ServiceProviderHomeScreenView: (data) {
+      return _i10.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i5.ServiceProviderHomeScreenView(),
+        settings: data,
+      );
+    },
+    _i6.ServiceProviderRegisterView: (data) {
+      return _i10.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i6.ServiceProviderRegisterView(),
+        settings: data,
+      );
+    },
+    _i7.CustomerRegisterView: (data) {
+      return _i10.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i7.CustomerRegisterView(),
+        settings: data,
+      );
+    },
+    _i8.InitialSelectionScreenView: (data) {
+      return _i10.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i8.InitialSelectionScreenView(),
+        settings: data,
+      );
+    },
+    _i9.LoginServiceProviderView: (data) {
+      return _i10.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i9.LoginServiceProviderView(),
         settings: data,
       );
     },
@@ -71,7 +147,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i6.NavigationService {
+extension NavigatorStateExtension on _i11.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -114,6 +190,76 @@ extension NavigatorStateExtension on _i6.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToServiceProviderHomeScreenView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.serviceProviderHomeScreenView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToServiceProviderRegisterView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.serviceProviderRegisterView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToCustomerRegisterView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.customerRegisterView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToInitialSelectionScreenView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.initialSelectionScreenView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToLoginServiceProviderView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.loginServiceProviderView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -150,6 +296,76 @@ extension NavigatorStateExtension on _i6.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.loginView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithServiceProviderHomeScreenView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.serviceProviderHomeScreenView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithServiceProviderRegisterView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.serviceProviderRegisterView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithCustomerRegisterView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.customerRegisterView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithInitialSelectionScreenView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.initialSelectionScreenView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithLoginServiceProviderView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.loginServiceProviderView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

@@ -4,7 +4,8 @@ import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/app.locator.dart';
 
-class LoginViewModel extends FormViewModel {
+class LoginServiceProviderViewModel extends FormViewModel {
+
   final _navigationService = locator<NavigationService>();
 
   void siginInWithGoogle() {}

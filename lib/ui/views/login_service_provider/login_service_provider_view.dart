@@ -1,24 +1,26 @@
+import 'package:disertation/ui/views/login_service_provider/login_service_provider_view.form.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
-import 'login_viewmodel.dart';
-import 'login_view.form.dart';
+import 'login_service_provider_viewmodel.dart';
 
 @FormView(fields: [
   FormTextField(name: 'emailInput'),
   FormTextField(name: 'passwordInput'),
 ])
-class LoginView extends StackedView<LoginViewModel> with $LoginView {
-  const LoginView({Key? key}) : super(key: key);
+class LoginServiceProviderView
+    extends StackedView<LoginServiceProviderViewModel> with $LoginServiceProviderView {
+  const LoginServiceProviderView({Key? key}) : super(key: key);
 
   @override
   Widget builder(
     BuildContext context,
-    LoginViewModel viewModel,
+    LoginServiceProviderViewModel viewModel,
     Widget? child,
   ) {
     return Scaffold(
+
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -26,7 +28,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
-              'Login as a Customer',
+              'Login as a Service Provider',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
@@ -74,14 +76,16 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
     );
   }
 
+
   @override
-  void onViewModelReady(LoginViewModel viewModel) {
+  void onModelReady(LoginServiceProviderViewModel viewModel) {
     syncFormWithViewModel(viewModel);
+
   }
 
   @override
-  LoginViewModel viewModelBuilder(
+  LoginServiceProviderViewModel viewModelBuilder(
     BuildContext context,
   ) =>
-      LoginViewModel();
+      LoginServiceProviderViewModel();
 }

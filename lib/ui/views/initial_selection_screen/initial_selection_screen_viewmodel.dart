@@ -4,14 +4,14 @@ import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/app.locator.dart';
 
-class LoginViewModel extends FormViewModel {
+class InitialSelectionScreenViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
 
-  void siginInWithGoogle() {}
+  void navigateToCustomerLogin() {
+    _navigationService.navigateToLoginView();
+  }
 
-  void siginInWithEmail() {}
-
-  void navigateToHome() {
-    _navigationService.navigateToHomeView();
+  void navigateToServiceProviderLogin() {
+    _navigationService.navigateToLoginServiceProviderView();
   }
 }
