@@ -65,7 +65,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
             ),
             SizedBox(height: 10),
             TextButton(
-              onPressed: viewModel.navigateToHome,
+              onPressed: viewModel.navigateToRegister,
               child: Text('Register'),
             ),
           ],

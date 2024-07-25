@@ -10,7 +10,8 @@ import 'login_service_provider_viewmodel.dart';
   FormTextField(name: 'passwordInput'),
 ])
 class LoginServiceProviderView
-    extends StackedView<LoginServiceProviderViewModel> with $LoginServiceProviderView {
+    extends StackedView<LoginServiceProviderViewModel>
+    with $LoginServiceProviderView {
   const LoginServiceProviderView({Key? key}) : super(key: key);
 
   @override
@@ -20,7 +21,6 @@ class LoginServiceProviderView
     Widget? child,
   ) {
     return Scaffold(
-
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -67,7 +67,7 @@ class LoginServiceProviderView
             ),
             SizedBox(height: 10),
             TextButton(
-              onPressed: viewModel.navigateToHome,
+              onPressed: viewModel.navigateToRegister,
               child: Text('Register'),
             ),
           ],
@@ -76,11 +76,9 @@ class LoginServiceProviderView
     );
   }
 
-
   @override
   void onModelReady(LoginServiceProviderViewModel viewModel) {
     syncFormWithViewModel(viewModel);
-
   }
 
   @override
