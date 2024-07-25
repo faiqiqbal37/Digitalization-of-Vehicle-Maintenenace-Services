@@ -12,6 +12,7 @@ import 'package:disertation/ui/views/customer_register/customer_register_view.da
 import 'package:disertation/ui/views/initial_selection_screen/initial_selection_screen_view.dart';
 import 'package:disertation/ui/views/login_service_provider/login_service_provider_view.dart';
 import 'package:disertation/ui/views/service_provider_profile/service_provider_profile_view.dart';
+import 'package:disertation/ui/views/service_provider_services/service_provider_services_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -25,6 +26,7 @@ import 'package:disertation/ui/views/service_provider_profile/service_provider_p
     MaterialRoute(page: InitialSelectionScreenView),
     MaterialRoute(page: LoginServiceProviderView),
     MaterialRoute(page: ServiceProviderProfileView),
+    MaterialRoute(page: ServiceProviderServicesView),
 // @stacked-route
   ],
   dependencies: [

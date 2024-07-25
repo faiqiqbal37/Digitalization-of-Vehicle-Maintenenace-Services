@@ -5,7 +5,8 @@ class ProfileItem extends StatelessWidget {
   final String title;
   final String content;
 
-  const ProfileItem({Key? key, required this.title, required this.content}) : super(key: key);
+  const ProfileItem({Key? key, required this.title, required this.content})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +15,6 @@ class ProfileItem extends StatelessWidget {
       subtitle: Text(content),
       tileColor: Colors.white,
       contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-
     );
   }
 }

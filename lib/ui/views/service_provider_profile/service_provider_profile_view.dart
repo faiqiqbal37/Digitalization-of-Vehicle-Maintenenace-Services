@@ -40,7 +40,8 @@ class ServiceProviderProfileView
               onPressed: () {},
               child: Text('Edit Details'),
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.black, backgroundColor: Colors.white,
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white,
                 textStyle: TextStyle(fontSize: 16),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(0),
@@ -56,7 +57,8 @@ class ServiceProviderProfileView
               onPressed: () {},
               child: Text('Log Out'),
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white, backgroundColor: Colors.red,
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.red,
                 textStyle: TextStyle(fontSize: 16),
               ),
             ),
