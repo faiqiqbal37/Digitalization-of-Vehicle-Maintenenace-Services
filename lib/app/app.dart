@@ -14,6 +14,7 @@ import 'package:disertation/ui/views/login_service_provider/login_service_provid
 import 'package:disertation/ui/views/service_provider_profile/service_provider_profile_view.dart';
 import 'package:disertation/ui/views/service_provider_services/service_provider_services_view.dart';
 import 'package:disertation/ui/views/service_provider_add_service/service_provider_add_service_view.dart';
+import 'package:disertation/ui/views/service_provider_bookings_listing/service_provider_bookings_listing_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -29,6 +30,7 @@ import 'package:disertation/ui/views/service_provider_add_service/service_provid
     MaterialRoute(page: ServiceProviderProfileView),
     MaterialRoute(page: ServiceProviderServicesView),
     MaterialRoute(page: ServiceProviderAddServiceView),
+    MaterialRoute(page: ServiceProviderBookingsListingView),
 // @stacked-route
   ],
   dependencies: [

@@ -10,12 +10,11 @@ import 'service_provider_add_service_viewmodel.dart';
   FormTextField(name: 'description'),
   FormTextField(name: 'price'),
   FormTextField(name: 'ETA'),
-
 ])
 class ServiceProviderAddServiceView
-    extends StackedView<ServiceProviderAddServiceViewModel> with $ServiceProviderAddServiceView{
+    extends StackedView<ServiceProviderAddServiceViewModel>
+    with $ServiceProviderAddServiceView {
   const ServiceProviderAddServiceView({Key? key}) : super(key: key);
-
 
   @override
   Widget builder(
@@ -88,8 +87,7 @@ class ServiceProviderAddServiceView
                   labelText: 'Vehicle Type:',
                   border: OutlineInputBorder(),
                 ),
-                onChanged: (String? newValue) {
-                },
+                onChanged: (String? newValue) {},
                 items: <String>['SUV', 'Sedan', 'Coupe', 'Hatchback']
                     .map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
@@ -109,7 +107,6 @@ class ServiceProviderAddServiceView
       ),
     );
   }
-
 
   @override
   void onModelReady(ServiceProviderAddServiceViewModel viewModel) {

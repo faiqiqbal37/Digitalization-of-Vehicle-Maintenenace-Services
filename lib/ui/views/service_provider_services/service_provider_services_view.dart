@@ -15,14 +15,11 @@ class ServiceProviderServicesView
     Widget? child,
   ) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Services'),
-        centerTitle: true,
-      ),
       body: Column(
         children: [
-          SizedBox(height: 20),
-          Icon(Icons.car_repair, size: 100, color: Colors.black),
+          SizedBox(height: 60),
+          Icon(Icons.car_repair, size: 80, color: Colors.black),
+          Text("Services", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
             child: ListView.builder(

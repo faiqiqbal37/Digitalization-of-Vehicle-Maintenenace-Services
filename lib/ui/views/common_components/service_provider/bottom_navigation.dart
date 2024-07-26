@@ -23,6 +23,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     } else if (_selectedIndex == 2) {
       _navigationService.replaceWithServiceProviderServicesView();
     } else if (_selectedIndex == 3) {
+      _navigationService.replaceWithServiceProviderBookingsListingView();
     } else if (_selectedIndex == 4) {
       _navigationService.replaceWithServiceProviderProfileView();
     }
