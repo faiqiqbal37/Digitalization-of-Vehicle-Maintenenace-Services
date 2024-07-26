@@ -32,14 +32,16 @@ class ServiceProviderServicesView
                   child: ListTile(
                     leading: Icon(Icons.build),
                     title: Text(viewModel.services[index]['name']),
-                    subtitle: Text('${viewModel.services[index]['type']} - ${viewModel.services[index]['price']}'),
+                    subtitle: Text(
+                        '${viewModel.services[index]['type']} - ${viewModel.services[index]['price']}'),
                     trailing: ElevatedButton(
                       onPressed: () {
                         // Handle edit action
                       },
                       child: Text('Edit'),
                       style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white, backgroundColor: Colors.blue, // Text color
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.blue, // Text color
                       ),
                     ),
                   ),
@@ -51,7 +53,7 @@ class ServiceProviderServicesView
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Navigate to add new service screen
+          viewModel.navigateToAddService();
         },
         child: Icon(Icons.add),
         tooltip: 'Add a New Service',

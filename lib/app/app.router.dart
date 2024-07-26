@@ -13,6 +13,8 @@ import 'package:disertation/ui/views/initial_selection_screen/initial_selection_
 import 'package:disertation/ui/views/login/login_view.dart' as _i4;
 import 'package:disertation/ui/views/login_service_provider/login_service_provider_view.dart'
     as _i9;
+import 'package:disertation/ui/views/service_provider_add_service/service_provider_add_service_view.dart'
+    as _i12;
 import 'package:disertation/ui/views/service_provider_home_screen/service_provider_home_screen_view.dart'
     as _i5;
 import 'package:disertation/ui/views/service_provider_profile/service_provider_profile_view.dart'
@@ -22,10 +24,10 @@ import 'package:disertation/ui/views/service_provider_register/service_provider_
 import 'package:disertation/ui/views/service_provider_services/service_provider_services_view.dart'
     as _i11;
 import 'package:disertation/ui/views/startup/startup_view.dart' as _i3;
-import 'package:flutter/material.dart' as _i12;
+import 'package:flutter/material.dart' as _i13;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i13;
+import 'package:stacked_services/stacked_services.dart' as _i14;
 
 class Routes {
   static const homeView = '/home-view';
@@ -49,6 +51,9 @@ class Routes {
 
   static const serviceProviderServicesView = '/service-provider-services-view';
 
+  static const serviceProviderAddServiceView =
+      '/service-provider-add-service-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -60,6 +65,7 @@ class Routes {
     loginServiceProviderView,
     serviceProviderProfileView,
     serviceProviderServicesView,
+    serviceProviderAddServiceView,
   };
 }
 
@@ -105,66 +111,76 @@ class StackedRouter extends _i1.RouterBase {
       Routes.serviceProviderServicesView,
       page: _i11.ServiceProviderServicesView,
     ),
+    _i1.RouteDef(
+      Routes.serviceProviderAddServiceView,
+      page: _i12.ServiceProviderAddServiceView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.LoginView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.LoginView(),
         settings: data,
       );
     },
     _i5.ServiceProviderHomeScreenView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.ServiceProviderHomeScreenView(),
         settings: data,
       );
     },
     _i6.ServiceProviderRegisterView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.ServiceProviderRegisterView(),
         settings: data,
       );
     },
     _i7.CustomerRegisterView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.CustomerRegisterView(),
         settings: data,
       );
     },
     _i8.InitialSelectionScreenView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.InitialSelectionScreenView(),
         settings: data,
       );
     },
     _i9.LoginServiceProviderView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.LoginServiceProviderView(),
         settings: data,
       );
     },
     _i10.ServiceProviderProfileView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.ServiceProviderProfileView(),
         settings: data,
       );
     },
     _i11.ServiceProviderServicesView: (data) {
-      return _i12.MaterialPageRoute<dynamic>(
+      return _i13.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.ServiceProviderServicesView(),
+        settings: data,
+      );
+    },
+    _i12.ServiceProviderAddServiceView: (data) {
+      return _i13.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i12.ServiceProviderAddServiceView(),
         settings: data,
       );
     },
@@ -177,7 +193,7 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i13.NavigationService {
+extension NavigatorStateExtension on _i14.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -318,6 +334,20 @@ extension NavigatorStateExtension on _i13.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToServiceProviderAddServiceView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.serviceProviderAddServiceView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -452,6 +482,20 @@ extension NavigatorStateExtension on _i13.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.serviceProviderServicesView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithServiceProviderAddServiceView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.serviceProviderAddServiceView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
