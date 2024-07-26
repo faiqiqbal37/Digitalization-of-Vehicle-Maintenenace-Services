@@ -1,5 +1,8 @@
+import 'package:disertation/app/app.locator.dart';
+import 'package:disertation/app/app.router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stacked_services/stacked_services.dart';
 
 class BookingCard extends StatelessWidget {
   final String customerName;
@@ -7,6 +10,7 @@ class BookingCard extends StatelessWidget {
   final String date;
   final String location;
   final String status;
+  final _navigationService = locator<NavigationService>();
 
   BookingCard({
     required this.customerName,
@@ -25,7 +29,8 @@ class BookingCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Customer Name: $customerName', style: TextStyle(fontWeight: FontWeight.bold)),
+            Text('Customer Name: $customerName',
+                style: TextStyle(fontWeight: FontWeight.bold)),
             SizedBox(height: 8),
             Text('Service Name: $serviceName'),
             SizedBox(height: 8),
@@ -33,20 +38,23 @@ class BookingCard extends StatelessWidget {
             SizedBox(height: 8),
             Text('Location: $location'),
             SizedBox(height: 8),
-            Text('Status: $status', style: TextStyle(color: status == 'Completed' ? Colors.green : Colors.red)),
+            Text('Status: $status',
+                style: TextStyle(
+                    color: status == 'Completed' ? Colors.green : Colors.red)),
             SizedBox(height: 8),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    // Add logic to handle button press
                   },
-                  child: Text(status == 'Completed' ? 'Mark as Pending' : 'Mark as Complete'),
+                  child: Text(status == 'Completed'
+                      ? 'Mark as Pending'
+                      : 'Mark as Complete'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    // Add logic for viewing more details
+                    _navigationService.navigateToServiceProviderBookingdetailView();
                   },
                   child: Text('View'),
                 ),

@@ -16,12 +16,12 @@ class ServiceProviderBookingsListingView
     Widget? child,
   ) {
     return Scaffold(
-
       body: Column(
         children: [
           SizedBox(height: 60),
           Icon(Icons.calendar_month, size: 80, color: Colors.black),
-          Text("Bookings", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+          Text("Bookings",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
             child: ListView(

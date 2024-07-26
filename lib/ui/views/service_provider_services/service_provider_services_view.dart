@@ -19,7 +19,8 @@ class ServiceProviderServicesView
         children: [
           SizedBox(height: 60),
           Icon(Icons.car_repair, size: 80, color: Colors.black),
-          Text("Services", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+          Text("Services",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
             child: ListView.builder(
