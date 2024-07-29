@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "410698316306",
+    "firebase_url": "https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com",
+    "project_id": "vehicle-maintenance-7f86b",
+    "storage_bucket": "vehicle-maintenance-7f86b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:410698316306:android:2b3f889951aae37af976cb",
+        "android_client_info": {
+          "package_name": "com.example.disertation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOutxPWXvUUQYBLvVSonIJ-HGhT7C_T3I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -17,5 +17,6 @@ class ServiceProvider with _$ServiceProvider {
     bool? approvalStatus, // Optional, default could be set as needed
   }) = _ServiceProvider;
 
-  factory ServiceProvider.fromJson(Map<String, dynamic> json) => _$ServiceProviderFromJson(json);
+  factory ServiceProvider.fromJson(Map<String, dynamic> json) =>
+      _$ServiceProviderFromJson(json);
 }

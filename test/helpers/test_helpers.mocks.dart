@@ -6,7 +6,9 @@
 import 'dart:async' as _i5;
 import 'dart:ui' as _i6;
 
+import 'package:disertation/models/serviceprovider/serviceprovider.dart' as _i9;
 import 'package:disertation/services/authentication_service.dart' as _i7;
+import 'package:disertation/services/registration_service.dart' as _i8;
 import 'package:flutter/material.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
@@ -677,3 +679,21 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthenticationService extends _i1.Mock
     implements _i7.AuthenticationService {}
+
+/// A class which mocks [RegistrationService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockRegistrationService extends _i1.Mock
+    implements _i8.RegistrationService {
+  @override
+  _i5.Future<void> registerServiceProvider(
+          _i9.ServiceProvider? serviceProvider) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #registerServiceProvider,
+          [serviceProvider],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+}

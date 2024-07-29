@@ -13,5 +13,6 @@ class Feedback with _$Feedback {
     required int feedback, // Assuming this is an integer rating or similar
   }) = _Feedback;
 
-  factory Feedback.fromJson(Map<String, dynamic> json) => _$FeedbackFromJson(json);
+  factory Feedback.fromJson(Map<String, dynamic> json) =>
+      _$FeedbackFromJson(json);
 }

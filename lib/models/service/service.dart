@@ -17,5 +17,6 @@ class Service with _$Service {
     String? image, // Optional, assumed to be a URL or path
   }) = _Service;
 
-  factory Service.fromJson(Map<String, dynamic> json) => _$ServiceFromJson(json);
+  factory Service.fromJson(Map<String, dynamic> json) =>
+      _$ServiceFromJson(json);
 }

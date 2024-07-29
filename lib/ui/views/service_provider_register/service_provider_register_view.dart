@@ -1,3 +1,5 @@
+import 'package:disertation/ui/common/ui_helpers.dart';
+import 'package:disertation/ui/views/service_provider_register/form_validators.dart';
 import 'package:disertation/ui/views/service_provider_register/service_provider_register_view.form.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -6,13 +8,28 @@ import 'package:stacked/stacked_annotations.dart';
 import 'service_provider_register_viewmodel.dart';
 
 @FormView(fields: [
-  FormTextField(name: 'email'),
-  FormTextField(name: 'password'),
-  FormTextField(name: 'confirmPassword'),
-  FormTextField(name: 'firstName'),
-  FormTextField(name: 'lastName'),
-  FormTextField(name: 'businessName'),
-  FormTextField(name: 'phone'),
+  FormTextField(
+      name: 'email',
+      validator: ServiceProviderRegistrationFormValidation.validateEmail),
+  FormTextField(
+      name: 'password',
+      validator: ServiceProviderRegistrationFormValidation.validatePassword),
+  FormTextField(
+      name: 'confirmPassword',
+      validator: ServiceProviderRegistrationFormValidation.validatePassword),
+  FormTextField(
+      name: 'firstName',
+      validator: ServiceProviderRegistrationFormValidation.validateFirstName),
+  FormTextField(
+      name: 'lastName',
+      validator: ServiceProviderRegistrationFormValidation.validateLastName),
+  FormTextField(
+      name: 'businessName',
+      validator:
+          ServiceProviderRegistrationFormValidation.validateBusinessName),
+  FormTextField(
+      name: 'phone',
+      validator: ServiceProviderRegistrationFormValidation.validatePhoneNumber),
 ])
 class ServiceProviderRegisterView
     extends StackedView<ServiceProviderRegisterViewModel>
@@ -38,7 +55,7 @@ class ServiceProviderRegisterView
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
-            TextField(
+            TextFormField(
               controller: firstNameController,
               decoration: InputDecoration(
                 labelText: 'First Name',
@@ -46,8 +63,10 @@ class ServiceProviderRegisterView
                 prefixIcon: Icon(Icons.person),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasFirstNameValidationMessage ? Text(viewModel.firstNameValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
             SizedBox(height: 20),
-            TextField(
+            TextFormField(
               controller: lastNameController,
               decoration: InputDecoration(
                 labelText: 'Last Name',
@@ -55,16 +74,20 @@ class ServiceProviderRegisterView
                 prefixIcon: Icon(Icons.person),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasLastNameValidationMessage ? Text(viewModel.lastNameValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
             SizedBox(height: 20),
-            TextField(
+            TextFormField(
               controller: businessNameController,
               decoration: InputDecoration(
                 labelText: 'Business Name',
                 border: OutlineInputBorder(),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasBusinessNameValidationMessage ? Text(viewModel.businessNameValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
             SizedBox(height: 20),
-            TextField(
+            TextFormField(
               controller: phoneController,
               decoration: InputDecoration(
                 labelText: 'Phone',
@@ -72,8 +95,10 @@ class ServiceProviderRegisterView
                 prefixIcon: Icon(Icons.call),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasPhoneValidationMessage ? Text(viewModel.phoneValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
             SizedBox(height: 20),
-            TextField(
+            TextFormField(
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
@@ -82,8 +107,10 @@ class ServiceProviderRegisterView
                 prefixIcon: Icon(Icons.email),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasEmailValidationMessage ? Text(viewModel.emailValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
             SizedBox(height: 20),
-            TextField(
+            TextFormField(
               controller: passwordController,
               decoration: InputDecoration(
                 labelText: 'Password',
@@ -91,8 +118,10 @@ class ServiceProviderRegisterView
                 prefixIcon: Icon(Icons.password),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasPasswordValidationMessage ? Text(viewModel.passwordValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
             SizedBox(height: 20),
-            TextField(
+            TextFormField(
               controller: confirmPasswordController,
               decoration: InputDecoration(
                 labelText: 'Confirm Password',
@@ -100,15 +129,23 @@ class ServiceProviderRegisterView
                 prefixIcon: Icon(Icons.password),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasPasswordValidationMessage ? Text(viewModel.passwordValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
             SizedBox(height: 20),
             TextButton(
-              onPressed: viewModel.register,
+              onPressed: viewModel.registerUser,
               child: Text('Register'),
             ),
           ],
         ),
       ),
     );
+  }
+
+  @override
+  void onDispose(ServiceProviderRegisterViewModel viewModel) {
+    super.onDispose(viewModel);
+    disposeForm();
   }
 
   @override

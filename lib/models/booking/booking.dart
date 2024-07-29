@@ -15,5 +15,6 @@ class Booking with _$Booking {
     @Default('pending') String status, // Default value
   }) = _Booking;
 
-  factory Booking.fromJson(Map<String, dynamic> json) => _$BookingFromJson(json);
+  factory Booking.fromJson(Map<String, dynamic> json) =>
+      _$BookingFromJson(json);
 }

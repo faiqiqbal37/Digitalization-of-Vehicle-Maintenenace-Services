@@ -16,6 +16,7 @@ import 'package:disertation/ui/views/service_provider_services/service_provider_
 import 'package:disertation/ui/views/service_provider_add_service/service_provider_add_service_view.dart';
 import 'package:disertation/ui/views/service_provider_bookings_listing/service_provider_bookings_listing_view.dart';
 import 'package:disertation/ui/views/service_provider_bookingdetail/service_provider_bookingdetail_view.dart';
+import 'package:disertation/services/registration_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -40,6 +41,7 @@ import 'package:disertation/ui/views/service_provider_bookingdetail/service_prov
     LazySingleton(classType: DialogService),
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: AuthenticationService),
+    LazySingleton(classType: RegistrationService),
 // @stacked-service
   ],
   bottomsheets: [

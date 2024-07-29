@@ -5,7 +5,7 @@ import 'package:stacked_services/stacked_services.dart';
 
 class ServiceProviderBookingsListingViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
-  void navigateToBookingDetail(){
+  void navigateToBookingDetail() {
     _navigationService.navigateToServiceProviderBookingdetailView();
   }
 }

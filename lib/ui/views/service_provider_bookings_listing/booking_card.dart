@@ -46,15 +46,15 @@ class BookingCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                  },
+                  onPressed: () {},
                   child: Text(status == 'Completed'
                       ? 'Mark as Pending'
                       : 'Mark as Complete'),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    _navigationService.navigateToServiceProviderBookingdetailView();
+                    _navigationService
+                        .navigateToServiceProviderBookingdetailView();
                   },
                   child: Text('View'),
                 ),

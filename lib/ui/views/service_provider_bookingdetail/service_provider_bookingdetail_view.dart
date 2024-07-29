@@ -15,7 +15,6 @@ class ServiceProviderBookingdetailView
     Widget? child,
   ) {
     return Scaffold(
-
       body: Column(
         children: [
           SizedBox(height: 60),
@@ -30,7 +29,9 @@ class ServiceProviderBookingdetailView
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Customer Info:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                    Text('Customer Info:',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
                     ListTile(
                       leading: Icon(Icons.person),
                       title: Text('Michael Jordan'),
@@ -48,14 +49,18 @@ class ServiceProviderBookingdetailView
                       title: Text('23 James St, S4 7TL'),
                     ),
                     SizedBox(height: 20),
-                    Text('Service Info:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                    Text('Service Info:',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
                     ListTile(
                       leading: Icon(Icons.build),
                       title: Text('AC Servicing'),
                       subtitle: Text('Price: \$250'),
                     ),
                     SizedBox(height: 20),
-                    Text('Booking Details:', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                    Text('Booking Details:',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
                     ListTile(
                       leading: Icon(Icons.date_range),
                       title: Text('Date: 20/02/2024'),
@@ -67,7 +72,8 @@ class ServiceProviderBookingdetailView
                         onPressed: () {}, // Add logic to change status here
                         child: Text('Mark as Pending'),
                         style: ElevatedButton.styleFrom(
-                          foregroundColor: Colors.white, backgroundColor: Colors.red, // Text color
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.red, // Text color
                         ),
                       ),
                     ),
