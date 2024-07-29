@@ -6,13 +6,14 @@
 
 // ignore_for_file: public_member_api_docs, constant_identifier_names, non_constant_identifier_names,unnecessary_this
 
+import 'package:disertation/ui/views/login_service_provider/form_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
 const bool _autoTextFieldValidation = true;
 
-const String EmailInputValueKey = 'emailInput';
-const String PasswordInputValueKey = 'passwordInput';
+const String EmailValueKey = 'email';
+const String PasswordValueKey = 'password';
 
 final Map<String, TextEditingController>
     _LoginServiceProviderViewTextEditingControllers = {};
@@ -21,19 +22,18 @@ final Map<String, FocusNode> _LoginServiceProviderViewFocusNodes = {};
 
 final Map<String, String? Function(String?)?>
     _LoginServiceProviderViewTextValidations = {
-  EmailInputValueKey: null,
-  PasswordInputValueKey: null,
+  EmailValueKey: ServiceProviderLoginFormValidation.validateEmail,
+  PasswordValueKey: ServiceProviderLoginFormValidation.validatePassword,
 };
 
 mixin $LoginServiceProviderView {
-  TextEditingController get emailInputController =>
-      _getFormTextEditingController(EmailInputValueKey);
-  TextEditingController get passwordInputController =>
-      _getFormTextEditingController(PasswordInputValueKey);
+  TextEditingController get emailController =>
+      _getFormTextEditingController(EmailValueKey);
+  TextEditingController get passwordController =>
+      _getFormTextEditingController(PasswordValueKey);
 
-  FocusNode get emailInputFocusNode => _getFormFocusNode(EmailInputValueKey);
-  FocusNode get passwordInputFocusNode =>
-      _getFormFocusNode(PasswordInputValueKey);
+  FocusNode get emailFocusNode => _getFormFocusNode(EmailValueKey);
+  FocusNode get passwordFocusNode => _getFormFocusNode(PasswordValueKey);
 
   TextEditingController _getFormTextEditingController(
     String key, {
@@ -59,8 +59,8 @@ mixin $LoginServiceProviderView {
   /// Registers a listener on every generated controller that calls [model.setData()]
   /// with the latest textController values
   void syncFormWithViewModel(FormStateHelper model) {
-    emailInputController.addListener(() => _updateFormData(model));
-    passwordInputController.addListener(() => _updateFormData(model));
+    emailController.addListener(() => _updateFormData(model));
+    passwordController.addListener(() => _updateFormData(model));
 
     _updateFormData(model, forceValidate: _autoTextFieldValidation);
   }
@@ -72,8 +72,8 @@ mixin $LoginServiceProviderView {
     'This feature was deprecated after 3.1.0.',
   )
   void listenToFormUpdated(FormViewModel model) {
-    emailInputController.addListener(() => _updateFormData(model));
-    passwordInputController.addListener(() => _updateFormData(model));
+    emailController.addListener(() => _updateFormData(model));
+    passwordController.addListener(() => _updateFormData(model));
 
     _updateFormData(model, forceValidate: _autoTextFieldValidation);
   }
@@ -83,8 +83,8 @@ mixin $LoginServiceProviderView {
     model.setData(
       model.formValueMap
         ..addAll({
-          EmailInputValueKey: emailInputController.text,
-          PasswordInputValueKey: passwordInputController.text,
+          EmailValueKey: emailController.text,
+          PasswordValueKey: passwordController.text,
         }),
     );
 
@@ -127,70 +127,68 @@ extension ValueProperties on FormStateHelper {
     return !hasAnyValidationMessage;
   }
 
-  String? get emailInputValue =>
-      this.formValueMap[EmailInputValueKey] as String?;
-  String? get passwordInputValue =>
-      this.formValueMap[PasswordInputValueKey] as String?;
+  String? get emailValue => this.formValueMap[EmailValueKey] as String?;
+  String? get passwordValue => this.formValueMap[PasswordValueKey] as String?;
 
-  set emailInputValue(String? value) {
+  set emailValue(String? value) {
     this.setData(
-      this.formValueMap..addAll({EmailInputValueKey: value}),
+      this.formValueMap..addAll({EmailValueKey: value}),
     );
 
     if (_LoginServiceProviderViewTextEditingControllers.containsKey(
-        EmailInputValueKey)) {
-      _LoginServiceProviderViewTextEditingControllers[EmailInputValueKey]
-          ?.text = value ?? '';
+        EmailValueKey)) {
+      _LoginServiceProviderViewTextEditingControllers[EmailValueKey]?.text =
+          value ?? '';
     }
   }
 
-  set passwordInputValue(String? value) {
+  set passwordValue(String? value) {
     this.setData(
-      this.formValueMap..addAll({PasswordInputValueKey: value}),
+      this.formValueMap..addAll({PasswordValueKey: value}),
     );
 
     if (_LoginServiceProviderViewTextEditingControllers.containsKey(
-        PasswordInputValueKey)) {
-      _LoginServiceProviderViewTextEditingControllers[PasswordInputValueKey]
-          ?.text = value ?? '';
+        PasswordValueKey)) {
+      _LoginServiceProviderViewTextEditingControllers[PasswordValueKey]?.text =
+          value ?? '';
     }
   }
 
-  bool get hasEmailInput =>
-      this.formValueMap.containsKey(EmailInputValueKey) &&
-      (emailInputValue?.isNotEmpty ?? false);
-  bool get hasPasswordInput =>
-      this.formValueMap.containsKey(PasswordInputValueKey) &&
-      (passwordInputValue?.isNotEmpty ?? false);
+  bool get hasEmail =>
+      this.formValueMap.containsKey(EmailValueKey) &&
+      (emailValue?.isNotEmpty ?? false);
+  bool get hasPassword =>
+      this.formValueMap.containsKey(PasswordValueKey) &&
+      (passwordValue?.isNotEmpty ?? false);
 
-  bool get hasEmailInputValidationMessage =>
-      this.fieldsValidationMessages[EmailInputValueKey]?.isNotEmpty ?? false;
-  bool get hasPasswordInputValidationMessage =>
-      this.fieldsValidationMessages[PasswordInputValueKey]?.isNotEmpty ?? false;
+  bool get hasEmailValidationMessage =>
+      this.fieldsValidationMessages[EmailValueKey]?.isNotEmpty ?? false;
+  bool get hasPasswordValidationMessage =>
+      this.fieldsValidationMessages[PasswordValueKey]?.isNotEmpty ?? false;
 
-  String? get emailInputValidationMessage =>
-      this.fieldsValidationMessages[EmailInputValueKey];
-  String? get passwordInputValidationMessage =>
-      this.fieldsValidationMessages[PasswordInputValueKey];
+  String? get emailValidationMessage =>
+      this.fieldsValidationMessages[EmailValueKey];
+  String? get passwordValidationMessage =>
+      this.fieldsValidationMessages[PasswordValueKey];
 }
 
 extension Methods on FormStateHelper {
-  setEmailInputValidationMessage(String? validationMessage) =>
-      this.fieldsValidationMessages[EmailInputValueKey] = validationMessage;
-  setPasswordInputValidationMessage(String? validationMessage) =>
-      this.fieldsValidationMessages[PasswordInputValueKey] = validationMessage;
+  setEmailValidationMessage(String? validationMessage) =>
+      this.fieldsValidationMessages[EmailValueKey] = validationMessage;
+  setPasswordValidationMessage(String? validationMessage) =>
+      this.fieldsValidationMessages[PasswordValueKey] = validationMessage;
 
   /// Clears text input fields on the Form
   void clearForm() {
-    emailInputValue = '';
-    passwordInputValue = '';
+    emailValue = '';
+    passwordValue = '';
   }
 
   /// Validates text input fields on the Form
   void validateForm() {
     this.setValidationMessages({
-      EmailInputValueKey: getValidationMessage(EmailInputValueKey),
-      PasswordInputValueKey: getValidationMessage(PasswordInputValueKey),
+      EmailValueKey: getValidationMessage(EmailValueKey),
+      PasswordValueKey: getValidationMessage(PasswordValueKey),
     });
   }
 }
@@ -210,6 +208,6 @@ String? getValidationMessage(String key) {
 /// Updates the fieldsValidationMessages on the FormViewModel
 void updateValidationData(FormStateHelper model) =>
     model.setValidationMessages({
-      EmailInputValueKey: getValidationMessage(EmailInputValueKey),
-      PasswordInputValueKey: getValidationMessage(PasswordInputValueKey),
+      EmailValueKey: getValidationMessage(EmailValueKey),
+      PasswordValueKey: getValidationMessage(PasswordValueKey),
     });

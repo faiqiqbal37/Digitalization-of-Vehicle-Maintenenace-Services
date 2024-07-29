@@ -6,9 +6,11 @@
 import 'dart:async' as _i5;
 import 'dart:ui' as _i6;
 
-import 'package:disertation/models/serviceprovider/serviceprovider.dart' as _i9;
+import 'package:disertation/models/serviceprovider/serviceprovider.dart'
+    as _i10;
 import 'package:disertation/services/authentication_service.dart' as _i7;
-import 'package:disertation/services/registration_service.dart' as _i8;
+import 'package:disertation/services/registration_service.dart' as _i9;
+import 'package:firebase_auth/firebase_auth.dart' as _i8;
 import 'package:flutter/material.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
@@ -678,16 +680,33 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockAuthenticationService extends _i1.Mock
-    implements _i7.AuthenticationService {}
+    implements _i7.AuthenticationService {
+  @override
+  _i5.Future<_i8.User?> loginUser(
+    String? email,
+    String? password,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #loginUser,
+          [
+            email,
+            password,
+          ],
+        ),
+        returnValue: _i5.Future<_i8.User?>.value(),
+        returnValueForMissingStub: _i5.Future<_i8.User?>.value(),
+      ) as _i5.Future<_i8.User?>);
+}
 
 /// A class which mocks [RegistrationService].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockRegistrationService extends _i1.Mock
-    implements _i8.RegistrationService {
+    implements _i9.RegistrationService {
   @override
   _i5.Future<void> registerServiceProvider(
-          _i9.ServiceProvider? serviceProvider) =>
+          _i10.ServiceProvider? serviceProvider) =>
       (super.noSuchMethod(
         Invocation.method(
           #registerServiceProvider,

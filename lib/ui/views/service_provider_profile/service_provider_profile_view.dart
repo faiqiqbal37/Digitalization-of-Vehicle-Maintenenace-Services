@@ -54,7 +54,7 @@ class ServiceProviderProfileView
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: viewModel.logout,
               child: Text('Log Out'),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,

@@ -64,8 +64,13 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasFirstNameValidationMessage ? Text(viewModel.firstNameValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
-            SizedBox(height: 20),
+            viewModel.hasFirstNameValidationMessage
+                ? Text(viewModel.firstNameValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             TextFormField(
               controller: lastNameController,
               decoration: InputDecoration(
@@ -75,8 +80,13 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasLastNameValidationMessage ? Text(viewModel.lastNameValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
-            SizedBox(height: 20),
+            viewModel.hasLastNameValidationMessage
+                ? Text(viewModel.lastNameValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             TextFormField(
               controller: businessNameController,
               decoration: InputDecoration(
@@ -85,8 +95,13 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasBusinessNameValidationMessage ? Text(viewModel.businessNameValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
-            SizedBox(height: 20),
+            viewModel.hasBusinessNameValidationMessage
+                ? Text(viewModel.businessNameValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             TextFormField(
               controller: phoneController,
               decoration: InputDecoration(
@@ -96,8 +111,13 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasPhoneValidationMessage ? Text(viewModel.phoneValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
-            SizedBox(height: 20),
+            viewModel.hasPhoneValidationMessage
+                ? Text(viewModel.phoneValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             TextFormField(
               controller: emailController,
               keyboardType: TextInputType.emailAddress,
@@ -108,8 +128,13 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasEmailValidationMessage ? Text(viewModel.emailValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
-            SizedBox(height: 20),
+            viewModel.hasEmailValidationMessage
+                ? Text(viewModel.emailValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             TextFormField(
               controller: passwordController,
               decoration: InputDecoration(
@@ -119,8 +144,13 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasPasswordValidationMessage ? Text(viewModel.passwordValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
-            SizedBox(height: 20),
+            viewModel.hasPasswordValidationMessage
+                ? Text(viewModel.passwordValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             TextFormField(
               controller: confirmPasswordController,
               decoration: InputDecoration(
@@ -130,8 +160,13 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasPasswordValidationMessage ? Text(viewModel.passwordValidationMessage!, style: const TextStyle(color: Colors.red, fontSize: 12, fontWeight: FontWeight.w700)) :
-            SizedBox(height: 20),
+            viewModel.hasPasswordValidationMessage
+                ? Text(viewModel.passwordValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             TextButton(
               onPressed: viewModel.registerUser,
               child: Text('Register'),

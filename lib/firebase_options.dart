@@ -46,7 +46,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '410698316306',
     projectId: 'vehicle-maintenance-7f86b',
     authDomain: 'vehicle-maintenance-7f86b.firebaseapp.com',
-    databaseURL: 'https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com',
+    databaseURL:
+        'https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com',
     storageBucket: 'vehicle-maintenance-7f86b.appspot.com',
     measurementId: 'G-GB1ZLELXSK',
   );
@@ -56,7 +57,8 @@ class DefaultFirebaseOptions {
     appId: '1:410698316306:android:2b3f889951aae37af976cb',
     messagingSenderId: '410698316306',
     projectId: 'vehicle-maintenance-7f86b',
-    databaseURL: 'https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com',
+    databaseURL:
+        'https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com',
     storageBucket: 'vehicle-maintenance-7f86b.appspot.com',
   );
 
@@ -65,7 +67,8 @@ class DefaultFirebaseOptions {
     appId: '1:410698316306:ios:aae0a336536a2a2bf976cb',
     messagingSenderId: '410698316306',
     projectId: 'vehicle-maintenance-7f86b',
-    databaseURL: 'https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com',
+    databaseURL:
+        'https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com',
     storageBucket: 'vehicle-maintenance-7f86b.appspot.com',
     iosBundleId: 'com.example.disertation',
   );
@@ -75,7 +78,8 @@ class DefaultFirebaseOptions {
     appId: '1:410698316306:ios:aae0a336536a2a2bf976cb',
     messagingSenderId: '410698316306',
     projectId: 'vehicle-maintenance-7f86b',
-    databaseURL: 'https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com',
+    databaseURL:
+        'https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com',
     storageBucket: 'vehicle-maintenance-7f86b.appspot.com',
     iosBundleId: 'com.example.disertation',
   );
@@ -86,7 +90,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '410698316306',
     projectId: 'vehicle-maintenance-7f86b',
     authDomain: 'vehicle-maintenance-7f86b.firebaseapp.com',
-    databaseURL: 'https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com',
+    databaseURL:
+        'https://vehicle-maintenance-7f86b-default-rtdb.firebaseio.com',
     storageBucket: 'vehicle-maintenance-7f86b.appspot.com',
     measurementId: 'G-1BQPJY5YPS',
   );
