@@ -7,6 +7,6 @@ class CustomerCarsViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
 
   void navigateToAddCar() {
-    _navigationService.clearStackAndShow(Routes.customerAddCarsView);
+    _navigationService.navigateToCustomerAddCarsView();
   }
 }

@@ -38,11 +38,10 @@ class BookingCard extends StatelessWidget {
                 SizedBox(height: 8),
                 Text('Status: $status',
                     style: TextStyle(
-                        color: status == 'Completed' ? Colors.green : Colors.red)),
+                        color:
+                            status == 'Completed' ? Colors.green : Colors.red)),
                 SizedBox(height: 8),
-
               ],
-
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

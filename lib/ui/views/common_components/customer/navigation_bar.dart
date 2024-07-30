@@ -27,7 +27,7 @@ class _CustomerBottomNavigationBarState
     } else if (_selectedIndex == 3) {
       _navigationService.replaceWithCustomerBookingsView();
     } else if (_selectedIndex == 4) {
-      _navigationService.replaceWithServiceProviderProfileView();
+      _navigationService.replaceWithCustomerProfileView();
     }
   }
 
