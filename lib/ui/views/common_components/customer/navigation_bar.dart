@@ -19,8 +19,9 @@ class _CustomerBottomNavigationBarState
       _selectedIndex = index;
     });
     if (_selectedIndex == 0) {
-      _navigationService.replaceWithServiceProviderHomeScreenView();
+      _navigationService.replaceWithCustomerHomeView();
     } else if (_selectedIndex == 1) {
+      _navigationService.replaceWithCustomerCarsView();
     } else if (_selectedIndex == 2) {
       _navigationService.replaceWithServiceProviderServicesView();
     } else if (_selectedIndex == 3) {

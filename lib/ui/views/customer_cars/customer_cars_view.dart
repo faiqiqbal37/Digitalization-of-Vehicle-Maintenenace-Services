@@ -1,6 +1,8 @@
+import 'package:disertation/ui/views/common_components/customer/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import 'car_list.dart';
 import 'customer_cars_viewmodel.dart';
 
 class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
@@ -13,9 +15,35 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
     Widget? child,
   ) {
     return Scaffold(
-      backgroundColor: Theme.of(context).colorScheme.background,
-      body: Container(
-        padding: const EdgeInsets.only(left: 25.0, right: 25.0),
+      bottomNavigationBar: CustomerBottomNavigationBar(),
+      body: Column(
+        children: [
+          SizedBox(height: 60),
+          Icon(Icons.directions_car, size: 80, color: Colors.black),
+          Text("My Cars",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+          SizedBox(height: 20),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 2, // Assuming there are two cars for example
+              itemBuilder: (BuildContext context, int index) {
+                return CarListItem(
+                  make: 'Toyota Camry',
+                  modelYear: '2018',
+                  vehicleType: 'Sedan',
+                  regNumber: 'SXC18 PKU',
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Implement navigation or functionality for adding a car
+        },
+        child: Icon(Icons.add),
+        tooltip: 'Add Car',
       ),
     );
   }
