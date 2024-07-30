@@ -8,10 +8,10 @@ part of 'feedback.dart';
 
 _$FeedbackImpl _$$FeedbackImplFromJson(Map<String, dynamic> json) =>
     _$FeedbackImpl(
-      id: (json['id'] as num).toInt(),
-      serviceProviderId: (json['serviceProviderId'] as num).toInt(),
-      customerId: (json['customerId'] as num).toInt(),
-      bookingId: (json['bookingId'] as num).toInt(),
+      id: json['id'] as String,
+      serviceProviderId: json['serviceProviderId'] as String,
+      customerId: json['customerId'] as String,
+      bookingId: json['bookingId'] as String,
       feedback: (json['feedback'] as num).toInt(),
     );
 

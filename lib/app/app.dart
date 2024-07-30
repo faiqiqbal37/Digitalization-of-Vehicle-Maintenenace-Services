@@ -17,6 +17,9 @@ import 'package:disertation/ui/views/service_provider_add_service/service_provid
 import 'package:disertation/ui/views/service_provider_bookings_listing/service_provider_bookings_listing_view.dart';
 import 'package:disertation/ui/views/service_provider_bookingdetail/service_provider_bookingdetail_view.dart';
 import 'package:disertation/services/registration_service.dart';
+import 'package:disertation/services/services_service.dart';
+import 'package:disertation/ui/views/customer_home/customer_home_view.dart';
+import 'package:disertation/ui/views/customer_cars/customer_cars_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -34,6 +37,8 @@ import 'package:disertation/services/registration_service.dart';
     MaterialRoute(page: ServiceProviderAddServiceView),
     MaterialRoute(page: ServiceProviderBookingsListingView),
     MaterialRoute(page: ServiceProviderBookingdetailView),
+    MaterialRoute(page: CustomerHomeView),
+    MaterialRoute(page: CustomerCarsView),
 // @stacked-route
   ],
   dependencies: [
@@ -42,6 +47,7 @@ import 'package:disertation/services/registration_service.dart';
     LazySingleton(classType: NavigationService),
     LazySingleton(classType: AuthenticationService),
     LazySingleton(classType: RegistrationService),
+    LazySingleton(classType: ServicesService),
 // @stacked-service
   ],
   bottomsheets: [

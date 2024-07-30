@@ -98,7 +98,7 @@ class ServiceProviderAddServiceView
               ),
               SizedBox(height: 24),
               ElevatedButton(
-                onPressed: () => {},
+                onPressed: viewModel.addService,
                 child: Text('Add Service'),
               ),
             ],
@@ -109,7 +109,13 @@ class ServiceProviderAddServiceView
   }
 
   @override
-  void onModelReady(ServiceProviderAddServiceViewModel viewModel) {
+  void onDispose(ServiceProviderAddServiceViewModel viewModel) {
+    super.onDispose(viewModel);
+    disposeForm();
+  }
+
+  @override
+  void onViewModelReady(ServiceProviderAddServiceViewModel viewModel) {
     syncFormWithViewModel(viewModel);
   }
 

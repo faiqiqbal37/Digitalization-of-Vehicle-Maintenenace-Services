@@ -7,8 +7,8 @@ part of 'car.dart';
 // **************************************************************************
 
 _$CarImpl _$$CarImplFromJson(Map<String, dynamic> json) => _$CarImpl(
-      id: (json['id'] as num).toInt(),
-      customerId: (json['customerId'] as num).toInt(),
+      id: json['id'] as String,
+      customerId: json['customerId'] as String,
       vehicleMake: json['vehicleMake'] as String,
       vehicleModel: json['vehicleModel'] as String,
       vehicleType: json['vehicleType'] as String,

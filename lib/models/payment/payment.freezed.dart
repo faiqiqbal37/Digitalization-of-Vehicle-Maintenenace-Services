@@ -20,9 +20,9 @@ Payment _$PaymentFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Payment {
-  int get id => throw _privateConstructorUsedError;
-  int get customerId => throw _privateConstructorUsedError;
-  int get bookingId => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get customerId => throw _privateConstructorUsedError;
+  String get bookingId => throw _privateConstructorUsedError;
   int get amount => throw _privateConstructorUsedError;
   DateTime get date => throw _privateConstructorUsedError;
 
@@ -36,7 +36,12 @@ abstract class $PaymentCopyWith<$Res> {
   factory $PaymentCopyWith(Payment value, $Res Function(Payment) then) =
       _$PaymentCopyWithImpl<$Res, Payment>;
   @useResult
-  $Res call({int id, int customerId, int bookingId, int amount, DateTime date});
+  $Res call(
+      {String id,
+      String customerId,
+      String bookingId,
+      int amount,
+      DateTime date});
 }
 
 /// @nodoc
@@ -62,15 +67,15 @@ class _$PaymentCopyWithImpl<$Res, $Val extends Payment>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       customerId: null == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       bookingId: null == bookingId
           ? _value.bookingId
           : bookingId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -90,7 +95,12 @@ abstract class _$$PaymentImplCopyWith<$Res> implements $PaymentCopyWith<$Res> {
       __$$PaymentImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, int customerId, int bookingId, int amount, DateTime date});
+  $Res call(
+      {String id,
+      String customerId,
+      String bookingId,
+      int amount,
+      DateTime date});
 }
 
 /// @nodoc
@@ -114,15 +124,15 @@ class __$$PaymentImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       customerId: null == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       bookingId: null == bookingId
           ? _value.bookingId
           : bookingId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -149,11 +159,11 @@ class _$PaymentImpl implements _Payment {
       _$$PaymentImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
-  final int customerId;
+  final String customerId;
   @override
-  final int bookingId;
+  final String bookingId;
   @override
   final int amount;
   @override
@@ -199,20 +209,20 @@ class _$PaymentImpl implements _Payment {
 
 abstract class _Payment implements Payment {
   const factory _Payment(
-      {required final int id,
-      required final int customerId,
-      required final int bookingId,
+      {required final String id,
+      required final String customerId,
+      required final String bookingId,
       required final int amount,
       required final DateTime date}) = _$PaymentImpl;
 
   factory _Payment.fromJson(Map<String, dynamic> json) = _$PaymentImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
-  int get customerId;
+  String get customerId;
   @override
-  int get bookingId;
+  String get bookingId;
   @override
   int get amount;
   @override

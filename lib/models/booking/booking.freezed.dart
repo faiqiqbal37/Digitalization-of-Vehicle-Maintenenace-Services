@@ -20,10 +20,10 @@ Booking _$BookingFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Booking {
-  int get id => throw _privateConstructorUsedError;
-  int get serviceProviderId => throw _privateConstructorUsedError;
-  int get customerId => throw _privateConstructorUsedError;
-  int get serviceId => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get serviceProviderId => throw _privateConstructorUsedError;
+  String get customerId => throw _privateConstructorUsedError;
+  String get serviceId => throw _privateConstructorUsedError;
   int? get vehicleId => throw _privateConstructorUsedError; // Optional
   DateTime get date => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
@@ -39,10 +39,10 @@ abstract class $BookingCopyWith<$Res> {
       _$BookingCopyWithImpl<$Res, Booking>;
   @useResult
   $Res call(
-      {int id,
-      int serviceProviderId,
-      int customerId,
-      int serviceId,
+      {String id,
+      String serviceProviderId,
+      String customerId,
+      String serviceId,
       int? vehicleId,
       DateTime date,
       String status});
@@ -73,19 +73,19 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       serviceProviderId: null == serviceProviderId
           ? _value.serviceProviderId
           : serviceProviderId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       customerId: null == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       serviceId: null == serviceId
           ? _value.serviceId
           : serviceId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       vehicleId: freezed == vehicleId
           ? _value.vehicleId
           : vehicleId // ignore: cast_nullable_to_non_nullable
@@ -110,10 +110,10 @@ abstract class _$$BookingImplCopyWith<$Res> implements $BookingCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
-      int serviceProviderId,
-      int customerId,
-      int serviceId,
+      {String id,
+      String serviceProviderId,
+      String customerId,
+      String serviceId,
       int? vehicleId,
       DateTime date,
       String status});
@@ -142,19 +142,19 @@ class __$$BookingImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       serviceProviderId: null == serviceProviderId
           ? _value.serviceProviderId
           : serviceProviderId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       customerId: null == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       serviceId: null == serviceId
           ? _value.serviceId
           : serviceId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       vehicleId: freezed == vehicleId
           ? _value.vehicleId
           : vehicleId // ignore: cast_nullable_to_non_nullable
@@ -187,13 +187,13 @@ class _$BookingImpl implements _Booking {
       _$$BookingImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
-  final int serviceProviderId;
+  final String serviceProviderId;
   @override
-  final int customerId;
+  final String customerId;
   @override
-  final int serviceId;
+  final String serviceId;
   @override
   final int? vehicleId;
 // Optional
@@ -247,10 +247,10 @@ class _$BookingImpl implements _Booking {
 
 abstract class _Booking implements Booking {
   const factory _Booking(
-      {required final int id,
-      required final int serviceProviderId,
-      required final int customerId,
-      required final int serviceId,
+      {required final String id,
+      required final String serviceProviderId,
+      required final String customerId,
+      required final String serviceId,
       final int? vehicleId,
       required final DateTime date,
       final String status}) = _$BookingImpl;
@@ -258,13 +258,13 @@ abstract class _Booking implements Booking {
   factory _Booking.fromJson(Map<String, dynamic> json) = _$BookingImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
-  int get serviceProviderId;
+  String get serviceProviderId;
   @override
-  int get customerId;
+  String get customerId;
   @override
-  int get serviceId;
+  String get serviceId;
   @override
   int? get vehicleId;
   @override // Optional

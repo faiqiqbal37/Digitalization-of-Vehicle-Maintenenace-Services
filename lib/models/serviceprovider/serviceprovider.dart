@@ -6,7 +6,7 @@ part 'serviceprovider.g.dart';
 @freezed
 class ServiceProvider with _$ServiceProvider {
   const factory ServiceProvider({
-    required int id,
+    required String id,
     required String firstname,
     required String lastname,
     required String businessName,

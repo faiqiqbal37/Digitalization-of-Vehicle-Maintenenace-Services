@@ -20,13 +20,13 @@ Service _$ServiceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Service {
-  int get id => throw _privateConstructorUsedError;
-  int get serviceProviderId => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get serviceProviderId => throw _privateConstructorUsedError;
   String get serviceName => throw _privateConstructorUsedError;
   String get serviceType => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  int get price => throw _privateConstructorUsedError;
-  int? get eta => throw _privateConstructorUsedError; // Optional
+  String get price => throw _privateConstructorUsedError;
+  String? get eta => throw _privateConstructorUsedError; // Optional
   String get vehicleType => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
 
@@ -41,13 +41,13 @@ abstract class $ServiceCopyWith<$Res> {
       _$ServiceCopyWithImpl<$Res, Service>;
   @useResult
   $Res call(
-      {int id,
-      int serviceProviderId,
+      {String id,
+      String serviceProviderId,
       String serviceName,
       String serviceType,
       String? description,
-      int price,
-      int? eta,
+      String price,
+      String? eta,
       String vehicleType,
       String? image});
 }
@@ -79,11 +79,11 @@ class _$ServiceCopyWithImpl<$Res, $Val extends Service>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       serviceProviderId: null == serviceProviderId
           ? _value.serviceProviderId
           : serviceProviderId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       serviceName: null == serviceName
           ? _value.serviceName
           : serviceName // ignore: cast_nullable_to_non_nullable
@@ -99,11 +99,11 @@ class _$ServiceCopyWithImpl<$Res, $Val extends Service>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       eta: freezed == eta
           ? _value.eta
           : eta // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       vehicleType: null == vehicleType
           ? _value.vehicleType
           : vehicleType // ignore: cast_nullable_to_non_nullable
@@ -124,13 +124,13 @@ abstract class _$$ServiceImplCopyWith<$Res> implements $ServiceCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
-      int serviceProviderId,
+      {String id,
+      String serviceProviderId,
       String serviceName,
       String serviceType,
       String? description,
-      int price,
-      int? eta,
+      String price,
+      String? eta,
       String vehicleType,
       String? image});
 }
@@ -160,11 +160,11 @@ class __$$ServiceImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       serviceProviderId: null == serviceProviderId
           ? _value.serviceProviderId
           : serviceProviderId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       serviceName: null == serviceName
           ? _value.serviceName
           : serviceName // ignore: cast_nullable_to_non_nullable
@@ -180,11 +180,11 @@ class __$$ServiceImplCopyWithImpl<$Res>
       price: null == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       eta: freezed == eta
           ? _value.eta
           : eta // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       vehicleType: null == vehicleType
           ? _value.vehicleType
           : vehicleType // ignore: cast_nullable_to_non_nullable
@@ -215,9 +215,9 @@ class _$ServiceImpl implements _Service {
       _$$ServiceImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
-  final int serviceProviderId;
+  final String serviceProviderId;
   @override
   final String serviceName;
   @override
@@ -225,9 +225,9 @@ class _$ServiceImpl implements _Service {
   @override
   final String? description;
   @override
-  final int price;
+  final String price;
   @override
-  final int? eta;
+  final String? eta;
 // Optional
   @override
   final String vehicleType;
@@ -281,22 +281,22 @@ class _$ServiceImpl implements _Service {
 
 abstract class _Service implements Service {
   const factory _Service(
-      {required final int id,
-      required final int serviceProviderId,
+      {required final String id,
+      required final String serviceProviderId,
       required final String serviceName,
       required final String serviceType,
       final String? description,
-      required final int price,
-      final int? eta,
+      required final String price,
+      final String? eta,
       required final String vehicleType,
       final String? image}) = _$ServiceImpl;
 
   factory _Service.fromJson(Map<String, dynamic> json) = _$ServiceImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
-  int get serviceProviderId;
+  String get serviceProviderId;
   @override
   String get serviceName;
   @override
@@ -304,9 +304,9 @@ abstract class _Service implements Service {
   @override
   String? get description;
   @override
-  int get price;
+  String get price;
   @override
-  int? get eta;
+  String? get eta;
   @override // Optional
   String get vehicleType;
   @override

@@ -24,14 +24,14 @@ class ServiceProviderServicesView
           SizedBox(height: 20),
           Expanded(
             child: ListView.builder(
-              itemCount: viewModel.services.length,
+              itemCount: viewModel.servicesNew.length,
               itemBuilder: (context, index) {
                 return Card(
                   child: ListTile(
                     leading: Icon(Icons.build),
-                    title: Text(viewModel.services[index]['name']),
+                    title: Text(viewModel.servicesNew[index].serviceName),
                     subtitle: Text(
-                        '${viewModel.services[index]['type']} - ${viewModel.services[index]['price']}'),
+                        '${viewModel.servicesNew[index].serviceType} - ${viewModel.servicesNew[index].price}'),
                     trailing: ElevatedButton(
                       onPressed: () {
                         // Handle edit action
@@ -58,6 +58,13 @@ class ServiceProviderServicesView
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),
     );
+  }
+
+  @override
+  void onViewModelReady(ServiceProviderServicesViewModel viewModel) {
+    // TODO: implement onViewModelReady
+    super.onViewModelReady(viewModel);
+    viewModel.fetchServices();
   }
 
   @override

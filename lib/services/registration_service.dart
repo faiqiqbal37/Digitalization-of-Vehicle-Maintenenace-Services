@@ -25,6 +25,8 @@ class RegistrationService {
           'id': user.uid, // Use Firebase Auth UID as the unique ID
           'firstname': serviceProvider.firstname,
           'lastname': serviceProvider.lastname,
+          'email': serviceProvider.email,
+          'password': serviceProvider.password,
           'businessName': serviceProvider.businessName,
           'phoneNumber': serviceProvider.phoneNumber,
           'location': serviceProvider.location,

@@ -6,9 +6,9 @@ part 'payment.g.dart';
 @freezed
 class Payment with _$Payment {
   const factory Payment({
-    required int id,
-    required int customerId,
-    required int bookingId,
+    required String id,
+    required String customerId,
+    required String bookingId,
     required int amount,
     required DateTime date,
   }) = _Payment;

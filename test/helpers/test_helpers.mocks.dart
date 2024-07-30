@@ -6,11 +6,12 @@
 import 'dart:async' as _i5;
 import 'dart:ui' as _i6;
 
-import 'package:disertation/models/serviceprovider/serviceprovider.dart'
-    as _i10;
+import 'package:disertation/models/service/service.dart' as _i12;
+import 'package:disertation/models/serviceprovider/serviceprovider.dart' as _i8;
 import 'package:disertation/services/authentication_service.dart' as _i7;
-import 'package:disertation/services/registration_service.dart' as _i9;
-import 'package:firebase_auth/firebase_auth.dart' as _i8;
+import 'package:disertation/services/registration_service.dart' as _i10;
+import 'package:disertation/services/services_service.dart' as _i11;
+import 'package:firebase_auth/firebase_auth.dart' as _i9;
 import 'package:flutter/material.dart' as _i4;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i3;
@@ -682,7 +683,48 @@ class MockDialogService extends _i1.Mock implements _i2.DialogService {
 class MockAuthenticationService extends _i1.Mock
     implements _i7.AuthenticationService {
   @override
-  _i5.Future<_i8.User?> loginUser(
+  set serviceProvider(_i8.ServiceProvider? _serviceProvider) =>
+      super.noSuchMethod(
+        Invocation.setter(
+          #serviceProvider,
+          _serviceProvider,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i5.Future<_i8.ServiceProvider?> fetchServiceProviderByUid(String? uid) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #fetchServiceProviderByUid,
+          [uid],
+        ),
+        returnValue: _i5.Future<_i8.ServiceProvider?>.value(),
+        returnValueForMissingStub: _i5.Future<_i8.ServiceProvider?>.value(),
+      ) as _i5.Future<_i8.ServiceProvider?>);
+
+  @override
+  void authStateChanges(void Function(_i9.User?)? onAuthStateChanged) =>
+      super.noSuchMethod(
+        Invocation.method(
+          #authStateChanges,
+          [onAuthStateChanged],
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i5.Future<void> signOut() => (super.noSuchMethod(
+        Invocation.method(
+          #signOut,
+          [],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  _i5.Future<_i9.User?> loginUser(
     String? email,
     String? password,
   ) =>
@@ -694,19 +736,19 @@ class MockAuthenticationService extends _i1.Mock
             password,
           ],
         ),
-        returnValue: _i5.Future<_i8.User?>.value(),
-        returnValueForMissingStub: _i5.Future<_i8.User?>.value(),
-      ) as _i5.Future<_i8.User?>);
+        returnValue: _i5.Future<_i9.User?>.value(),
+        returnValueForMissingStub: _i5.Future<_i9.User?>.value(),
+      ) as _i5.Future<_i9.User?>);
 }
 
 /// A class which mocks [RegistrationService].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockRegistrationService extends _i1.Mock
-    implements _i9.RegistrationService {
+    implements _i10.RegistrationService {
   @override
   _i5.Future<void> registerServiceProvider(
-          _i10.ServiceProvider? serviceProvider) =>
+          _i8.ServiceProvider? serviceProvider) =>
       (super.noSuchMethod(
         Invocation.method(
           #registerServiceProvider,
@@ -715,4 +757,32 @@ class MockRegistrationService extends _i1.Mock
         returnValue: _i5.Future<void>.value(),
         returnValueForMissingStub: _i5.Future<void>.value(),
       ) as _i5.Future<void>);
+}
+
+/// A class which mocks [ServicesService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockServicesService extends _i1.Mock implements _i11.ServicesService {
+  @override
+  _i5.Future<void> addService(_i12.Service? service) => (super.noSuchMethod(
+        Invocation.method(
+          #addService,
+          [service],
+        ),
+        returnValue: _i5.Future<void>.value(),
+        returnValueForMissingStub: _i5.Future<void>.value(),
+      ) as _i5.Future<void>);
+
+  @override
+  _i5.Future<List<_i12.Service>> getServicesByProviderId(
+          String? serviceProviderId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getServicesByProviderId,
+          [serviceProviderId],
+        ),
+        returnValue: _i5.Future<List<_i12.Service>>.value(<_i12.Service>[]),
+        returnValueForMissingStub:
+            _i5.Future<List<_i12.Service>>.value(<_i12.Service>[]),
+      ) as _i5.Future<List<_i12.Service>>);
 }

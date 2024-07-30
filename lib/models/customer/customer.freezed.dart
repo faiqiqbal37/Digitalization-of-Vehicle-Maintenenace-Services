@@ -20,7 +20,7 @@ Customer _$CustomerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Customer {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get firstname => throw _privateConstructorUsedError;
   String get lastname => throw _privateConstructorUsedError;
   String get phoneNumber => throw _privateConstructorUsedError; // Now required
@@ -40,7 +40,7 @@ abstract class $CustomerCopyWith<$Res> {
       _$CustomerCopyWithImpl<$Res, Customer>;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String firstname,
       String lastname,
       String phoneNumber,
@@ -74,7 +74,7 @@ class _$CustomerCopyWithImpl<$Res, $Val extends Customer>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
@@ -112,7 +112,7 @@ abstract class _$$CustomerImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String firstname,
       String lastname,
       String phoneNumber,
@@ -144,7 +144,7 @@ class __$$CustomerImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
@@ -189,7 +189,7 @@ class _$CustomerImpl implements _Customer {
       _$$CustomerImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String firstname;
   @override
@@ -249,7 +249,7 @@ class _$CustomerImpl implements _Customer {
 
 abstract class _Customer implements Customer {
   const factory _Customer(
-      {required final int id,
+      {required final String id,
       required final String firstname,
       required final String lastname,
       required final String phoneNumber,
@@ -261,7 +261,7 @@ abstract class _Customer implements Customer {
       _$CustomerImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   String get firstname;
   @override

@@ -9,7 +9,7 @@ part of 'serviceprovider.dart';
 _$ServiceProviderImpl _$$ServiceProviderImplFromJson(
         Map<String, dynamic> json) =>
     _$ServiceProviderImpl(
-      id: (json['id'] as num).toInt(),
+      id: json['id'] as String,
       firstname: json['firstname'] as String,
       lastname: json['lastname'] as String,
       businessName: json['businessName'] as String,

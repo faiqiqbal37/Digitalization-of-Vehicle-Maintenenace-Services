@@ -8,7 +8,7 @@ part of 'customer.dart';
 
 _$CustomerImpl _$$CustomerImplFromJson(Map<String, dynamic> json) =>
     _$CustomerImpl(
-      id: (json['id'] as num).toInt(),
+      id: json['id'] as String,
       firstname: json['firstname'] as String,
       lastname: json['lastname'] as String,
       phoneNumber: json['phoneNumber'] as String,

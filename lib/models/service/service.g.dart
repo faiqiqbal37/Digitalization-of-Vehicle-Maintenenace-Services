@@ -8,13 +8,13 @@ part of 'service.dart';
 
 _$ServiceImpl _$$ServiceImplFromJson(Map<String, dynamic> json) =>
     _$ServiceImpl(
-      id: (json['id'] as num).toInt(),
-      serviceProviderId: (json['serviceProviderId'] as num).toInt(),
+      id: json['id'] as String,
+      serviceProviderId: json['serviceProviderId'] as String,
       serviceName: json['serviceName'] as String,
       serviceType: json['serviceType'] as String,
       description: json['description'] as String?,
-      price: (json['price'] as num).toInt(),
-      eta: (json['eta'] as num?)?.toInt(),
+      price: json['price'] as String,
+      eta: json['eta'] as String?,
       vehicleType: json['vehicleType'] as String,
       image: json['image'] as String?,
     );

@@ -6,7 +6,7 @@ part 'admin.g.dart';
 @freezed
 class Admin with _$Admin {
   const factory Admin({
-    required int id,
+    required String id,
     required String firstname,
     required String lastname,
     required String email,

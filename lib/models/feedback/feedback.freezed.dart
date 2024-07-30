@@ -20,10 +20,10 @@ Feedback _$FeedbackFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Feedback {
-  int get id => throw _privateConstructorUsedError;
-  int get serviceProviderId => throw _privateConstructorUsedError;
-  int get customerId => throw _privateConstructorUsedError;
-  int get bookingId => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get serviceProviderId => throw _privateConstructorUsedError;
+  String get customerId => throw _privateConstructorUsedError;
+  String get bookingId => throw _privateConstructorUsedError;
   int get feedback => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,10 +38,10 @@ abstract class $FeedbackCopyWith<$Res> {
       _$FeedbackCopyWithImpl<$Res, Feedback>;
   @useResult
   $Res call(
-      {int id,
-      int serviceProviderId,
-      int customerId,
-      int bookingId,
+      {String id,
+      String serviceProviderId,
+      String customerId,
+      String bookingId,
       int feedback});
 }
 
@@ -68,19 +68,19 @@ class _$FeedbackCopyWithImpl<$Res, $Val extends Feedback>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       serviceProviderId: null == serviceProviderId
           ? _value.serviceProviderId
           : serviceProviderId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       customerId: null == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       bookingId: null == bookingId
           ? _value.bookingId
           : bookingId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       feedback: null == feedback
           ? _value.feedback
           : feedback // ignore: cast_nullable_to_non_nullable
@@ -98,10 +98,10 @@ abstract class _$$FeedbackImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
-      int serviceProviderId,
-      int customerId,
-      int bookingId,
+      {String id,
+      String serviceProviderId,
+      String customerId,
+      String bookingId,
       int feedback});
 }
 
@@ -126,19 +126,19 @@ class __$$FeedbackImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       serviceProviderId: null == serviceProviderId
           ? _value.serviceProviderId
           : serviceProviderId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       customerId: null == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       bookingId: null == bookingId
           ? _value.bookingId
           : bookingId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       feedback: null == feedback
           ? _value.feedback
           : feedback // ignore: cast_nullable_to_non_nullable
@@ -161,13 +161,13 @@ class _$FeedbackImpl implements _Feedback {
       _$$FeedbackImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
-  final int serviceProviderId;
+  final String serviceProviderId;
   @override
-  final int customerId;
+  final String customerId;
   @override
-  final int bookingId;
+  final String bookingId;
   @override
   final int feedback;
 
@@ -213,23 +213,23 @@ class _$FeedbackImpl implements _Feedback {
 
 abstract class _Feedback implements Feedback {
   const factory _Feedback(
-      {required final int id,
-      required final int serviceProviderId,
-      required final int customerId,
-      required final int bookingId,
+      {required final String id,
+      required final String serviceProviderId,
+      required final String customerId,
+      required final String bookingId,
       required final int feedback}) = _$FeedbackImpl;
 
   factory _Feedback.fromJson(Map<String, dynamic> json) =
       _$FeedbackImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
-  int get serviceProviderId;
+  String get serviceProviderId;
   @override
-  int get customerId;
+  String get customerId;
   @override
-  int get bookingId;
+  String get bookingId;
   @override
   int get feedback;
   @override

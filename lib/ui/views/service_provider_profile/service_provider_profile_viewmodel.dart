@@ -7,10 +7,9 @@ import '../../../app/app.dialogs.dart';
 import '../../../app/app.router.dart';
 
 class ServiceProviderProfileViewModel extends BaseViewModel {
-
   final _authService = locator<AuthenticationService>();
   final _dialogService = locator<DialogService>();
- final _navigationService = locator<NavigationService>();
+  final _navigationService = locator<NavigationService>();
 
   Future<void> showRegistrationDialog() async {
     await _dialogService.showCustomDialog(
@@ -21,8 +20,7 @@ class ServiceProviderProfileViewModel extends BaseViewModel {
     _navigationService.clearStackAndShow(Routes.initialSelectionScreenView);
   }
 
-
-  void logout(){
+  void logout() {
     _authService.signOut();
     showRegistrationDialog();
   }

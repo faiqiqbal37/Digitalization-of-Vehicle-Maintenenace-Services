@@ -20,7 +20,7 @@ Admin _$AdminFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Admin {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get firstname => throw _privateConstructorUsedError;
   String get lastname => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $AdminCopyWith<$Res> {
       _$AdminCopyWithImpl<$Res, Admin>;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String firstname,
       String lastname,
       String email,
@@ -67,7 +67,7 @@ class _$AdminCopyWithImpl<$Res, $Val extends Admin>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
@@ -96,7 +96,7 @@ abstract class _$$AdminImplCopyWith<$Res> implements $AdminCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String firstname,
       String lastname,
       String email,
@@ -124,7 +124,7 @@ class __$$AdminImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
@@ -159,7 +159,7 @@ class _$AdminImpl implements _Admin {
       _$$AdminImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String firstname;
   @override
@@ -210,7 +210,7 @@ class _$AdminImpl implements _Admin {
 
 abstract class _Admin implements Admin {
   const factory _Admin(
-      {required final int id,
+      {required final String id,
       required final String firstname,
       required final String lastname,
       required final String email,
@@ -219,7 +219,7 @@ abstract class _Admin implements Admin {
   factory _Admin.fromJson(Map<String, dynamic> json) = _$AdminImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   String get firstname;
   @override

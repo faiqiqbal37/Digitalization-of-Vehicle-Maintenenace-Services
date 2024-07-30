@@ -7,7 +7,7 @@ part of 'admin.dart';
 // **************************************************************************
 
 _$AdminImpl _$$AdminImplFromJson(Map<String, dynamic> json) => _$AdminImpl(
-      id: (json['id'] as num).toInt(),
+      id: json['id'] as String,
       firstname: json['firstname'] as String,
       lastname: json['lastname'] as String,
       email: json['email'] as String,

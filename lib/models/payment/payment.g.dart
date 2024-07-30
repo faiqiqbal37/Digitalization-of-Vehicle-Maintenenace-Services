@@ -8,9 +8,9 @@ part of 'payment.dart';
 
 _$PaymentImpl _$$PaymentImplFromJson(Map<String, dynamic> json) =>
     _$PaymentImpl(
-      id: (json['id'] as num).toInt(),
-      customerId: (json['customerId'] as num).toInt(),
-      bookingId: (json['bookingId'] as num).toInt(),
+      id: json['id'] as String,
+      customerId: json['customerId'] as String,
+      bookingId: json['bookingId'] as String,
       amount: (json['amount'] as num).toInt(),
       date: DateTime.parse(json['date'] as String),
     );

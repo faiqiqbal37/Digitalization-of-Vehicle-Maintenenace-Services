@@ -6,8 +6,8 @@ part 'car.g.dart';
 @freezed
 class Car with _$Car {
   const factory Car({
-    required int id,
-    required int customerId,
+    required String id,
+    required String customerId,
     required String vehicleMake,
     required String vehicleModel,
     required String vehicleType,

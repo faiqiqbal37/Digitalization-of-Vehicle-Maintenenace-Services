@@ -20,8 +20,8 @@ Car _$CarFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Car {
-  int get id => throw _privateConstructorUsedError;
-  int get customerId => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
+  String get customerId => throw _privateConstructorUsedError;
   String get vehicleMake => throw _privateConstructorUsedError;
   String get vehicleModel => throw _privateConstructorUsedError;
   String get vehicleType => throw _privateConstructorUsedError;
@@ -39,8 +39,8 @@ abstract class $CarCopyWith<$Res> {
       _$CarCopyWithImpl<$Res, Car>;
   @useResult
   $Res call(
-      {int id,
-      int customerId,
+      {String id,
+      String customerId,
       String vehicleMake,
       String vehicleModel,
       String vehicleType,
@@ -72,11 +72,11 @@ class _$CarCopyWithImpl<$Res, $Val extends Car> implements $CarCopyWith<$Res> {
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       customerId: null == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       vehicleMake: null == vehicleMake
           ? _value.vehicleMake
           : vehicleMake // ignore: cast_nullable_to_non_nullable
@@ -108,8 +108,8 @@ abstract class _$$CarImplCopyWith<$Res> implements $CarCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int id,
-      int customerId,
+      {String id,
+      String customerId,
       String vehicleMake,
       String vehicleModel,
       String vehicleType,
@@ -138,11 +138,11 @@ class __$$CarImplCopyWithImpl<$Res> extends _$CarCopyWithImpl<$Res, _$CarImpl>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       customerId: null == customerId
           ? _value.customerId
           : customerId // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       vehicleMake: null == vehicleMake
           ? _value.vehicleMake
           : vehicleMake // ignore: cast_nullable_to_non_nullable
@@ -183,9 +183,9 @@ class _$CarImpl implements _Car {
       _$$CarImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
-  final int customerId;
+  final String customerId;
   @override
   final String vehicleMake;
   @override
@@ -243,8 +243,8 @@ class _$CarImpl implements _Car {
 
 abstract class _Car implements Car {
   const factory _Car(
-      {required final int id,
-      required final int customerId,
+      {required final String id,
+      required final String customerId,
       required final String vehicleMake,
       required final String vehicleModel,
       required final String vehicleType,
@@ -254,9 +254,9 @@ abstract class _Car implements Car {
   factory _Car.fromJson(Map<String, dynamic> json) = _$CarImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
-  int get customerId;
+  String get customerId;
   @override
   String get vehicleMake;
   @override

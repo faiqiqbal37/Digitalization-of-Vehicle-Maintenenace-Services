@@ -20,7 +20,7 @@ ServiceProvider _$ServiceProviderFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ServiceProvider {
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   String get firstname => throw _privateConstructorUsedError;
   String get lastname => throw _privateConstructorUsedError;
   String get businessName => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $ServiceProviderCopyWith<$Res> {
       _$ServiceProviderCopyWithImpl<$Res, ServiceProvider>;
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String firstname,
       String lastname,
       String businessName,
@@ -81,7 +81,7 @@ class _$ServiceProviderCopyWithImpl<$Res, $Val extends ServiceProvider>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
@@ -127,7 +127,7 @@ abstract class _$$ServiceProviderImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id,
+      {String id,
       String firstname,
       String lastname,
       String businessName,
@@ -163,7 +163,7 @@ class __$$ServiceProviderImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as String,
       firstname: null == firstname
           ? _value.firstname
           : firstname // ignore: cast_nullable_to_non_nullable
@@ -218,7 +218,7 @@ class _$ServiceProviderImpl implements _ServiceProvider {
       _$$ServiceProviderImplFromJson(json);
 
   @override
-  final int id;
+  final String id;
   @override
   final String firstname;
   @override
@@ -287,7 +287,7 @@ class _$ServiceProviderImpl implements _ServiceProvider {
 
 abstract class _ServiceProvider implements ServiceProvider {
   const factory _ServiceProvider(
-      {required final int id,
+      {required final String id,
       required final String firstname,
       required final String lastname,
       required final String businessName,
@@ -301,7 +301,7 @@ abstract class _ServiceProvider implements ServiceProvider {
       _$ServiceProviderImpl.fromJson;
 
   @override
-  int get id;
+  String get id;
   @override
   String get firstname;
   @override

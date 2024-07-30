@@ -9,7 +9,9 @@ class LoginViewModel extends FormViewModel {
 
   void siginInWithGoogle() {}
 
-  void siginInWithEmail() {}
+  void siginInWithEmail() {
+    _navigationService.replaceWith(Routes.customerHomeView);
+  }
 
   void navigateToRegister() {
     _navigationService.navigateToCustomerRegisterView();
