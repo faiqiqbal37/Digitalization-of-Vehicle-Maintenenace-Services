@@ -23,6 +23,7 @@ import 'package:disertation/ui/views/customer_cars/customer_cars_view.dart';
 import 'package:disertation/ui/views/customer_add_cars/customer_add_cars_view.dart';
 import 'package:disertation/services/cars_service_service.dart';
 import 'package:disertation/services/booking_service.dart';
+import 'package:disertation/ui/views/customer_bookings/customer_bookings_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -43,6 +44,7 @@ import 'package:disertation/services/booking_service.dart';
     MaterialRoute(page: CustomerHomeView),
     MaterialRoute(page: CustomerCarsView),
     MaterialRoute(page: CustomerAddCarsView),
+    MaterialRoute(page: CustomerBookingsView),
 // @stacked-route
   ],
   dependencies: [
