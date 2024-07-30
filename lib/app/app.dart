@@ -21,6 +21,8 @@ import 'package:disertation/services/services_service.dart';
 import 'package:disertation/ui/views/customer_home/customer_home_view.dart';
 import 'package:disertation/ui/views/customer_cars/customer_cars_view.dart';
 import 'package:disertation/ui/views/customer_add_cars/customer_add_cars_view.dart';
+import 'package:disertation/services/cars_service_service.dart';
+import 'package:disertation/services/booking_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -50,6 +52,8 @@ import 'package:disertation/ui/views/customer_add_cars/customer_add_cars_view.da
     LazySingleton(classType: AuthenticationService),
     LazySingleton(classType: RegistrationService),
     LazySingleton(classType: ServicesService),
+    LazySingleton(classType: CarsServiceService),
+    LazySingleton(classType: BookingService),
 // @stacked-service
   ],
   bottomsheets: [

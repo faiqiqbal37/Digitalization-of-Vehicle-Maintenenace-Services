@@ -39,9 +39,7 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // Implement navigation or functionality for adding a car
-        },
+        onPressed: viewModel.navigateToAddCar,
         child: Icon(Icons.add),
         tooltip: 'Add Car',
       ),

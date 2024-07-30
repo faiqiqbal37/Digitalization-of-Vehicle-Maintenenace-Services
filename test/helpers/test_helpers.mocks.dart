@@ -9,6 +9,8 @@ import 'dart:ui' as _i6;
 import 'package:disertation/models/service/service.dart' as _i12;
 import 'package:disertation/models/serviceprovider/serviceprovider.dart' as _i8;
 import 'package:disertation/services/authentication_service.dart' as _i7;
+import 'package:disertation/services/booking_service.dart' as _i14;
+import 'package:disertation/services/cars_service_service.dart' as _i13;
 import 'package:disertation/services/registration_service.dart' as _i10;
 import 'package:disertation/services/services_service.dart' as _i11;
 import 'package:firebase_auth/firebase_auth.dart' as _i9;
@@ -786,3 +788,14 @@ class MockServicesService extends _i1.Mock implements _i11.ServicesService {
             _i5.Future<List<_i12.Service>>.value(<_i12.Service>[]),
       ) as _i5.Future<List<_i12.Service>>);
 }
+
+/// A class which mocks [CarsServiceService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCarsServiceService extends _i1.Mock
+    implements _i13.CarsServiceService {}
+
+/// A class which mocks [BookingService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockBookingService extends _i1.Mock implements _i14.BookingService {}
