@@ -23,7 +23,7 @@ class _CustomerBottomNavigationBarState
     } else if (_selectedIndex == 1) {
       _navigationService.replaceWithCustomerCarsView();
     } else if (_selectedIndex == 2) {
-      _navigationService.replaceWithServiceProviderServicesView();
+      _navigationService.replaceWithCustomerServicesView();
     } else if (_selectedIndex == 3) {
       _navigationService.replaceWithCustomerBookingsView();
     } else if (_selectedIndex == 4) {

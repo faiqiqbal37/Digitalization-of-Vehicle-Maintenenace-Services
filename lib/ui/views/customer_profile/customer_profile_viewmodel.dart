@@ -24,5 +24,4 @@ class CustomerProfileViewModel extends BaseViewModel {
     _authService.signOut();
     showDialog();
   }
-
 }
