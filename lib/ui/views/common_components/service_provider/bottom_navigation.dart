@@ -5,7 +5,8 @@ import 'package:stacked_services/stacked_services.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
   @override
-  _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();
+  _CustomBottomNavigationBarState createState() =>
+      _CustomBottomNavigationBarState();
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
@@ -16,20 +17,15 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     setState(() {
       _selectedIndex = index;
     });
-    if(_selectedIndex == 0){
-      _navigationService.navigateToServiceProviderHomeScreenView();
-    }
-    else if(_selectedIndex == 1){
-
-    }
-    else if(_selectedIndex == 2){
-
-    }
-    else if(_selectedIndex == 3){
-
-    }
-    else if(_selectedIndex == 4){
-
+    if (_selectedIndex == 0) {
+      _navigationService.replaceWithServiceProviderHomeScreenView();
+    } else if (_selectedIndex == 1) {
+    } else if (_selectedIndex == 2) {
+      _navigationService.replaceWithServiceProviderServicesView();
+    } else if (_selectedIndex == 3) {
+      _navigationService.replaceWithServiceProviderBookingsListingView();
+    } else if (_selectedIndex == 4) {
+      _navigationService.replaceWithServiceProviderProfileView();
     }
   }
 

@@ -13,7 +13,8 @@ import 'customer_register_viewmodel.dart';
   FormTextField(name: 'lastName'),
   FormTextField(name: 'phone'),
 ])
-class CustomerRegisterView extends StackedView<CustomerRegisterViewModel> with $CustomerRegisterView{
+class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
+    with $CustomerRegisterView {
   const CustomerRegisterView({Key? key}) : super(key: key);
 
   @override
@@ -100,11 +101,9 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel> with $
     );
   }
 
-
   @override
   void onModelReady(CustomerRegisterViewModel viewModel) {
     syncFormWithViewModel(viewModel);
-
   }
 
   @override

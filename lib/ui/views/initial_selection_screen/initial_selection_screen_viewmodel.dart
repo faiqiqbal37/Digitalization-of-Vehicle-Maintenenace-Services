@@ -14,4 +14,8 @@ class InitialSelectionScreenViewModel extends BaseViewModel {
   void navigateToServiceProviderLogin() {
     _navigationService.navigateToLoginServiceProviderView();
   }
+
+  void navigateToStackedHome() {
+    _navigationService.navigateToHomeView();
+  }
 }

@@ -1,13 +1,19 @@
+import 'package:disertation/ui/views/login_service_provider/form_validator.dart';
 import 'package:disertation/ui/views/login_service_provider/login_service_provider_view.form.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
+import '../../common/ui_helpers.dart';
 import 'login_service_provider_viewmodel.dart';
 
 @FormView(fields: [
-  FormTextField(name: 'emailInput'),
-  FormTextField(name: 'passwordInput'),
+  FormTextField(
+      name: 'email',
+      validator: ServiceProviderLoginFormValidation.validateEmail),
+  FormTextField(
+      name: 'password',
+      validator: ServiceProviderLoginFormValidation.validatePassword),
 ])
 class LoginServiceProviderView
     extends StackedView<LoginServiceProviderViewModel>
@@ -33,8 +39,8 @@ class LoginServiceProviderView
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 20),
-            TextField(
-              controller: emailInputController,
+            TextFormField(
+              controller: emailController,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecoration(
                 labelText: 'Email',
@@ -42,9 +48,16 @@ class LoginServiceProviderView
                 prefixIcon: Icon(Icons.email),
               ),
             ),
-            SizedBox(height: 20),
-            TextField(
-              controller: passwordInputController,
+            verticalSpaceTiny,
+            viewModel.hasEmailValidationMessage
+                ? Text(viewModel.emailValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
+            TextFormField(
+              controller: passwordController,
               obscureText: true,
               decoration: InputDecoration(
                 labelText: 'Password',
@@ -52,7 +65,14 @@ class LoginServiceProviderView
                 prefixIcon: Icon(Icons.lock),
               ),
             ),
-            SizedBox(height: 30),
+            verticalSpaceTiny,
+            viewModel.hasEmailValidationMessage
+                ? Text(viewModel.passwordValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 30),
             ElevatedButton(
               onPressed: viewModel.siginInWithEmail,
               child: Text('Sign in with Email'),
@@ -77,7 +97,13 @@ class LoginServiceProviderView
   }
 
   @override
-  void onModelReady(LoginServiceProviderViewModel viewModel) {
+  void onDispose(LoginServiceProviderViewModel viewModel) {
+    super.onDispose(viewModel);
+    disposeForm();
+  }
+
+  @override
+  void onViewModelReady(LoginServiceProviderViewModel viewModel) {
     syncFormWithViewModel(viewModel);
   }
 

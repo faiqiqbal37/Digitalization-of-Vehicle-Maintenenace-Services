@@ -36,6 +36,10 @@ class InitialSelectionScreenView
                   onPressed: viewModel.navigateToServiceProviderLogin,
                   child: Text('Service Provider'),
                 ),
+                ElevatedButton(
+                  onPressed: viewModel.navigateToStackedHome,
+                  child: Text('Stacked Home'),
+                ),
               ],
             ),
             Row(

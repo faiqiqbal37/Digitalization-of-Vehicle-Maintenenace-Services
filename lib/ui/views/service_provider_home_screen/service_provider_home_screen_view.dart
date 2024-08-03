@@ -19,7 +19,6 @@ class ServiceProviderHomeScreenView
       body: ListView(
         children: [
           SizedBox(height: 30),
-
           Container(
             padding: EdgeInsets.all(20),
             child: Column(
@@ -28,7 +27,10 @@ class ServiceProviderHomeScreenView
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Text("Edward Repairs",style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                    Text(
+                      "Edward Repairs",
+                      style:
+                          TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                     ),
                     Icon(Icons.star),
                     SizedBox(width: 8),
