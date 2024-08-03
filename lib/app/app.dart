@@ -26,6 +26,9 @@ import 'package:disertation/services/booking_service.dart';
 import 'package:disertation/ui/views/customer_bookings/customer_bookings_view.dart';
 import 'package:disertation/ui/views/customer_profile/customer_profile_view.dart';
 import 'package:disertation/ui/views/customer_services/customer_services_view.dart';
+import 'package:disertation/ui/views/customer_booking_detail/customer_booking_detail_view.dart';
+import 'package:disertation/ui/views/customer_add_booking/customer_add_booking_view.dart';
+import 'package:disertation/ui/views/customer_payment/customer_payment_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -49,6 +52,9 @@ import 'package:disertation/ui/views/customer_services/customer_services_view.da
     MaterialRoute(page: CustomerBookingsView),
     MaterialRoute(page: CustomerProfileView),
     MaterialRoute(page: CustomerServicesView),
+    MaterialRoute(page: CustomerBookingDetailView),
+    MaterialRoute(page: CustomerAddBookingView),
+    MaterialRoute(page: CustomerPaymentView),
 // @stacked-route
   ],
   dependencies: [

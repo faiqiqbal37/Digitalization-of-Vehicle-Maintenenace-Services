@@ -787,6 +787,17 @@ class MockServicesService extends _i1.Mock implements _i11.ServicesService {
         returnValueForMissingStub:
             _i5.Future<List<_i12.Service>>.value(<_i12.Service>[]),
       ) as _i5.Future<List<_i12.Service>>);
+
+  @override
+  _i5.Future<List<_i12.Service>> getAllServices() => (super.noSuchMethod(
+        Invocation.method(
+          #getAllServices,
+          [],
+        ),
+        returnValue: _i5.Future<List<_i12.Service>>.value(<_i12.Service>[]),
+        returnValueForMissingStub:
+            _i5.Future<List<_i12.Service>>.value(<_i12.Service>[]),
+      ) as _i5.Future<List<_i12.Service>>);
 }
 
 /// A class which mocks [CarsServiceService].

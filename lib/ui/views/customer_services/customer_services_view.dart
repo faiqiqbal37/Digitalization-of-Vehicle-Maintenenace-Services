@@ -11,10 +11,10 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerServicesViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerServicesViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       body: Column(
         children: [
@@ -49,19 +49,45 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
               ],
             ),
           ),
+          // Expanded(
+          //   child: ListView(
+          //     children: [
+          //       CustomerServiceCard(
+          //         serviceProviderName: "Matwatson",
+          //         serviceName: "AC Repair",
+          //         price: "200",
+          //         eta: "2 hours",
+          //         vehicleType: "SUV", description: 'AC Service',
+          //       ),
+          //     ],
+          //   ),
+          // ),
+
           Expanded(
-            child: ListView(
-              children: [
-                CustomerServiceCard(serviceProviderName: "Matwatson", serviceName: "AC Repair", price: "200", eta: "2 hours"),
-              ],
+            child: ListView.builder(
+              itemCount: viewModel.servicesNew.length,
+              itemBuilder: (context, index) {
+                return CustomerServiceCard(serviceProviderName: viewModel.servicesNew[index].serviceName, serviceName: viewModel.servicesNew[index].serviceType, price: viewModel.servicesNew[index].price, eta: viewModel.servicesNew[index].eta, vehicleType: viewModel.servicesNew[index].vehicleType, description: viewModel.servicesNew[index].description,);
+
+              }
             ),
           ),
+
+
         ],
       ),
       bottomNavigationBar: CustomerBottomNavigationBar(),
     );
   }
 
+
   @override
-  CustomerServicesViewModel viewModelBuilder(BuildContext context) => CustomerServicesViewModel();
+  void onViewModelReady(CustomerServicesViewModel viewModel) {
+    super.onViewModelReady(viewModel);
+    viewModel.fetchServices();
+  }
+
+  @override
+  CustomerServicesViewModel viewModelBuilder(BuildContext context) =>
+      CustomerServicesViewModel();
 }

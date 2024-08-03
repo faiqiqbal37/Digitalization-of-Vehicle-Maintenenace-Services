@@ -28,8 +28,7 @@ class ServiceProviderServicesViewModel extends BaseViewModel {
   //   },
   // ];
 
-  void fetchServices() async {
-    String providerId = 'SP001'; // Example provider ID
+  Future<void> fetchServices() async {
     try {
       servicesNew = await _servicesService
           .getServicesByProviderId(_authService.serviceProvider!.id);

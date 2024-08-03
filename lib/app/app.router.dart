@@ -5,14 +5,20 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:disertation/ui/views/customer_add_booking/customer_add_booking_view.dart'
+    as _i22;
 import 'package:disertation/ui/views/customer_add_cars/customer_add_cars_view.dart'
     as _i17;
+import 'package:disertation/ui/views/customer_booking_detail/customer_booking_detail_view.dart'
+    as _i21;
 import 'package:disertation/ui/views/customer_bookings/customer_bookings_view.dart'
     as _i18;
 import 'package:disertation/ui/views/customer_cars/customer_cars_view.dart'
     as _i16;
 import 'package:disertation/ui/views/customer_home/customer_home_view.dart'
     as _i15;
+import 'package:disertation/ui/views/customer_payment/customer_payment_view.dart'
+    as _i23;
 import 'package:disertation/ui/views/customer_profile/customer_profile_view.dart'
     as _i19;
 import 'package:disertation/ui/views/customer_register/customer_register_view.dart'
@@ -40,10 +46,10 @@ import 'package:disertation/ui/views/service_provider_register/service_provider_
 import 'package:disertation/ui/views/service_provider_services/service_provider_services_view.dart'
     as _i11;
 import 'package:disertation/ui/views/startup/startup_view.dart' as _i3;
-import 'package:flutter/material.dart' as _i21;
+import 'package:flutter/material.dart' as _i24;
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i22;
+import 'package:stacked_services/stacked_services.dart' as _i25;
 
 class Routes {
   static const homeView = '/home-view';
@@ -88,6 +94,12 @@ class Routes {
 
   static const customerServicesView = '/customer-services-view';
 
+  static const customerBookingDetailView = '/customer-booking-detail-view';
+
+  static const customerAddBookingView = '/customer-add-booking-view';
+
+  static const customerPaymentView = '/customer-payment-view';
+
   static const all = <String>{
     homeView,
     startupView,
@@ -108,6 +120,9 @@ class Routes {
     customerBookingsView,
     customerProfileView,
     customerServicesView,
+    customerBookingDetailView,
+    customerAddBookingView,
+    customerPaymentView,
   };
 }
 
@@ -189,120 +204,152 @@ class StackedRouter extends _i1.RouterBase {
       Routes.customerServicesView,
       page: _i20.CustomerServicesView,
     ),
+    _i1.RouteDef(
+      Routes.customerBookingDetailView,
+      page: _i21.CustomerBookingDetailView,
+    ),
+    _i1.RouteDef(
+      Routes.customerAddBookingView,
+      page: _i22.CustomerAddBookingView,
+    ),
+    _i1.RouteDef(
+      Routes.customerPaymentView,
+      page: _i23.CustomerPaymentView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.LoginView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.LoginView(),
         settings: data,
       );
     },
     _i5.ServiceProviderHomeScreenView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.ServiceProviderHomeScreenView(),
         settings: data,
       );
     },
     _i6.ServiceProviderRegisterView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.ServiceProviderRegisterView(),
         settings: data,
       );
     },
     _i7.CustomerRegisterView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.CustomerRegisterView(),
         settings: data,
       );
     },
     _i8.InitialSelectionScreenView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.InitialSelectionScreenView(),
         settings: data,
       );
     },
     _i9.LoginServiceProviderView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.LoginServiceProviderView(),
         settings: data,
       );
     },
     _i10.ServiceProviderProfileView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.ServiceProviderProfileView(),
         settings: data,
       );
     },
     _i11.ServiceProviderServicesView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.ServiceProviderServicesView(),
         settings: data,
       );
     },
     _i12.ServiceProviderAddServiceView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i12.ServiceProviderAddServiceView(),
         settings: data,
       );
     },
     _i13.ServiceProviderBookingsListingView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i13.ServiceProviderBookingsListingView(),
         settings: data,
       );
     },
     _i14.ServiceProviderBookingdetailView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i14.ServiceProviderBookingdetailView(),
         settings: data,
       );
     },
     _i15.CustomerHomeView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i15.CustomerHomeView(),
         settings: data,
       );
     },
     _i16.CustomerCarsView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i16.CustomerCarsView(),
         settings: data,
       );
     },
     _i17.CustomerAddCarsView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i17.CustomerAddCarsView(),
         settings: data,
       );
     },
     _i18.CustomerBookingsView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i18.CustomerBookingsView(),
         settings: data,
       );
     },
     _i19.CustomerProfileView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i19.CustomerProfileView(),
         settings: data,
       );
     },
     _i20.CustomerServicesView: (data) {
-      return _i21.MaterialPageRoute<dynamic>(
+      return _i24.MaterialPageRoute<dynamic>(
         builder: (context) => const _i20.CustomerServicesView(),
+        settings: data,
+      );
+    },
+    _i21.CustomerBookingDetailView: (data) {
+      return _i24.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i21.CustomerBookingDetailView(),
+        settings: data,
+      );
+    },
+    _i22.CustomerAddBookingView: (data) {
+      final args = data.getArgs<CustomerAddBookingViewArguments>(nullOk: false);
+      return _i24.MaterialPageRoute<dynamic>(
+        builder: (context) => _i22.CustomerAddBookingView(
+            key: args.key, description: args.description),
+        settings: data,
+      );
+    },
+    _i23.CustomerPaymentView: (data) {
+      return _i24.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i23.CustomerPaymentView(),
         settings: data,
       );
     },
@@ -315,7 +362,34 @@ class StackedRouter extends _i1.RouterBase {
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
 }
 
-extension NavigatorStateExtension on _i22.NavigationService {
+class CustomerAddBookingViewArguments {
+  const CustomerAddBookingViewArguments({
+    this.key,
+    required this.description,
+  });
+
+  final _i24.Key? key;
+
+  final String? description;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "description": "$description"}';
+  }
+
+  @override
+  bool operator ==(covariant CustomerAddBookingViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key && other.description == description;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^ description.hashCode;
+  }
+}
+
+extension NavigatorStateExtension on _i25.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -582,6 +656,52 @@ extension NavigatorStateExtension on _i22.NavigationService {
         transition: transition);
   }
 
+  Future<dynamic> navigateToCustomerBookingDetailView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.customerBookingDetailView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToCustomerAddBookingView({
+    _i24.Key? key,
+    required String? description,
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return navigateTo<dynamic>(Routes.customerAddBookingView,
+        arguments:
+            CustomerAddBookingViewArguments(key: key, description: description),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToCustomerPaymentView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.customerPaymentView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
   Future<dynamic> replaceWithHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -842,6 +962,52 @@ extension NavigatorStateExtension on _i22.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.customerServicesView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithCustomerBookingDetailView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.customerBookingDetailView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithCustomerAddBookingView({
+    _i24.Key? key,
+    required String? description,
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  }) async {
+    return replaceWith<dynamic>(Routes.customerAddBookingView,
+        arguments:
+            CustomerAddBookingViewArguments(key: key, description: description),
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithCustomerPaymentView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.customerPaymentView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

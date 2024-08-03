@@ -31,4 +31,17 @@ class ServicesService {
 
     return serviceList;
   }
+
+  Future<List<Service>> getAllServices() async {
+    try {
+      QuerySnapshot querySnapshot =
+          await _firestore.collection('services').get();
+      List<Service> servicesList = querySnapshot.docs
+          .map((doc) => Service.fromJson(doc.data() as Map<String, dynamic>))
+          .toList();
+      return servicesList;
+    } catch (e) {
+      throw Exception('Failed to fetch services: $e');
+    }
+  }
 }

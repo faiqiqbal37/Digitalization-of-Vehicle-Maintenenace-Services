@@ -7,15 +7,18 @@ class CustomerServiceCard extends StatelessWidget {
   final String serviceProviderName;
   final String serviceName;
   final String price;
-  final String eta;
+  final String vehicleType;
+  final String? eta;
+  final String? description;
   final _navigationService = locator<NavigationService>();
 
-  CustomerServiceCard({
-    required this.serviceProviderName,
-    required this.serviceName,
-    required this.price,
-    required this.eta,
-  });
+  CustomerServiceCard(
+      {required this.serviceProviderName,
+      required this.serviceName,
+      required this.price,
+      required this.eta,
+      required this.vehicleType,
+      required this.description});
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +36,8 @@ class CustomerServiceCard extends StatelessWidget {
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 SizedBox(height: 8),
                 Text('Service Provider Name: $serviceName'),
+                SizedBox(height: 8),
+                Text('Vehicle Type: $vehicleType'),
                 SizedBox(height: 8),
                 Text('Price: $price'),
                 SizedBox(height: 8),
@@ -52,8 +57,7 @@ class CustomerServiceCard extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    _navigationService
-                        .navigateToServiceProviderBookingdetailView();
+                    _navigationService.navigateToCustomerAddBookingView(description: description);
                   },
                   child: Text('Book'),
                 ),

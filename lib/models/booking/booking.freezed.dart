@@ -24,7 +24,7 @@ mixin _$Booking {
   String get serviceProviderId => throw _privateConstructorUsedError;
   String get customerId => throw _privateConstructorUsedError;
   String get serviceId => throw _privateConstructorUsedError;
-  int? get vehicleId => throw _privateConstructorUsedError; // Optional
+  String? get vehicleId => throw _privateConstructorUsedError; // Optional
   DateTime get date => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
 
@@ -43,7 +43,7 @@ abstract class $BookingCopyWith<$Res> {
       String serviceProviderId,
       String customerId,
       String serviceId,
-      int? vehicleId,
+      String? vehicleId,
       DateTime date,
       String status});
 }
@@ -89,7 +89,7 @@ class _$BookingCopyWithImpl<$Res, $Val extends Booking>
       vehicleId: freezed == vehicleId
           ? _value.vehicleId
           : vehicleId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -114,7 +114,7 @@ abstract class _$$BookingImplCopyWith<$Res> implements $BookingCopyWith<$Res> {
       String serviceProviderId,
       String customerId,
       String serviceId,
-      int? vehicleId,
+      String? vehicleId,
       DateTime date,
       String status});
 }
@@ -158,7 +158,7 @@ class __$$BookingImplCopyWithImpl<$Res>
       vehicleId: freezed == vehicleId
           ? _value.vehicleId
           : vehicleId // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as String?,
       date: null == date
           ? _value.date
           : date // ignore: cast_nullable_to_non_nullable
@@ -195,7 +195,7 @@ class _$BookingImpl implements _Booking {
   @override
   final String serviceId;
   @override
-  final int? vehicleId;
+  final String? vehicleId;
 // Optional
   @override
   final DateTime date;
@@ -251,7 +251,7 @@ abstract class _Booking implements Booking {
       required final String serviceProviderId,
       required final String customerId,
       required final String serviceId,
-      final int? vehicleId,
+      final String? vehicleId,
       required final DateTime date,
       final String status}) = _$BookingImpl;
 
@@ -266,7 +266,7 @@ abstract class _Booking implements Booking {
   @override
   String get serviceId;
   @override
-  int? get vehicleId;
+  String? get vehicleId;
   @override // Optional
   DateTime get date;
   @override

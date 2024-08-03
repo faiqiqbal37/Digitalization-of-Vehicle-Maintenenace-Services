@@ -10,7 +10,7 @@ class Booking with _$Booking {
     required String serviceProviderId,
     required String customerId,
     required String serviceId,
-    int? vehicleId, // Optional
+    String? vehicleId, // Optional
     required DateTime date,
     @Default('pending') String status, // Default value
   }) = _Booking;
