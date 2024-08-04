@@ -7,15 +7,15 @@ import 'dart:async' as _i7;
 import 'dart:ui' as _i8;
 
 import 'package:disertation/models/booking/booking.dart' as _i16;
-import 'package:disertation/models/customer/customer.dart' as _i12;
+import 'package:disertation/models/customer/customer.dart' as _i10;
 import 'package:disertation/models/service/service.dart' as _i3;
 import 'package:disertation/models/serviceprovider/serviceprovider.dart' as _i2;
 import 'package:disertation/services/authentication_service.dart' as _i9;
 import 'package:disertation/services/booking_service.dart' as _i15;
 import 'package:disertation/services/cars_service_service.dart' as _i14;
-import 'package:disertation/services/registration_service.dart' as _i11;
+import 'package:disertation/services/registration_service.dart' as _i12;
 import 'package:disertation/services/services_service.dart' as _i13;
-import 'package:firebase_auth/firebase_auth.dart' as _i10;
+import 'package:firebase_auth/firebase_auth.dart' as _i11;
 import 'package:flutter/material.dart' as _i6;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:mockito/src/dummies.dart' as _i5;
@@ -718,6 +718,15 @@ class MockAuthenticationService extends _i1.Mock
       );
 
   @override
+  set customer(_i10.Customer? _customer) => super.noSuchMethod(
+        Invocation.setter(
+          #customer,
+          _customer,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
   _i7.Future<_i2.ServiceProvider?> fetchServiceProviderByUid(String? uid) =>
       (super.noSuchMethod(
         Invocation.method(
@@ -729,7 +738,18 @@ class MockAuthenticationService extends _i1.Mock
       ) as _i7.Future<_i2.ServiceProvider?>);
 
   @override
-  void authStateChanges(void Function(_i10.User?)? onAuthStateChanged) =>
+  _i7.Future<_i10.Customer?> fetchCustomerByUid(String? uid) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #fetchCustomerByUid,
+          [uid],
+        ),
+        returnValue: _i7.Future<_i10.Customer?>.value(),
+        returnValueForMissingStub: _i7.Future<_i10.Customer?>.value(),
+      ) as _i7.Future<_i10.Customer?>);
+
+  @override
+  void authStateChanges(void Function(_i11.User?)? onAuthStateChanged) =>
       super.noSuchMethod(
         Invocation.method(
           #authStateChanges,
@@ -749,7 +769,7 @@ class MockAuthenticationService extends _i1.Mock
       ) as _i7.Future<void>);
 
   @override
-  _i7.Future<_i10.User?> loginUser(
+  _i7.Future<_i11.User?> loginUser(
     String? email,
     String? password,
   ) =>
@@ -761,16 +781,33 @@ class MockAuthenticationService extends _i1.Mock
             password,
           ],
         ),
-        returnValue: _i7.Future<_i10.User?>.value(),
-        returnValueForMissingStub: _i7.Future<_i10.User?>.value(),
-      ) as _i7.Future<_i10.User?>);
+        returnValue: _i7.Future<_i11.User?>.value(),
+        returnValueForMissingStub: _i7.Future<_i11.User?>.value(),
+      ) as _i7.Future<_i11.User?>);
+
+  @override
+  _i7.Future<_i11.User?> loginCustomer(
+    String? email,
+    String? password,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #loginCustomer,
+          [
+            email,
+            password,
+          ],
+        ),
+        returnValue: _i7.Future<_i11.User?>.value(),
+        returnValueForMissingStub: _i7.Future<_i11.User?>.value(),
+      ) as _i7.Future<_i11.User?>);
 }
 
 /// A class which mocks [RegistrationService].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockRegistrationService extends _i1.Mock
-    implements _i11.RegistrationService {
+    implements _i12.RegistrationService {
   @override
   _i7.Future<void> registerServiceProvider(
           _i2.ServiceProvider? serviceProvider) =>
@@ -784,7 +821,7 @@ class MockRegistrationService extends _i1.Mock
       ) as _i7.Future<void>);
 
   @override
-  _i7.Future<void> registerCustomer(_i12.Customer? customer) =>
+  _i7.Future<void> registerCustomer(_i10.Customer? customer) =>
       (super.noSuchMethod(
         Invocation.method(
           #registerCustomer,

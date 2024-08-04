@@ -1,13 +1,19 @@
+import 'package:disertation/ui/views/login_service_provider/form_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
+import '../../common/ui_helpers.dart';
 import 'login_viewmodel.dart';
 import 'login_view.form.dart';
 
 @FormView(fields: [
-  FormTextField(name: 'emailInput'),
-  FormTextField(name: 'passwordInput'),
+  FormTextField(
+      name: 'emailInput',
+      validator: ServiceProviderLoginFormValidation.validateEmail),
+  FormTextField(
+      name: 'passwordInput',
+      validator: ServiceProviderLoginFormValidation.validatePassword),
 ])
 class LoginView extends StackedView<LoginViewModel> with $LoginView {
   const LoginView({Key? key}) : super(key: key);
@@ -40,6 +46,14 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 prefixIcon: Icon(Icons.email),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasEmailInputValidationMessage
+                ? Text(viewModel.emailInputValidationMessage!,
+                style: const TextStyle(
+                    color: Colors.red,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             SizedBox(height: 20),
             TextField(
               controller: passwordInputController,
@@ -50,9 +64,17 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 prefixIcon: Icon(Icons.lock),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasPasswordInputValidationMessage
+                ? Text(viewModel.passwordInputValidationMessage!,
+                style: const TextStyle(
+                    color: Colors.red,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700))
+                : SizedBox(height: 30),
             SizedBox(height: 30),
             ElevatedButton(
-              onPressed: viewModel.siginInWithEmail,
+              onPressed: viewModel.signInWithEmail,
               child: Text('Sign in with Email'),
             ),
             SizedBox(height: 10),
@@ -77,6 +99,13 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
   @override
   void onViewModelReady(LoginViewModel viewModel) {
     syncFormWithViewModel(viewModel);
+  }
+
+
+  @override
+  void onDispose(LoginViewModel viewModel) {
+    super.onDispose(viewModel);
+    disposeForm();
   }
 
   @override

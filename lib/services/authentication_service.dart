@@ -8,9 +8,8 @@ class AuthenticationService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  late ServiceProvider? serviceProvider; // Example ID
-  late Customer? customer; // Example ID
-
+  ServiceProvider? serviceProvider; // Example ID
+  Customer? customer; // Example ID
 
   Future<ServiceProvider?> fetchServiceProviderByUid(String uid) async {
     try {
@@ -35,11 +34,11 @@ class AuthenticationService {
   Future<Customer?> fetchCustomerByUid(String uid) async {
     try {
       DocumentSnapshot docSnapshot =
-      await _db.collection('customers').doc(uid).get();
+          await _db.collection('customers').doc(uid).get();
 
       if (docSnapshot.exists) {
-        Customer customer = Customer.fromJson(
-            docSnapshot.data() as Map<String, dynamic>);
+        Customer customer =
+            Customer.fromJson(docSnapshot.data() as Map<String, dynamic>);
         print(customer.email);
         return customer;
       } else {
@@ -51,8 +50,6 @@ class AuthenticationService {
       return null;
     }
   }
-
-
 
   void authStateChanges(void Function(User? user) onAuthStateChanged) {
     _firebaseAuth.authStateChanges().listen(onAuthStateChanged);
@@ -92,13 +89,12 @@ class AuthenticationService {
   Future<User?> loginCustomer(String email, String password) async {
     try {
       UserCredential userCredential =
-      await _firebaseAuth.signInWithEmailAndPassword(
+          await _firebaseAuth.signInWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      customer =
-      await fetchCustomerByUid(userCredential.user!.uid);
+      customer = await fetchCustomerByUid(userCredential.user!.uid);
       print("The User Id is: ${serviceProvider?.id}");
       return userCredential
           .user; // Return the user object upon successful login

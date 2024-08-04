@@ -13,7 +13,7 @@ class ServiceProviderServicesViewModel extends BaseViewModel {
   final _servicesService = locator<ServicesService>();
   final _dialogService = locator<DialogService>();
 
-  late List<Service> servicesNew;
+  List<Service> servicesNew = [];
 
   // final List<Map<String, dynamic>> services = [
   //   {
@@ -32,6 +32,8 @@ class ServiceProviderServicesViewModel extends BaseViewModel {
     try {
       servicesNew = await _servicesService
           .getServicesByProviderId(_authService.serviceProvider!.id);
+      notifyListeners();
+
       for (Service service in servicesNew) {
         print('Service Name: ${service.serviceName}, Price: ${service.price}');
       }

@@ -11,7 +11,6 @@ import '../../../services/authentication_service.dart';
 import '../../../services/registration_service.dart';
 
 class CustomerRegisterViewModel extends FormViewModel {
-
   final _registrationService = locator<RegistrationService>();
   final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();
@@ -46,5 +45,4 @@ class CustomerRegisterViewModel extends FormViewModel {
       } catch (e) {}
     }
   }
-
 }

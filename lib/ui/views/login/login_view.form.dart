@@ -6,6 +6,7 @@
 
 // ignore_for_file: public_member_api_docs, constant_identifier_names, non_constant_identifier_names,unnecessary_this
 
+import 'package:disertation/ui/views/login_service_provider/form_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -19,8 +20,8 @@ final Map<String, TextEditingController> _LoginViewTextEditingControllers = {};
 final Map<String, FocusNode> _LoginViewFocusNodes = {};
 
 final Map<String, String? Function(String?)?> _LoginViewTextValidations = {
-  EmailInputValueKey: null,
-  PasswordInputValueKey: null,
+  EmailInputValueKey: ServiceProviderLoginFormValidation.validateEmail,
+  PasswordInputValueKey: ServiceProviderLoginFormValidation.validatePassword,
 };
 
 mixin $LoginView {
