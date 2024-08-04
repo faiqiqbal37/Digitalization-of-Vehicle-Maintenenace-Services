@@ -27,9 +27,9 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
           SizedBox(height: 20),
           Icon(Icons.account_circle, size: 100, color: Colors.black),
           SizedBox(height: 20),
-          ProfileItem(title: "Name", content: "Michael Jordan"),
-          ProfileItem(title: "Phone", content: "+44078965125"),
-          ProfileItem(title: "Email", content: "michael@jordan.com"),
+          ProfileItem(title: "Name", content: "${viewModel.returnCustomer()!.firstname} ${viewModel.returnCustomer()?.lastname}"),
+          ProfileItem(title: "Phone", content: viewModel.returnCustomer()!.phoneNumber),
+          ProfileItem(title: "Email", content: viewModel.returnCustomer()!.email),
           ProfileItem(title: "Address", content: "23 JAMES ST, S4 7TL"),
           SizedBox(height: 30),
           Padding(

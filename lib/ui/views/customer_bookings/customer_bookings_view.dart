@@ -24,10 +24,10 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
           SizedBox(height: 20),
           Expanded(
             child: FutureBuilder<List<Map<String, dynamic>>>(
-              future: viewModel.loadCustomerBookings('Fs1nmDG1f3lx7e8T39r9'),
+              future: viewModel.loadCustomerBookings(),
               builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
-
+                if (snapshot.connectionState == ConnectionState.done &&
+                    snapshot.hasData) {
                   return ListView.builder(
                     itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) {
@@ -37,6 +37,9 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
                         serviceName: booking['serviceName'],
                         date: booking['date'],
                         status: booking['status'],
+                        email: booking['email'],
+                        phone: booking['phone'],
+                        price: booking['price'],
                       );
                     },
                   );

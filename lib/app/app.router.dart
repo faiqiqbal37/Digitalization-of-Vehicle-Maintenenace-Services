@@ -334,8 +334,18 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i21.CustomerBookingDetailView: (data) {
+      final args =
+          data.getArgs<CustomerBookingDetailViewArguments>(nullOk: false);
       return _i24.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i21.CustomerBookingDetailView(),
+        builder: (context) => _i21.CustomerBookingDetailView(
+            key: args.key,
+            phone: args.phone,
+            email: args.email,
+            price: args.price,
+            date: args.date,
+            serviceName: args.serviceName,
+            serviceProviderName: args.serviceProviderName,
+            status: args.status),
         settings: data,
       );
     },
@@ -360,6 +370,65 @@ class StackedRouter extends _i1.RouterBase {
 
   @override
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
+}
+
+class CustomerBookingDetailViewArguments {
+  const CustomerBookingDetailViewArguments({
+    this.key,
+    required this.phone,
+    required this.email,
+    required this.price,
+    required this.date,
+    required this.serviceName,
+    required this.serviceProviderName,
+    required this.status,
+  });
+
+  final _i24.Key? key;
+
+  final String phone;
+
+  final String email;
+
+  final String price;
+
+  final String date;
+
+  final String serviceName;
+
+  final String serviceProviderName;
+
+  final String status;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "phone": "$phone", "email": "$email", "price": "$price", "date": "$date", "serviceName": "$serviceName", "serviceProviderName": "$serviceProviderName", "status": "$status"}';
+  }
+
+  @override
+  bool operator ==(covariant CustomerBookingDetailViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key &&
+        other.phone == phone &&
+        other.email == email &&
+        other.price == price &&
+        other.date == date &&
+        other.serviceName == serviceName &&
+        other.serviceProviderName == serviceProviderName &&
+        other.status == status;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^
+        phone.hashCode ^
+        email.hashCode ^
+        price.hashCode ^
+        date.hashCode ^
+        serviceName.hashCode ^
+        serviceProviderName.hashCode ^
+        status.hashCode;
+  }
 }
 
 class CustomerAddBookingViewArguments {
@@ -656,14 +725,31 @@ extension NavigatorStateExtension on _i25.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToCustomerBookingDetailView([
+  Future<dynamic> navigateToCustomerBookingDetailView({
+    _i24.Key? key,
+    required String phone,
+    required String email,
+    required String price,
+    required String date,
+    required String serviceName,
+    required String serviceProviderName,
+    required String status,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return navigateTo<dynamic>(Routes.customerBookingDetailView,
+        arguments: CustomerBookingDetailViewArguments(
+            key: key,
+            phone: phone,
+            email: email,
+            price: price,
+            date: date,
+            serviceName: serviceName,
+            serviceProviderName: serviceProviderName,
+            status: status),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -968,14 +1054,31 @@ extension NavigatorStateExtension on _i25.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithCustomerBookingDetailView([
+  Future<dynamic> replaceWithCustomerBookingDetailView({
+    _i24.Key? key,
+    required String phone,
+    required String email,
+    required String price,
+    required String date,
+    required String serviceName,
+    required String serviceProviderName,
+    required String status,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return replaceWith<dynamic>(Routes.customerBookingDetailView,
+        arguments: CustomerBookingDetailViewArguments(
+            key: key,
+            phone: phone,
+            email: email,
+            price: price,
+            date: date,
+            serviceName: serviceName,
+            serviceProviderName: serviceProviderName,
+            status: status),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

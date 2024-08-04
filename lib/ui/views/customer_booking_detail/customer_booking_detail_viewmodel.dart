@@ -17,5 +17,6 @@ class CustomerBookingDetailViewModel extends BaseViewModel {
     } catch (e) {
       print('Error fetching services: $e');
     }
+    return null;
   }
 }

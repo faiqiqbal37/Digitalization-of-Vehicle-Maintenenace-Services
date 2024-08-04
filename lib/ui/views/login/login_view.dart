@@ -49,10 +49,10 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
             verticalSpaceTiny,
             viewModel.hasEmailInputValidationMessage
                 ? Text(viewModel.emailInputValidationMessage!,
-                style: const TextStyle(
-                    color: Colors.red,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700))
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
                 : SizedBox(height: 20),
             SizedBox(height: 20),
             TextField(
@@ -67,10 +67,10 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
             verticalSpaceTiny,
             viewModel.hasPasswordInputValidationMessage
                 ? Text(viewModel.passwordInputValidationMessage!,
-                style: const TextStyle(
-                    color: Colors.red,
-                    fontSize: 12,
-                    fontWeight: FontWeight.w700))
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
                 : SizedBox(height: 30),
             SizedBox(height: 30),
             ElevatedButton(
@@ -100,7 +100,6 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
   void onViewModelReady(LoginViewModel viewModel) {
     syncFormWithViewModel(viewModel);
   }
-
 
   @override
   void onDispose(LoginViewModel viewModel) {

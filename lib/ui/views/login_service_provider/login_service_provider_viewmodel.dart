@@ -15,15 +15,16 @@ class LoginServiceProviderViewModel extends FormViewModel {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   final _dialogService = locator<DialogService>();
 
-
-  void siginInWithEmail() async{
+  void siginInWithEmail() async {
     try {
-      await _authService.loginUser(emailValue.toString(), passwordValue.toString());
+      await _authService.loginUser(
+          emailValue.toString(), passwordValue.toString());
       _navigationService.replaceWith(Routes.serviceProviderHomeScreenView);
     } catch (e) {
       String errorMessage = 'Failed to log in with provided credentials.';
       if (e is FirebaseAuthException) {
-        errorMessage = e.message ?? 'Failed to log in with provided credentials.';
+        errorMessage =
+            e.message ?? 'Failed to log in with provided credentials.';
       }
       // Show a snackbar with the error message
       await _dialogService.showDialog(

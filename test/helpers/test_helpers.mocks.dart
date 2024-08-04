@@ -13,6 +13,7 @@ import 'package:disertation/models/serviceprovider/serviceprovider.dart' as _i2;
 import 'package:disertation/services/authentication_service.dart' as _i9;
 import 'package:disertation/services/booking_service.dart' as _i15;
 import 'package:disertation/services/cars_service_service.dart' as _i14;
+import 'package:disertation/services/customer_service.dart' as _i17;
 import 'package:disertation/services/registration_service.dart' as _i12;
 import 'package:disertation/services/services_service.dart' as _i13;
 import 'package:firebase_auth/firebase_auth.dart' as _i11;
@@ -942,4 +943,33 @@ class MockBookingService extends _i1.Mock implements _i15.BookingService {
         returnValueForMissingStub:
             _i7.Future<List<_i16.Booking>>.value(<_i16.Booking>[]),
       ) as _i7.Future<List<_i16.Booking>>);
+}
+
+/// A class which mocks [CustomerService].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockCustomerService extends _i1.Mock implements _i17.CustomerService {
+  @override
+  _i7.Future<String> fetchCustomerById(String? customerId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #fetchCustomerById,
+          [customerId],
+        ),
+        returnValue: _i7.Future<String>.value(_i5.dummyValue<String>(
+          this,
+          Invocation.method(
+            #fetchCustomerById,
+            [customerId],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i7.Future<String>.value(_i5.dummyValue<String>(
+          this,
+          Invocation.method(
+            #fetchCustomerById,
+            [customerId],
+          ),
+        )),
+      ) as _i7.Future<String>);
 }

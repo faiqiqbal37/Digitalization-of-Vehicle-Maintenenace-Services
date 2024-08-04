@@ -8,7 +8,10 @@ class ServicesService {
 
   Future<void> addService(Service service) async {
     try {
-      await _firestore.collection('services').doc(service.id).set(service.toJson());
+      await _firestore
+          .collection('services')
+          .doc(service.id)
+          .set(service.toJson());
       print("Service added successfully!");
     } catch (e) {
       print("Error adding service: $e");
@@ -65,7 +68,7 @@ class ServicesService {
   Future<Service> getServiceById(String serviceId) async {
     try {
       DocumentSnapshot docSnapshot =
-      await _firestore.collection('services').doc(serviceId).get();
+          await _firestore.collection('services').doc(serviceId).get();
 
       if (docSnapshot.exists) {
         return Service.fromJson(docSnapshot.data() as Map<String, dynamic>);
@@ -76,5 +79,4 @@ class ServicesService {
       throw Exception('Failed to fetch service: $e');
     }
   }
-
 }

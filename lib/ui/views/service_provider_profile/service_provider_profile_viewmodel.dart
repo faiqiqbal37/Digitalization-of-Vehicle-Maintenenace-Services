@@ -1,4 +1,5 @@
 import 'package:disertation/app/app.locator.dart';
+import 'package:disertation/models/serviceprovider/serviceprovider.dart';
 import 'package:disertation/services/authentication_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -18,6 +19,10 @@ class ServiceProviderProfileViewModel extends BaseViewModel {
       description: 'Signed Out Successfully',
     );
     _navigationService.clearStackAndShow(Routes.initialSelectionScreenView);
+  }
+
+  ServiceProvider? returnServiceProvider(){
+    return _authService.serviceProvider;
   }
 
   void logout() {

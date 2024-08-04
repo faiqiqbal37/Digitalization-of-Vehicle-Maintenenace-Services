@@ -9,14 +9,20 @@ class BookingCard extends StatelessWidget {
   final String serviceName;
   final String date;
   final String status;
+  final String price;
+  final String phone;
+  final String email;
+
   final _navigationService = locator<NavigationService>();
 
-  BookingCard({
-    required this.serviceProviderName,
-    required this.serviceName,
-    required this.date,
-    required this.status,
-  });
+  BookingCard(
+      {required this.serviceProviderName,
+      required this.serviceName,
+      required this.date,
+      required this.status,
+      required this.price,
+      required this.email,
+      required this.phone});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +54,14 @@ class BookingCard extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    _navigationService.navigateToCustomerBookingDetailView();
+                    _navigationService.navigateToCustomerBookingDetailView(
+                        serviceName: serviceName,
+                        price: price,
+                        date: date,
+                        email: email,
+                        phone: phone,
+                        serviceProviderName: serviceProviderName,
+                        status: status);
                   },
                   child: Text('View'),
                 ),

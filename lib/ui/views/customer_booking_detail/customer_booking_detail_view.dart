@@ -6,7 +6,24 @@ import 'customer_booking_detail_viewmodel.dart';
 
 class CustomerBookingDetailView
     extends StackedView<CustomerBookingDetailViewModel> {
-  const CustomerBookingDetailView({Key? key}) : super(key: key);
+  final String serviceName;
+  final String serviceProviderName;
+  final String price;
+  final String phone;
+  final String email;
+  final String date;
+  final String status;
+
+  const CustomerBookingDetailView(
+      {Key? key,
+      required this.phone,
+      required this.email,
+      required this.price,
+      required this.date,
+      required this.serviceName,
+      required this.serviceProviderName,
+      required this.status})
+      : super(key: key);
 
   @override
   Widget builder(
@@ -34,27 +51,27 @@ class CustomerBookingDetailView
                             fontWeight: FontWeight.bold, fontSize: 16)),
                     ListTile(
                       leading: Icon(Icons.build),
-                      title: Text('AC Service'),
+                      title: Text(serviceName),
                     ),
                     ListTile(
                       leading: Icon(Icons.garage),
-                      title: Text('Edward Repairs'),
+                      title: Text(serviceProviderName),
                     ),
                     ListTile(
                       leading: Icon(Icons.monetization_on),
-                      title: Text('100'),
+                      title: Text(price),
                     ),
                     ListTile(
                       leading: Icon(Icons.phone),
-                      title: Text('+44078645125'),
+                      title: Text(phone),
                     ),
                     ListTile(
                       leading: Icon(Icons.email),
-                      title: Text('michael@jordan.com'),
+                      title: Text(email),
                     ),
                     ListTile(
                       leading: Icon(Icons.location_on),
-                      title: Text('23 James St, S4 7TL'),
+                      title: Text("null"),
                     ),
                     SizedBox(height: 20),
                     Text('Booking Details:',
@@ -62,11 +79,11 @@ class CustomerBookingDetailView
                             fontWeight: FontWeight.bold, fontSize: 16)),
                     ListTile(
                       leading: Icon(Icons.date_range),
-                      title: Text('Date: 20/02/2024'),
+                      title: Text(date),
                     ),
                     ListTile(
                       leading: Icon(Icons.check),
-                      title: Text('Completed'),
+                      title: Text(status),
                     ),
                     SizedBox(height: 20),
                   ],

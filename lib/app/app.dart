@@ -29,6 +29,7 @@ import 'package:disertation/ui/views/customer_services/customer_services_view.da
 import 'package:disertation/ui/views/customer_booking_detail/customer_booking_detail_view.dart';
 import 'package:disertation/ui/views/customer_add_booking/customer_add_booking_view.dart';
 import 'package:disertation/ui/views/customer_payment/customer_payment_view.dart';
+import 'package:disertation/services/customer_service.dart';
 // @stacked-import
 
 @StackedApp(
@@ -66,6 +67,7 @@ import 'package:disertation/ui/views/customer_payment/customer_payment_view.dart
     LazySingleton(classType: ServicesService),
     LazySingleton(classType: CarsServiceService),
     LazySingleton(classType: BookingService),
+    LazySingleton(classType: CustomerService),
 // @stacked-service
   ],
   bottomsheets: [
