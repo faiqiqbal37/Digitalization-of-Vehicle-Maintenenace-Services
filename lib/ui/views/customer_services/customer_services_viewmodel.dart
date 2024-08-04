@@ -25,4 +25,18 @@ class CustomerServicesViewModel extends BaseViewModel {
       print('Error fetching services: $e');
     }
   }
+  
+  Future<void> fetchServicesBasedOnCategory(String category) async{
+
+    try {
+      servicesNew = await _servicesService.getServicesByType(category);
+      for (Service service in servicesNew) {
+        print('Service Name: ${service.serviceName}, Price: ${service.price}');
+      }
+      notifyListeners();
+    } catch (e) {
+      print('Error fetching services: $e');
+    }
+    
+  }
 }

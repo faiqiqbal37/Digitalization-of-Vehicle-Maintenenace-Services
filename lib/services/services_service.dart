@@ -79,4 +79,25 @@ class ServicesService {
       throw Exception('Failed to fetch service: $e');
     }
   }
+
+  Future<List<Service>> getServicesByType(String serviceType) async {
+    try {
+      // Query the 'services' collection for documents where 'serviceType' matches the provided type
+      QuerySnapshot querySnapshot = await _firestore
+          .collection('services')
+          .where('serviceType', isEqualTo: serviceType)
+          .get();
+
+      // Map the documents to Service objects
+      List<Service> serviceList = querySnapshot.docs
+          .map((doc) => Service.fromJson(doc.data() as Map<String, dynamic>))
+          .toList();
+
+      return serviceList;
+    } catch (e) {
+      print("Error fetching services by type: $e");
+      throw Exception('Failed to fetch services by type');
+    }
+  }
+
 }

@@ -2,6 +2,7 @@ import 'package:disertation/ui/views/common_components/customer/navigation_bar.d
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
+import '../customer_bookings/booking_card.dart';
 import 'booking_widget.dart';
 import 'category_widget.dart';
 import 'customer_home_viewmodel.dart';
@@ -71,13 +72,35 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
             SizedBox(height: 30),
             Text('Upcoming Booking',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            BookingWidget(
-              service: 'AC Servicing',
-              provider: 'Daniel Brown',
-              date: '20/01/2024',
-              price: 250,
-              status: 'Completed',
-            ),
+            Container(
+                height: 200,
+              child: FutureBuilder(
+                future: viewModel.loadCustomerBookings(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.done &&
+                      snapshot.hasData)
+                    return ListView.builder(itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) {
+                          var booking = snapshot.data![index];
+                          return BookingCard(
+                            serviceProviderName: booking['serviceProviderName'],
+                            serviceName: booking['serviceName'],
+                            date: booking['date'],
+                            status: booking['status'],
+                            email: booking['email'],
+                            phone: booking['phone'],
+                            price: booking['price'],
+                          );
+                        }
+                    );
+                  else if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else {
+                    return CircularProgressIndicator();
+                  }
+                }
+                          ),
+            )
           ],
         ),
       ),

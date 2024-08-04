@@ -41,11 +41,18 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: <Widget>[
-                CategoryWidget(title: 'Electrical'),
-                CategoryWidget(title: 'Paint'),
-                CategoryWidget(title: 'Bodywork'),
-                CategoryWidget(title: 'Mechanical'),
-                CategoryWidget(title: 'Wrap'),
+                ElevatedButton(onPressed: () => viewModel.fetchServicesBasedOnCategory("Electrical"),
+              // Action or navigation
+        child: Text('Electrical')),
+    ElevatedButton(onPressed: () => viewModel.fetchServicesBasedOnCategory("Paint"),
+    // Action or navigation
+    child: Text('Paint')),
+                ElevatedButton(onPressed: () => viewModel.fetchServicesBasedOnCategory("Bodywork"),
+                    // Action or navigation
+                    child: Text('Bodywork')),
+                ElevatedButton(onPressed: () => viewModel.fetchServicesBasedOnCategory("Mechanical"),
+                    // Action or navigation
+                    child: Text('Mechanical')),
               ],
             ),
           ),
