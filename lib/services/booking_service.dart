@@ -1,41 +1,36 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/booking/booking.dart';
-import '../models/service/service.dart';
-import '../models/serviceprovider/serviceprovider.dart';
 
 class BookingService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-  final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  Stream<List<Booking>> streamBookings(String customerId) {
-    return _db
-        .collection('bookings')
-        .where('customerId', isEqualTo: customerId)
-        .snapshots()
-        .map((snapshot) {
-      var bookings = snapshot.docs
-          .map((doc) => Booking.fromJson(doc.data() as Map<String, dynamic>))
+
+  Future<List<Booking>> fetchBookingsByCustomerId(String customerId) async {
+    try {
+      QuerySnapshot querySnapshot = await _firestore
+          .collection('bookings')
+          .where('customerId', isEqualTo: customerId)
+          .get();
+
+      List<Booking> bookings = querySnapshot.docs
+          .map((doc) {
+        Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+        // Safely handle the 'date' field conversion
+        if (data['date'] != null && data['date'] is Timestamp) {
+          data['date'] = (data['date'] as Timestamp).toDate(); // Safely convert Timestamp to DateTime
+        } else {
+          print('Unexpected date format or null in booking data: ${doc.id}');
+        }
+        return Booking.fromJson(data);
+      })
           .toList();
-      print(
-          "Fetched bookings: ${bookings.length}"); // Update to log the count of bookings
+
       return bookings;
-    });
+    } catch (e) {
+      print('Error fetching bookings: $e');
+      return [];
+    }
   }
 
-  Future<ServiceProvider> getServiceProvider(String id) async {
-    var snapshot = await _db.collection('serviceProviders').doc(id).get();
-    var serviceProvider =
-        ServiceProvider.fromJson(snapshot.data()! as Map<String, dynamic>);
-    print(
-        "Fetched service provider: $serviceProvider"); // Logging the service provider
-    return serviceProvider;
-  }
-
-  Future<Service> getService(String id) async {
-    var snapshot = await _db.collection('services').doc(id).get();
-    var service = Service.fromJson(snapshot.data()! as Map<String, dynamic>);
-    print("Fetched service: $service"); // Logging the service
-    return service;
-  }
 }

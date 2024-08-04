@@ -3,8 +3,6 @@ import 'package:disertation/ui/views/customer_bookings/booking_card.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import '../../../models/service/service.dart';
-import '../../../models/serviceprovider/serviceprovider.dart';
 import 'customer_bookings_viewmodel.dart';
 
 class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
@@ -25,42 +23,31 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
-            child: viewModel.isBusy
-                ? CircularProgressIndicator()
-                : ListView.builder(
-                    itemCount: viewModel.data?.length ?? 0,
+            child: FutureBuilder<List<Map<String, dynamic>>>(
+              future: viewModel.loadCustomerBookings('Fs1nmDG1f3lx7e8T39r9'),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done && snapshot.hasData) {
+
+                  return ListView.builder(
+                    itemCount: snapshot.data!.length,
                     itemBuilder: (context, index) {
-                      final booking = viewModel.data![index];
-                      print(
-                          "Building item for booking: ${booking.id}"); // Make sure booking has an id or similar identifie
-                      print(" The data is: " + viewModel.data);
-                      return FutureBuilder<ServiceProvider>(
-                        future: viewModel.fetchServiceProvider(
-                            "W2YxfROj0fYoCRTEE4XAtVNTjIx1"),
-                        builder: (context, snapshotProvider) {
-                          if (!snapshotProvider.hasData)
-                            return CircularProgressIndicator();
-                          final serviceProvider = snapshotProvider.data!;
-                          return FutureBuilder<Service>(
-                            future: viewModel.fetchService("1722296066886"),
-                            builder: (context, snapshotService) {
-                              if (!snapshotService.hasData)
-                                return CircularProgressIndicator();
-                              final service = snapshotService.data!;
-                              return BookingCard(
-                                serviceProviderName:
-                                    serviceProvider.businessName,
-                                serviceName: service.serviceName,
-                                date: booking.date.toString(),
-                                status: booking.status,
-                              );
-                            },
-                          );
-                        },
+                      var booking = snapshot.data![index];
+                      return BookingCard(
+                        serviceProviderName: booking['serviceProviderName'],
+                        serviceName: booking['serviceName'],
+                        date: booking['date'],
+                        status: booking['status'],
                       );
                     },
-                  ),
-          ),
+                  );
+                } else if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                } else {
+                  return CircularProgressIndicator();
+                }
+              },
+            ),
+          )
         ],
       ),
       bottomNavigationBar: CustomerBottomNavigationBar(),

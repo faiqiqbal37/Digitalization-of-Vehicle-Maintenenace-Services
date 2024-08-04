@@ -895,6 +895,29 @@ class MockServicesService extends _i1.Mock implements _i13.ServicesService {
         returnValueForMissingStub:
             _i7.Future<List<_i3.Service>>.value(<_i3.Service>[]),
       ) as _i7.Future<List<_i3.Service>>);
+
+  @override
+  _i7.Future<_i3.Service> getServiceById(String? serviceId) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getServiceById,
+          [serviceId],
+        ),
+        returnValue: _i7.Future<_i3.Service>.value(_FakeService_1(
+          this,
+          Invocation.method(
+            #getServiceById,
+            [serviceId],
+          ),
+        )),
+        returnValueForMissingStub: _i7.Future<_i3.Service>.value(_FakeService_1(
+          this,
+          Invocation.method(
+            #getServiceById,
+            [serviceId],
+          ),
+        )),
+      ) as _i7.Future<_i3.Service>);
 }
 
 /// A class which mocks [CarsServiceService].
@@ -908,60 +931,15 @@ class MockCarsServiceService extends _i1.Mock
 /// See the documentation for Mockito's code generation for more information.
 class MockBookingService extends _i1.Mock implements _i15.BookingService {
   @override
-  _i7.Stream<List<_i16.Booking>> streamBookings(String? customerId) =>
+  _i7.Future<List<_i16.Booking>> fetchBookingsByCustomerId(
+          String? customerId) =>
       (super.noSuchMethod(
         Invocation.method(
-          #streamBookings,
+          #fetchBookingsByCustomerId,
           [customerId],
         ),
-        returnValue: _i7.Stream<List<_i16.Booking>>.empty(),
-        returnValueForMissingStub: _i7.Stream<List<_i16.Booking>>.empty(),
-      ) as _i7.Stream<List<_i16.Booking>>);
-
-  @override
-  _i7.Future<_i2.ServiceProvider> getServiceProvider(String? id) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getServiceProvider,
-          [id],
-        ),
-        returnValue:
-            _i7.Future<_i2.ServiceProvider>.value(_FakeServiceProvider_0(
-          this,
-          Invocation.method(
-            #getServiceProvider,
-            [id],
-          ),
-        )),
+        returnValue: _i7.Future<List<_i16.Booking>>.value(<_i16.Booking>[]),
         returnValueForMissingStub:
-            _i7.Future<_i2.ServiceProvider>.value(_FakeServiceProvider_0(
-          this,
-          Invocation.method(
-            #getServiceProvider,
-            [id],
-          ),
-        )),
-      ) as _i7.Future<_i2.ServiceProvider>);
-
-  @override
-  _i7.Future<_i3.Service> getService(String? id) => (super.noSuchMethod(
-        Invocation.method(
-          #getService,
-          [id],
-        ),
-        returnValue: _i7.Future<_i3.Service>.value(_FakeService_1(
-          this,
-          Invocation.method(
-            #getService,
-            [id],
-          ),
-        )),
-        returnValueForMissingStub: _i7.Future<_i3.Service>.value(_FakeService_1(
-          this,
-          Invocation.method(
-            #getService,
-            [id],
-          ),
-        )),
-      ) as _i7.Future<_i3.Service>);
+            _i7.Future<List<_i16.Booking>>.value(<_i16.Booking>[]),
+      ) as _i7.Future<List<_i16.Booking>>);
 }

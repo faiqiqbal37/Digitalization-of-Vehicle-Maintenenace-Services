@@ -34,13 +34,13 @@ class AuthenticationService {
   Future<Customer?> fetchCustomerByUid(String uid) async {
     try {
       DocumentSnapshot docSnapshot =
-          await _db.collection('customers').doc(uid).get();
+      await _db.collection('customers').doc(uid).get();
 
       if (docSnapshot.exists) {
-        Customer customer =
-            Customer.fromJson(docSnapshot.data() as Map<String, dynamic>);
-        print(customer.email);
-        return customer;
+        Customer serviceProvider = Customer.fromJson(
+            docSnapshot.data() as Map<String, dynamic>);
+        print(serviceProvider.email);
+        return serviceProvider;
       } else {
         print('No document found for UID: $uid');
         return null;
@@ -50,6 +50,8 @@ class AuthenticationService {
       return null;
     }
   }
+
+
 
   void authStateChanges(void Function(User? user) onAuthStateChanged) {
     _firebaseAuth.authStateChanges().listen(onAuthStateChanged);
