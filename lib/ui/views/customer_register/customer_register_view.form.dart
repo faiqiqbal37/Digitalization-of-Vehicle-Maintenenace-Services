@@ -6,6 +6,7 @@
 
 // ignore_for_file: public_member_api_docs, constant_identifier_names, non_constant_identifier_names,unnecessary_this
 
+import 'package:disertation/ui/views/service_provider_register/form_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
@@ -25,12 +26,14 @@ final Map<String, FocusNode> _CustomerRegisterViewFocusNodes = {};
 
 final Map<String, String? Function(String?)?>
     _CustomerRegisterViewTextValidations = {
-  EmailValueKey: null,
-  PasswordValueKey: null,
-  ConfirmPasswordValueKey: null,
-  FirstNameValueKey: null,
-  LastNameValueKey: null,
-  PhoneValueKey: null,
+  EmailValueKey: ServiceProviderRegistrationFormValidation.validateEmail,
+  PasswordValueKey: ServiceProviderRegistrationFormValidation.validatePassword,
+  ConfirmPasswordValueKey:
+      ServiceProviderRegistrationFormValidation.validatePassword,
+  FirstNameValueKey:
+      ServiceProviderRegistrationFormValidation.validateFirstName,
+  LastNameValueKey: ServiceProviderRegistrationFormValidation.validateLastName,
+  PhoneValueKey: ServiceProviderRegistrationFormValidation.validatePhoneNumber,
 };
 
 mixin $CustomerRegisterView {

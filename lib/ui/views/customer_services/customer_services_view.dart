@@ -65,21 +65,24 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
 
           Expanded(
             child: ListView.builder(
-              itemCount: viewModel.servicesNew.length,
-              itemBuilder: (context, index) {
-                return CustomerServiceCard(serviceProviderName: viewModel.servicesNew[index].serviceName, serviceName: viewModel.servicesNew[index].serviceType, price: viewModel.servicesNew[index].price, eta: viewModel.servicesNew[index].eta, vehicleType: viewModel.servicesNew[index].vehicleType, description: viewModel.servicesNew[index].description,);
-
-              }
-            ),
+                itemCount: viewModel.servicesNew.length,
+                itemBuilder: (context, index) {
+                  return CustomerServiceCard(
+                    serviceProviderName:
+                        viewModel.servicesNew[index].serviceName,
+                    serviceName: viewModel.servicesNew[index].serviceType,
+                    price: viewModel.servicesNew[index].price,
+                    eta: viewModel.servicesNew[index].eta,
+                    vehicleType: viewModel.servicesNew[index].vehicleType,
+                    description: viewModel.servicesNew[index].description,
+                  );
+                }),
           ),
-
-
         ],
       ),
       bottomNavigationBar: CustomerBottomNavigationBar(),
     );
   }
-
 
   @override
   void onViewModelReady(CustomerServicesViewModel viewModel) {

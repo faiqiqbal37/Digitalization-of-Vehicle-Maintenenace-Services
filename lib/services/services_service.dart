@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:disertation/models/service/service.dart';
 
+import '../models/serviceprovider/serviceprovider.dart';
+
 class ServicesService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
@@ -30,6 +32,21 @@ class ServicesService {
         .toList();
 
     return serviceList;
+  }
+
+  Future<ServiceProvider> getServiceProviderInfo(
+      String serviceProviderId) async {
+    CollectionReference serviceProviders =
+        FirebaseFirestore.instance.collection('serviceProviders');
+
+    // Query the collection for services with the matching serviceProviderId
+    QuerySnapshot querySnapshot =
+        await serviceProviders.where('id', isEqualTo: serviceProviderId).get();
+
+    // Map the documents to Service objects
+
+    return ServiceProvider.fromJson(
+        querySnapshot.docs.first as Map<String, dynamic>);
   }
 
   Future<List<Service>> getAllServices() async {

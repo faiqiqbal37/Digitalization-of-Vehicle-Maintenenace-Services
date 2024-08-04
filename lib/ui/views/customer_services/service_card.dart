@@ -57,7 +57,8 @@ class CustomerServiceCard extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    _navigationService.navigateToCustomerAddBookingView(description: description);
+                    _navigationService.navigateToCustomerAddBookingView(
+                        description: description);
                   },
                   child: Text('Book'),
                 ),
