@@ -8,6 +8,7 @@ import 'package:disertation/services/services_service.dart';
 import 'package:disertation/services/cars_service_service.dart';
 import 'package:disertation/services/booking_service.dart';
 import 'package:disertation/services/customer_service.dart';
+import 'package:disertation/services/service_provider_service.dart';
 // @stacked-import
 
 import 'test_helpers.mocks.dart';
@@ -22,6 +23,7 @@ import 'test_helpers.mocks.dart';
   MockSpec<CarsServiceService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<BookingService>(onMissingStub: OnMissingStub.returnDefault),
   MockSpec<CustomerService>(onMissingStub: OnMissingStub.returnDefault),
+  MockSpec<ServiceProviderService>(onMissingStub: OnMissingStub.returnDefault),
 // @stacked-mock-spec
 ])
 void registerServices() {
@@ -34,6 +36,7 @@ void registerServices() {
   getAndRegisterCarsServiceService();
   getAndRegisterBookingService();
   getAndRegisterCustomerService();
+  getAndRegisterServiceProviderService();
 // @stacked-mock-register
 }
 
@@ -126,6 +129,13 @@ MockCustomerService getAndRegisterCustomerService() {
   _removeRegistrationIfExists<CustomerService>();
   final service = MockCustomerService();
   locator.registerSingleton<CustomerService>(service);
+  return service;
+}
+
+MockServiceProviderService getAndRegisterServiceProviderService() {
+  _removeRegistrationIfExists<ServiceProviderService>();
+  final service = MockServiceProviderService();
+  locator.registerSingleton<ServiceProviderService>(service);
   return service;
 }
 // @stacked-mock-create

@@ -27,15 +27,18 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
           SizedBox(height: 20),
           Icon(Icons.account_circle, size: 100, color: Colors.black),
           SizedBox(height: 20),
-          ProfileItem(title: "Name", content: "${viewModel.returnCustomer()!.firstname} ${viewModel.returnCustomer()?.lastname}"),
-          ProfileItem(title: "Phone", content: viewModel.returnCustomer()!.phoneNumber),
-          ProfileItem(title: "Email", content: viewModel.returnCustomer()!.email),
+          ProfileItem(
+              title: "Name",
+              content:
+                  "${viewModel.customer.firstname} ${viewModel.customer.lastname}"),
+          ProfileItem(title: "Phone", content: viewModel.customer.phoneNumber),
+          ProfileItem(title: "Email", content: viewModel.customer.email),
           ProfileItem(title: "Address", content: "23 JAMES ST, S4 7TL"),
           SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: viewModel.navigateToEditDetailsScreen,
               child: Text('Edit Details'),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.black,
@@ -65,6 +68,12 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
       ),
       bottomNavigationBar: CustomerBottomNavigationBar(),
     );
+  }
+
+  @override
+  void onViewModelReady(CustomerProfileViewModel viewModel) {
+    super.onViewModelReady(viewModel);
+    viewModel.returnCustomer();
   }
 
   @override

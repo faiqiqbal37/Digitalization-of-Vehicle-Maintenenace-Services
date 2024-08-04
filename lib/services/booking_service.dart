@@ -38,7 +38,7 @@ class BookingService {
           .collection('bookings')
           .where('customerId', isEqualTo: customerId)
           .orderBy('date', descending: true)
-          .limit(1)  // Only retrieve the most recent booking
+          .limit(1) // Only retrieve the most recent booking
           .get();
 
       if (querySnapshot.docs.isNotEmpty) {
@@ -46,20 +46,20 @@ class BookingService {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
         // Safely handle the 'date' field conversion
         if (data['date'] != null && data['date'] is Timestamp) {
-          data['date'] = (data['date'] as Timestamp).toDate(); // Convert Timestamp to DateTime
+          data['date'] = (data['date'] as Timestamp)
+              .toDate(); // Convert Timestamp to DateTime
         } else {
           print('Unexpected date format or null in booking data: ${doc.id}');
-          return null;  // Return null if date is not properly formatted or missing
+          return null; // Return null if date is not properly formatted or missing
         }
         return Booking.fromJson(data);
       } else {
         print('No bookings found for the customer.');
-        return null;  // Return null if no bookings are found
+        return null; // Return null if no bookings are found
       }
     } catch (e) {
       print('Error fetching the most recent booking: $e');
-      return null;  // Return null in case of any exceptions
+      return null; // Return null in case of any exceptions
     }
   }
-
 }

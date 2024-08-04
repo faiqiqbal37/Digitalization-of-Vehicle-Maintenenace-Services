@@ -73,33 +73,33 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
             Text('Upcoming Booking',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             Container(
-                height: 200,
+              height: 250,
               child: FutureBuilder(
-                future: viewModel.loadCustomerBookings(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done &&
-                      snapshot.hasData)
-                    return ListView.builder(itemCount: snapshot.data!.length,
-                        itemBuilder: (context, index) {
-                          var booking = snapshot.data![index];
-                          return BookingCard(
-                            serviceProviderName: booking['serviceProviderName'],
-                            serviceName: booking['serviceName'],
-                            date: booking['date'],
-                            status: booking['status'],
-                            email: booking['email'],
-                            phone: booking['phone'],
-                            price: booking['price'],
-                          );
-                        }
-                    );
-                  else if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  } else {
-                    return CircularProgressIndicator();
-                  }
-                }
-                          ),
+                  future: viewModel.loadCustomerBookings(),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.done &&
+                        snapshot.hasData)
+                      return ListView.builder(
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (context, index) {
+                            var booking = snapshot.data![index];
+                            return BookingCard(
+                              serviceProviderName:
+                                  booking['serviceProviderName'],
+                              serviceName: booking['serviceName'],
+                              date: booking['date'],
+                              status: booking['status'],
+                              email: booking['email'],
+                              phone: booking['phone'],
+                              price: booking['price'],
+                            );
+                          });
+                    else if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    } else {
+                      return CircularProgressIndicator();
+                    }
+                  }),
             )
           ],
         ),

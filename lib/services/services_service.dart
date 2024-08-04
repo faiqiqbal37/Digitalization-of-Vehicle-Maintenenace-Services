@@ -99,5 +99,4 @@ class ServicesService {
       throw Exception('Failed to fetch services by type');
     }
   }
-
 }

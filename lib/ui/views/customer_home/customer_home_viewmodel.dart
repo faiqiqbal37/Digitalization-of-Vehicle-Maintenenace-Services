@@ -27,9 +27,9 @@ class CustomerHomeViewModel extends BaseViewModel {
 
     for (var booking in bookings) {
       Customer? customer =
-      await _authenticationService.fetchCustomerByUid(booking.customerId);
+          await _authenticationService.fetchCustomerByUid(booking.customerId);
       Service service =
-      await _servicesService.getServiceById(booking.serviceId);
+          await _servicesService.getServiceById(booking.serviceId);
       ServiceProvider? serviceProvider = await _authenticationService
           .fetchServiceProviderByUid(booking.serviceProviderId);
 
@@ -49,6 +49,4 @@ class CustomerHomeViewModel extends BaseViewModel {
     }
     return bookingDetailsList;
   }
-
-
 }

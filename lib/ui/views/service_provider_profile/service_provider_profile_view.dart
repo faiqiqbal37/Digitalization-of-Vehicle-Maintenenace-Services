@@ -28,16 +28,25 @@ class ServiceProviderProfileView
           SizedBox(height: 20),
           Icon(Icons.account_circle, size: 100, color: Colors.black),
           SizedBox(height: 20),
-          ProfileItem(title: "Name", content: "${viewModel.returnServiceProvider()?.firstname} ${viewModel.returnServiceProvider()?.lastname}"),
-          ProfileItem(title: "Company", content: viewModel.returnServiceProvider()!.businessName),
-          ProfileItem(title: "Phone", content: viewModel.returnServiceProvider()!.phoneNumber),
-          ProfileItem(title: "Email", content: viewModel.returnServiceProvider()!.email),
+          ProfileItem(
+              title: "Name",
+              content:
+                  "${viewModel.serviceProvider.firstname} ${viewModel.serviceProvider.lastname}"),
+          ProfileItem(
+              title: "Company",
+              content: viewModel.serviceProvider.businessName),
+          ProfileItem(
+              title: "Phone",
+              content: viewModel.serviceProvider.phoneNumber),
+          ProfileItem(
+              title: "Email",
+              content: viewModel.serviceProvider.email),
           ProfileItem(title: "Address", content: "23 JAMES ST, S4 7TL"),
           SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: viewModel.navigateToEditScreen,
               child: Text('Edit Details'),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.black,
@@ -67,6 +76,13 @@ class ServiceProviderProfileView
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),
     );
+  }
+
+
+  @override
+  void onViewModelReady(ServiceProviderProfileViewModel viewModel) {
+    super.onViewModelReady(viewModel);
+    viewModel.returnServiceProvider();
   }
 
   @override

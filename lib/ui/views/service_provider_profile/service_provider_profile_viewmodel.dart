@@ -1,6 +1,7 @@
 import 'package:disertation/app/app.locator.dart';
 import 'package:disertation/models/serviceprovider/serviceprovider.dart';
 import 'package:disertation/services/authentication_service.dart';
+import 'package:disertation/services/service_provider_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -11,6 +12,16 @@ class ServiceProviderProfileViewModel extends BaseViewModel {
   final _authService = locator<AuthenticationService>();
   final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();
+  final _serviceProviderService = locator<ServiceProviderService>();
+  ServiceProvider serviceProvider = ServiceProvider(id: "id", firstname: "firstname", lastname: "lastname", businessName: "businessName", phoneNumber: "phoneNumber", email: "email", password: "password");
+
+  Future<ServiceProvider> returnServiceProvider() async {
+    serviceProvider =
+    await _serviceProviderService.fetchServiceProviderById(_authService.serviceProvider!.id);
+    notifyListeners();
+    return serviceProvider;
+  }
+
 
   Future<void> showRegistrationDialog() async {
     await _dialogService.showCustomDialog(
@@ -21,8 +32,9 @@ class ServiceProviderProfileViewModel extends BaseViewModel {
     _navigationService.clearStackAndShow(Routes.initialSelectionScreenView);
   }
 
-  ServiceProvider? returnServiceProvider(){
-    return _authService.serviceProvider;
+
+  void navigateToEditScreen(){
+    _navigationService.navigateToServiceProviderEditProfileView();
   }
 
   void logout() {

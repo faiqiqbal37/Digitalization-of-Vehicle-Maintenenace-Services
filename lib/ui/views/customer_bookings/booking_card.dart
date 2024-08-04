@@ -35,10 +35,12 @@ class BookingCard extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Service Provider Name: $serviceProviderName',
+                Text('Service Name: $serviceName',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 SizedBox(height: 8),
-                Text('Service Name: $serviceName'),
+                Text('Service Provider Name: $serviceProviderName'),
+                SizedBox(height: 8),
+                Text('Price: £ $price'),
                 SizedBox(height: 8),
                 Text('Date: $date'),
                 SizedBox(height: 8),

@@ -1,3 +1,4 @@
+import 'package:disertation/services/customer_service.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
@@ -11,9 +12,24 @@ class CustomerProfileViewModel extends BaseViewModel {
   final _authService = locator<AuthenticationService>();
   final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();
+  final _customerService = locator<CustomerService>();
+  Customer customer = Customer(
+      id: "id",
+      firstname: "firstname",
+      lastname: "lastname",
+      phoneNumber: "phoneNumber",
+      email: "email",
+      password: "password");
 
-  Customer? returnCustomer(){
-    return _authService.customer;
+  Future<Customer> returnCustomer() async {
+    customer =
+        await _customerService.fetchCustomerById(_authService.customer!.id);
+    notifyListeners();
+    return customer;
+  }
+
+  void navigateToEditDetailsScreen() {
+    _navigationService.navigateToCustomerEditProfileView();
   }
 
   Future<void> showDialog() async {
