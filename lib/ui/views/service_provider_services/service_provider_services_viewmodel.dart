@@ -52,7 +52,7 @@ class ServiceProviderServicesViewModel extends BaseViewModel {
   }
 
   void navigateToEditDetail(String serviceId) {
-    _navigationService.navigateToServiceProviderEditServiceView(serviceId: serviceId);
+    _navigationService.navigateToServiceProviderEditServiceView(
+        serviceId: serviceId);
   }
-  
 }

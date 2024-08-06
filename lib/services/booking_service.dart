@@ -31,6 +31,33 @@ class BookingService {
     }
   }
 
+  Future<List<Booking>> fetchBookingsByServiceProviderId(
+      String serviceProviderId) async {
+    try {
+      QuerySnapshot querySnapshot = await _firestore
+          .collection('bookings')
+          .where('serviceProviderId', isEqualTo: serviceProviderId)
+          .get();
+
+      List<Booking> bookings = querySnapshot.docs.map((doc) {
+        Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+        // Safely handle the 'date' field conversion
+        if (data['date'] != null && data['date'] is Timestamp) {
+          data['date'] = (data['date'] as Timestamp)
+              .toDate(); // Safely convert Timestamp to DateTime
+        } else {
+          print('Unexpected date format or null in booking data: ${doc.id}');
+        }
+        return Booking.fromJson(data);
+      }).toList();
+
+      return bookings;
+    } catch (e) {
+      print('Error fetching bookings: $e');
+      return [];
+    }
+  }
+
   Future<Booking?> fetchMostRecentBookingByCustomerId(String customerId) async {
     try {
       // Query the bookings collection, filtering by customerId and sorting by date in descending order

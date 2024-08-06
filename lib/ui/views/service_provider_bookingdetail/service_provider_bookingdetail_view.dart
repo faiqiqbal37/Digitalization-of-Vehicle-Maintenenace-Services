@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:disertation/ui/views/common_components/service_provider/bottom_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -6,7 +8,28 @@ import 'service_provider_bookingdetail_viewmodel.dart';
 
 class ServiceProviderBookingdetailView
     extends StackedView<ServiceProviderBookingdetailViewModel> {
-  const ServiceProviderBookingdetailView({Key? key}) : super(key: key);
+  final String customerName;
+  final String customerPhone;
+  final String email;
+  final String location;
+  final String serviceName;
+  final String servicePrice;
+  final String servceCategory;
+  final String date;
+  final String status;
+
+  const ServiceProviderBookingdetailView(
+      {Key? key,
+      required this.customerName,
+      required this.email,
+      required this.serviceName,
+      required this.location,
+      required this.customerPhone,
+      required this.status,
+      required this.date,
+      required this.servceCategory,
+      required this.servicePrice})
+      : super(key: key);
 
   @override
   Widget builder(
@@ -34,15 +57,15 @@ class ServiceProviderBookingdetailView
                             fontWeight: FontWeight.bold, fontSize: 16)),
                     ListTile(
                       leading: Icon(Icons.person),
-                      title: Text('Michael Jordan'),
+                      title: Text(customerName),
                     ),
                     ListTile(
                       leading: Icon(Icons.phone),
-                      title: Text('+44078645125'),
+                      title: Text(customerPhone),
                     ),
                     ListTile(
                       leading: Icon(Icons.email),
-                      title: Text('michael@jordan.com'),
+                      title: Text(email),
                     ),
                     ListTile(
                       leading: Icon(Icons.location_on),
@@ -54,8 +77,8 @@ class ServiceProviderBookingdetailView
                             fontWeight: FontWeight.bold, fontSize: 16)),
                     ListTile(
                       leading: Icon(Icons.build),
-                      title: Text('AC Servicing'),
-                      subtitle: Text('Price: \$250'),
+                      title: Text(serviceName),
+                      subtitle: Text('Price: \£${servicePrice}'),
                     ),
                     SizedBox(height: 20),
                     Text('Booking Details:',
@@ -63,8 +86,8 @@ class ServiceProviderBookingdetailView
                             fontWeight: FontWeight.bold, fontSize: 16)),
                     ListTile(
                       leading: Icon(Icons.date_range),
-                      title: Text('Date: 20/02/2024'),
-                      subtitle: Text('Status: Completed'),
+                      title: Text('Date: ${date}'),
+                      subtitle: Text('Status: ${status}'),
                     ),
                     SizedBox(height: 20),
                     Center(

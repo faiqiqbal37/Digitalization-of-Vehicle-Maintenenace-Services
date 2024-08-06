@@ -10,10 +10,10 @@ class StartupView extends StackedView<StartupViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      StartupViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    StartupViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       backgroundColor: Colors.white, // White background
       body: Center(
@@ -50,7 +50,8 @@ class StartupView extends StackedView<StartupViewModel> {
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(
-                    backgroundColor: Colors.blue[100], // Light blue background circle
+                    backgroundColor:
+                        Colors.blue[100], // Light blue background circle
                     valueColor: AlwaysStoppedAnimation<Color>(
                       Colors.blue[800]!, // Deep blue progress indicator
                     ),
@@ -67,8 +68,9 @@ class StartupView extends StackedView<StartupViewModel> {
 
   @override
   StartupViewModel viewModelBuilder(
-      BuildContext context,
-      ) => StartupViewModel();
+    BuildContext context,
+  ) =>
+      StartupViewModel();
 
   @override
   void onViewModelReady(StartupViewModel viewModel) => SchedulerBinding.instance

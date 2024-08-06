@@ -24,25 +24,36 @@ class ServiceProviderBookingsListingView
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
-            child: ListView(
-              children: [
-                BookingCard(
-                  customerName: 'Daniel Brown',
-                  serviceName: 'AC Servicing',
-                  date: '10/10/2024',
-                  location: '80 HOYLE ST, 83 7LG',
-                  status: 'Completed',
-                ),
-                BookingCard(
-                  customerName: 'Daniel Brown',
-                  serviceName: 'AC Servicing',
-                  date: '10/10/2024',
-                  location: '80 HOYLE ST, 83 7LG',
-                  status: 'Pending',
-                ),
-              ],
+            child: FutureBuilder<List<Map<String, dynamic>>>(
+              future: viewModel.loadCustomerBookings(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done &&
+                    snapshot.hasData) {
+                  return ListView.builder(
+                    itemCount: snapshot.data!.length,
+                    itemBuilder: (context, index) {
+                      var booking = snapshot.data![index];
+                      return BookingCard(
+                        customerName: booking['customer'],
+                        serviceName: booking['serviceName'],
+                        date: booking['date'],
+                        status: booking['status'],
+                        email: booking['email'],
+                        phone: booking['phone'],
+                        price: booking['price'],
+                        category: booking['category'],
+                        location: booking['location'],
+                      );
+                    },
+                  );
+                } else if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                } else {
+                  return CircularProgressIndicator();
+                }
+              },
             ),
-          ),
+          )
         ],
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),

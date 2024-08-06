@@ -52,7 +52,8 @@ class ServiceProviderServicesView
                             ),
                             SizedBox(width: 8), // Spacing between buttons
                             ElevatedButton(
-                              onPressed: () => viewModel.navigateToEditDetail(viewModel.servicesNew[index].id),
+                              onPressed: () => viewModel.navigateToEditDetail(
+                                  viewModel.servicesNew[index].id),
                               child: Text('Edit'),
                               style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.white,

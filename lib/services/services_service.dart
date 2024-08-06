@@ -110,8 +110,7 @@ class ServicesService {
     }
   }
 
-  Future<void> editService(
-      String serviceId, Service service) async {
+  Future<void> editService(String serviceId, Service service) async {
     try {
       // Get a reference to the document with the specified ID
       DocumentReference serviceDoc =

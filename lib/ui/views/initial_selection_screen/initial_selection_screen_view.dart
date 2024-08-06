@@ -32,8 +32,8 @@ class InitialSelectionScreenView
                   child: Text('Customer'),
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: Colors
-                        .blue, // Different color for differentiation
+                    backgroundColor:
+                        Colors.blue, // Different color for differentiation
                   ),
                 ),
                 SizedBox(width: 8), // Spacing between the two buttons
@@ -41,8 +41,8 @@ class InitialSelectionScreenView
                   onPressed: viewModel.navigateToServiceProviderLogin,
                   style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: Colors
-                        .blue, // Different color for differentiation
+                    backgroundColor:
+                        Colors.blue, // Different color for differentiation
                   ),
                   child: Text('Service Provider'),
                 ),

@@ -331,8 +331,20 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i14.ServiceProviderBookingdetailView: (data) {
+      final args = data.getArgs<ServiceProviderBookingdetailViewArguments>(
+          nullOk: false);
       return _i28.MaterialPageRoute<dynamic>(
-        builder: (context) => const _i14.ServiceProviderBookingdetailView(),
+        builder: (context) => _i14.ServiceProviderBookingdetailView(
+            key: args.key,
+            customerName: args.customerName,
+            email: args.email,
+            serviceName: args.serviceName,
+            location: args.location,
+            customerPhone: args.customerPhone,
+            status: args.status,
+            date: args.date,
+            servceCategory: args.servceCategory,
+            servicePrice: args.servicePrice),
         settings: data,
       );
     },
@@ -439,6 +451,75 @@ class StackedRouter extends _i1.RouterBase {
 
   @override
   Map<Type, _i1.StackedRouteFactory> get pagesMap => _pagesMap;
+}
+
+class ServiceProviderBookingdetailViewArguments {
+  const ServiceProviderBookingdetailViewArguments({
+    this.key,
+    required this.customerName,
+    required this.email,
+    required this.serviceName,
+    required this.location,
+    required this.customerPhone,
+    required this.status,
+    required this.date,
+    required this.servceCategory,
+    required this.servicePrice,
+  });
+
+  final _i28.Key? key;
+
+  final String customerName;
+
+  final String email;
+
+  final String serviceName;
+
+  final String location;
+
+  final String customerPhone;
+
+  final String status;
+
+  final String date;
+
+  final String servceCategory;
+
+  final String servicePrice;
+
+  @override
+  String toString() {
+    return '{"key": "$key", "customerName": "$customerName", "email": "$email", "serviceName": "$serviceName", "location": "$location", "customerPhone": "$customerPhone", "status": "$status", "date": "$date", "servceCategory": "$servceCategory", "servicePrice": "$servicePrice"}';
+  }
+
+  @override
+  bool operator ==(covariant ServiceProviderBookingdetailViewArguments other) {
+    if (identical(this, other)) return true;
+    return other.key == key &&
+        other.customerName == customerName &&
+        other.email == email &&
+        other.serviceName == serviceName &&
+        other.location == location &&
+        other.customerPhone == customerPhone &&
+        other.status == status &&
+        other.date == date &&
+        other.servceCategory == servceCategory &&
+        other.servicePrice == servicePrice;
+  }
+
+  @override
+  int get hashCode {
+    return key.hashCode ^
+        customerName.hashCode ^
+        email.hashCode ^
+        serviceName.hashCode ^
+        location.hashCode ^
+        customerPhone.hashCode ^
+        status.hashCode ^
+        date.hashCode ^
+        servceCategory.hashCode ^
+        servicePrice.hashCode;
+  }
 }
 
 class CustomerBookingDetailViewArguments {
@@ -750,14 +831,35 @@ extension NavigatorStateExtension on _i29.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> navigateToServiceProviderBookingdetailView([
+  Future<dynamic> navigateToServiceProviderBookingdetailView({
+    _i28.Key? key,
+    required String customerName,
+    required String email,
+    required String serviceName,
+    required String location,
+    required String customerPhone,
+    required String status,
+    required String date,
+    required String servceCategory,
+    required String servicePrice,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return navigateTo<dynamic>(Routes.serviceProviderBookingdetailView,
+        arguments: ServiceProviderBookingdetailViewArguments(
+            key: key,
+            customerName: customerName,
+            email: email,
+            serviceName: serviceName,
+            location: location,
+            customerPhone: customerPhone,
+            status: status,
+            date: date,
+            servceCategory: servceCategory,
+            servicePrice: servicePrice),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -1143,14 +1245,35 @@ extension NavigatorStateExtension on _i29.NavigationService {
         transition: transition);
   }
 
-  Future<dynamic> replaceWithServiceProviderBookingdetailView([
+  Future<dynamic> replaceWithServiceProviderBookingdetailView({
+    _i28.Key? key,
+    required String customerName,
+    required String email,
+    required String serviceName,
+    required String location,
+    required String customerPhone,
+    required String status,
+    required String date,
+    required String servceCategory,
+    required String servicePrice,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
     Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
         transition,
-  ]) async {
+  }) async {
     return replaceWith<dynamic>(Routes.serviceProviderBookingdetailView,
+        arguments: ServiceProviderBookingdetailViewArguments(
+            key: key,
+            customerName: customerName,
+            email: email,
+            serviceName: serviceName,
+            location: location,
+            customerPhone: customerPhone,
+            status: status,
+            date: date,
+            servceCategory: servceCategory,
+            servicePrice: servicePrice),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

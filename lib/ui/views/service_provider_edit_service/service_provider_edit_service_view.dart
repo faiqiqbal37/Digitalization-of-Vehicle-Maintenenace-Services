@@ -110,11 +110,9 @@ class ServiceProviderEditServiceView
     );
   }
 
-
   @override
   void onViewModelReady(ServiceProviderEditServiceViewModel viewModel) {
     syncFormWithViewModel(viewModel);
-
   }
 
   @override

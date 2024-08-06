@@ -96,11 +96,7 @@ class LoginServiceProviderView
     );
   }
 
-  @override
-  void onDispose(LoginServiceProviderViewModel viewModel) {
-    super.onDispose(viewModel);
-    disposeForm();
-  }
+
 
   @override
   void onViewModelReady(LoginServiceProviderViewModel viewModel) {
