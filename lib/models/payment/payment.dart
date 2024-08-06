@@ -7,6 +7,7 @@ part 'payment.g.dart';
 class Payment with _$Payment {
   const factory Payment({
     required String id,
+    required String serviceProviderId,
     required String customerId,
     required String bookingId,
     required int amount,
