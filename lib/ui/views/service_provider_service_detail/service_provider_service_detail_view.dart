@@ -27,10 +27,9 @@ class ServiceProviderServiceDetailView
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Placeholder(
-                fallbackHeight: 200.0, // Placeholder for the image
-              ),
-              SizedBox(height: 20),
+              Center(child: Icon(Icons.description, size: 110, color: Colors.black)),
+
+              SizedBox(height: 40),
               Text(
                 'Service Name: ${viewModel.serviceDetail.serviceName}',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -78,9 +77,8 @@ class ServiceProviderServiceDetailView
                       child: Text('Edit Details'),
                     ),
                     ElevatedButton(
-                      onPressed: () {
-                        // Logic to book the service
-                      },
+                      onPressed: () => viewModel.deleteServiceById(serviceId),
+
                       child: Text('Delete Service'),
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,

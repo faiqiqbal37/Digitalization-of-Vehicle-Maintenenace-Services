@@ -99,4 +99,14 @@ class ServicesService {
       throw Exception('Failed to fetch services by type');
     }
   }
+
+  Future<void> deleteServiceById(String serviceId) async {
+    try {
+      await _firestore.collection('services').doc(serviceId).delete();
+      print("Service deleted successfully!");
+    } catch (e) {
+      print("Error deleting service: $e");
+      throw Exception("Failed to delete service");
+    }
+  }
 }
