@@ -13,7 +13,7 @@ _$BookingImpl _$$BookingImplFromJson(Map<String, dynamic> json) =>
       customerId: json['customerId'] as String,
       serviceId: json['serviceId'] as String,
       vehicleId: json['vehicleId'] as String?,
-      date: json['date'] as DateTime,
+      date: DateTime.parse(json['date'] as String),
       status: json['status'] as String? ?? 'pending',
     );
 

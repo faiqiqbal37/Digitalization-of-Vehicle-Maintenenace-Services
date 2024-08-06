@@ -10,7 +10,6 @@ import '../../../services/authentication_service.dart';
 import '../../../services/customer_service.dart';
 import 'package:disertation/ui/views/service_provider_edit_profile/service_provider_edit_profile_view.form.dart';
 
-
 class ServiceProviderEditProfileViewModel extends FormViewModel {
   final _authService = locator<AuthenticationService>();
   final _serviceProviderService = locator<ServiceProviderService>();
@@ -27,7 +26,14 @@ class ServiceProviderEditProfileViewModel extends FormViewModel {
   }
 
   void editServiceProvider() async {
-    _serviceProviderService.updateServiceProvider(_authService.serviceProvider!.id, firstnameValue!, phoneValue!, lastnameValue!, companyNameValue!, emailValue!, locationValue!);
+    _serviceProviderService.updateServiceProvider(
+        _authService.serviceProvider!.id,
+        firstnameValue!,
+        phoneValue!,
+        lastnameValue!,
+        companyNameValue!,
+        emailValue!,
+        locationValue!);
 
     notifyListeners();
     await showDialog();

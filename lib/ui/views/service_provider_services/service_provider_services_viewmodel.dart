@@ -45,4 +45,8 @@ class ServiceProviderServicesViewModel extends BaseViewModel {
   void navigateToAddService() {
     _navigationService.navigateToServiceProviderAddServiceView();
   }
+
+  void navigateToServiceDetail(String serviceId) {
+    _navigationService.navigateToServiceProviderServiceDetailView(serviceId: serviceId);
+  }
 }

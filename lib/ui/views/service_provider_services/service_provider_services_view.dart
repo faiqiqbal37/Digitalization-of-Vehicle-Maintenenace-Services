@@ -26,23 +26,44 @@ class ServiceProviderServicesView
             child: ListView.builder(
               itemCount: viewModel.servicesNew.length,
               itemBuilder: (context, index) {
-                return Card(
-                  child: ListTile(
-                    leading: Icon(Icons.build),
-                    title: Text(viewModel.servicesNew[index].serviceName),
-                    subtitle: Text(
-                        '${viewModel.servicesNew[index].serviceType} - ${viewModel.servicesNew[index].price}'),
-                    trailing: ElevatedButton(
-                      onPressed: () {
-                        // Handle edit action
-                      },
-                      child: Text('Edit'),
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor: Colors.blue, // Text color
+                return Column(
+                  children: [
+                    SizedBox(height: 8),
+                    Card(
+                      child: ListTile(
+                        leading: Icon(Icons.build),
+                        title: Text(viewModel.servicesNew[index].serviceName),
+                        subtitle: Text(
+                            '${viewModel.servicesNew[index].serviceType} - ${viewModel.servicesNew[index].price}'),
+                        trailing: Row(
+                          mainAxisSize: MainAxisSize
+                              .min, // This ensures the Row only takes needed space
+                          children: <Widget>[
+                            ElevatedButton(
+                              onPressed: () => viewModel.navigateToServiceDetail(viewModel.servicesNew[index].id),
+                              child: Text('View'),
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                backgroundColor: Colors
+                                    .blue, // Different color for differentiation
+                              ),
+                            ),
+                            SizedBox(width: 8), // Spacing between buttons
+                            ElevatedButton(
+                              onPressed: () {
+                                // Handle edit action
+                              },
+                              child: Text('Edit'),
+                              style: ElevatedButton.styleFrom(
+                                foregroundColor: Colors.white,
+                                backgroundColor: Colors.blue, // Text color
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                  ),
+                    )
+                  ],
                 );
               },
             ),

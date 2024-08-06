@@ -13,15 +13,21 @@ class ServiceProviderProfileViewModel extends BaseViewModel {
   final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();
   final _serviceProviderService = locator<ServiceProviderService>();
-  ServiceProvider serviceProvider = ServiceProvider(id: "id", firstname: "firstname", lastname: "lastname", businessName: "businessName", phoneNumber: "phoneNumber", email: "email", password: "password");
+  ServiceProvider serviceProvider = ServiceProvider(
+      id: "id",
+      firstname: "firstname",
+      lastname: "lastname",
+      businessName: "businessName",
+      phoneNumber: "phoneNumber",
+      email: "email",
+      password: "password");
 
   Future<ServiceProvider> returnServiceProvider() async {
-    serviceProvider =
-    await _serviceProviderService.fetchServiceProviderById(_authService.serviceProvider!.id);
+    serviceProvider = await _serviceProviderService
+        .fetchServiceProviderById(_authService.serviceProvider!.id);
     notifyListeners();
     return serviceProvider;
   }
-
 
   Future<void> showRegistrationDialog() async {
     await _dialogService.showCustomDialog(
@@ -32,8 +38,7 @@ class ServiceProviderProfileViewModel extends BaseViewModel {
     _navigationService.clearStackAndShow(Routes.initialSelectionScreenView);
   }
 
-
-  void navigateToEditScreen(){
+  void navigateToEditScreen() {
     _navigationService.navigateToServiceProviderEditProfileView();
   }
 

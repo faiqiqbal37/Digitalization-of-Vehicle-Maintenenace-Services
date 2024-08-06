@@ -36,11 +36,8 @@ class ServiceProviderProfileView
               title: "Company",
               content: viewModel.serviceProvider.businessName),
           ProfileItem(
-              title: "Phone",
-              content: viewModel.serviceProvider.phoneNumber),
-          ProfileItem(
-              title: "Email",
-              content: viewModel.serviceProvider.email),
+              title: "Phone", content: viewModel.serviceProvider.phoneNumber),
+          ProfileItem(title: "Email", content: viewModel.serviceProvider.email),
           ProfileItem(title: "Address", content: "23 JAMES ST, S4 7TL"),
           SizedBox(height: 30),
           Padding(
@@ -77,7 +74,6 @@ class ServiceProviderProfileView
       bottomNavigationBar: CustomBottomNavigationBar(),
     );
   }
-
 
   @override
   void onViewModelReady(ServiceProviderProfileViewModel viewModel) {

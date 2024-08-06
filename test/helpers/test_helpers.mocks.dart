@@ -1038,4 +1038,56 @@ class MockCustomerService extends _i1.Mock implements _i17.CustomerService {
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockServiceProviderService extends _i1.Mock
-    implements _i18.ServiceProviderService {}
+    implements _i18.ServiceProviderService {
+  @override
+  _i8.Future<_i2.ServiceProvider> fetchServiceProviderById(String? id) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #fetchServiceProviderById,
+          [id],
+        ),
+        returnValue:
+            _i8.Future<_i2.ServiceProvider>.value(_FakeServiceProvider_0(
+          this,
+          Invocation.method(
+            #fetchServiceProviderById,
+            [id],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i8.Future<_i2.ServiceProvider>.value(_FakeServiceProvider_0(
+          this,
+          Invocation.method(
+            #fetchServiceProviderById,
+            [id],
+          ),
+        )),
+      ) as _i8.Future<_i2.ServiceProvider>);
+
+  @override
+  _i8.Future<void> updateServiceProvider(
+    String? serviceProviderId,
+    String? firstname,
+    String? phoneNumber,
+    String? lastname,
+    String? businessName,
+    String? email,
+    String? location,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #updateServiceProvider,
+          [
+            serviceProviderId,
+            firstname,
+            phoneNumber,
+            lastname,
+            businessName,
+            email,
+            location,
+          ],
+        ),
+        returnValue: _i8.Future<void>.value(),
+        returnValueForMissingStub: _i8.Future<void>.value(),
+      ) as _i8.Future<void>);
+}
