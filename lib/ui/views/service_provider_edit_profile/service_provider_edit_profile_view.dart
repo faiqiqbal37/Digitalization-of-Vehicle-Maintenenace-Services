@@ -137,9 +137,10 @@ class ServiceProviderEditProfileView
                         fontWeight: FontWeight.w700))
                 : SizedBox(height: 20),
             SizedBox(height: 20),
-            TextButton(
+            ElevatedButton(
               onPressed: viewModel.editServiceProvider,
               child: Text('Edit'),
+
             ),
           ],
         ),

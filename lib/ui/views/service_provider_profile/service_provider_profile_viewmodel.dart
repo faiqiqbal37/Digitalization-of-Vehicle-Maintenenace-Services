@@ -14,13 +14,13 @@ class ServiceProviderProfileViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _serviceProviderService = locator<ServiceProviderService>();
   ServiceProvider serviceProvider = ServiceProvider(
-      id: "id",
-      firstname: "firstname",
-      lastname: "lastname",
-      businessName: "businessName",
-      phoneNumber: "phoneNumber",
-      email: "email",
-      password: "password");
+      id: "",
+      firstname: "",
+      lastname: "",
+      businessName: "",
+      phoneNumber: "",
+      email: "",
+      password: "");
 
   Future<ServiceProvider> returnServiceProvider() async {
     serviceProvider = await _serviceProviderService

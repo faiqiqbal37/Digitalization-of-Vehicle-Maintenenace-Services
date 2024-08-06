@@ -116,7 +116,7 @@ class CustomerEditProfileView extends StackedView<CustomerEditProfileViewModel>
                         fontWeight: FontWeight.w700))
                 : SizedBox(height: 20),
             SizedBox(height: 20),
-            TextButton(
+            ElevatedButton(
               onPressed: viewModel.editCustomer,
               child: Text('Edit'),
             ),

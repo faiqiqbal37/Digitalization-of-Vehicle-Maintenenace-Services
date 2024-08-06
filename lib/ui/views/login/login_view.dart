@@ -104,7 +104,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
   @override
   void onDispose(LoginViewModel viewModel) {
     super.onDispose(viewModel);
-    disposeForm();
+    viewModel.emailInputValue = "";
+    viewModel.passwordInputValue = "";
   }
 
   @override

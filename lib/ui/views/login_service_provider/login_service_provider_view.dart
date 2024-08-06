@@ -96,7 +96,12 @@ class LoginServiceProviderView
     );
   }
 
-
+  @override
+  void onDispose(LoginServiceProviderViewModel viewModel) {
+    super.onDispose(viewModel);
+    viewModel.emailValue = "";
+    viewModel.passwordValue = "";
+  }
 
   @override
   void onViewModelReady(LoginServiceProviderViewModel viewModel) {

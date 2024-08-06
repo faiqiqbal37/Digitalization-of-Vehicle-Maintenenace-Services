@@ -23,7 +23,7 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
             SizedBox(height: 80),
             Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text('Hi James!',
+              child: Text('Hi ${viewModel.customerName}!',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             ),
             Padding(
@@ -46,11 +46,12 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
                     width: 400,
                     margin: EdgeInsets.symmetric(horizontal: 5),
                     color: Colors.grey[300],
-                    child: Image.network(
-                      'https://via.placeholder.com/100', // Example image URL
+                    child: Image.asset(
+                      'assets/ad_banner1.jpg', // Example image URL
                       fit: BoxFit.cover,
                     ),
                   );
+
                 },
               ),
             ),
@@ -106,6 +107,12 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
       ),
       bottomNavigationBar: CustomerBottomNavigationBar(),
     );
+  }
+
+
+  @override
+  void onViewModelReady(CustomerHomeViewModel viewModel) {
+    viewModel.getCustomerName();
   }
 
   @override

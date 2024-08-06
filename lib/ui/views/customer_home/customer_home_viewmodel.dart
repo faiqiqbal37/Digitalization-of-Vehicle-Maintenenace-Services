@@ -20,6 +20,15 @@ class CustomerHomeViewModel extends BaseViewModel {
 
   final _servicesService = locator<ServicesService>();
 
+   String customerName = "";
+
+
+  Future<void> getCustomerName() async{
+    Customer customer =  await _customerService.fetchCustomerById(_authenticationService.customer!.id);
+    customerName = customer.firstname;
+    notifyListeners();
+  }
+
   Future<List<Map<String, dynamic>>> loadCustomerBookings() async {
     List<Booking> bookings = await _bookingService
         .fetchBookingsByCustomerId(_authenticationService.customer!.id);

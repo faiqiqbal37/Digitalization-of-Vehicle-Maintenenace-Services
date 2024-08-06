@@ -14,12 +14,12 @@ class CustomerProfileViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _customerService = locator<CustomerService>();
   Customer customer = Customer(
-      id: "id",
-      firstname: "firstname",
-      lastname: "lastname",
-      phoneNumber: "phoneNumber",
-      email: "email",
-      password: "password");
+      id: "",
+      firstname: "",
+      lastname: "",
+      phoneNumber: "",
+      email: "",
+      password: "");
 
   Future<Customer> returnCustomer() async {
     customer =

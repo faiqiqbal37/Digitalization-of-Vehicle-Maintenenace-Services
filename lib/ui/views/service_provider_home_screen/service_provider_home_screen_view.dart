@@ -28,7 +28,7 @@ class ServiceProviderHomeScreenView
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "Edward Repairs",
+                      viewModel.serviceProviderName,
                       style:
                           TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                     ),
@@ -94,6 +94,13 @@ class ServiceProviderHomeScreenView
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),
     );
+  }
+
+
+  @override
+  void onViewModelReady(ServiceProviderHomeScreenViewModel viewModel) {
+    viewModel.getServiceProviderName();
+    viewModel.notifyListeners();
   }
 
   @override
