@@ -109,4 +109,20 @@ class ServicesService {
       throw Exception("Failed to delete service");
     }
   }
+
+  Future<void> editService(
+      String serviceId, Service service) async {
+    try {
+      // Get a reference to the document with the specified ID
+      DocumentReference serviceDoc =
+          _firestore.collection('services').doc(serviceId);
+
+      // Update the document with the given fields
+      await serviceDoc.update(service.toJson());
+      print("Service updated successfully!");
+    } catch (e) {
+      print("Error updating service: $e");
+      throw Exception("Failed to update service");
+    }
+  }
 }

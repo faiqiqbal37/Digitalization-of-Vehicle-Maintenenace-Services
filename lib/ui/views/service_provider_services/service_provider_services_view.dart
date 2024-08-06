@@ -40,7 +40,9 @@ class ServiceProviderServicesView
                               .min, // This ensures the Row only takes needed space
                           children: <Widget>[
                             ElevatedButton(
-                              onPressed: () => viewModel.navigateToServiceDetail(viewModel.servicesNew[index].id),
+                              onPressed: () =>
+                                  viewModel.navigateToServiceDetail(
+                                      viewModel.servicesNew[index].id),
                               child: Text('View'),
                               style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.white,
@@ -50,9 +52,7 @@ class ServiceProviderServicesView
                             ),
                             SizedBox(width: 8), // Spacing between buttons
                             ElevatedButton(
-                              onPressed: () {
-                                // Handle edit action
-                              },
+                              onPressed: () => viewModel.navigateToEditDetail(viewModel.servicesNew[index].id),
                               child: Text('Edit'),
                               style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.white,

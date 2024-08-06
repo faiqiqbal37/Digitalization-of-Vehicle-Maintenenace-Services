@@ -1,15 +1,15 @@
-import 'package:disertation/app/app.locator.dart';
-import 'package:disertation/models/service/service.dart';
-import 'package:disertation/services/authentication_service.dart';
-import 'package:disertation/services/services_service.dart';
-import 'package:disertation/ui/views/service_provider_add_service/service_provider_add_service_view.form.dart';
+import 'package:disertation/ui/views/service_provider_edit_service/service_provider_edit_service_view.form.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import '../../../app/app.dialogs.dart';
+import '../../../app/app.locator.dart';
 import '../../../app/app.router.dart';
+import '../../../models/service/service.dart';
+import '../../../services/authentication_service.dart';
+import '../../../services/services_service.dart';
 
-class ServiceProviderAddServiceViewModel extends FormViewModel {
+class ServiceProviderEditServiceViewModel extends FormViewModel {
   final _authService = locator<AuthenticationService>();
   final _servicesService = locator<ServicesService>();
   final _dialogService = locator<DialogService>();
@@ -20,17 +20,17 @@ class ServiceProviderAddServiceViewModel extends FormViewModel {
   Future<void> showDialog() async {
     await _dialogService.showCustomDialog(
       variant: DialogType.infoAlert,
-      title: 'Service Added',
-      description: 'Service Added Successfully',
+      title: 'Service Edited',
+      description: ' ',
     );
     _navigationService.clearStackAndShow(Routes.serviceProviderServicesView);
   }
 
-  Future<void> addService() async {
+  Future<void> editService(String id) async {
     try {
       notifyListeners();
       Service newService = Service(
-        id: DateTime.now().millisecondsSinceEpoch.toString(),
+        id: id,
         price: priceValue.toString(),
         serviceName: serviceNameValue.toString(),
         serviceProviderId: _authService.serviceProvider!.id,
@@ -39,7 +39,8 @@ class ServiceProviderAddServiceViewModel extends FormViewModel {
         description: descriptionValue.toString(),
         eta: etaValue.toString(),
       );
-      await _servicesService.addService(newService);
+      await _servicesService.editService(id, newService);
+      notifyListeners();
       await showDialog();
     } catch (e) {}
   }

@@ -27,8 +27,9 @@ class ServiceProviderServiceDetailView
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Center(child: Icon(Icons.description, size: 110, color: Colors.black)),
-
+              Center(
+                  child:
+                      Icon(Icons.description, size: 110, color: Colors.black)),
               SizedBox(height: 40),
               Text(
                 'Service Name: ${viewModel.serviceDetail.serviceName}',
@@ -78,7 +79,6 @@ class ServiceProviderServiceDetailView
                     ),
                     ElevatedButton(
                       onPressed: () => viewModel.deleteServiceById(serviceId),
-
                       child: Text('Delete Service'),
                       style: ElevatedButton.styleFrom(
                         foregroundColor: Colors.white,
@@ -96,7 +96,6 @@ class ServiceProviderServiceDetailView
       bottomNavigationBar: CustomBottomNavigationBar(),
     );
   }
-
 
   @override
   void onViewModelReady(ServiceProviderServiceDetailViewModel viewModel) {
