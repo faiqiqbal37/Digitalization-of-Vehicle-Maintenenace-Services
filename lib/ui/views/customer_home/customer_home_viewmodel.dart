@@ -20,11 +20,11 @@ class CustomerHomeViewModel extends BaseViewModel {
 
   final _servicesService = locator<ServicesService>();
 
-   String customerName = "";
+  String customerName = "";
 
-
-  Future<void> getCustomerName() async{
-    Customer customer =  await _customerService.fetchCustomerById(_authenticationService.customer!.id);
+  Future<void> getCustomerName() async {
+    Customer customer = await _customerService
+        .fetchCustomerById(_authenticationService.customer!.id);
     customerName = customer.firstname;
     notifyListeners();
   }

@@ -51,7 +51,6 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
                       fit: BoxFit.cover,
                     ),
                   );
-
                 },
               ),
             ),
@@ -108,7 +107,6 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
       bottomNavigationBar: CustomerBottomNavigationBar(),
     );
   }
-
 
   @override
   void onViewModelReady(CustomerHomeViewModel viewModel) {

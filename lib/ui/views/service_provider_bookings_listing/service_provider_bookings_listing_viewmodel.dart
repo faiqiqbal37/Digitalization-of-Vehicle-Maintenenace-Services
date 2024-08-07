@@ -22,8 +22,9 @@ class ServiceProviderBookingsListingViewModel extends BaseViewModel {
   final _servicesService = locator<ServicesService>();
 
   Future<List<Map<String, dynamic>>> loadCustomerBookings() async {
-    List<Booking> bookings = await _bookingService
-        .fetchBookingsByServiceProviderId(_authenticationService.serviceProvider!.id);
+    List<Booking> bookings =
+        await _bookingService.fetchBookingsByServiceProviderId(
+            _authenticationService.serviceProvider!.id);
     List<Map<String, dynamic>> bookingDetailsList = [];
 
     for (var booking in bookings) {

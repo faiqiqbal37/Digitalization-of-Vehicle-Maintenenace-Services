@@ -83,14 +83,17 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
                 itemCount: viewModel.servicesNew.length,
                 itemBuilder: (context, index) {
                   return CustomerServiceCard(
-                    serviceProviderName:
-                        viewModel.servicesNew[index].serviceName,
-                    serviceName: viewModel.servicesNew[index].serviceType,
-                    price: viewModel.servicesNew[index].price,
-                    eta: viewModel.servicesNew[index].eta,
-                    vehicleType: viewModel.servicesNew[index].vehicleType,
-                    description: viewModel.servicesNew[index].description,
-                  );
+                      serviceProviderName:
+                          viewModel.servicesNew[index].serviceName,
+                      serviceName: viewModel.servicesNew[index].serviceType,
+                      price: viewModel.servicesNew[index].price,
+                      eta: viewModel.servicesNew[index].eta,
+                      vehicleType: viewModel.servicesNew[index].vehicleType,
+                      description: viewModel.servicesNew[index].description,
+                      customerId: viewModel.customer.id,
+                      serviceId: viewModel.servicesNew[index].id,
+                      serviceProviderId:
+                          viewModel.servicesNew[index].serviceProviderId);
                 }),
           ),
         ],
@@ -103,6 +106,7 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
   void onViewModelReady(CustomerServicesViewModel viewModel) {
     super.onViewModelReady(viewModel);
     viewModel.fetchServices();
+    viewModel.fetchCustomer();
   }
 
   @override

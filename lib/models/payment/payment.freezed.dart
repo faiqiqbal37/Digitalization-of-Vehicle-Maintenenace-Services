@@ -25,6 +25,7 @@ mixin _$Payment {
   String get customerId => throw _privateConstructorUsedError;
   String get bookingId => throw _privateConstructorUsedError;
   int get amount => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _fromJson, toJson: _toJson)
   DateTime get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +44,7 @@ abstract class $PaymentCopyWith<$Res> {
       String customerId,
       String bookingId,
       int amount,
-      DateTime date});
+      @JsonKey(fromJson: _fromJson, toJson: _toJson) DateTime date});
 }
 
 /// @nodoc
@@ -108,7 +109,7 @@ abstract class _$$PaymentImplCopyWith<$Res> implements $PaymentCopyWith<$Res> {
       String customerId,
       String bookingId,
       int amount,
-      DateTime date});
+      @JsonKey(fromJson: _fromJson, toJson: _toJson) DateTime date});
 }
 
 /// @nodoc
@@ -167,7 +168,7 @@ class _$PaymentImpl implements _Payment {
       required this.customerId,
       required this.bookingId,
       required this.amount,
-      required this.date});
+      @JsonKey(fromJson: _fromJson, toJson: _toJson) required this.date});
 
   factory _$PaymentImpl.fromJson(Map<String, dynamic> json) =>
       _$$PaymentImplFromJson(json);
@@ -183,6 +184,7 @@ class _$PaymentImpl implements _Payment {
   @override
   final int amount;
   @override
+  @JsonKey(fromJson: _fromJson, toJson: _toJson)
   final DateTime date;
 
   @override
@@ -232,6 +234,7 @@ abstract class _Payment implements Payment {
       required final String customerId,
       required final String bookingId,
       required final int amount,
+      @JsonKey(fromJson: _fromJson, toJson: _toJson)
       required final DateTime date}) = _$PaymentImpl;
 
   factory _Payment.fromJson(Map<String, dynamic> json) = _$PaymentImpl.fromJson;
@@ -247,6 +250,7 @@ abstract class _Payment implements Payment {
   @override
   int get amount;
   @override
+  @JsonKey(fromJson: _fromJson, toJson: _toJson)
   DateTime get date;
   @override
   @JsonKey(ignore: true)

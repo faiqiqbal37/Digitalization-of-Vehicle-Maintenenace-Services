@@ -62,7 +62,16 @@ class BookingCard extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     _navigationService
-                        .navigateToServiceProviderBookingdetailView(customerPhone: phone, customerName: customerName, serviceName: serviceName, email: email, location: "Location", status: status, date: date, servceCategory: category, servicePrice: price);
+                        .navigateToServiceProviderBookingdetailView(
+                            customerPhone: phone,
+                            customerName: customerName,
+                            serviceName: serviceName,
+                            email: email,
+                            location: "Location",
+                            status: status,
+                            date: date,
+                            servceCategory: category,
+                            servicePrice: price);
                   },
                   child: Text('View'),
                 ),

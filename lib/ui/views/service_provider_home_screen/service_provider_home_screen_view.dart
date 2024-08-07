@@ -96,7 +96,6 @@ class ServiceProviderHomeScreenView
     );
   }
 
-
   @override
   void onViewModelReady(ServiceProviderHomeScreenViewModel viewModel) {
     viewModel.getServiceProviderName();

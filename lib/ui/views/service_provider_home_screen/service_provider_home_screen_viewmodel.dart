@@ -10,12 +10,10 @@ class ServiceProviderHomeScreenViewModel extends BaseViewModel {
   final _authService = locator<AuthenticationService>();
   String serviceProviderName = "";
 
-
   Future<void> getServiceProviderName() async {
-    ServiceProvider serviceProvider = await _serviceProviderService.fetchServiceProviderById(_authService.serviceProvider!.id);
+    ServiceProvider serviceProvider = await _serviceProviderService
+        .fetchServiceProviderById(_authService.serviceProvider!.id);
     notifyListeners();
     serviceProviderName = serviceProvider.businessName;
-
   }
-
 }

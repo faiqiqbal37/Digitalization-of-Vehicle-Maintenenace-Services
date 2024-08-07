@@ -35,6 +35,7 @@ import 'package:disertation/ui/views/service_provider_edit_profile/service_provi
 import 'package:disertation/services/service_provider_service.dart';
 import 'package:disertation/ui/views/service_provider_service_detail/service_provider_service_detail_view.dart';
 import 'package:disertation/ui/views/service_provider_edit_service/service_provider_edit_service_view.dart';
+import 'package:disertation/ui/views/admin_home/admin_home_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -65,6 +66,7 @@ import 'package:disertation/ui/views/service_provider_edit_service/service_provi
     MaterialRoute(page: ServiceProviderEditProfileView),
     MaterialRoute(page: ServiceProviderServiceDetailView),
     MaterialRoute(page: ServiceProviderEditServiceView),
+    MaterialRoute(page: AdminHomeView),
 // @stacked-route
   ],
   dependencies: [

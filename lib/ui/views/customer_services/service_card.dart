@@ -5,11 +5,15 @@ import 'package:stacked_services/stacked_services.dart';
 
 class CustomerServiceCard extends StatelessWidget {
   final String serviceProviderName;
+  final String serviceProviderId;
+  final String serviceId;
+  final String customerId;
   final String serviceName;
   final String price;
   final String vehicleType;
   final String? eta;
   final String? description;
+
   final _navigationService = locator<NavigationService>();
 
   CustomerServiceCard(
@@ -18,7 +22,10 @@ class CustomerServiceCard extends StatelessWidget {
       required this.price,
       required this.eta,
       required this.vehicleType,
-      required this.description});
+      required this.description,
+      required this.serviceProviderId,
+      required this.serviceId,
+      required this.customerId});
 
   @override
   Widget build(BuildContext context) {
@@ -49,14 +56,18 @@ class CustomerServiceCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 ElevatedButton(
-                  onPressed: () {
-                    },
+                  onPressed: () {},
                   child: Text('View Details'),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     _navigationService.navigateToCustomerAddBookingView(
-                        description: description);
+                        price: price,
+                        description: description,
+                        serviceName: serviceName,
+                        serviceId: serviceId,
+                        serviceProviderId: serviceProviderId,
+                        customerId: customerId);
                   },
                   child: Text('Book'),
                 ),

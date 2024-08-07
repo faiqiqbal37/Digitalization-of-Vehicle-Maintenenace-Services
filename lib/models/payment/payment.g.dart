@@ -13,7 +13,7 @@ _$PaymentImpl _$$PaymentImplFromJson(Map<String, dynamic> json) =>
       customerId: json['customerId'] as String,
       bookingId: json['bookingId'] as String,
       amount: (json['amount'] as num).toInt(),
-      date: DateTime.parse(json['date'] as String),
+      date: json['date'] as DateTime,
     );
 
 Map<String, dynamic> _$$PaymentImplToJson(_$PaymentImpl instance) =>
@@ -23,5 +23,5 @@ Map<String, dynamic> _$$PaymentImplToJson(_$PaymentImpl instance) =>
       'customerId': instance.customerId,
       'bookingId': instance.bookingId,
       'amount': instance.amount,
-      'date': instance.date.toIso8601String(),
+      'date': _toJson(instance.date),
     };

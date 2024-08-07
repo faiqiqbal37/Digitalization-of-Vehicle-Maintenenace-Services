@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'payment.freezed.dart';
@@ -11,9 +12,14 @@ class Payment with _$Payment {
     required String customerId,
     required String bookingId,
     required int amount,
-    required DateTime date,
+    @JsonKey(fromJson: _fromJson, toJson: _toJson) required DateTime date,
   }) = _Payment;
 
   factory Payment.fromJson(Map<String, dynamic> json) =>
       _$PaymentFromJson(json);
 }
+
+DateTime _fromJson(Timestamp timestamp) => timestamp.toDate();
+
+Timestamp _toJson(DateTime date) => Timestamp.fromDate(date);
+

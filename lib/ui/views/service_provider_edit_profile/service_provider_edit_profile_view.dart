@@ -140,7 +140,6 @@ class ServiceProviderEditProfileView
             ElevatedButton(
               onPressed: viewModel.editServiceProvider,
               child: Text('Edit'),
-
             ),
           ],
         ),

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/booking/booking.dart';
+import '../models/payment/payment.dart';
 
 class BookingService {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -87,6 +88,38 @@ class BookingService {
     } catch (e) {
       print('Error fetching the most recent booking: $e');
       return null; // Return null in case of any exceptions
+    }
+  }
+
+  // Method to add a payment record
+  Future<void> addPayment(Payment payment) async {
+    try {
+      // Add the payment to the 'payments' collection in Firestore
+      await _firestore
+          .collection('payments')
+          .doc(payment.id)
+          .set(payment.toJson());
+      print('Payment added successfully with ID: ${payment.id}');
+    } catch (e) {
+      print('Error adding payment: $e');
+      throw Exception(
+          'Failed to add payment'); // Optional: Provide more specific error handling
+    }
+  }
+
+  Future<void> addBooking(Booking booking) async {
+    try {
+      // Add the payment to the 'payments' collection in Firestore
+      print(booking.date);
+      await _firestore
+          .collection('bookings')
+          .doc(booking.id)
+          .set(booking.toJson());
+      print('Payment added successfully with ID: ${booking.id}');
+    } catch (e) {
+      print('Error adding payment: $e');
+      throw Exception(
+          'Failed to add payment'); // Optional: Provide more specific error handling
     }
   }
 }

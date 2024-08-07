@@ -25,6 +25,7 @@ mixin _$Booking {
   String get customerId => throw _privateConstructorUsedError;
   String get serviceId => throw _privateConstructorUsedError;
   String? get vehicleId => throw _privateConstructorUsedError; // Optional
+  @JsonKey(fromJson: _fromJson, toJson: _toJson)
   DateTime get date => throw _privateConstructorUsedError;
   String get status => throw _privateConstructorUsedError;
 
@@ -44,7 +45,7 @@ abstract class $BookingCopyWith<$Res> {
       String customerId,
       String serviceId,
       String? vehicleId,
-      DateTime date,
+      @JsonKey(fromJson: _fromJson, toJson: _toJson) DateTime date,
       String status});
 }
 
@@ -115,7 +116,7 @@ abstract class _$$BookingImplCopyWith<$Res> implements $BookingCopyWith<$Res> {
       String customerId,
       String serviceId,
       String? vehicleId,
-      DateTime date,
+      @JsonKey(fromJson: _fromJson, toJson: _toJson) DateTime date,
       String status});
 }
 
@@ -180,7 +181,7 @@ class _$BookingImpl implements _Booking {
       required this.customerId,
       required this.serviceId,
       this.vehicleId,
-      required this.date,
+      @JsonKey(fromJson: _fromJson, toJson: _toJson) required this.date,
       this.status = 'pending'});
 
   factory _$BookingImpl.fromJson(Map<String, dynamic> json) =>
@@ -198,6 +199,7 @@ class _$BookingImpl implements _Booking {
   final String? vehicleId;
 // Optional
   @override
+  @JsonKey(fromJson: _fromJson, toJson: _toJson)
   final DateTime date;
   @override
   @JsonKey()
@@ -252,6 +254,7 @@ abstract class _Booking implements Booking {
       required final String customerId,
       required final String serviceId,
       final String? vehicleId,
+      @JsonKey(fromJson: _fromJson, toJson: _toJson)
       required final DateTime date,
       final String status}) = _$BookingImpl;
 
@@ -268,6 +271,7 @@ abstract class _Booking implements Booking {
   @override
   String? get vehicleId;
   @override // Optional
+  @JsonKey(fromJson: _fromJson, toJson: _toJson)
   DateTime get date;
   @override
   String get status;

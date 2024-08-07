@@ -24,6 +24,6 @@ Map<String, dynamic> _$$BookingImplToJson(_$BookingImpl instance) =>
       'customerId': instance.customerId,
       'serviceId': instance.serviceId,
       'vehicleId': instance.vehicleId,
-      'date': instance.date.toIso8601String(),
+      'date': _toJson(instance.date),
       'status': instance.status,
     };
