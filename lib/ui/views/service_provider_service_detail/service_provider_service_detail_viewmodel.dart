@@ -29,4 +29,8 @@ class ServiceProviderServiceDetailViewModel extends BaseViewModel {
     _navigationService.replaceWithServiceProviderServicesView();
     notifyListeners();
   }
+
+  void navigateToEditDetails(String serviceId){
+    _navigationService.navigateToServiceProviderEditServiceView(serviceId: serviceId);
+  }
 }

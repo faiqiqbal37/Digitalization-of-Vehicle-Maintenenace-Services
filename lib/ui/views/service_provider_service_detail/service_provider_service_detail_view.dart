@@ -76,7 +76,7 @@ class ServiceProviderServiceDetailView
                     children: [
                       ElevatedButton(
                         onPressed: () {
-                          // Logic to book the service
+                          viewModel.navigateToEditDetails(serviceId);
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,

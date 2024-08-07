@@ -43,8 +43,6 @@ class CustomerServiceCard extends StatelessWidget {
                 Text('Service Name: $serviceProviderName',
                     style: TextStyle(fontWeight: FontWeight.bold)),
                 SizedBox(height: 8),
-                Text('Service Provider Name: $serviceName'),
-                SizedBox(height: 8),
                 Text('Vehicle Type: $vehicleType'),
                 SizedBox(height: 8),
                 Text('Price: $price'),
