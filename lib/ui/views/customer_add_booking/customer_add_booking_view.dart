@@ -23,6 +23,12 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
       : super(key: key);
 
   @override
+  void onViewModelReady(CustomerAddBookingViewModel viewModel) {
+    viewModel.fetchCars(customerId);
+    super.onViewModelReady(viewModel);
+  }
+
+  @override
   Widget builder(
       BuildContext context,
       CustomerAddBookingViewModel viewModel,
@@ -57,6 +63,23 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
               ),
             ),
             SizedBox(height: 16.0),
+            Text('Select Car', style: Theme.of(context).textTheme.titleLarge),
+            SizedBox(height: 8.0),
+            DropdownButton<String>(
+              value: viewModel.selectedCarId,
+              items: viewModel.cars.map((car) {
+                return DropdownMenuItem<String>(
+                  value: car.id,
+                  child: Text('${car.vehicleMake} ${car.vehicleModel}'),
+                );
+              }).toList(),
+              onChanged: (String? newValue) {
+                viewModel.selectCar(newValue);
+              },
+              hint: Text('Select a car'),
+              isExpanded: true,
+            ),
+            SizedBox(height: 16.0),
             Text('Select Date', style: Theme.of(context).textTheme.titleLarge),
             SizedBox(height: 8.0),
             GestureDetector(
@@ -89,21 +112,20 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
             Spacer(),
             ElevatedButton(
               onPressed: () {
-                if (viewModel.selectedDate == null || viewModel.selectedTime == null) {
+                if (viewModel.selectedDate == null || viewModel.selectedTime == null || viewModel.selectedCarId == null) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                    content: Text('Please select date and time'),
+                    content: Text('Please select date, time, and car'),
                   ));
                   return;
                 }
                 String bookingId = DateTime.now().millisecondsSinceEpoch.toString();
                 String paymentId = DateTime.now().millisecondsSinceEpoch.toString();
-                String dateTime = viewModel.selectedDate.toIso8601String();
-                DateTime updatedTime = DateTime.parse(dateTime);
                 Booking booking = Booking(
                     id: bookingId,
                     serviceProviderId: serviceProviderId,
                     customerId: customerId,
                     serviceId: serviceId,
+                    vehicleId: viewModel.selectedCarId,
                     date: DateTime.now());
                 Payment payment = Payment(
                     id: paymentId,
@@ -127,8 +149,6 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
   }
 
   @override
-  CustomerAddBookingViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+  CustomerAddBookingViewModel viewModelBuilder(BuildContext context) =>
       CustomerAddBookingViewModel();
 }

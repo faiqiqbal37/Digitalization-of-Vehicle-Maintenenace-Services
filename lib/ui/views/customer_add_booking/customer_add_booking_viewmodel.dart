@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:disertation/app/app.locator.dart';
 import 'package:disertation/app/app.router.dart';
 import 'package:disertation/models/booking/booking.dart';
+import 'package:disertation/models/car/car.dart'; // Assuming you have this model
 import 'package:disertation/models/payment/payment.dart';
 import 'package:disertation/services/booking_service.dart';
 import 'package:flutter/material.dart';
@@ -12,12 +14,18 @@ import '../../../app/app.dialogs.dart';
 class CustomerAddBookingViewModel extends BaseViewModel {
   DateTime _selectedDate = DateTime.now();
   TimeOfDay _selectedTime = TimeOfDay.now();
+  String? _selectedCarId;
 
   DateTime get selectedDate => _selectedDate;
   TimeOfDay get selectedTime => _selectedTime;
+  String? get selectedCarId => _selectedCarId;
+
   final _navigationService = locator<NavigationService>();
   final _bookingService = locator<BookingService>();
   final _dialogService = locator<DialogService>();
+
+  List<Car> _cars = [];
+  List<Car> get cars => _cars;
 
   Future<void> showDialog() async {
     await _dialogService.showCustomDialog(
@@ -58,6 +66,18 @@ class CustomerAddBookingViewModel extends BaseViewModel {
     }
   }
 
+  Future<void> fetchCars(String customerId) async {
+    final carCollection = FirebaseFirestore.instance.collection('cars');
+    final querySnapshot = await carCollection.where('customerId', isEqualTo: customerId).get();
+    _cars = querySnapshot.docs.map((doc) => Car.fromJson(doc.data())).toList();
+    notifyListeners();
+  }
+
+  void selectCar(String? carId) {
+    _selectedCarId = carId;
+    notifyListeners();
+  }
+
   Future<void> addBooking(Booking booking, Payment payment) async {
     try {
       await _bookingService.addPayment(payment);
@@ -65,6 +85,8 @@ class CustomerAddBookingViewModel extends BaseViewModel {
       await showDialog();
 
       notifyListeners();
-    } catch (e) {}
+    } catch (e) {
+      // Handle error
+    }
   }
 }
