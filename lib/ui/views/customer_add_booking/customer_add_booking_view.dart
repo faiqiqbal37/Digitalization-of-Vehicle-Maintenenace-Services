@@ -100,8 +100,10 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
             Spacer(),
             ElevatedButton(
               onPressed: () {
-                String bookingId =  DateTime.now().millisecondsSinceEpoch.toString();
-                String paymentId =  DateTime.now().millisecondsSinceEpoch.toString();
+                String bookingId =
+                    DateTime.now().millisecondsSinceEpoch.toString();
+                String paymentId =
+                    DateTime.now().millisecondsSinceEpoch.toString();
                 String dateTime = viewModel.selectedDate.toIso8601String();
                 DateTime updatedTime = DateTime.parse(dateTime);
                 Booking booking = Booking(
@@ -115,7 +117,7 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
                     serviceProviderId: serviceProviderId,
                     customerId: customerId,
                     bookingId: bookingId,
-                    amount: int.parse(price) ,
+                    amount: int.parse(price),
                     date: DateTime.now());
                 viewModel.addBooking(booking, payment);
               },

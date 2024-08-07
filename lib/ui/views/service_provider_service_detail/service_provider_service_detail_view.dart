@@ -22,74 +22,83 @@ class ServiceProviderServiceDetailView
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Center(
-                  child:
-                      Icon(Icons.description, size: 110, color: Colors.black)),
-              SizedBox(height: 40),
-              Text(
-                'Service Name: ${viewModel.serviceDetail.serviceName}',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Category: ${viewModel.serviceDetail.serviceType}',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Description: ${viewModel.serviceDetail.description}',
-                textAlign: TextAlign.justify,
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Time Duration: ${viewModel.serviceDetail.eta}',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Vehicle Type: ${viewModel.serviceDetail.vehicleType}',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 10),
-              Text(
-                'Price: \£${viewModel.serviceDetail.price}',
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
-              ),
-              Divider(),
-              SizedBox(height: 10),
-              Center(
-                child: Column(
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        // Logic to book the service
-                      },
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor:
-                            Colors.blue, // Different color for differentiation
-                      ),
-                      child: Text('Edit Details'),
-                    ),
-                    ElevatedButton(
-                      onPressed: () => viewModel.deleteServiceById(serviceId),
-                      child: Text('Delete Service'),
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                        backgroundColor:
-                            Colors.red, // Different color for differentiation
-                      ),
-                    ),
-                  ],
+        padding: const EdgeInsets.all(16.0),
+
+        child: Card(
+          color: Colors.white,
+          elevation: 2,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                    child:
+                        Icon(Icons.description, size: 110, color: Colors.black)),
+                SizedBox(height: 40),
+                Text(
+                  'Service Name: ${viewModel.serviceDetail.serviceName}',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-              ),
-            ],
+                SizedBox(height: 10),
+                Text(
+                  'Category: ${viewModel.serviceDetail.serviceType}',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Description: ${viewModel.serviceDetail.description}',
+                  textAlign: TextAlign.justify,
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Time Duration: ${viewModel.serviceDetail.eta}',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Vehicle Type: ${viewModel.serviceDetail.vehicleType}',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 10),
+                Text(
+                  'Price: \£${viewModel.serviceDetail.price}',
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                Divider(),
+                SizedBox(height: 10),
+                Center(
+                  child: Column(
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          // Logic to book the service
+                        },
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor:
+                              Colors.blue, // Different color for differentiation
+                        ),
+                        child: Text('Edit Details'),
+                      ),
+                      ElevatedButton(
+                        onPressed: () => viewModel.deleteServiceById(serviceId),
+                        child: Text('Delete Service'),
+                        style: ElevatedButton.styleFrom(
+                          foregroundColor: Colors.white,
+                          backgroundColor:
+                              Colors.red, // Different color for differentiation
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -70,4 +70,6 @@ class CustomerServicesViewModel extends BaseViewModel {
       print('Error fetching services: $e');
     }
   }
+
+  void navigateToServiceDetail(String serviceId) {}
 }

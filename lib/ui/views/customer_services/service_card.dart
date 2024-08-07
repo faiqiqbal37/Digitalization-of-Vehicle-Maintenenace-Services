@@ -30,6 +30,7 @@ class CustomerServiceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       margin: EdgeInsets.all(8.0),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -55,11 +56,17 @@ class CustomerServiceCard extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ElevatedButton(
-                  onPressed: () {},
-                  child: Text('View Details'),
+                TextButton(
+                  onPressed: (){_navigationService.navigateToCustomerServiceDetailView(serviceId: serviceId);},
+                  child: Text('Details'),
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue,
+                    shadowColor: Colors.blueAccent,
+                    elevation: 5,
+                  ),
                 ),
-                ElevatedButton(
+                TextButton(
                   onPressed: () {
                     _navigationService.navigateToCustomerAddBookingView(
                         price: price,
@@ -70,6 +77,12 @@ class CustomerServiceCard extends StatelessWidget {
                         customerId: customerId);
                   },
                   child: Text('Book'),
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue,
+                    shadowColor: Colors.blueAccent,
+                    elevation: 5,
+                  ),
                 ),
               ],
             )

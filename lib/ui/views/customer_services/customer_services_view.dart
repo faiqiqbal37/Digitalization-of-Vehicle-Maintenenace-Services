@@ -42,25 +42,49 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
             child: Row(
               children: <Widget>[
                 ElevatedButton(
-                    onPressed: () =>
-                        viewModel.fetchServicesBasedOnCategory("Electrical"),
-                    // Action or navigation
-                    child: Text('Electrical')),
+                  onPressed: () =>
+                      viewModel.fetchServicesBasedOnCategory("Electrical"),
+                  // Action or navigation
+                  child: Text('Electrical'),
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.blue,
+                    backgroundColor: Colors.white,
+                    shadowColor: Colors.blueAccent,
+                  ),
+                ),
                 ElevatedButton(
-                    onPressed: () =>
-                        viewModel.fetchServicesBasedOnCategory("Paint"),
-                    // Action or navigation
-                    child: Text('Paint')),
+                  onPressed: () =>
+                      viewModel.fetchServicesBasedOnCategory("Paint"),
+                  // Action or navigation
+                  child: Text('Paint'),
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.blue,
+                    backgroundColor: Colors.white,
+                    shadowColor: Colors.blueAccent,
+                  ),
+                ),
                 ElevatedButton(
-                    onPressed: () =>
-                        viewModel.fetchServicesBasedOnCategory("Bodywork"),
-                    // Action or navigation
-                    child: Text('Bodywork')),
+                  onPressed: () =>
+                      viewModel.fetchServicesBasedOnCategory("Bodywork"),
+                  // Action or navigation
+                  child: Text('Bodywork'),
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.blue,
+                    backgroundColor: Colors.white,
+                    shadowColor: Colors.blueAccent,
+                  ),
+                ),
                 ElevatedButton(
-                    onPressed: () =>
-                        viewModel.fetchServicesBasedOnCategory("Mechanical"),
-                    // Action or navigation
-                    child: Text('Mechanical')),
+                  onPressed: () =>
+                      viewModel.fetchServicesBasedOnCategory("Mechanical"),
+                  // Action or navigation
+                  child: Text('Mechanical'),
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.blue,
+                    backgroundColor: Colors.white,
+                    shadowColor: Colors.blueAccent,
+                  ),
+                ),
               ],
             ),
           ),

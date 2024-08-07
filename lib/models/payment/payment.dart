@@ -22,4 +22,3 @@ class Payment with _$Payment {
 DateTime _fromJson(Timestamp timestamp) => timestamp.toDate();
 
 Timestamp _toJson(DateTime date) => Timestamp.fromDate(date);
-

@@ -17,6 +17,7 @@ class CarListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       margin: EdgeInsets.all(8),
       child: Padding(
         padding: EdgeInsets.all(16),

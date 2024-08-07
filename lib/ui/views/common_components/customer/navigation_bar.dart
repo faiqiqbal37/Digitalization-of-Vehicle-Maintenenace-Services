@@ -61,6 +61,7 @@ class _CustomerBottomNavigationBarState
       unselectedItemColor: Colors.grey,
       onTap: _onItemTapped,
       type: BottomNavigationBarType.fixed,
+      backgroundColor: Colors.white, // Set background color to white
     );
   }
 }

@@ -11,6 +11,7 @@ class CategoryWidget extends StatelessWidget {
       width: 120,
       height: 70,
       child: Card(
+        color: Colors.white,
         child: Center(child: Text(title)),
       ),
     );

@@ -76,19 +76,28 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
             ElevatedButton(
               onPressed: viewModel.signInWithEmail,
               child: Text('Sign in with Email'),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.blue,
+                backgroundColor: Colors.white, // Text color
+              ),
             ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: viewModel.siginInWithGoogle,
               child: Text('Sign in with Google'),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.redAccent),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blue, // Text color
               ),
             ),
             SizedBox(height: 10),
-            TextButton(
+            ElevatedButton(
               onPressed: viewModel.navigateToRegister,
               child: Text('Register'),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blueAccent, // Text color
+              ),
             ),
           ],
         ),

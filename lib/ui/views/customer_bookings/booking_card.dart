@@ -27,48 +27,58 @@ class BookingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       margin: EdgeInsets.all(8.0),
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Service Name: $serviceName',
-                    style: TextStyle(fontWeight: FontWeight.bold)),
-                SizedBox(height: 8),
-                Text('Service Provider Name: $serviceProviderName'),
-                SizedBox(height: 8),
-                Text('Price: £ $price'),
-                SizedBox(height: 8),
-                Text('Date: $date'),
-                SizedBox(height: 8),
-                Text('Status: $status',
-                    style: TextStyle(
-                        color:
-                            status == 'Completed' ? Colors.green : Colors.red)),
-                SizedBox(height: 8),
-              ],
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Service Name: $serviceName',
+                      style: TextStyle(fontWeight: FontWeight.bold)),
+                  SizedBox(height: 8),
+                  Text('Service Provider Name: $serviceProviderName'),
+                  SizedBox(height: 8),
+                  Text('Price: £ $price'),
+                  SizedBox(height: 8),
+                  Text('Date: $date'),
+                  SizedBox(height: 8),
+                  Text('Status: $status',
+                      style: TextStyle(
+                          color: status == 'Completed'
+                              ? Colors.green
+                              : Colors.red)),
+                  SizedBox(height: 8),
+                ],
+              ),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ElevatedButton(
-                  onPressed: () {
-                    _navigationService.navigateToCustomerBookingDetailView(
-                        serviceName: serviceName,
-                        price: price,
-                        date: date,
-                        email: email,
-                        phone: phone,
-                        serviceProviderName: serviceProviderName,
-                        status: status);
-                  },
-                  child: Text('View'),
+            ElevatedButton(
+              onPressed: () {
+                _navigationService.navigateToCustomerBookingDetailView(
+                    serviceName: serviceName,
+                    price: price,
+                    date: date,
+                    email: email,
+                    phone: phone,
+                    serviceProviderName: serviceProviderName,
+                    status: status);
+              },
+              child: Text('View'),
+              style: ElevatedButton.styleFrom(
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blue,
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12.0),
                 ),
-              ],
-            )
+                shadowColor: Colors.blueAccent,
+                elevation: 5,
+              ),
+            ),
           ],
         ),
       ),
