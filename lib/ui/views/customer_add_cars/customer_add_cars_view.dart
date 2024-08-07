@@ -18,10 +18,10 @@ class CustomerAddCarsView extends StackedView<CustomerAddCarsViewModel>
 
   @override
   Widget builder(
-    BuildContext context,
-    CustomerAddCarsViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      CustomerAddCarsViewModel viewModel,
+      Widget? child,
+      ) {
     return Scaffold(
       bottomNavigationBar: CustomerBottomNavigationBar(),
       appBar: AppBar(),
@@ -31,39 +31,48 @@ class CustomerAddCarsView extends StackedView<CustomerAddCarsViewModel>
           Text("Add Your Car",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           Expanded(
-            child: SingleChildScrollView(
-              child: Form(
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: <Widget>[
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'Car Make'),
-                        controller: carMakeController,
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'Car Model'),
-                        controller: modelController,
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'Car Type'),
-                        controller: vehicleTypeController,
-                      ),
-                      TextFormField(
-                        decoration: InputDecoration(labelText: 'Registration'),
-                        controller: registrationController,
-                      ),
-                      SizedBox(height: 10),
-                      Text(
-                        'Upload Image',
-                      ),
-                      SizedBox(height: 20),
-                      ElevatedButton(
-                        onPressed: () => {},
-                        child: Text('Add Car'),
-                      ),
-                    ],
+            child: Card(
+              color: Colors.white,
+              elevation: 2,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.all(16.0),
+                child: Form(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: <Widget>[
+                        TextFormField(
+                          decoration: InputDecoration(labelText: 'Car Make'),
+                          controller: carMakeController,
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(labelText: 'Car Model'),
+                          controller: modelController,
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(labelText: 'Car Type'),
+                          controller: vehicleTypeController,
+                        ),
+                        TextFormField(
+                          decoration: InputDecoration(labelText: 'Registration'),
+                          controller: registrationController,
+                        ),
+                        SizedBox(height: 10),
+                        SizedBox(height: 20),
+                        ElevatedButton(
+                          onPressed: viewModel.addCar,
+                          child: Text('Add Car'),
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.white,
+                            backgroundColor: Colors.blue,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -81,8 +90,8 @@ class CustomerAddCarsView extends StackedView<CustomerAddCarsViewModel>
 
   @override
   CustomerAddCarsViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
+      BuildContext context,
+      ) =>
       CustomerAddCarsViewModel();
 
   @override

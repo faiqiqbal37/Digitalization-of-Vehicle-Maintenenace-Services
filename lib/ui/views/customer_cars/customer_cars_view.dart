@@ -10,10 +10,10 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
 
   @override
   Widget builder(
-    BuildContext context,
-    CustomerCarsViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      CustomerCarsViewModel viewModel,
+      Widget? child,
+      ) {
     return Scaffold(
       bottomNavigationBar: CustomerBottomNavigationBar(),
       body: Column(
@@ -24,18 +24,37 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
-            child: ListView.builder(
-              itemCount: 2, // Assuming there are two cars for example
-              itemBuilder: (BuildContext context, int index) {
-                return CarListItem(
-                  make: 'Toyota Camry',
-                  modelYear: '2018',
-                  vehicleType: 'Sedan',
-                  regNumber: 'SXC18 PKU',
-                );
+            child: FutureBuilder<List<Map<String, dynamic>>>(
+              future: viewModel.loadCustomerCars(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                    return ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        var car = snapshot.data![index];
+                        return CarListItem(
+                          carId: car["carId"],
+                          make: car["carMake"].toString(),
+                          vehicleType: car["vehicleType"].toString(),
+                          regNumber: car["registration"].toString(),
+                        );
+                      },
+                    );
+                  } else if (snapshot.hasData && snapshot.data!.isEmpty) {
+                    return Center(
+                      child: Text('No cars added yet.'),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  }
+                }
+                return Center(child: CircularProgressIndicator());
               },
             ),
-          ),
+          )
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -48,7 +67,7 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
 
   @override
   CustomerCarsViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
+      BuildContext context,
+      ) =>
       CustomerCarsViewModel();
 }

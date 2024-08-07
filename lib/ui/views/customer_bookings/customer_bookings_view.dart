@@ -10,10 +10,10 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
 
   @override
   Widget builder(
-    BuildContext context,
-    CustomerBookingsViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      CustomerBookingsViewModel viewModel,
+      Widget? child,
+      ) {
     return Scaffold(
       body: Column(
         children: [
@@ -26,28 +26,34 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
             child: FutureBuilder<List<Map<String, dynamic>>>(
               future: viewModel.loadCustomerBookings(),
               builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.done &&
-                    snapshot.hasData) {
-                  return ListView.builder(
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (context, index) {
-                      var booking = snapshot.data![index];
-                      return BookingCard(
-                        serviceProviderName: booking['serviceProviderName'],
-                        serviceName: booking['serviceName'],
-                        date: booking['date'],
-                        status: booking['status'],
-                        email: booking['email'],
-                        phone: booking['phone'],
-                        price: booking['price'],
-                      );
-                    },
-                  );
-                } else if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
-                } else {
-                  return CircularProgressIndicator();
+                if (snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                    return ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        var booking = snapshot.data![index];
+                        return BookingCard(
+                          serviceProviderName: booking['serviceProviderName'],
+                          serviceName: booking['serviceName'],
+                          date: booking['date'],
+                          status: booking['status'],
+                          email: booking['email'],
+                          phone: booking['phone'],
+                          price: booking['price'],
+                        );
+                      },
+                    );
+                  } else if (snapshot.hasData && snapshot.data!.isEmpty) {
+                    return Center(
+                      child: Text('No bookings made yet.'),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  }
                 }
+                return Center(child: CircularProgressIndicator());
               },
             ),
           )
@@ -59,7 +65,7 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
 
   @override
   CustomerBookingsViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
+      BuildContext context,
+      ) =>
       CustomerBookingsViewModel();
 }
