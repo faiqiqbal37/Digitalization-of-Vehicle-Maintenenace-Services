@@ -21,6 +21,11 @@ class ServiceProviderBookingsListingViewModel extends BaseViewModel {
 
   final _servicesService = locator<ServicesService>();
 
+  Future<void> changeStatus(String bookingId) async{
+    await _bookingService.toggleBookingStatus(bookingId);
+    notifyListeners();
+  }
+
   Future<List<Map<String, dynamic>>> loadCustomerBookings() async {
     List<Booking> bookings =
         await _bookingService.fetchBookingsByServiceProviderId(
@@ -47,7 +52,8 @@ class ServiceProviderBookingsListingViewModel extends BaseViewModel {
         'phone': customer?.phoneNumber,
         'email': customer.email,
         'location': "location",
-        'category': service.serviceType
+        'category': service.serviceType,
+        'id': booking.id
       });
     }
     return bookingDetailsList;

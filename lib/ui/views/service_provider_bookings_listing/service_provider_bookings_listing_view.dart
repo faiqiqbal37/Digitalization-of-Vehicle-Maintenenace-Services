@@ -53,6 +53,7 @@ class ServiceProviderBookingsListingView
                             price: booking['price'],
                             category: booking['category'],
                             location: booking['location'],
+                            updateStatus:() => viewModel.changeStatus(booking['id']),
                           );
                         },
                       );
