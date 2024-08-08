@@ -43,7 +43,7 @@ class ServiceProviderHomeScreenView
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  'Total Earnings: \$1000',
+                  'Total Earnings: \£${viewModel.totalEarnings}',
                   style: TextStyle(fontSize: 16),
                 ),
                 SizedBox(height: 20),
@@ -98,7 +98,9 @@ class ServiceProviderHomeScreenView
 
   @override
   void onViewModelReady(ServiceProviderHomeScreenViewModel viewModel) {
+    super.onViewModelReady(viewModel);
     viewModel.getServiceProviderName();
+    viewModel.fetchFinanceData();
     viewModel.notifyListeners();
   }
 
