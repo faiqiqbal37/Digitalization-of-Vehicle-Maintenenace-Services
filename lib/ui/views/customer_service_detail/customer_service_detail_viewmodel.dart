@@ -30,8 +30,8 @@ class CustomerServiceDetailViewModel extends BaseViewModel {
     Service service = await _servicesService.getServiceById(id);
 
     // Fetch the service provider details safely
-    ServiceProvider? serviceProvider =
-    await _serviceProviderService.fetchServiceProviderById(service.serviceProviderId);
+    ServiceProvider? serviceProvider = await _serviceProviderService
+        .fetchServiceProviderById(service.serviceProviderId);
 
     Map<String, dynamic> serviceDetail = {
       'serviceProviderName': serviceProvider?.businessName ?? "N/A",

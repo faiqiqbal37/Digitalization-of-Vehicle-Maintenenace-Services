@@ -10,10 +10,10 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerBookingsViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerBookingsViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       body: Column(
         children: [
@@ -65,7 +65,7 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
 
   @override
   CustomerBookingsViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       CustomerBookingsViewModel();
 }

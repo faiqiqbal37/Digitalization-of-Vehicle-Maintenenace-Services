@@ -30,7 +30,8 @@ class ServiceProviderServiceDetailViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void navigateToEditDetails(String serviceId){
-    _navigationService.navigateToServiceProviderEditServiceView(serviceId: serviceId);
+  void navigateToEditDetails(String serviceId) {
+    _navigationService.navigateToServiceProviderEditServiceView(
+        serviceId: serviceId);
   }
 }

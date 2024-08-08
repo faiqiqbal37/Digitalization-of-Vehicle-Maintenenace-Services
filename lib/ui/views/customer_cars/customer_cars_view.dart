@@ -10,10 +10,10 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerCarsViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerCarsViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       bottomNavigationBar: CustomerBottomNavigationBar(),
       body: Column(
@@ -67,7 +67,7 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
 
   @override
   CustomerCarsViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       CustomerCarsViewModel();
 }

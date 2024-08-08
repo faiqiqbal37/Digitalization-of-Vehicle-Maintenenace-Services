@@ -68,7 +68,8 @@ class CustomerAddBookingViewModel extends BaseViewModel {
 
   Future<void> fetchCars(String customerId) async {
     final carCollection = FirebaseFirestore.instance.collection('cars');
-    final querySnapshot = await carCollection.where('customerId', isEqualTo: customerId).get();
+    final querySnapshot =
+        await carCollection.where('customerId', isEqualTo: customerId).get();
     _cars = querySnapshot.docs.map((doc) => Car.fromJson(doc.data())).toList();
     notifyListeners();
   }

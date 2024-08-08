@@ -13,11 +13,11 @@ class CustomerCarsViewModel extends BaseViewModel {
   final _authenticationService = locator<AuthenticationService>();
 
   Future<List<Map<String, dynamic>>> loadCustomerCars() async {
-    List<Car> cars = await _carsService.fetchCarsByCustomerId(_authenticationService.customer!.id);
+    List<Car> cars = await _carsService
+        .fetchCarsByCustomerId(_authenticationService.customer!.id);
     List<Map<String, dynamic>> carsList = [];
 
     for (var car in cars) {
-
       carsList.add({
         'carMake': car.vehicleMake,
         'carModel': car.vehicleMake,
@@ -30,7 +30,7 @@ class CustomerCarsViewModel extends BaseViewModel {
     return carsList;
   }
 
-  Future<void> deleteCar(carId) async{
+  Future<void> deleteCar(carId) async {
     _carsService.deleteServiceById(carId);
     notifyListeners();
   }

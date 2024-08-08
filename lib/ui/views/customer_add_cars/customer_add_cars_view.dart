@@ -18,10 +18,10 @@ class CustomerAddCarsView extends StackedView<CustomerAddCarsViewModel>
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerAddCarsViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerAddCarsViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       bottomNavigationBar: CustomerBottomNavigationBar(),
       appBar: AppBar(),
@@ -58,7 +58,8 @@ class CustomerAddCarsView extends StackedView<CustomerAddCarsViewModel>
                           controller: vehicleTypeController,
                         ),
                         TextFormField(
-                          decoration: InputDecoration(labelText: 'Registration'),
+                          decoration:
+                              InputDecoration(labelText: 'Registration'),
                           controller: registrationController,
                         ),
                         SizedBox(height: 10),
@@ -90,8 +91,8 @@ class CustomerAddCarsView extends StackedView<CustomerAddCarsViewModel>
 
   @override
   CustomerAddCarsViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       CustomerAddCarsViewModel();
 
   @override

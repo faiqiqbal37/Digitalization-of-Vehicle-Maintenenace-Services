@@ -55,7 +55,10 @@ class CustomerServiceCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
-                  onPressed: (){_navigationService.navigateToCustomerServiceDetailView(serviceId: serviceId);},
+                  onPressed: () {
+                    _navigationService.navigateToCustomerServiceDetailView(
+                        serviceId: serviceId);
+                  },
                   child: Text('Details'),
                   style: TextButton.styleFrom(
                     foregroundColor: Colors.white,

@@ -20,40 +20,58 @@ class ServiceProviderBookingsListingView
         children: [
           SizedBox(height: 60),
           Icon(Icons.calendar_month, size: 80, color: Colors.black),
-          Text("Bookings",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+          Text(
+            "Bookings",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+          ),
           SizedBox(height: 20),
           Expanded(
             child: FutureBuilder<List<Map<String, dynamic>>>(
               future: viewModel.loadCustomerBookings(),
               builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.done &&
-                    snapshot.hasData) {
-                  return ListView.builder(
-                    itemCount: snapshot.data!.length,
-                    itemBuilder: (context, index) {
-                      var booking = snapshot.data![index];
-                      return BookingCard(
-                        customerName: booking['customer'],
-                        serviceName: booking['serviceName'],
-                        date: booking['date'],
-                        status: booking['status'],
-                        email: booking['email'],
-                        phone: booking['phone'],
-                        price: booking['price'],
-                        category: booking['category'],
-                        location: booking['location'],
+                if (snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.hasData) {
+                    if (snapshot.data!.isEmpty) {
+                      return Center(
+                        child: Text(
+                          'No bookings available',
+                          style: TextStyle(fontSize: 18),
+                        ),
                       );
-                    },
-                  );
-                } else if (snapshot.hasError) {
-                  return Text('Error: ${snapshot.error}');
-                } else {
-                  return CircularProgressIndicator();
+                    } else {
+                      return ListView.builder(
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) {
+                          var booking = snapshot.data![index];
+                          return BookingCard(
+                            customerName: booking['customer'],
+                            serviceName: booking['serviceName'],
+                            date: booking['date'],
+                            status: booking['status'],
+                            email: booking['email'],
+                            phone: booking['phone'],
+                            price: booking['price'],
+                            category: booking['category'],
+                            location: booking['location'],
+                          );
+                        },
+                      );
+                    }
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text(
+                        'Error: ${snapshot.error}',
+                        style: TextStyle(fontSize: 18, color: Colors.red),
+                      ),
+                    );
+                  }
                 }
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
               },
             ),
-          )
+          ),
         ],
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),

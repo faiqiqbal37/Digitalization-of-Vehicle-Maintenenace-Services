@@ -20,6 +20,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     if (_selectedIndex == 0) {
       _navigationService.replaceWithServiceProviderHomeScreenView();
     } else if (_selectedIndex == 1) {
+      _navigationService.replaceWithServiceProviderFinanceView();
     } else if (_selectedIndex == 2) {
       _navigationService.replaceWithServiceProviderServicesView();
     } else if (_selectedIndex == 3) {
@@ -32,6 +33,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      backgroundColor: Colors.white,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),

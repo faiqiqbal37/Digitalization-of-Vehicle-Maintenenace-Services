@@ -29,7 +29,13 @@ class CustomerAddCarsViewModel extends FormViewModel {
   Future<void> addCar() async {
     try {
       notifyListeners();
-      Car car = Car(id: DateTime.now().millisecondsSinceEpoch.toString(), customerId: _authService.customer!.id, vehicleMake: carMakeValue.toString(), vehicleModel: modelValue.toString(), vehicleType: vehicleTypeValue.toString(), registration: registrationValue.toString());
+      Car car = Car(
+          id: DateTime.now().millisecondsSinceEpoch.toString(),
+          customerId: _authService.customer!.id,
+          vehicleMake: carMakeValue.toString(),
+          vehicleModel: modelValue.toString(),
+          vehicleType: vehicleTypeValue.toString(),
+          registration: registrationValue.toString());
 
       await _carsService.addCar(car);
       await showDialog();

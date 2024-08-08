@@ -9,12 +9,11 @@ class CarListItem extends StatelessWidget {
   final String regNumber;
   final String carId;
 
-  CarListItem({
-    required this.make,
-    required this.vehicleType,
-    required this.regNumber,
-    required this.carId
-  });
+  CarListItem(
+      {required this.make,
+      required this.vehicleType,
+      required this.regNumber,
+      required this.carId});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +44,7 @@ class CarListItem extends StatelessWidget {
                       icon: Icon(Icons.delete),
                       onPressed: () async {
                         final _carsService = locator<CarsServiceService>();
-                       await _carsService.deleteServiceById(carId);
+                        await _carsService.deleteServiceById(carId);
                         // Implement delete functionality
                       },
                     ),

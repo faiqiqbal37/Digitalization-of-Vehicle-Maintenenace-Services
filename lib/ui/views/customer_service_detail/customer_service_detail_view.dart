@@ -4,17 +4,19 @@ import 'package:stacked/stacked.dart';
 
 import 'customer_service_detail_viewmodel.dart';
 
-class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewModel> {
+class CustomerServiceDetailView
+    extends StackedView<CustomerServiceDetailViewModel> {
   final String serviceId;
 
-  const CustomerServiceDetailView({Key? key, required this.serviceId}) : super(key: key);
+  const CustomerServiceDetailView({Key? key, required this.serviceId})
+      : super(key: key);
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerServiceDetailViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerServiceDetailViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Service Detail'),
@@ -30,7 +32,8 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
                 padding: const EdgeInsets.all(16.0),
                 children: [
                   Center(
-                    child: Icon(Icons.description, size: 110, color: Colors.black),
+                    child:
+                        Icon(Icons.description, size: 110, color: Colors.black),
                   ),
                   SizedBox(height: 20),
                   Card(
@@ -46,17 +49,24 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
                         children: [
                           Text(
                             'Service Name',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 5),
                           Text(
                             serviceDetails["serviceName"] ?? "N/A",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           SizedBox(height: 20),
                           Text(
                             'Category',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -66,7 +76,10 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
                           SizedBox(height: 20),
                           Text(
                             'Service Provider',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -76,7 +89,10 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
                           SizedBox(height: 20),
                           Text(
                             'Description',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -87,7 +103,10 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
                           SizedBox(height: 20),
                           Text(
                             'Time Duration',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -97,7 +116,10 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
                           SizedBox(height: 20),
                           Text(
                             'Vehicle Type',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -107,7 +129,10 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
                           SizedBox(height: 20),
                           Text(
                             'Price',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -132,12 +157,18 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
                         children: [
                           Text(
                             'Contact Information',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 20),
                           Text(
                             'Phone',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -147,7 +178,10 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
                           SizedBox(height: 20),
                           Text(
                             'Email',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -157,7 +191,10 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
                           SizedBox(height: 20),
                           Text(
                             'Location',
-                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.grey),
+                            style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
                           ),
                           SizedBox(height: 5),
                           Text(
@@ -185,5 +222,6 @@ class CustomerServiceDetailView extends StackedView<CustomerServiceDetailViewMod
   }
 
   @override
-  CustomerServiceDetailViewModel viewModelBuilder(BuildContext context) => CustomerServiceDetailViewModel();
+  CustomerServiceDetailViewModel viewModelBuilder(BuildContext context) =>
+      CustomerServiceDetailViewModel();
 }

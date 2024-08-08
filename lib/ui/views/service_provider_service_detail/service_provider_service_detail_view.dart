@@ -23,7 +23,6 @@ class ServiceProviderServiceDetailView
       ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
-
         child: Card(
           color: Colors.white,
           elevation: 2,
@@ -36,8 +35,8 @@ class ServiceProviderServiceDetailView
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
-                    child:
-                        Icon(Icons.description, size: 110, color: Colors.black)),
+                    child: Icon(Icons.description,
+                        size: 110, color: Colors.black)),
                 SizedBox(height: 40),
                 Text(
                   'Service Name: ${viewModel.serviceDetail.serviceName}',
@@ -80,8 +79,8 @@ class ServiceProviderServiceDetailView
                         },
                         style: ElevatedButton.styleFrom(
                           foregroundColor: Colors.white,
-                          backgroundColor:
-                              Colors.blue, // Different color for differentiation
+                          backgroundColor: Colors
+                              .blue, // Different color for differentiation
                         ),
                         child: Text('Edit Details'),
                       ),

@@ -2,16 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:disertation/models/car/car.dart';
 
 class CarsServiceService {
-
-
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   Future<void> addCar(Car car) async {
     try {
-      await _firestore
-          .collection('cars')
-          .doc(car.id)
-          .set(car.toJson());
+      await _firestore.collection('cars').doc(car.id).set(car.toJson());
       print("car added successfully!");
     } catch (e) {
       print("Error adding car: $e");
@@ -47,5 +42,4 @@ class CarsServiceService {
       throw Exception("Failed to delete car");
     }
   }
-
 }

@@ -14,12 +14,12 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
 
   const CustomerAddBookingView(
       {Key? key,
-        required this.description,
-        required this.serviceName,
-        required this.serviceProviderId,
-        required this.serviceId,
-        required this.customerId,
-        required this.price})
+      required this.description,
+      required this.serviceName,
+      required this.serviceProviderId,
+      required this.serviceId,
+      required this.customerId,
+      required this.price})
       : super(key: key);
 
   @override
@@ -30,10 +30,10 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerAddBookingViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerAddBookingViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Book Service'),
@@ -53,7 +53,8 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
               ),
             ),
             SizedBox(height: 16.0),
-            Text('Service Description', style: Theme.of(context).textTheme.titleLarge),
+            Text('Service Description',
+                style: Theme.of(context).textTheme.titleLarge),
             SizedBox(height: 8.0),
             Padding(
               padding: const EdgeInsets.all(16.0),
@@ -85,7 +86,8 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
             GestureDetector(
               onTap: () => viewModel.pickDate(context),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
                 child: Text(
                   viewModel.selectedDate != null
                       ? "${viewModel.selectedDate.toLocal()}".split(' ')[0]
@@ -100,7 +102,8 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
             GestureDetector(
               onTap: () => viewModel.pickTime(context),
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
+                padding:
+                    const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
                 child: Text(
                   viewModel.selectedTime != null
                       ? viewModel.selectedTime.format(context)
@@ -112,14 +115,18 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
             Spacer(),
             ElevatedButton(
               onPressed: () {
-                if (viewModel.selectedDate == null || viewModel.selectedTime == null || viewModel.selectedCarId == null) {
+                if (viewModel.selectedDate == null ||
+                    viewModel.selectedTime == null ||
+                    viewModel.selectedCarId == null) {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                     content: Text('Please select date, time, and car'),
                   ));
                   return;
                 }
-                String bookingId = DateTime.now().millisecondsSinceEpoch.toString();
-                String paymentId = DateTime.now().millisecondsSinceEpoch.toString();
+                String bookingId =
+                    DateTime.now().millisecondsSinceEpoch.toString();
+                String paymentId =
+                    DateTime.now().millisecondsSinceEpoch.toString();
                 Booking booking = Booking(
                     id: bookingId,
                     serviceProviderId: serviceProviderId,

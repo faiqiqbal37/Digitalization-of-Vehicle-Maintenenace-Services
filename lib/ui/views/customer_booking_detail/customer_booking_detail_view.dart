@@ -4,7 +4,8 @@ import 'package:stacked/stacked.dart';
 
 import 'customer_booking_detail_viewmodel.dart';
 
-class CustomerBookingDetailView extends StackedView<CustomerBookingDetailViewModel> {
+class CustomerBookingDetailView
+    extends StackedView<CustomerBookingDetailViewModel> {
   final String serviceName;
   final String serviceProviderName;
   final String price;
@@ -15,21 +16,21 @@ class CustomerBookingDetailView extends StackedView<CustomerBookingDetailViewMod
 
   const CustomerBookingDetailView(
       {Key? key,
-        required this.phone,
-        required this.email,
-        required this.price,
-        required this.date,
-        required this.serviceName,
-        required this.serviceProviderName,
-        required this.status})
+      required this.phone,
+      required this.email,
+      required this.price,
+      required this.date,
+      required this.serviceName,
+      required this.serviceProviderName,
+      required this.status})
       : super(key: key);
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerBookingDetailViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerBookingDetailViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Booking Detail'),
@@ -42,7 +43,8 @@ class CustomerBookingDetailView extends StackedView<CustomerBookingDetailViewMod
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Icon(Icons.calendar_month, size: 110, color: Colors.black),
+                child:
+                    Icon(Icons.calendar_month, size: 110, color: Colors.black),
               ),
               SizedBox(height: 20),
               Card(
@@ -58,16 +60,21 @@ class CustomerBookingDetailView extends StackedView<CustomerBookingDetailViewMod
                     children: [
                       Text(
                         'Service Information',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey),
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey),
                       ),
                       SizedBox(height: 20),
                       ListTile(
                         leading: Icon(Icons.build),
-                        title: Text(serviceName, style: TextStyle(fontSize: 15)),
+                        title:
+                            Text(serviceName, style: TextStyle(fontSize: 15)),
                       ),
                       ListTile(
                         leading: Icon(Icons.garage),
-                        title: Text(serviceProviderName, style: TextStyle(fontSize: 15)),
+                        title: Text(serviceProviderName,
+                            style: TextStyle(fontSize: 15)),
                       ),
                       ListTile(
                         leading: Icon(Icons.monetization_on),
@@ -103,7 +110,10 @@ class CustomerBookingDetailView extends StackedView<CustomerBookingDetailViewMod
                     children: [
                       Text(
                         'Booking Details',
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.grey),
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey),
                       ),
                       SizedBox(height: 20),
                       ListTile(
@@ -127,5 +137,6 @@ class CustomerBookingDetailView extends StackedView<CustomerBookingDetailViewMod
   }
 
   @override
-  CustomerBookingDetailViewModel viewModelBuilder(BuildContext context) => CustomerBookingDetailViewModel();
+  CustomerBookingDetailViewModel viewModelBuilder(BuildContext context) =>
+      CustomerBookingDetailViewModel();
 }
