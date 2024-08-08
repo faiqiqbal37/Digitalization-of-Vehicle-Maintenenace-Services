@@ -76,19 +76,14 @@ class LoginServiceProviderView
             ElevatedButton(
               onPressed: viewModel.siginInWithEmail,
               child: Text('Sign in with Email'),
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue, foregroundColor: Colors.white),
             ),
+            SizedBox(height: 10),
             SizedBox(height: 10),
             ElevatedButton(
-              onPressed: viewModel.siginInWithGoogle,
-              child: Text('Sign in with Google'),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.redAccent),
-              ),
-            ),
-            SizedBox(height: 10),
-            TextButton(
               onPressed: viewModel.navigateToRegister,
               child: Text('Register'),
+              style: ElevatedButton.styleFrom(foregroundColor: Colors.white, backgroundColor: Colors.blueAccent),
             ),
           ],
         ),
