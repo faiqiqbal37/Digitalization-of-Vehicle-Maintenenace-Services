@@ -16,21 +16,21 @@ class CustomerBookingDetailView
 
   const CustomerBookingDetailView(
       {Key? key,
-      required this.phone,
-      required this.email,
-      required this.price,
-      required this.date,
-      required this.serviceName,
-      required this.serviceProviderName,
-      required this.status})
+        required this.phone,
+        required this.email,
+        required this.price,
+        required this.date,
+        required this.serviceName,
+        required this.serviceProviderName,
+        required this.status})
       : super(key: key);
 
   @override
   Widget builder(
-    BuildContext context,
-    CustomerBookingDetailViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      CustomerBookingDetailViewModel viewModel,
+      Widget? child,
+      ) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Booking Detail'),
@@ -44,7 +44,7 @@ class CustomerBookingDetailView
             children: [
               Center(
                 child:
-                    Icon(Icons.calendar_month, size: 110, color: Colors.black),
+                Icon(Icons.calendar_month, size: 110, color: Colors.black),
               ),
               SizedBox(height: 20),
               Card(
@@ -69,7 +69,7 @@ class CustomerBookingDetailView
                       ListTile(
                         leading: Icon(Icons.build),
                         title:
-                            Text(serviceName, style: TextStyle(fontSize: 15)),
+                        Text(serviceName, style: TextStyle(fontSize: 15)),
                       ),
                       ListTile(
                         leading: Icon(Icons.garage),
@@ -128,6 +128,31 @@ class CustomerBookingDetailView
                   ),
                 ),
               ),
+              if (status == "completed") ...[
+                SizedBox(height: 20),
+                Text(
+                  'Rate your experience:',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.grey),
+                ),
+                SizedBox(height: 10),
+                RatingBar(
+                  initialRating: viewModel.rating,
+                  direction: Axis.horizontal,
+                  allowHalfRating: false,
+                  itemCount: 5,
+                  ratingWidget: RatingWidget(
+                    full: Icon(Icons.star, color: Colors.amber),
+                    half: Icon(Icons.star_half, color: Colors.amber),
+                    empty: Icon(Icons.star_border, color: Colors.amber),
+                  ),
+                  onRatingUpdate: (rating) {
+                    viewModel.setRating(rating);
+                  },
+                ),
+              ],
             ],
           ),
         ),
@@ -139,4 +164,52 @@ class CustomerBookingDetailView
   @override
   CustomerBookingDetailViewModel viewModelBuilder(BuildContext context) =>
       CustomerBookingDetailViewModel();
+}
+
+class RatingBar extends StatelessWidget {
+  final int itemCount;
+  final RatingWidget ratingWidget;
+  final double initialRating;
+  final Axis direction;
+  final bool allowHalfRating;
+  final Function(double) onRatingUpdate;
+
+  const RatingBar({
+    Key? key,
+    required this.itemCount,
+    required this.ratingWidget,
+    required this.initialRating,
+    required this.direction,
+    required this.allowHalfRating,
+    required this.onRatingUpdate,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: List.generate(itemCount, (index) {
+        return IconButton(
+          icon: index < initialRating
+              ? ratingWidget.full
+              : ratingWidget.empty,
+          onPressed: () {
+            onRatingUpdate((index + 1).toDouble());
+          },
+        );
+      }),
+    );
+  }
+}
+
+class RatingWidget {
+  final Widget full;
+  final Widget half;
+  final Widget empty;
+
+  const RatingWidget({
+    required this.full,
+    required this.half,
+    required this.empty,
+  });
 }

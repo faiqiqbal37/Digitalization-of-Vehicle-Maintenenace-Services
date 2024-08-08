@@ -8,6 +8,14 @@ import '../../../services/services_service.dart';
 class CustomerBookingDetailViewModel extends BaseViewModel {
   final _navigationService = locator<NavigationService>();
   final _servicesService = locator<ServicesService>();
+  double _rating = 0.0;
+
+  double get rating => _rating;
+
+  void setRating(double rating) {
+    _rating = rating;
+    notifyListeners();
+  }
 
   Future<ServiceProvider?> fetchServiceProviderDetail(String id) async {
     try {
