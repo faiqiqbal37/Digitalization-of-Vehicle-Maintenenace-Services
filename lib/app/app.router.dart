@@ -368,12 +368,13 @@ class StackedRouter extends _i1.RouterBase {
             key: args.key,
             customerName: args.customerName,
             email: args.email,
+            bookingId: args.bookingId,
             serviceName: args.serviceName,
             location: args.location,
             customerPhone: args.customerPhone,
             status: args.status,
             date: args.date,
-            servceCategory: args.servceCategory,
+            serviceCategory: args.serviceCategory,
             servicePrice: args.servicePrice),
         settings: data,
       );
@@ -515,12 +516,13 @@ class ServiceProviderBookingdetailViewArguments {
     this.key,
     required this.customerName,
     required this.email,
+    required this.bookingId,
     required this.serviceName,
     required this.location,
     required this.customerPhone,
     required this.status,
     required this.date,
-    required this.servceCategory,
+    required this.serviceCategory,
     required this.servicePrice,
   });
 
@@ -529,6 +531,8 @@ class ServiceProviderBookingdetailViewArguments {
   final String customerName;
 
   final String email;
+
+  final String bookingId;
 
   final String serviceName;
 
@@ -540,13 +544,13 @@ class ServiceProviderBookingdetailViewArguments {
 
   final String date;
 
-  final String servceCategory;
+  final String serviceCategory;
 
   final String servicePrice;
 
   @override
   String toString() {
-    return '{"key": "$key", "customerName": "$customerName", "email": "$email", "serviceName": "$serviceName", "location": "$location", "customerPhone": "$customerPhone", "status": "$status", "date": "$date", "servceCategory": "$servceCategory", "servicePrice": "$servicePrice"}';
+    return '{"key": "$key", "customerName": "$customerName", "email": "$email", "bookingId": "$bookingId", "serviceName": "$serviceName", "location": "$location", "customerPhone": "$customerPhone", "status": "$status", "date": "$date", "serviceCategory": "$serviceCategory", "servicePrice": "$servicePrice"}';
   }
 
   @override
@@ -555,12 +559,13 @@ class ServiceProviderBookingdetailViewArguments {
     return other.key == key &&
         other.customerName == customerName &&
         other.email == email &&
+        other.bookingId == bookingId &&
         other.serviceName == serviceName &&
         other.location == location &&
         other.customerPhone == customerPhone &&
         other.status == status &&
         other.date == date &&
-        other.servceCategory == servceCategory &&
+        other.serviceCategory == serviceCategory &&
         other.servicePrice == servicePrice;
   }
 
@@ -569,12 +574,13 @@ class ServiceProviderBookingdetailViewArguments {
     return key.hashCode ^
         customerName.hashCode ^
         email.hashCode ^
+        bookingId.hashCode ^
         serviceName.hashCode ^
         location.hashCode ^
         customerPhone.hashCode ^
         status.hashCode ^
         date.hashCode ^
-        servceCategory.hashCode ^
+        serviceCategory.hashCode ^
         servicePrice.hashCode;
   }
 }
@@ -946,12 +952,13 @@ extension NavigatorStateExtension on _i32.NavigationService {
     _i31.Key? key,
     required String customerName,
     required String email,
+    required String bookingId,
     required String serviceName,
     required String location,
     required String customerPhone,
     required String status,
     required String date,
-    required String servceCategory,
+    required String serviceCategory,
     required String servicePrice,
     int? routerId,
     bool preventDuplicates = true,
@@ -964,12 +971,13 @@ extension NavigatorStateExtension on _i32.NavigationService {
             key: key,
             customerName: customerName,
             email: email,
+            bookingId: bookingId,
             serviceName: serviceName,
             location: location,
             customerPhone: customerPhone,
             status: status,
             date: date,
-            servceCategory: servceCategory,
+            serviceCategory: serviceCategory,
             servicePrice: servicePrice),
         id: routerId,
         preventDuplicates: preventDuplicates,
@@ -1417,12 +1425,13 @@ extension NavigatorStateExtension on _i32.NavigationService {
     _i31.Key? key,
     required String customerName,
     required String email,
+    required String bookingId,
     required String serviceName,
     required String location,
     required String customerPhone,
     required String status,
     required String date,
-    required String servceCategory,
+    required String serviceCategory,
     required String servicePrice,
     int? routerId,
     bool preventDuplicates = true,
@@ -1435,12 +1444,13 @@ extension NavigatorStateExtension on _i32.NavigationService {
             key: key,
             customerName: customerName,
             email: email,
+            bookingId: bookingId,
             serviceName: serviceName,
             location: location,
             customerPhone: customerPhone,
             status: status,
             date: date,
-            servceCategory: servceCategory,
+            serviceCategory: serviceCategory,
             servicePrice: servicePrice),
         id: routerId,
         preventDuplicates: preventDuplicates,

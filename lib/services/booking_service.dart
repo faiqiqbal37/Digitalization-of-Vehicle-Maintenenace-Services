@@ -126,7 +126,8 @@ class BookingService {
   Future<void> toggleBookingStatus(String bookingId) async {
     try {
       // Retrieve the document reference for the specified booking ID
-      DocumentReference bookingRef = _firestore.collection('bookings').doc(bookingId);
+      DocumentReference bookingRef =
+          _firestore.collection('bookings').doc(bookingId);
 
       // Get the current document to check the current status
       DocumentSnapshot snapshot = await bookingRef.get();
@@ -136,20 +137,19 @@ class BookingService {
       }
 
       Map<String, dynamic> data = snapshot.data() as Map<String, dynamic>;
-      String currentStatus = data['status'] ?? 'pending';  // Assume 'pending' if not set
+      String currentStatus =
+          data['status'] ?? 'pending'; // Assume 'pending' if not set
 
       // Determine new status based on current status
       String newStatus = currentStatus == 'completed' ? 'pending' : 'completed';
 
       // Update the 'status' field of the booking
-      await bookingRef.update({
-        'status': newStatus
-      });
-      print('Booking status updated from $currentStatus to $newStatus for booking ID: $bookingId');
+      await bookingRef.update({'status': newStatus});
+      print(
+          'Booking status updated from $currentStatus to $newStatus for booking ID: $bookingId');
     } catch (e) {
       print('Error toggling booking status: $e');
       throw Exception('Failed to toggle booking status');
     }
   }
-
 }

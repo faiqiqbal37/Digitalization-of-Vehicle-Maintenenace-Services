@@ -21,7 +21,7 @@ class ServiceProviderBookingsListingViewModel extends BaseViewModel {
 
   final _servicesService = locator<ServicesService>();
 
-  Future<void> changeStatus(String bookingId) async{
+  Future<void> changeStatus(String bookingId) async {
     await _bookingService.toggleBookingStatus(bookingId);
     notifyListeners();
   }

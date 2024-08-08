@@ -15,17 +15,14 @@ class ServiceProviderProfileView
     ServiceProviderProfileViewModel viewModel,
     Widget? child,
   ) {
+    final Color appBackgroundColor = Theme.of(context).scaffoldBackgroundColor;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile'),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        foregroundColor: Colors.black,
-      ),
+      backgroundColor: appBackgroundColor,
+
       body: ListView(
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 50),
           Icon(Icons.account_circle, size: 100, color: Colors.black),
           SizedBox(height: 20),
           ProfileItem(
@@ -46,13 +43,9 @@ class ServiceProviderProfileView
               onPressed: viewModel.navigateToEditScreen,
               child: Text('Edit Details'),
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.black,
-                backgroundColor: Colors.white,
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blue,
                 textStyle: TextStyle(fontSize: 16),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0),
-                  side: BorderSide(color: Colors.black),
-                ),
               ),
             ),
           ),

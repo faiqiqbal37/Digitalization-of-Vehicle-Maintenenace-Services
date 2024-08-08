@@ -15,21 +15,23 @@ class BookingCard extends StatelessWidget {
   final String price;
   final String category;
   final String phone;
+  final String bookingId;
   final Future<void> Function() updateStatus;
 
   final _navigationService = locator<NavigationService>();
 
-  BookingCard({
-    required this.customerName,
-    required this.serviceName,
-    required this.date,
-    required this.location,
-    required this.status,
-    required this.category,
-    required this.price,
-    required this.email,
-    required this.phone,
-    required this.updateStatus});
+  BookingCard(
+      {required this.customerName,
+      required this.bookingId,
+      required this.serviceName,
+      required this.date,
+      required this.location,
+      required this.status,
+      required this.category,
+      required this.price,
+      required this.email,
+      required this.phone,
+      required this.updateStatus});
 
   @override
   Widget build(BuildContext context) {
@@ -59,27 +61,33 @@ class BookingCard extends StatelessWidget {
               children: [
                 ElevatedButton(
                   onPressed: updateStatus,
-                  child: Text(status == 'completed'  // Ensure this check is case-sensitive and matches exactly with the statuses used in the backend
+                  child: Text(status ==
+                          'completed' // Ensure this check is case-sensitive and matches exactly with the statuses used in the backend
                       ? 'Mark as Pending'
-                      : 'Mark as Completed'),  // Adjusted the text to properly reflect the status toggling
-                  style: ElevatedButton.styleFrom( foregroundColor: Colors.white,
+                      : 'Mark as Completed'), // Adjusted the text to properly reflect the status toggling
+                  style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
                       backgroundColor: Colors.blue),
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    _navigationService.navigateTo(Routes.serviceProviderBookingdetailView, arguments: ServiceProviderBookingdetailViewArguments(
-                        customerPhone: phone,
-                        customerName: customerName,
-                        serviceName: serviceName,
-                        email: email,
-                        location: location,
-                        status: status,
-                        date: date,
-                        servceCategory: category,
-                        servicePrice: price));
+                    _navigationService.navigateTo(
+                        Routes.serviceProviderBookingdetailView,
+                        arguments: ServiceProviderBookingdetailViewArguments(
+                            customerPhone: phone,
+                            customerName: customerName,
+                            serviceName: serviceName,
+                            email: email,
+                            location: location,
+                            status: status,
+                            date: date,
+                            serviceCategory: category,
+                            servicePrice: price,
+                            bookingId: bookingId));
                   },
                   child: Text('View'),
-                  style: ElevatedButton.styleFrom(foregroundColor: Colors.white,
+                  style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.white,
                       backgroundColor: Colors.blue),
                 ),
               ],

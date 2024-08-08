@@ -11,15 +11,17 @@ import 'service_provider_add_service_viewmodel.dart';
   FormTextField(name: 'price'),
   FormTextField(name: 'ETA'),
 ])
-class ServiceProviderAddServiceView extends StackedView<ServiceProviderAddServiceViewModel> with $ServiceProviderAddServiceView {
+class ServiceProviderAddServiceView
+    extends StackedView<ServiceProviderAddServiceViewModel>
+    with $ServiceProviderAddServiceView {
   const ServiceProviderAddServiceView({Key? key}) : super(key: key);
 
   @override
   Widget builder(
-      BuildContext context,
-      ServiceProviderAddServiceViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    ServiceProviderAddServiceViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add a Service'),
@@ -51,7 +53,13 @@ class ServiceProviderAddServiceView extends StackedView<ServiceProviderAddServic
                         border: OutlineInputBorder(),
                       ),
                       items: <String>[
-                        'Mechanical', 'Electrical', 'Bodywork', 'Painting', 'Detailing', 'Tire Change', 'Battery Replacement'
+                        'Mechanical',
+                        'Electrical',
+                        'Bodywork',
+                        'Painting',
+                        'Detailing',
+                        'Tire Change',
+                        'Battery Replacement'
                       ].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -95,7 +103,14 @@ class ServiceProviderAddServiceView extends StackedView<ServiceProviderAddServic
                       ),
                       onChanged: (value) => {viewModel.vehicleType = value},
                       items: <String>[
-                        'SUV', 'Sedan', 'Coupe', 'Hatchback', 'Convertible', 'Truck', 'Motorcycle', 'Van'
+                        'SUV',
+                        'Sedan',
+                        'Coupe',
+                        'Hatchback',
+                        'Convertible',
+                        'Truck',
+                        'Motorcycle',
+                        'Van'
                       ].map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -137,7 +152,7 @@ class ServiceProviderAddServiceView extends StackedView<ServiceProviderAddServic
 
   @override
   ServiceProviderAddServiceViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       ServiceProviderAddServiceViewModel();
 }

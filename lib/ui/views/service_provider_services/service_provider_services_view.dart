@@ -10,10 +10,10 @@ class ServiceProviderServicesView
 
   @override
   Widget builder(
-      BuildContext context,
-      ServiceProviderServicesViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    ServiceProviderServicesViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Services'),
@@ -44,22 +44,26 @@ class ServiceProviderServicesView
                         borderRadius: BorderRadius.circular(10),
                       ),
                       child: ListTile(
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                        contentPadding:
+                            EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                         leading: Icon(Icons.build, color: Colors.black),
                         title: Text(
                           viewModel.servicesNew[index].serviceName,
-                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18),
                         ),
                         subtitle: Text(
                           '${viewModel.servicesNew[index].serviceType} - Price: \£${viewModel.servicesNew[index].price}',
-                          style: TextStyle(fontSize: 16, color: Colors.grey[600]),
+                          style:
+                              TextStyle(fontSize: 16, color: Colors.grey[600]),
                         ),
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
                             ElevatedButton(
                               onPressed: () =>
-                                  viewModel.navigateToServiceDetail(viewModel.servicesNew[index].id),
+                                  viewModel.navigateToServiceDetail(
+                                      viewModel.servicesNew[index].id),
                               child: Text('View'),
                               style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.white,
@@ -68,8 +72,8 @@ class ServiceProviderServicesView
                             ),
                             SizedBox(width: 8),
                             ElevatedButton(
-                              onPressed: () =>
-                                  viewModel.navigateToEditDetail(viewModel.servicesNew[index].id),
+                              onPressed: () => viewModel.navigateToEditDetail(
+                                  viewModel.servicesNew[index].id),
                               child: Text('Edit'),
                               style: ElevatedButton.styleFrom(
                                 foregroundColor: Colors.white,
@@ -108,7 +112,7 @@ class ServiceProviderServicesView
 
   @override
   ServiceProviderServicesViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       ServiceProviderServicesViewModel();
 }

@@ -18,17 +18,10 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
     final Color appBackgroundColor = Theme.of(context).scaffoldBackgroundColor;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile'),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        foregroundColor: Colors.black,
-      ),
       backgroundColor: appBackgroundColor,
       body: ListView(
         children: [
-          SizedBox(height: 20),
+          SizedBox(height: 50),
           Icon(Icons.account_box, size: 100, color: Colors.black),
           SizedBox(height: 20),
           ProfileItem(

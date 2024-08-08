@@ -43,12 +43,14 @@ class ServiceProviderRegisterView
     Widget? child,
   ) {
     return Scaffold(
-      body: Padding(
+        body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
+    child: SingleChildScrollView( // Add this widget
+    child: Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.stretch,
+    children: <Widget>[
+      SizedBox(height: 50,),
             Text(
               'Register as a Service Provider',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -174,6 +176,7 @@ class ServiceProviderRegisterView
           ],
         ),
       ),
+        )
     );
   }
 
