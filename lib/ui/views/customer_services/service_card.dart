@@ -13,6 +13,7 @@ class CustomerServiceCard extends StatelessWidget {
   final String vehicleType;
   final String? eta;
   final String? description;
+  final VoidCallback onButtonPressed; // The function to execute
 
   final _navigationService = locator<NavigationService>();
 
@@ -25,7 +26,8 @@ class CustomerServiceCard extends StatelessWidget {
       required this.description,
       required this.serviceProviderId,
       required this.serviceId,
-      required this.customerId});
+      required this.customerId,
+      required this.onButtonPressed});
 
   @override
   Widget build(BuildContext context) {

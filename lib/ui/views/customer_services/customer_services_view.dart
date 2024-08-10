@@ -115,6 +115,7 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
                       vehicleType: viewModel.servicesNew[index].vehicleType,
                       description: viewModel.servicesNew[index].description,
                       customerId: viewModel.customer.id,
+                      onButtonPressed: viewModel.notifyListeners,
                       serviceId: viewModel.servicesNew[index].id,
                       serviceProviderId:
                           viewModel.servicesNew[index].serviceProviderId);

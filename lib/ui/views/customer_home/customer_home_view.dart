@@ -3,6 +3,7 @@ import 'package:stacked/stacked.dart';
 
 import '../common_components/customer/navigation_bar.dart';
 import '../customer_bookings/booking_card.dart';
+import '../customer_services/service_card.dart';
 import 'booking_widget.dart';
 import 'category_widget.dart';
 import 'customer_home_viewmodel.dart';
@@ -36,11 +37,12 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
               ),
             ),
             SizedBox(height: 10),
+            // Advertisement banners
             Container(
               height: 100,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: 10, // Number of items in the list
+                itemCount: 10,
                 itemBuilder: (context, index) {
                   return Container(
                     width: 400,
@@ -55,21 +57,82 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
               ),
             ),
             SizedBox(height: 30),
+            // Category widgets
             Text('Service Categories',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: <Widget>[
-                  CategoryWidget(title: 'Electrical'),
-                  CategoryWidget(title: 'Paint'),
-                  CategoryWidget(title: 'Bodywork'),
-                  CategoryWidget(title: 'Mechanical'),
-                  CategoryWidget(title: 'Wrap'),
+                  ElevatedButton(
+                    onPressed: () =>
+                        viewModel.fetchServicesBasedOnCategory("Electrical"),
+                    // Action or navigation
+                    child: Text('Electrical'),
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.blue,
+                      backgroundColor: Colors.white,
+                      shadowColor: Colors.blueAccent,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () =>
+                        viewModel.fetchServicesBasedOnCategory("Paint"),
+                    // Action or navigation
+                    child: Text('Paint'),
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.blue,
+                      backgroundColor: Colors.white,
+                      shadowColor: Colors.blueAccent,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () =>
+                        viewModel.fetchServicesBasedOnCategory("Bodywork"),
+                    // Action or navigation
+                    child: Text('Bodywork'),
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.blue,
+                      backgroundColor: Colors.white,
+                      shadowColor: Colors.blueAccent,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () =>
+                        viewModel.fetchServicesBasedOnCategory("Mechanical"),
+                    // Action or navigation
+                    child: Text('Mechanical'),
+                    style: TextButton.styleFrom(
+                      foregroundColor: Colors.blue,
+                      backgroundColor: Colors.white,
+                      shadowColor: Colors.blueAccent,
+                    ),
+                  ),
                 ],
               ),
             ),
+            // New section: Services List
+            ListView.builder(
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                itemCount: viewModel.servicesNew.length,
+                itemBuilder: (context, index) {
+                  return CustomerServiceCard(
+                    serviceProviderName: viewModel.servicesNew[index].serviceName,
+                    serviceName: viewModel.servicesNew[index].serviceType,
+                    price: viewModel.servicesNew[index].price,
+                    eta: viewModel.servicesNew[index].eta,
+                    vehicleType: viewModel.servicesNew[index].vehicleType,
+                    description: viewModel.servicesNew[index].description,
+                    customerId: viewModel.customer.id,
+                    serviceId: viewModel.servicesNew[index].id,
+                    serviceProviderId: viewModel.servicesNew[index].serviceProviderId,
+                    onButtonPressed: viewModel.notifyListeners,
+                  );
+                }
+            ),
             SizedBox(height: 30),
+            // Upcoming bookings section
             Text('Upcoming Bookings',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             Container(
@@ -114,6 +177,8 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
   @override
   void onViewModelReady(CustomerHomeViewModel viewModel) {
     viewModel.getCustomerName();
+    viewModel.fetchServices();
+    viewModel.fetchCustomer();
   }
 
   @override
