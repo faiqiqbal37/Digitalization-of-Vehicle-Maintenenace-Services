@@ -48,4 +48,18 @@ class ServiceProviderService {
       throw Exception("Failed to update customer");
     }
   }
+
+  Future<List<ServiceProvider>> fetchAll() async {
+    try {
+      QuerySnapshot snapshot =
+          await _firestore.collection('serviceProviders').get();
+      List<ServiceProvider> serviceProviders = snapshot.docs.map((doc) {
+        return ServiceProvider.fromJson(doc.data() as Map<String, dynamic>);
+      }).toList();
+      return serviceProviders;
+    } catch (e) {
+      print("Error fetching customers: $e");
+      throw Exception("Failed to fetch customers");
+    }
+  }
 }

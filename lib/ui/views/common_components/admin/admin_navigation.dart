@@ -22,8 +22,11 @@ class _AdminBottomNavigationBarState extends State<AdminBottomNavigationBar> {
     } else if (_selectedIndex == 1) {
       _navigationService.replaceWithAdminCustomersView();
     } else if (_selectedIndex == 2) {
+      _navigationService.replaceWithAdminServiceProvidersView();
     } else if (_selectedIndex == 3) {
-    } else if (_selectedIndex == 4) {}
+    } else if (_selectedIndex == 4) {
+      _navigationService.replaceWithAdminBookingsView();
+    }
   }
 
   @override

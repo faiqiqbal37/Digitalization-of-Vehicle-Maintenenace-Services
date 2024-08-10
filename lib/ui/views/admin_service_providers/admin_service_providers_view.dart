@@ -1,16 +1,17 @@
-import 'package:disertation/ui/views/common_components/admin/admin_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 
-import 'admin_customers_viewmodel.dart';
+import '../common_components/admin/admin_navigation.dart';
+import 'admin_service_providers_viewmodel.dart';
 
-class AdminCustomersView extends StackedView<AdminCustomersViewModel> {
-  const AdminCustomersView({Key? key}) : super(key: key);
+class AdminServiceProvidersView
+    extends StackedView<AdminServiceProvidersViewModel> {
+  const AdminServiceProvidersView({Key? key}) : super(key: key);
 
   @override
   Widget builder(
     BuildContext context,
-    AdminCustomersViewModel viewModel,
+    AdminServiceProvidersViewModel viewModel,
     Widget? child,
   ) {
     return Scaffold(
@@ -18,19 +19,18 @@ class AdminCustomersView extends StackedView<AdminCustomersViewModel> {
         children: [
           SizedBox(height: 60),
           Icon(Icons.person_2, size: 80, color: Colors.black),
-          Text("Customers",
+          Text("Service Providers",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
             child: ListView.builder(
-                itemCount: viewModel.customersNew.length,
+                itemCount: viewModel.serviceProviders.length,
                 itemBuilder: (context, index) {
-                  return CustomerCard(
-                    name: viewModel.customersNew[index].firstname +
-                        viewModel.customersNew[index].lastname,
-                    email: viewModel.customersNew[index].email,
-                    phone: viewModel.customersNew[index].phoneNumber,
-                  );
+                  return ServiceProviderCard(
+                      businessName:
+                          viewModel.serviceProviders[index].businessName,
+                      email: viewModel.serviceProviders[index].email,
+                      phone: viewModel.serviceProviders[index].phoneNumber);
                 }),
           ),
         ],
@@ -40,24 +40,25 @@ class AdminCustomersView extends StackedView<AdminCustomersViewModel> {
   }
 
   @override
-  void onViewModelReady(AdminCustomersViewModel viewModel) {
+  void onViewModelReady(AdminServiceProvidersViewModel viewModel) {
     super.onViewModelReady(viewModel);
-    viewModel.fetchCustomers();
+    viewModel.fetchServiceProviders();
   }
 
   @override
-  AdminCustomersViewModel viewModelBuilder(
+  AdminServiceProvidersViewModel viewModelBuilder(
     BuildContext context,
   ) =>
-      AdminCustomersViewModel();
+      AdminServiceProvidersViewModel();
 }
 
-class CustomerCard extends StatelessWidget {
-  final String name;
+class ServiceProviderCard extends StatelessWidget {
+  final String businessName;
   final String email;
   final String phone;
 
-  CustomerCard({required this.name, required this.email, required this.phone});
+  ServiceProviderCard(
+      {required this.businessName, required this.email, required this.phone});
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +68,7 @@ class CustomerCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Customer Name: $name',
+            Text('Business Name: $businessName',
                 style: TextStyle(fontWeight: FontWeight.bold)),
             SizedBox(height: 4),
             Text('Email: $email'),
