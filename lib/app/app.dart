@@ -42,6 +42,7 @@ import 'package:disertation/ui/views/service_provider_finance/service_provider_f
 import 'package:disertation/ui/views/admin_customers/admin_customers_view.dart';
 import 'package:disertation/ui/views/admin_service_providers/admin_service_providers_view.dart';
 import 'package:disertation/ui/views/admin_bookings/admin_bookings_view.dart';
+import 'package:disertation/ui/views/admin_finances/admin_finances_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -79,6 +80,7 @@ import 'package:disertation/ui/views/admin_bookings/admin_bookings_view.dart';
     MaterialRoute(page: AdminCustomersView),
     MaterialRoute(page: AdminServiceProvidersView),
     MaterialRoute(page: AdminBookingsView),
+    MaterialRoute(page: AdminFinancesView),
 // @stacked-route
   ],
   dependencies: [

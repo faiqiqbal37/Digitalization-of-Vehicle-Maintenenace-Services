@@ -15,8 +15,6 @@ class AdminBookingsViewModel extends BaseViewModel {
   final _authenticationService = locator<AuthenticationService>();
   final _servicesService = locator<ServicesService>();
 
-
-
   Future<List<Map<String, dynamic>>> loadAllCustomerBookings() async {
     List<Booking> bookings = await _bookingService.fetchAllBookings();
     List<Map<String, dynamic>> bookingDetailsList = [];
@@ -24,10 +22,10 @@ class AdminBookingsViewModel extends BaseViewModel {
     for (var booking in bookings) {
       // Fetch customer details
       Customer? customer =
-      await _authenticationService.fetchCustomerByUid(booking.customerId);
+          await _authenticationService.fetchCustomerByUid(booking.customerId);
       // Fetch service details
       Service service =
-      await _servicesService.getServiceById(booking.serviceId);
+          await _servicesService.getServiceById(booking.serviceId);
       // Fetch service provider details
       ServiceProvider? serviceProvider = await _authenticationService
           .fetchServiceProviderByUid(booking.serviceProviderId);
@@ -40,7 +38,9 @@ class AdminBookingsViewModel extends BaseViewModel {
         'serviceProviderName': serviceProvider?.businessName,
         'serviceName': service.serviceName,
         'date': formattedDate,
-        'customerName': customer!.firstname + ' ' + customer.lastname,  // Handle potential nulls
+        'customerName': customer!.firstname +
+            ' ' +
+            customer.lastname, // Handle potential nulls
         'status': booking.status,
         'price': service.price.toString(),
         'phone': serviceProvider?.phoneNumber,
@@ -50,6 +50,4 @@ class AdminBookingsViewModel extends BaseViewModel {
     }
     return bookingDetailsList;
   }
-
-
 }

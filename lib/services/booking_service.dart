@@ -61,9 +61,8 @@ class BookingService {
 
   Future<List<Booking>> fetchAllBookings() async {
     try {
-      QuerySnapshot querySnapshot = await _firestore
-          .collection('bookings')
-          .get();
+      QuerySnapshot querySnapshot =
+          await _firestore.collection('bookings').get();
 
       List<Booking> bookings = querySnapshot.docs.map((doc) {
         Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
@@ -83,7 +82,6 @@ class BookingService {
       return [];
     }
   }
-
 
   Future<Booking?> fetchMostRecentBookingByCustomerId(String customerId) async {
     try {

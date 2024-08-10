@@ -26,6 +26,8 @@ class _AdminBottomNavigationBarState extends State<AdminBottomNavigationBar> {
     } else if (_selectedIndex == 3) {
     } else if (_selectedIndex == 4) {
       _navigationService.replaceWithAdminBookingsView();
+    } else if (_selectedIndex == 5) {
+      _navigationService.replaceWithAdminFinancesView();
     }
   }
 
@@ -54,8 +56,8 @@ class _AdminBottomNavigationBarState extends State<AdminBottomNavigationBar> {
           label: 'Bookings',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'Profile',
+          icon: Icon(Icons.monetization_on),
+          label: 'Finances',
         ),
       ],
       currentIndex: _selectedIndex,

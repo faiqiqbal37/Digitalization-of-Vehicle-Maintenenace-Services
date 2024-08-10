@@ -73,9 +73,6 @@ class AdminBookingsView extends StackedView<AdminBookingsViewModel> {
       AdminBookingsViewModel();
 }
 
-
-
-
 class AdminBookingCard extends StatelessWidget {
   final String serviceProviderName;
   final String serviceName;
@@ -90,13 +87,13 @@ class AdminBookingCard extends StatelessWidget {
 
   AdminBookingCard(
       {required this.serviceProviderName,
-        required this.serviceName,
-        required this.date,
-        required this.status,
-        required this.price,
-        required this.email,
-        required this.customerName,
-        required this.phone});
+      required this.serviceName,
+      required this.date,
+      required this.status,
+      required this.price,
+      required this.email,
+      required this.customerName,
+      required this.phone});
 
   @override
   Widget build(BuildContext context) {
@@ -132,9 +129,7 @@ class AdminBookingCard extends StatelessWidget {
               ),
             ),
             ElevatedButton(
-              onPressed: () {
-
-              },
+              onPressed: () {},
               child: Text('View'),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
@@ -154,4 +149,3 @@ class AdminBookingCard extends StatelessWidget {
     );
   }
 }
-

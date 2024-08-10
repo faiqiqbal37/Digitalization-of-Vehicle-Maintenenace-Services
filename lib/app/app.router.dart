@@ -9,6 +9,8 @@ import 'package:disertation/ui/views/admin_bookings/admin_bookings_view.dart'
     as _i33;
 import 'package:disertation/ui/views/admin_customers/admin_customers_view.dart'
     as _i31;
+import 'package:disertation/ui/views/admin_finances/admin_finances_view.dart'
+    as _i34;
 import 'package:disertation/ui/views/admin_home/admin_home_view.dart' as _i28;
 import 'package:disertation/ui/views/admin_service_providers/admin_service_providers_view.dart'
     as _i32;
@@ -66,9 +68,9 @@ import 'package:disertation/ui/views/service_provider_services/service_provider_
     as _i11;
 import 'package:disertation/ui/views/startup/startup_view.dart' as _i3;
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as _i34;
+import 'package:flutter/material.dart' as _i35;
 import 'package:stacked/stacked.dart' as _i1;
-import 'package:stacked_services/stacked_services.dart' as _i35;
+import 'package:stacked_services/stacked_services.dart' as _i36;
 
 class Routes {
   static const homeView = '/home-view';
@@ -134,7 +136,6 @@ class Routes {
 
   static const customerServiceDetailView = '/customer-service-detail-view';
 
-
   static const serviceProviderFinanceView = '/service-provider-finance-view';
 
   static const adminCustomersView = '/admin-customers-view';
@@ -142,6 +143,8 @@ class Routes {
   static const adminServiceProvidersView = '/admin-service-providers-view';
 
   static const adminBookingsView = '/admin-bookings-view';
+
+  static const adminFinancesView = '/admin-finances-view';
 
   static const all = <String>{
     homeView,
@@ -176,6 +179,7 @@ class Routes {
     adminCustomersView,
     adminServiceProvidersView,
     adminBookingsView,
+    adminFinancesView,
   };
 }
 
@@ -313,77 +317,81 @@ class StackedRouter extends _i1.RouterBase {
       Routes.adminBookingsView,
       page: _i33.AdminBookingsView,
     ),
+    _i1.RouteDef(
+      Routes.adminFinancesView,
+      page: _i34.AdminFinancesView,
+    ),
   ];
 
   final _pagesMap = <Type, _i1.StackedRouteFactory>{
     _i2.HomeView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i2.HomeView(),
         settings: data,
       );
     },
     _i3.StartupView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i3.StartupView(),
         settings: data,
       );
     },
     _i4.LoginView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i4.LoginView(),
         settings: data,
       );
     },
     _i5.ServiceProviderHomeScreenView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i5.ServiceProviderHomeScreenView(),
         settings: data,
       );
     },
     _i6.ServiceProviderRegisterView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i6.ServiceProviderRegisterView(),
         settings: data,
       );
     },
     _i7.CustomerRegisterView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i7.CustomerRegisterView(),
         settings: data,
       );
     },
     _i8.InitialSelectionScreenView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i8.InitialSelectionScreenView(),
         settings: data,
       );
     },
     _i9.LoginServiceProviderView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i9.LoginServiceProviderView(),
         settings: data,
       );
     },
     _i10.ServiceProviderProfileView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i10.ServiceProviderProfileView(),
         settings: data,
       );
     },
     _i11.ServiceProviderServicesView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i11.ServiceProviderServicesView(),
         settings: data,
       );
     },
     _i12.ServiceProviderAddServiceView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i12.ServiceProviderAddServiceView(),
         settings: data,
       );
     },
     _i13.ServiceProviderBookingsListingView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i13.ServiceProviderBookingsListingView(),
         settings: data,
       );
@@ -391,7 +399,7 @@ class StackedRouter extends _i1.RouterBase {
     _i14.ServiceProviderBookingdetailView: (data) {
       final args = data.getArgs<ServiceProviderBookingdetailViewArguments>(
           nullOk: false);
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => _i14.ServiceProviderBookingdetailView(
             key: args.key,
             customerName: args.customerName,
@@ -408,37 +416,37 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i15.CustomerHomeView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i15.CustomerHomeView(),
         settings: data,
       );
     },
     _i16.CustomerCarsView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i16.CustomerCarsView(),
         settings: data,
       );
     },
     _i17.CustomerAddCarsView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i17.CustomerAddCarsView(),
         settings: data,
       );
     },
     _i18.CustomerBookingsView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i18.CustomerBookingsView(),
         settings: data,
       );
     },
     _i19.CustomerProfileView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i19.CustomerProfileView(),
         settings: data,
       );
     },
     _i20.CustomerServicesView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i20.CustomerServicesView(),
         settings: data,
       );
@@ -446,7 +454,7 @@ class StackedRouter extends _i1.RouterBase {
     _i21.CustomerBookingDetailView: (data) {
       final args =
           data.getArgs<CustomerBookingDetailViewArguments>(nullOk: false);
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => _i21.CustomerBookingDetailView(
             key: args.key,
             phone: args.phone,
@@ -461,7 +469,7 @@ class StackedRouter extends _i1.RouterBase {
     },
     _i22.CustomerAddBookingView: (data) {
       final args = data.getArgs<CustomerAddBookingViewArguments>(nullOk: false);
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => _i22.CustomerAddBookingView(
             key: args.key,
             description: args.description,
@@ -474,19 +482,19 @@ class StackedRouter extends _i1.RouterBase {
       );
     },
     _i23.CustomerPaymentView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i23.CustomerPaymentView(),
         settings: data,
       );
     },
     _i24.CustomerEditProfileView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i24.CustomerEditProfileView(),
         settings: data,
       );
     },
     _i25.ServiceProviderEditProfileView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i25.ServiceProviderEditProfileView(),
         settings: data,
       );
@@ -494,7 +502,7 @@ class StackedRouter extends _i1.RouterBase {
     _i26.ServiceProviderServiceDetailView: (data) {
       final args = data.getArgs<ServiceProviderServiceDetailViewArguments>(
           nullOk: false);
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => _i26.ServiceProviderServiceDetailView(
             key: args.key, serviceId: args.serviceId),
         settings: data,
@@ -503,14 +511,14 @@ class StackedRouter extends _i1.RouterBase {
     _i27.ServiceProviderEditServiceView: (data) {
       final args =
           data.getArgs<ServiceProviderEditServiceViewArguments>(nullOk: false);
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => _i27.ServiceProviderEditServiceView(
             key: args.key, serviceId: args.serviceId),
         settings: data,
       );
     },
     _i28.AdminHomeView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i28.AdminHomeView(),
         settings: data,
       );
@@ -518,33 +526,39 @@ class StackedRouter extends _i1.RouterBase {
     _i29.CustomerServiceDetailView: (data) {
       final args =
           data.getArgs<CustomerServiceDetailViewArguments>(nullOk: false);
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => _i29.CustomerServiceDetailView(
             key: args.key, serviceId: args.serviceId),
         settings: data,
       );
     },
     _i30.ServiceProviderFinanceView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i30.ServiceProviderFinanceView(),
         settings: data,
       );
     },
     _i31.AdminCustomersView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i31.AdminCustomersView(),
         settings: data,
       );
     },
     _i32.AdminServiceProvidersView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i32.AdminServiceProvidersView(),
         settings: data,
       );
     },
     _i33.AdminBookingsView: (data) {
-      return _i34.MaterialPageRoute<dynamic>(
+      return _i35.MaterialPageRoute<dynamic>(
         builder: (context) => const _i33.AdminBookingsView(),
+        settings: data,
+      );
+    },
+    _i34.AdminFinancesView: (data) {
+      return _i35.MaterialPageRoute<dynamic>(
+        builder: (context) => const _i34.AdminFinancesView(),
         settings: data,
       );
     },
@@ -572,7 +586,7 @@ class ServiceProviderBookingdetailViewArguments {
     required this.servicePrice,
   });
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
   final String customerName;
 
@@ -643,7 +657,7 @@ class CustomerBookingDetailViewArguments {
     required this.status,
   });
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
   final String phone;
 
@@ -701,7 +715,7 @@ class CustomerAddBookingViewArguments {
     required this.price,
   });
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
   final String? description;
 
@@ -750,7 +764,7 @@ class ServiceProviderServiceDetailViewArguments {
     required this.serviceId,
   });
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
   final String serviceId;
 
@@ -777,7 +791,7 @@ class ServiceProviderEditServiceViewArguments {
     required this.serviceId,
   });
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
   final String serviceId;
 
@@ -804,7 +818,7 @@ class CustomerServiceDetailViewArguments {
     required this.serviceId,
   });
 
-  final _i34.Key? key;
+  final _i35.Key? key;
 
   final String serviceId;
 
@@ -825,7 +839,7 @@ class CustomerServiceDetailViewArguments {
   }
 }
 
-extension NavigatorStateExtension on _i35.NavigationService {
+extension NavigatorStateExtension on _i36.NavigationService {
   Future<dynamic> navigateToHomeView([
     int? routerId,
     bool preventDuplicates = true,
@@ -995,7 +1009,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> navigateToServiceProviderBookingdetailView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String customerName,
     required String email,
     required String bookingId,
@@ -1116,7 +1130,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> navigateToCustomerBookingDetailView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String phone,
     required String email,
     required String price,
@@ -1147,7 +1161,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> navigateToCustomerAddBookingView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String? description,
     required String serviceName,
     required String serviceProviderId,
@@ -1218,7 +1232,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> navigateToServiceProviderServiceDetailView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String serviceId,
     int? routerId,
     bool preventDuplicates = true,
@@ -1236,7 +1250,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> navigateToServiceProviderEditServiceView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String serviceId,
     int? routerId,
     bool preventDuplicates = true,
@@ -1268,7 +1282,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> navigateToCustomerServiceDetailView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String serviceId,
     int? routerId,
     bool preventDuplicates = true,
@@ -1335,6 +1349,20 @@ extension NavigatorStateExtension on _i35.NavigationService {
         transition,
   ]) async {
     return navigateTo<dynamic>(Routes.adminBookingsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> navigateToAdminFinancesView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return navigateTo<dynamic>(Routes.adminFinancesView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -1510,7 +1538,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> replaceWithServiceProviderBookingdetailView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String customerName,
     required String email,
     required String bookingId,
@@ -1631,7 +1659,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> replaceWithCustomerBookingDetailView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String phone,
     required String email,
     required String price,
@@ -1662,7 +1690,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> replaceWithCustomerAddBookingView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String? description,
     required String serviceName,
     required String serviceProviderId,
@@ -1733,7 +1761,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> replaceWithServiceProviderServiceDetailView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String serviceId,
     int? routerId,
     bool preventDuplicates = true,
@@ -1751,7 +1779,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> replaceWithServiceProviderEditServiceView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String serviceId,
     int? routerId,
     bool preventDuplicates = true,
@@ -1783,7 +1811,7 @@ extension NavigatorStateExtension on _i35.NavigationService {
   }
 
   Future<dynamic> replaceWithCustomerServiceDetailView({
-    _i34.Key? key,
+    _i35.Key? key,
     required String serviceId,
     int? routerId,
     bool preventDuplicates = true,
@@ -1850,6 +1878,20 @@ extension NavigatorStateExtension on _i35.NavigationService {
         transition,
   ]) async {
     return replaceWith<dynamic>(Routes.adminBookingsView,
+        id: routerId,
+        preventDuplicates: preventDuplicates,
+        parameters: parameters,
+        transition: transition);
+  }
+
+  Future<dynamic> replaceWithAdminFinancesView([
+    int? routerId,
+    bool preventDuplicates = true,
+    Map<String, String>? parameters,
+    Widget Function(BuildContext, Animation<double>, Animation<double>, Widget)?
+        transition,
+  ]) async {
+    return replaceWith<dynamic>(Routes.adminFinancesView,
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
