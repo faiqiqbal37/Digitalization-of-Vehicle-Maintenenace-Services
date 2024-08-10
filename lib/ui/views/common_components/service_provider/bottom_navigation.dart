@@ -7,11 +7,11 @@ import 'package:disertation/app/app.locator.dart';
 import 'package:disertation/app/app.router.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
-
   CustomBottomNavigationBar({Key? key}) : super(key: key);
 
   @override
-  _CustomBottomNavigationBarState createState() => _CustomBottomNavigationBarState();
+  _CustomBottomNavigationBarState createState() =>
+      _CustomBottomNavigationBarState();
 }
 
 class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
@@ -51,7 +51,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     setState(() {
       _selectedIndex = index;
     });
-    if (index == 3) { // Assuming the bookings tab is index 3
+    if (index == 3) {
+      // Assuming the bookings tab is index 3
       _hasNewBooking = false; // Reset the notification when viewed
     }
     switch (index) {
@@ -91,7 +92,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           label: 'Services',
         ),
         BottomNavigationBarItem(
-          icon:badges.Badge(
+          icon: badges.Badge(
             showBadge: _hasNewBooking,
             badgeContent: Text('1', style: TextStyle(color: Colors.white)),
             child: Icon(Icons.calendar_today),

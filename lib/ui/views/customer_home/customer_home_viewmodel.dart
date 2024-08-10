@@ -21,11 +21,7 @@ class CustomerHomeViewModel extends BaseViewModel {
   final _servicesService = locator<ServicesService>();
   final _serviceProviderService = locator<ServiceProviderService>();
 
-
-
-
   String customerName = "";
-
 
   late List<Service> servicesNew = [];
   ServiceProvider serviceProvider = ServiceProvider(
@@ -46,7 +42,7 @@ class CustomerHomeViewModel extends BaseViewModel {
 
   Future<void> fetchServiceProvider(String id) async {
     serviceProvider =
-    await _serviceProviderService.fetchServiceProviderById(id);
+        await _serviceProviderService.fetchServiceProviderById(id);
     notifyListeners();
   }
 

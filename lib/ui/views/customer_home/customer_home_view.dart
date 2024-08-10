@@ -13,10 +13,10 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerHomeViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerHomeViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -118,7 +118,8 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
                 itemCount: viewModel.servicesNew.length,
                 itemBuilder: (context, index) {
                   return CustomerServiceCard(
-                    serviceProviderName: viewModel.servicesNew[index].serviceName,
+                    serviceProviderName:
+                        viewModel.servicesNew[index].serviceName,
                     serviceName: viewModel.servicesNew[index].serviceType,
                     price: viewModel.servicesNew[index].price,
                     eta: viewModel.servicesNew[index].eta,
@@ -126,11 +127,11 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
                     description: viewModel.servicesNew[index].description,
                     customerId: viewModel.customer.id,
                     serviceId: viewModel.servicesNew[index].id,
-                    serviceProviderId: viewModel.servicesNew[index].serviceProviderId,
+                    serviceProviderId:
+                        viewModel.servicesNew[index].serviceProviderId,
                     onButtonPressed: viewModel.notifyListeners,
                   );
-                }
-            ),
+                }),
             SizedBox(height: 30),
             // Upcoming bookings section
             Text('Upcoming Bookings',
@@ -141,7 +142,9 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
                 future: viewModel.loadCustomerBookings(),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.done) {
-                    var bookings = snapshot.data!.where((booking) => booking['status'] == 'pending').toList();
+                    var bookings = snapshot.data!
+                        .where((booking) => booking['status'] == 'pending')
+                        .toList();
                     if (bookings.isEmpty) {
                       return Center(child: Text('No pending bookings'));
                     }

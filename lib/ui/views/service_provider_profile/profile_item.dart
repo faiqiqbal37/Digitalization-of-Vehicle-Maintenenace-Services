@@ -14,7 +14,7 @@ class ProfileItem extends StatelessWidget {
       title: Text(title),
       subtitle: Text(content),
       tileColor: Theme.of(context).scaffoldBackgroundColor,
-        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+      contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
     );
   }
 }

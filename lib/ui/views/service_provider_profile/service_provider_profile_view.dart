@@ -19,7 +19,6 @@ class ServiceProviderProfileView
 
     return Scaffold(
       backgroundColor: appBackgroundColor,
-
       body: ListView(
         children: [
           SizedBox(height: 50),

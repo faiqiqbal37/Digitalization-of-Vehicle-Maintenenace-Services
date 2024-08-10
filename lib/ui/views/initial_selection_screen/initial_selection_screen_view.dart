@@ -46,6 +46,15 @@ class InitialSelectionScreenView
                   ),
                   child: Text('Service Provider'),
                 ),
+                ElevatedButton(
+                  onPressed: viewModel.navigateToAdmin,
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.white,
+                    backgroundColor:
+                        Colors.blue, // Different color for differentiation
+                  ),
+                  child: Text('Admin'),
+                ),
               ],
             ),
             Row(

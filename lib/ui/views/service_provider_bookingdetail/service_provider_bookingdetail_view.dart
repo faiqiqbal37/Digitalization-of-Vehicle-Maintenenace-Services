@@ -40,11 +40,12 @@ class ServiceProviderBookingdetailView
     Widget? child,
   ) {
     return Scaffold(
-
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 80,),
+            SizedBox(
+              height: 80,
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child:
@@ -134,7 +135,7 @@ class ServiceProviderBookingdetailView
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
                 onPressed: () async {
-                   await viewModel.changeStatus(bookingId);
+                  await viewModel.changeStatus(bookingId);
                   viewModel.notifyListeners();
                 },
                 child: Text(status == 'completed'

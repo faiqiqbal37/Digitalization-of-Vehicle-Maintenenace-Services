@@ -16,21 +16,21 @@ class CustomerBookingDetailView
 
   const CustomerBookingDetailView(
       {Key? key,
-        required this.phone,
-        required this.email,
-        required this.price,
-        required this.date,
-        required this.serviceName,
-        required this.serviceProviderName,
-        required this.status})
+      required this.phone,
+      required this.email,
+      required this.price,
+      required this.date,
+      required this.serviceName,
+      required this.serviceProviderName,
+      required this.status})
       : super(key: key);
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerBookingDetailViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerBookingDetailViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Booking Detail'),
@@ -44,7 +44,7 @@ class CustomerBookingDetailView
             children: [
               Center(
                 child:
-                Icon(Icons.calendar_month, size: 110, color: Colors.black),
+                    Icon(Icons.calendar_month, size: 110, color: Colors.black),
               ),
               SizedBox(height: 20),
               Card(
@@ -69,7 +69,7 @@ class CustomerBookingDetailView
                       ListTile(
                         leading: Icon(Icons.build),
                         title:
-                        Text(serviceName, style: TextStyle(fontSize: 15)),
+                            Text(serviceName, style: TextStyle(fontSize: 15)),
                       ),
                       ListTile(
                         leading: Icon(Icons.garage),
@@ -190,9 +190,7 @@ class RatingBar extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(itemCount, (index) {
         return IconButton(
-          icon: index < initialRating
-              ? ratingWidget.full
-              : ratingWidget.empty,
+          icon: index < initialRating ? ratingWidget.full : ratingWidget.empty,
           onPressed: () {
             onRatingUpdate((index + 1).toDouble());
           },

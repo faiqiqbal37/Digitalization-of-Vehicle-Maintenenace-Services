@@ -39,14 +39,15 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
   ) {
     return Scaffold(
         body: Padding(
-        padding: const EdgeInsets.all(20.0),
-    child: SingleChildScrollView( // Add this widget
-    child: Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-    children: <Widget>[
-      SizedBox(height: 50),
-      Text(
+      padding: const EdgeInsets.all(20.0),
+      child: SingleChildScrollView(
+        // Add this widget
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            SizedBox(height: 50),
+            Text(
               'Register as a Customer',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
@@ -158,14 +159,13 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
             ElevatedButton(
               onPressed: viewModel.registerCustomer,
               child: Text('Register'),
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue,
-              foregroundColor: Colors.white),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue, foregroundColor: Colors.white),
             ),
           ],
         ),
       ),
-        )
-    );
+    ));
   }
 
   @override
