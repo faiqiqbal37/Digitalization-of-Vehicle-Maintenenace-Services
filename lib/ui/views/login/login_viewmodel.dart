@@ -14,6 +14,8 @@ class LoginViewModel extends FormViewModel {
   final _authService = locator<AuthenticationService>();
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   final _dialogService = locator<DialogService>();
+  bool displayError = false;
+
 
   void siginInWithGoogle() {}
 

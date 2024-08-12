@@ -140,6 +140,9 @@ class ServiceProviderEditProfileView
             ElevatedButton(
               onPressed: viewModel.editServiceProvider,
               child: Text('Edit'),
+              style: ElevatedButton.styleFrom(foregroundColor: Colors.white,
+                  backgroundColor: Colors.blue),
+
             ),
           ],
         ),

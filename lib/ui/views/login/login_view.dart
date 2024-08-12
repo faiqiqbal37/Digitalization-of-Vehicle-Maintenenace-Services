@@ -47,7 +47,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasEmailInputValidationMessage
+            viewModel.hasEmailInputValidationMessage && viewModel.displayError
                 ? Text(viewModel.emailInputValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -65,7 +65,7 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasPasswordInputValidationMessage
+            viewModel.hasPasswordInputValidationMessage && viewModel.displayError
                 ? Text(viewModel.passwordInputValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -74,7 +74,10 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 : SizedBox(height: 30),
             SizedBox(height: 30),
             ElevatedButton(
-              onPressed: viewModel.signInWithEmail,
+              onPressed: (){
+              viewModel.displayError = true;
+              viewModel.notifyListeners();
+              viewModel.signInWithEmail();},
               child: Text('Sign in with Email'),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
@@ -106,6 +109,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
     super.onDispose(viewModel);
     viewModel.emailInputValue = "";
     viewModel.passwordInputValue = "";
+    viewModel.displayError = false;
+
   }
 
   @override

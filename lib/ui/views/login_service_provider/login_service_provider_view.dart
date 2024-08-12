@@ -102,7 +102,7 @@ class LoginServiceProviderView
     super.onDispose(viewModel);
     viewModel.emailValue = "";
     viewModel.passwordValue = "";
-    viewModel.displayError == false;
+    viewModel.displayError = false;
   }
 
   @override

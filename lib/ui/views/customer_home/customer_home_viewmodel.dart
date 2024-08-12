@@ -20,8 +20,24 @@ class CustomerHomeViewModel extends BaseViewModel {
   final _customerService = locator<CustomerService>();
   final _servicesService = locator<ServicesService>();
   final _serviceProviderService = locator<ServiceProviderService>();
+  String? selectedCategory;
 
   String customerName = "";
+
+  void selectCategory(String category) {
+    if (selectedCategory == category) {
+      selectedCategory = null;
+      fetchServices();
+    } else {
+      selectedCategory = category;
+      fetchServicesBasedOnCategory(category);
+    }
+    notifyListeners();
+  }
+
+
+
+
 
   late List<Service> servicesNew = [];
   ServiceProvider serviceProvider = ServiceProvider(

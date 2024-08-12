@@ -41,50 +41,12 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
             scrollDirection: Axis.horizontal,
             child: Row(
               children: <Widget>[
-                ElevatedButton(
-                  onPressed: () =>
-                      viewModel.fetchServicesBasedOnCategory("Electrical"),
-                  // Action or navigation
-                  child: Text('Electrical'),
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                    backgroundColor: Colors.white,
-                    shadowColor: Colors.blueAccent,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () =>
-                      viewModel.fetchServicesBasedOnCategory("Paint"),
-                  // Action or navigation
-                  child: Text('Paint'),
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                    backgroundColor: Colors.white,
-                    shadowColor: Colors.blueAccent,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () =>
-                      viewModel.fetchServicesBasedOnCategory("Bodywork"),
-                  // Action or navigation
-                  child: Text('Bodywork'),
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                    backgroundColor: Colors.white,
-                    shadowColor: Colors.blueAccent,
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () =>
-                      viewModel.fetchServicesBasedOnCategory("Mechanical"),
-                  // Action or navigation
-                  child: Text('Mechanical'),
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                    backgroundColor: Colors.white,
-                    shadowColor: Colors.blueAccent,
-                  ),
-                ),
+                categoryButton(viewModel, 'Electrical'),
+                categoryButton(viewModel, 'Paint'),
+                categoryButton(viewModel, 'Bodywork'),
+                categoryButton(viewModel, 'Mechanical'),
+
+
               ],
             ),
           ),
@@ -137,4 +99,20 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
   @override
   CustomerServicesViewModel viewModelBuilder(BuildContext context) =>
       CustomerServicesViewModel();
+}
+
+Widget categoryButton(CustomerServicesViewModel viewModel, String category) {
+  return ElevatedButton(
+    onPressed: () => viewModel.selectCategory(category),
+    child: Text(category),
+    style: TextButton.styleFrom(
+      foregroundColor: viewModel.selectedCategory == category
+          ? Colors.white
+          : Colors.blue,
+      backgroundColor: viewModel.selectedCategory == category
+          ? Colors.blue
+          : Colors.white,
+      shadowColor: Colors.blueAccent,
+    ),
+  );
 }

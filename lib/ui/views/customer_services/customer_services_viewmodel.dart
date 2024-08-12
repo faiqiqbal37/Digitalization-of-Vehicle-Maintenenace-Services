@@ -19,6 +19,20 @@ class CustomerServicesViewModel extends BaseViewModel {
   final _customerService = locator<CustomerService>();
   final _serviceProviderService = locator<ServiceProviderService>();
 
+  String? selectedCategory;
+
+  void selectCategory(String category) {
+    if (selectedCategory == category) {
+      selectedCategory = null;
+      fetchServices();
+    } else {
+      selectedCategory = category;
+      fetchServicesBasedOnCategory(category);
+    }
+    notifyListeners();
+  }
+
+
   late List<Service> servicesNew = [];
   ServiceProvider serviceProvider = ServiceProvider(
       id: "",

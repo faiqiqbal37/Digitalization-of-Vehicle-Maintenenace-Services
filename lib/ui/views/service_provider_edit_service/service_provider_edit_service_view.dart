@@ -102,6 +102,9 @@ class ServiceProviderEditServiceView
               ElevatedButton(
                 onPressed: () => viewModel.editService(serviceId),
                 child: Text('Edit Service'),
+                style: ElevatedButton.styleFrom(foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue),
+
               ),
             ],
           ),
