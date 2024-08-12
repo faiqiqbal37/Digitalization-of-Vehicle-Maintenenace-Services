@@ -20,6 +20,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   final _authService = locator<AuthenticationService>();
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
   bool _hasNewBooking = false;
+  int length = 0;
+
 
   @override
   void initState() {
@@ -27,7 +29,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     _listenToNewBookings();
   }
 
-  void _listenToNewBookings() {
+  void _listenToNewBookings() async{
     _firestore
         .collection('bookings')
         .where('serviceProviderId', isEqualTo: _authService.serviceProvider!.id)
@@ -36,15 +38,21 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         .listen((snapshot) {
       final newBooking = snapshot.docs.any((doc) {
         final data = doc.data();
+        length = snapshot.docs.length;
         final bookingDate = (data['date'] as Timestamp).toDate();
         return bookingDate.isAfter(DateTime.now().subtract(Duration(days: 1)));
       });
       if (mounted) {
         setState(() {
-          _hasNewBooking = newBooking;
+          _hasNewBooking = true;
         });
       }
     });
+    length = await _firestore
+        .collection('bookings')
+        .where('serviceProviderId', isEqualTo: _authService.serviceProvider!.id)
+        .where('status', isEqualTo: 'pending')
+        .snapshots().length;
   }
 
   void _onItemTapped(int index) {
@@ -94,7 +102,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         BottomNavigationBarItem(
           icon: badges.Badge(
             showBadge: _hasNewBooking,
-            badgeContent: Text('1', style: TextStyle(color: Colors.white)),
+            badgeContent: Text('${length}', style: TextStyle(color: Colors.white)),
             child: Icon(Icons.calendar_today),
           ),
           label: 'Bookings',
@@ -110,5 +118,10 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
       onTap: _onItemTapped,
       type: BottomNavigationBarType.fixed,
     );
+  }
+
+  @override
+  void dispose() {
+    length = 0;
   }
 }
