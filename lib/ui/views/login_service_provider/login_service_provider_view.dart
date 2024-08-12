@@ -49,7 +49,7 @@ class LoginServiceProviderView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasEmailValidationMessage
+            viewModel.hasEmailValidationMessage && viewModel.displayError
                 ? Text(viewModel.emailValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -66,7 +66,7 @@ class LoginServiceProviderView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasEmailValidationMessage
+            viewModel.hasEmailValidationMessage && viewModel.displayError
                 ? Text(viewModel.passwordValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -74,7 +74,10 @@ class LoginServiceProviderView
                         fontWeight: FontWeight.w700))
                 : SizedBox(height: 30),
             ElevatedButton(
-              onPressed: viewModel.siginInWithEmail,
+              onPressed: (){
+                viewModel.displayError = true;
+                viewModel.notifyListeners();
+                viewModel.siginInWithEmail();},
               child: Text('Sign in with Email'),
               style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.blue, foregroundColor: Colors.white),
@@ -99,6 +102,7 @@ class LoginServiceProviderView
     super.onDispose(viewModel);
     viewModel.emailValue = "";
     viewModel.passwordValue = "";
+    viewModel.displayError == false;
   }
 
   @override

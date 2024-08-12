@@ -5,16 +5,11 @@ import 'package:stacked/stacked.dart';
 
 import 'service_provider_home_screen_viewmodel.dart';
 
-class ServiceProviderHomeScreenView
-    extends StackedView<ServiceProviderHomeScreenViewModel> {
+class ServiceProviderHomeScreenView extends StackedView<ServiceProviderHomeScreenViewModel> {
   const ServiceProviderHomeScreenView({Key? key}) : super(key: key);
 
   @override
-  Widget builder(
-    BuildContext context,
-    ServiceProviderHomeScreenViewModel viewModel,
-    Widget? child,
-  ) {
+  Widget builder(BuildContext context, ServiceProviderHomeScreenViewModel viewModel, Widget? child) {
     return Scaffold(
       body: ListView(
         children: [
@@ -29,63 +24,114 @@ class ServiceProviderHomeScreenView
                   children: [
                     Text(
                       viewModel.serviceProviderName,
-                      style:
-                          TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                     ),
                     Icon(Icons.star),
                     SizedBox(width: 8),
-                    Text('4.5'),
+                    Text('4.5'),  // Assuming static rating; dynamically fetch if needed
                   ],
                 ),
                 SizedBox(height: 30),
-                Text(
-                  'Finances:',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                Container(
+                  width: double.infinity, // This makes the container take up all available horizontal space
+                  child: Card(
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0), // Add padding for better spacing inside the card
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start, // Align text to the start of the card
+                        children: [
+                          Text(
+                            'Finances:',
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'Total Earnings: £${viewModel.totalEarnings.toStringAsFixed(2)}',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          SizedBox(height: 20),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-                Text(
-                  'Total Earnings: \£${viewModel.totalEarnings}',
-                  style: TextStyle(fontSize: 16),
-                ),
-                SizedBox(height: 20),
+
                 Text(
                   'Orders:',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                DataTable(
-                  columns: const [
-                    DataColumn(label: Text('Total Orders')),
-                    DataColumn(label: Text('Pending')),
-                    DataColumn(label: Text('Completed')),
-                  ],
-                  rows: const [
-                    DataRow(
-                      cells: [
-                        DataCell(Text('202')),
-                        DataCell(Text('2')),
-                        DataCell(Text('200')),
-                      ],
-                    ),
-                  ],
+                Card(
+                  color: Colors.white,
+                  child: DataTable(
+                    columns: const [
+                      DataColumn(label: Text('Total Orders')),
+                      DataColumn(label: Text('Pending')),
+                      DataColumn(label: Text('Completed')),
+                    ],
+                    rows: [
+                      DataRow(
+                        cells: [
+                          DataCell(Text('${viewModel.totalBookings}')),
+                          DataCell(Text('${viewModel.pendingBookings}')),
+                          DataCell(Text('${viewModel.completedBookings}')),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 20),
                 Text(
                   'Listed Services:',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                ServiceCard(
-                  service: 'Car Detailing',
-                  duration: '4-5 Hrs',
-                  price: '\$25',
-                ),
-                ServiceCard(
-                  service: 'Engine Over Haul',
-                  duration: '6-7 Hrs',
-                  price: '\$750',
-                ),
-                ServiceCard(
-                  service: 'AC Servicing',
-                  duration: '4-5 Hrs',
-                  price: '\$250',
+                ListView.builder(
+                  shrinkWrap: true, // Ensures the ListView takes up only as much space as it needs
+                  physics: NeverScrollableScrollPhysics(), // Disables scrolling within the ListView
+                  itemCount: viewModel.servicesNew.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: Card(
+                        color: Colors.white,
+                        elevation: 4,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                        child: ListTile(
+                          contentPadding:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          leading: Icon(Icons.build, color: Colors.black),
+                          title: Text(
+                            viewModel.servicesNew[index].serviceName,
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 18),
+                          ),
+                          subtitle: Text(
+                            '${viewModel.servicesNew[index].serviceType} - Price: \£${viewModel.servicesNew[index].price}',
+                            style:
+                            TextStyle(fontSize: 16, color: Colors.grey[600]),
+                          ),
+                          trailing: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              ElevatedButton(
+                                onPressed: () =>
+                                    viewModel.navigateToServiceDetail(
+                                        viewModel.servicesNew[index].id),
+                                child: Text('View'),
+                                style: ElevatedButton.styleFrom(
+                                  foregroundColor: Colors.white,
+                                  backgroundColor: Colors.blue,
+                                ),
+                              ),
+                              SizedBox(width: 8),
+
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ],
             ),
@@ -101,12 +147,11 @@ class ServiceProviderHomeScreenView
     super.onViewModelReady(viewModel);
     viewModel.getServiceProviderName();
     viewModel.fetchFinanceData();
-    viewModel.notifyListeners();
+    viewModel.fetchBookingSummary();
+    viewModel.fetchServices();
   }
 
   @override
-  ServiceProviderHomeScreenViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
+  ServiceProviderHomeScreenViewModel viewModelBuilder(BuildContext context) =>
       ServiceProviderHomeScreenViewModel();
 }
