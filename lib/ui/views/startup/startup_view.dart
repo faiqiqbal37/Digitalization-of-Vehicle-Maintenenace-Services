@@ -20,14 +20,7 @@ class StartupView extends StackedView<StartupViewModel> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              'Vehicle Startup', // Application title
-              style: TextStyle(
-                fontSize: 40,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue[800], // Deep blue for text
-              ),
-            ),
+
             SizedBox(height: 20), // Spacing for better layout
             Image.asset(
               'assets/car.png', // Reference the image from assets
@@ -38,13 +31,7 @@ class StartupView extends StackedView<StartupViewModel> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
-                  'Loading ...',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.blue[600], // Slightly lighter blue for text
-                  ),
-                ),
+
                 horizontalSpaceSmall,
                 SizedBox(
                   width: 16,
