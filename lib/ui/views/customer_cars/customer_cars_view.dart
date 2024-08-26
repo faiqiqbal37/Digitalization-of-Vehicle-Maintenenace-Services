@@ -19,8 +19,11 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
       body: Column(
         children: [
           SizedBox(height: 60),
-          Icon(Icons.directions_car, size: 80, color: Colors.black),
-          Text("My Cars",
+          Image.asset(
+            'assets/cars.png',
+            fit: BoxFit.contain,
+            height: 200,
+          ),          Text("My Cars",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
@@ -61,6 +64,8 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
         onPressed: viewModel.navigateToAddCar,
         child: Icon(Icons.add),
         tooltip: 'Add Car',
+        backgroundColor: Colors.blue,
+
       ),
     );
   }

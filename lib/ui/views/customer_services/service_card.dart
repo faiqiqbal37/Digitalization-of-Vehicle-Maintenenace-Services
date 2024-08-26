@@ -62,12 +62,13 @@ class CustomerServiceCard extends StatelessWidget {
                         serviceId: serviceId);
                   },
                   child: Text('Details'),
-                  style: TextButton.styleFrom(
-                    foregroundColor: Colors.white,
-                    backgroundColor: Colors.blue,
-                    shadowColor: Colors.blueAccent,
-                    elevation: 5,
-                  ),
+                  style: ElevatedButton.styleFrom(
+                    foregroundColor: Colors.blue,
+                    backgroundColor: Colors.white, // Background color
+                    side: BorderSide(
+                      color: Colors.blue, // Border color
+                      width: 1.5, // Border width
+                    ),)
                 ),
                 TextButton(
                   onPressed: () {

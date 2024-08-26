@@ -18,8 +18,11 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
       body: Column(
         children: [
           SizedBox(height: 60),
-          Icon(Icons.calendar_month, size: 80, color: Colors.black),
-          Text("Bookings",
+          Image.asset(
+            'assets/booking.png',
+            fit: BoxFit.contain,
+            height: 200,
+          ),          Text("Bookings",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(

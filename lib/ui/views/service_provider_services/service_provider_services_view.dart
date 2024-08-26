@@ -15,17 +15,16 @@ class ServiceProviderServicesView
     Widget? child,
   ) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Services'),
-        centerTitle: true,
-      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
             SizedBox(height: 20),
-            Icon(Icons.car_repair, size: 80, color: Colors.black),
-            SizedBox(height: 10),
+            Image.asset(
+              'assets/service.png',
+              fit: BoxFit.contain,
+              height: 200,
+            ),
             Text(
               "Services",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
@@ -60,26 +59,19 @@ class ServiceProviderServicesView
                         trailing: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
-                            ElevatedButton(
+                            IconButton(
                               onPressed: () =>
                                   viewModel.navigateToServiceDetail(
                                       viewModel.servicesNew[index].id),
-                              child: Text('View'),
-                              style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.white,
-                                backgroundColor: Colors.blue,
-                              ),
+                              icon: Icon(Icons.description),
                             ),
                             SizedBox(width: 8),
-                            ElevatedButton(
+                            IconButton(
+                              icon: Icon(Icons.edit),
                               onPressed: () => viewModel.navigateToEditDetail(
                                   viewModel.servicesNew[index].id),
-                              child: Text('Edit'),
-                              style: ElevatedButton.styleFrom(
-                                foregroundColor: Colors.white,
-                                backgroundColor: Colors.blue,
-                              ),
-                            ),
+
+                              )
                           ],
                         ),
                       ),

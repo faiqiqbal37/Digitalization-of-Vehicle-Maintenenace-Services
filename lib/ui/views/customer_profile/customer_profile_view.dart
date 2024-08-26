@@ -22,15 +22,17 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
       body: ListView(
         children: [
           SizedBox(height: 50),
-          Icon(Icons.account_box, size: 100, color: Colors.black),
-          SizedBox(height: 20),
+          Image.asset(
+            'assets/profile.png',
+            fit: BoxFit.contain,
+            height: 200,
+          ),          SizedBox(height: 20),
           ProfileItem(
               title: "Name",
               content:
                   "${viewModel.customer.firstname} ${viewModel.customer.lastname}"),
           ProfileItem(title: "Phone", content: viewModel.customer.phoneNumber),
           ProfileItem(title: "Email", content: viewModel.customer.email),
-          ProfileItem(title: "Address", content: "23 JAMES ST, S4 7TL"),
           SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -41,6 +43,9 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.blue,
                 textStyle: TextStyle(fontSize: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                ),
               ),
             ),
           ),
@@ -54,6 +59,9 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
                 textStyle: TextStyle(fontSize: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                ),
               ),
             ),
           ),

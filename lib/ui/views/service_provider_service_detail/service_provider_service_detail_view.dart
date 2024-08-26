@@ -35,8 +35,11 @@ class ServiceProviderServiceDetailView
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Center(
-                    child: Icon(Icons.description,
-                        size: 110, color: Colors.black)),
+                    child: Image.asset(
+                      'assets/serviceNew.png',
+                      fit: BoxFit.contain,
+                      height: 200,
+                    ),),
                 SizedBox(height: 40),
                 Text(
                   'Service Name: ${viewModel.serviceDetail.serviceName}',

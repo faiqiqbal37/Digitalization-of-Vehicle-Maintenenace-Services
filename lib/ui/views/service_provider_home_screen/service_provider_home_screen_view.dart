@@ -122,6 +122,9 @@ class ServiceProviderHomeScreenView extends StackedView<ServiceProviderHomeScree
                                 style: ElevatedButton.styleFrom(
                                   foregroundColor: Colors.white,
                                   backgroundColor: Colors.blue,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 8),

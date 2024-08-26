@@ -23,7 +23,11 @@ class ServiceProviderFinanceView
                   Center(
                     child: Column(
                       children: [
-                        Icon(Icons.account_balance_wallet, size: 50),
+                        Image.asset(
+                          'assets/finance.png',
+                          fit: BoxFit.contain,
+                          height: 200,
+                        ),
                         SizedBox(height: 10),
                         Text(
                           'Finance Summary',
@@ -49,7 +53,7 @@ class ServiceProviderFinanceView
                     scrollDirection: Axis.horizontal,
                     child: DataTable(
                       headingRowColor: MaterialStateColor.resolveWith(
-                          (states) => Colors.blue[200]!),
+                          (states) => Colors.blue[500]!),
                       columnSpacing: 16.0,
                       columns: [
                         DataColumn(

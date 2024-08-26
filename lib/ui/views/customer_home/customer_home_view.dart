@@ -163,6 +163,13 @@ Widget categoryButton(CustomerHomeViewModel viewModel, String category) {
             ? Colors.blue
             : Colors.white,
         shadowColor: Colors.blueAccent,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+        ),
+        side: BorderSide(
+          color: Colors.blue, // Border color
+          width: 1.5, // Border width
+        ),
       ),
     ),
   );

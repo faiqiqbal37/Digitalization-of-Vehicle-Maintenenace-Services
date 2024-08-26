@@ -22,8 +22,11 @@ class ServiceProviderProfileView
       body: ListView(
         children: [
           SizedBox(height: 50),
-          Icon(Icons.account_circle, size: 100, color: Colors.black),
-          SizedBox(height: 20),
+          Image.asset(
+            'assets/profile.png',
+            fit: BoxFit.contain,
+            height: 110,
+          ),          SizedBox(height: 20),
           ProfileItem(
               title: "Name",
               content:
@@ -43,8 +46,15 @@ class ServiceProviderProfileView
               child: Text('Edit Details'),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.blue,
+                backgroundColor: Colors.blueAccent,
                 textStyle: TextStyle(fontSize: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                ),
+                side: BorderSide(
+                  color: Colors.blue, // Border color
+                  width: 1.5, // Border width
+                ),
               ),
             ),
           ),
@@ -58,6 +68,10 @@ class ServiceProviderProfileView
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
                 textStyle: TextStyle(fontSize: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                ),
+
               ),
             ),
           ),

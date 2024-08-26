@@ -19,7 +19,11 @@ class ServiceProviderBookingsListingView
       body: Column(
         children: [
           SizedBox(height: 60),
-          Icon(Icons.calendar_month, size: 80, color: Colors.black),
+          Image.asset(
+            'assets/booking.png',
+            fit: BoxFit.contain,
+            height: 180,
+          ),
           Text(
             "Bookings",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),

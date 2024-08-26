@@ -49,8 +49,11 @@ class ServiceProviderBookingdetailView
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
               child:
-                  Icon(Icons.calendar_today, size: 50, color: Colors.grey[700]),
-            ),
+              Image.asset(
+                'assets/detail.png',
+                fit: BoxFit.contain,
+                height: 110,
+              ),            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Card(
@@ -144,7 +147,10 @@ class ServiceProviderBookingdetailView
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.blue,
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                  ),
                 ),
               ),
             ),
