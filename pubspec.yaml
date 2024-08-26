@@ -38,5 +38,7 @@ flutter:
     - assets/car.png
     - assets/ad_banner1.jpg
     - assets/ad_banner2.jpg
+    - assets/customer.png
+    - assets/provider.png
 
 

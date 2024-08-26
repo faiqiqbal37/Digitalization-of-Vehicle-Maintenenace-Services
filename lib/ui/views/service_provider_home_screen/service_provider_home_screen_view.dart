@@ -57,7 +57,7 @@ class ServiceProviderHomeScreenView extends StackedView<ServiceProviderHomeScree
                 ),
 
                 Text(
-                  'Orders:',
+                  'Bookings:',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 Card(

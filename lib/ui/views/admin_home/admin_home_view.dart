@@ -26,7 +26,7 @@ class AdminHomeView extends StackedView<AdminHomeViewModel> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text("Key Metrics",
+              Text("Key Information",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               SizedBox(height: 10),
               KeyMetricsCard(metric: "Total Users", value: "1200"),
