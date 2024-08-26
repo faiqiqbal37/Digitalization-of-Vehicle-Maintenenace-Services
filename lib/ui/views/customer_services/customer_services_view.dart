@@ -35,7 +35,7 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
           ),
           SizedBox(height: 10),
           SizedBox(height: 30),
-          Text('Service Categories',
+          Text('Categories',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
@@ -102,17 +102,21 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
 }
 
 Widget categoryButton(CustomerServicesViewModel viewModel, String category) {
-  return ElevatedButton(
-    onPressed: () => viewModel.selectCategory(category),
-    child: Text(category),
-    style: TextButton.styleFrom(
-      foregroundColor: viewModel.selectedCategory == category
-          ? Colors.white
-          : Colors.blue,
-      backgroundColor: viewModel.selectedCategory == category
-          ? Colors.blue
-          : Colors.white,
-      shadowColor: Colors.blueAccent,
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 5.0), // Add horizontal padding
+    child: ElevatedButton(
+      onPressed: () => viewModel.selectCategory(category),
+      child: Text(category),
+      style: TextButton.styleFrom(
+        foregroundColor: viewModel.selectedCategory == category
+            ? Colors.white
+            : Colors.blue,
+        backgroundColor: viewModel.selectedCategory == category
+            ? Colors.blue
+            : Colors.white,
+        shadowColor: Colors.blueAccent,
+      ),
     ),
   );
 }
+

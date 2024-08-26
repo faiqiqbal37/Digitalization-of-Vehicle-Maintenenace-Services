@@ -23,41 +23,65 @@ class InitialSelectionScreenView
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
             ),
             SizedBox(height: 20),
-            // Replacing buttons with Image assets
             Row(
               mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center, // Center-align the row
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
                   onTap: viewModel.navigateToCustomerLogin,
                   child: Column(
                     children: [
-                      Image.asset(
-                        'assets/customer.png',
-                        width: 60,
-                        height: 60,
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset(
+                            'assets/customer.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                       ),
                       SizedBox(height: 8),
                       Text('Customer'),
                     ],
                   ),
                 ),
-                SizedBox(width: 40), // Spacing between icons
+                SizedBox(width: 40),
                 GestureDetector(
                   onTap: viewModel.navigateToServiceProviderLogin,
                   child: Column(
                     children: [
-                      Image.asset(
-                        'assets/provider.png',
-                        width: 60,
-                        height: 60,
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset(
+                            'assets/provider.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
                       ),
                       SizedBox(height: 8),
                       Text('Service Provider'),
                     ],
                   ),
-                ),// Spacing between icons
-
+                ),
               ],
             ),
           ],

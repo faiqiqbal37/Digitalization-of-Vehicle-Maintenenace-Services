@@ -40,5 +40,7 @@ flutter:
     - assets/ad_banner2.jpg
     - assets/customer.png
     - assets/provider.png
+    - assets/customerLogin.png
+    - assets/serviceProviderLogin.png
 
 

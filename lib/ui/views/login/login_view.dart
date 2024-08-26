@@ -36,6 +36,11 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
+            Image.asset(
+              'assets/customerLogin.png',
+              fit: BoxFit.contain,
+              height: 300,
+            ),
             SizedBox(height: 20),
             TextField(
               controller: emailInputController,
@@ -81,7 +86,10 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               child: Text('Sign in with Email'),
               style: ElevatedButton.styleFrom(
                 foregroundColor: Colors.white,
-                backgroundColor: Colors.blueAccent, // Text color
+                backgroundColor: Colors.blueAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                ),// Text color
               ),
             ),
             SizedBox(height: 10),
@@ -89,10 +97,18 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
               onPressed: viewModel.navigateToRegister,
               child: Text('Register'),
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.white,
-                backgroundColor: Colors.blueAccent, // Text color
+                foregroundColor: Colors.blue,
+                backgroundColor: Colors.white, // Background color
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                ),
+                side: BorderSide(
+                  color: Colors.blue, // Border color
+                  width: 1.5, // Border width
+                ),
+
               ),
-            ),
+            )
           ],
         ),
       ),
