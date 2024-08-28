@@ -24,7 +24,7 @@ import 'service_provider_edit_profile_viewmodel.dart';
       name: 'phone',
       validator: ServiceProviderRegistrationFormValidation.validatePhoneNumber),
   FormTextField(
-      name: 'Location',
+      name: 'location',
       validator: ServiceProviderRegistrationFormValidation.validateFirstName),
 ])
 class ServiceProviderEditProfileView
@@ -34,117 +34,141 @@ class ServiceProviderEditProfileView
 
   @override
   Widget builder(
-    BuildContext context,
-    ServiceProviderEditProfileViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      ServiceProviderEditProfileViewModel viewModel,
+      Widget? child,
+      ) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Edit Profile'),
+        centerTitle: true,
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              'Edit Details',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 20),
-            TextField(
-              controller: firstnameController,
-              decoration: InputDecoration(
-                labelText: 'First Name',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.person),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text(
+                'Edit Details',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
-            ),
-            verticalSpaceTiny,
-            viewModel.hasFirstnameValidationMessage
-                ? Text(viewModel.firstnameValidationMessage!,
-                    style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700))
-                : SizedBox(height: 20),
-            SizedBox(height: 20),
-            TextField(
-              controller: lastnameController,
-              decoration: InputDecoration(
-                labelText: 'Last Name',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.person),
+              SizedBox(height: 20),
+              TextField(
+                controller: firstnameController,
+                decoration: InputDecoration(
+                  labelText: 'First Name',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.person),
+                ),
               ),
-            ),
-            verticalSpaceTiny,
-            viewModel.hasLastnameValidationMessage
-                ? Text(viewModel.lastnameValidationMessage!,
-                    style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700))
-                : SizedBox(height: 20),
-            SizedBox(height: 20),
-            TextField(
-              controller: companyNameController,
-              decoration: InputDecoration(
-                labelText: 'Business name',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.call),
+              verticalSpaceTiny,
+              viewModel.hasFirstnameValidationMessage
+                  ? Text(viewModel.firstnameValidationMessage!,
+                  style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700))
+                  : SizedBox(height: 20),
+              SizedBox(height: 20),
+              TextField(
+                controller: lastnameController,
+                decoration: InputDecoration(
+                  labelText: 'Last Name',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.person),
+                ),
               ),
-            ),
-            verticalSpaceTiny,
-            viewModel.hasCompanyNameValidationMessage
-                ? Text(viewModel.companyNameValidationMessage!,
-                    style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700))
-                : SizedBox(height: 20),
-            SizedBox(height: 20),
-            TextField(
-              controller: phoneController,
-              decoration: InputDecoration(
-                labelText: 'Phone',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.call),
+              verticalSpaceTiny,
+              viewModel.hasLastnameValidationMessage
+                  ? Text(viewModel.lastnameValidationMessage!,
+                  style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700))
+                  : SizedBox(height: 20),
+              SizedBox(height: 20),
+              TextField(
+                controller: companyNameController,
+                decoration: InputDecoration(
+                  labelText: 'Business Name',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.business),
+                ),
               ),
-            ),
-            verticalSpaceTiny,
-            viewModel.hasPhoneValidationMessage
-                ? Text(viewModel.phoneValidationMessage!,
-                    style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700))
-                : SizedBox(height: 20),
-            SizedBox(height: 20),
-            TextField(
-              controller: emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.email),
+              verticalSpaceTiny,
+              viewModel.hasCompanyNameValidationMessage
+                  ? Text(viewModel.companyNameValidationMessage!,
+                  style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700))
+                  : SizedBox(height: 20),
+              SizedBox(height: 20),
+              TextField(
+                controller: phoneController,
+                decoration: InputDecoration(
+                  labelText: 'Phone',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.call),
+                ),
               ),
-            ),
-            verticalSpaceTiny,
-            viewModel.hasEmailValidationMessage
-                ? Text(viewModel.emailValidationMessage!,
-                    style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700))
-                : SizedBox(height: 20),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: viewModel.editServiceProvider,
-              child: Text('Edit'),
-              style: ElevatedButton.styleFrom(foregroundColor: Colors.white,
-                  backgroundColor: Colors.blue),
-
-            ),
-          ],
+              verticalSpaceTiny,
+              viewModel.hasPhoneValidationMessage
+                  ? Text(viewModel.phoneValidationMessage!,
+                  style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700))
+                  : SizedBox(height: 20),
+              SizedBox(height: 20),
+              TextField(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.email),
+                ),
+              ),
+              verticalSpaceTiny,
+              viewModel.hasEmailValidationMessage
+                  ? Text(viewModel.emailValidationMessage!,
+                  style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700))
+                  : SizedBox(height: 20),
+              SizedBox(height: 20),
+              TextField(
+                controller: locationController,
+                decoration: InputDecoration(
+                  labelText: 'Location',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.location_on),
+                ),
+              ),
+              verticalSpaceTiny,
+              viewModel.hasLocationValidationMessage
+                  ? Text(viewModel.locationValidationMessage!,
+                  style: const TextStyle(
+                      color: Colors.red,
+                      fontSize: 12,
+                      fontWeight: FontWeight.w700))
+                  : SizedBox(height: 20),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: viewModel.editServiceProvider,
+                child: Text('Edit'),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.blue,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -153,12 +177,13 @@ class ServiceProviderEditProfileView
   @override
   void onViewModelReady(ServiceProviderEditProfileViewModel viewModel) {
     syncFormWithViewModel(viewModel);
+    viewModel.initializeForm(); // Initialize form with existing data
   }
 
   @override
   ServiceProviderEditProfileViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
+      BuildContext context,
+      ) =>
       ServiceProviderEditProfileViewModel();
 
   @override

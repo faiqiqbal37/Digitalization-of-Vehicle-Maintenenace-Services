@@ -94,42 +94,6 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
                 }),
             SizedBox(height: 30),
             // Upcoming bookings section
-            Text('Upcoming Bookings',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-            Container(
-              height: 250,
-              child: FutureBuilder(
-                future: viewModel.loadCustomerBookings(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.done) {
-                    var bookings = snapshot.data!
-                        .where((booking) => booking['status'] == 'pending')
-                        .toList();
-                    if (bookings.isEmpty) {
-                      return Center(child: Text('No pending bookings'));
-                    }
-                    return ListView.builder(
-                        itemCount: bookings.length,
-                        itemBuilder: (context, index) {
-                          var booking = bookings[index];
-                          return BookingCard(
-                            serviceProviderName: booking['serviceProviderName'],
-                            serviceName: booking['serviceName'],
-                            date: booking['date'],
-                            status: booking['status'],
-                            email: booking['email'],
-                            phone: booking['phone'],
-                            price: booking['price'],
-                          );
-                        });
-                  } else if (snapshot.hasError) {
-                    return Text('Error: ${snapshot.error}');
-                  } else {
-                    return CircularProgressIndicator();
-                  }
-                },
-              ),
-            )
           ],
         ),
       ),

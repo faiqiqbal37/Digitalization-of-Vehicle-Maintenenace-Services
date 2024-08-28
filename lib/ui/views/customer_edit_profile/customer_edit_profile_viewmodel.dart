@@ -14,18 +14,53 @@ class CustomerEditProfileViewModel extends FormViewModel {
   final _dialogService = locator<DialogService>();
   final _navigationService = locator<NavigationService>();
 
+  void initializeForm() {
+    // Initialize the form with existing customer values
+    if (_authService.customer != null) {
+      firstNameValue = _authService.customer!.firstname;
+      lastNameValue = _authService.customer!.lastname;
+      phoneValue= _authService.customer!.phoneNumber;
+      emailValue = _authService.customer!.email;
+    }
+  }
+
   Future<void> showDialog() async {
     await _dialogService.showCustomDialog(
       variant: DialogType.infoAlert,
       title: 'Profile Edited',
-      description: ' ',
+      description: 'Your profile has been successfully updated.',
     );
     _navigationService.replaceWithCustomerProfileView();
   }
 
   void editCustomer() async {
-    _customerService.updateCustomer(_authService.customer!.id, firstNameValue!,
-        phoneValue!, lastNameValue!, emailValue!, null);
+    final customer = _authService.customer;
+    if (customer == null) return;
+
+    // Use the existing customer values if the form fields are empty
+    final updatedFirstName = firstNameValue?.isNotEmpty == true
+        ? firstNameValue!
+        : customer.firstname;
+    final updatedLastName = lastNameValue?.isNotEmpty == true
+        ? lastNameValue!
+        : customer.lastname;
+    final updatedPhone = phoneValue?.isNotEmpty == true
+        ? phoneValue!
+        : customer.phoneNumber;
+    final updatedEmail = emailValue?.isNotEmpty == true
+        ? emailValue!
+        : customer.email;
+
+    // Update the customer with the new or existing values
+    await _customerService.updateCustomer(
+      customer.id,
+      updatedFirstName,
+      updatedPhone,
+      updatedLastName,
+      updatedEmail,
+      null,
+    );
+
     notifyListeners();
     await showDialog();
   }

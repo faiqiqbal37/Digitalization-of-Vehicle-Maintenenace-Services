@@ -62,7 +62,7 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasFirstNameValidationMessage
+            viewModel.hasFirstNameValidationMessage && viewModel.displayError
                 ? Text(viewModel.firstNameValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -79,7 +79,7 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasLastNameValidationMessage
+            viewModel.hasLastNameValidationMessage && viewModel.displayError
                 ? Text(viewModel.lastNameValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -96,7 +96,7 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasPhoneValidationMessage
+            viewModel.hasPhoneValidationMessage && viewModel.displayError
                 ? Text(viewModel.phoneValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -114,7 +114,7 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasEmailValidationMessage
+            viewModel.hasEmailValidationMessage && viewModel.displayError
                 ? Text(viewModel.emailValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -131,7 +131,7 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasPasswordValidationMessage
+            viewModel.hasPasswordValidationMessage && viewModel.displayError
                 ? Text(viewModel.passwordValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -148,7 +148,7 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasPasswordValidationMessage
+            viewModel.hasPasswordValidationMessage && viewModel.displayError
                 ? Text(viewModel.passwordValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -177,6 +177,8 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
   void onDispose(CustomerRegisterViewModel viewModel) {
     super.onDispose(viewModel);
     disposeForm();
+    viewModel.displayError = false;
+
   }
 
   @override

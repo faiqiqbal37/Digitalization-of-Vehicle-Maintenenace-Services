@@ -37,7 +37,7 @@ class ServiceProviderProfileView
           ProfileItem(
               title: "Phone", content: viewModel.serviceProvider.phoneNumber),
           ProfileItem(title: "Email", content: viewModel.serviceProvider.email),
-          ProfileItem(title: "Address", content: "23 JAMES ST, S4 7TL"),
+          ProfileItem(title: "Address", content: viewModel.serviceProvider.location.toString()),
           SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
