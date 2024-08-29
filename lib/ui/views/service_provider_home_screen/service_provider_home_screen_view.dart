@@ -87,64 +87,8 @@ class ServiceProviderHomeScreenView
                   ),
                 ),
                 SizedBox(height: 20),
-                Text(
-                  'Listed Services:',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                ListView.builder(
-                  shrinkWrap:
-                      true, // Ensures the ListView takes up only as much space as it needs
-                  physics:
-                      NeverScrollableScrollPhysics(), // Disables scrolling within the ListView
-                  itemCount: viewModel.servicesNew.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Card(
-                        color: Colors.white,
-                        elevation: 4,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: ListTile(
-                          contentPadding:
-                              EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                          leading: Icon(Icons.build, color: Colors.black),
-                          title: Text(
-                            viewModel.servicesNew[index].serviceName,
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 18),
-                          ),
-                          subtitle: Text(
-                            '${viewModel.servicesNew[index].serviceType} - Price: \£${viewModel.servicesNew[index].price}',
-                            style: TextStyle(
-                                fontSize: 16, color: Colors.grey[600]),
-                          ),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              ElevatedButton(
-                                onPressed: () =>
-                                    viewModel.navigateToServiceDetail(
-                                        viewModel.servicesNew[index].id),
-                                child: Text('View'),
-                                style: ElevatedButton.styleFrom(
-                                  foregroundColor: Colors.white,
-                                  backgroundColor: Colors.blue,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(
-                                        8.0), // Adjust the radius here
-                                  ),
-                                ),
-                              ),
-                              SizedBox(width: 8),
-                            ],
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+
+
               ],
             ),
           ),
