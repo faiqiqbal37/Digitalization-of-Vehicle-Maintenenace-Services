@@ -34,10 +34,10 @@ class ServiceProviderEditProfileView
 
   @override
   Widget builder(
-      BuildContext context,
-      ServiceProviderEditProfileViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    ServiceProviderEditProfileViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Edit Profile'),
@@ -67,10 +67,10 @@ class ServiceProviderEditProfileView
               verticalSpaceTiny,
               viewModel.hasFirstnameValidationMessage
                   ? Text(viewModel.firstnameValidationMessage!,
-                  style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700))
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
                   : SizedBox(height: 20),
               SizedBox(height: 20),
               TextField(
@@ -84,10 +84,10 @@ class ServiceProviderEditProfileView
               verticalSpaceTiny,
               viewModel.hasLastnameValidationMessage
                   ? Text(viewModel.lastnameValidationMessage!,
-                  style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700))
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
                   : SizedBox(height: 20),
               SizedBox(height: 20),
               TextField(
@@ -101,10 +101,10 @@ class ServiceProviderEditProfileView
               verticalSpaceTiny,
               viewModel.hasCompanyNameValidationMessage
                   ? Text(viewModel.companyNameValidationMessage!,
-                  style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700))
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
                   : SizedBox(height: 20),
               SizedBox(height: 20),
               TextField(
@@ -118,10 +118,10 @@ class ServiceProviderEditProfileView
               verticalSpaceTiny,
               viewModel.hasPhoneValidationMessage
                   ? Text(viewModel.phoneValidationMessage!,
-                  style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700))
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
                   : SizedBox(height: 20),
               SizedBox(height: 20),
               TextField(
@@ -136,10 +136,10 @@ class ServiceProviderEditProfileView
               verticalSpaceTiny,
               viewModel.hasEmailValidationMessage
                   ? Text(viewModel.emailValidationMessage!,
-                  style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700))
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
                   : SizedBox(height: 20),
               SizedBox(height: 20),
               TextField(
@@ -153,10 +153,10 @@ class ServiceProviderEditProfileView
               verticalSpaceTiny,
               viewModel.hasLocationValidationMessage
                   ? Text(viewModel.locationValidationMessage!,
-                  style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700))
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
                   : SizedBox(height: 20),
               SizedBox(height: 20),
               ElevatedButton(
@@ -182,8 +182,8 @@ class ServiceProviderEditProfileView
 
   @override
   ServiceProviderEditProfileViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       ServiceProviderEditProfileViewModel();
 
   @override

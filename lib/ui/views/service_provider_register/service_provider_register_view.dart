@@ -173,13 +173,14 @@ class ServiceProviderRegisterView
                         fontWeight: FontWeight.w700))
                 : SizedBox(height: 20),
             ElevatedButton(
-              onPressed: (){
+              onPressed: () {
                 viewModel.displayError = true;
                 viewModel.notifyListeners();
-                viewModel.registerUser();},
+                viewModel.registerUser();
+              },
               child: Text('Register'),
-              style: ElevatedButton.styleFrom(foregroundColor: Colors.white,
-              backgroundColor: Colors.blue),
+              style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.blue),
             ),
           ],
         ),

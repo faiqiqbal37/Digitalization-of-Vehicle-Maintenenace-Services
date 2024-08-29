@@ -34,7 +34,9 @@ class LoginServiceProviderView
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              SizedBox(height: 50,),
+              SizedBox(
+                height: 50,
+              ),
               Text(
                 'Login as a Service Provider',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -81,17 +83,19 @@ class LoginServiceProviderView
                           fontWeight: FontWeight.w700))
                   : SizedBox(height: 30),
               ElevatedButton(
-                onPressed: (){
+                onPressed: () {
                   viewModel.displayError = true;
                   viewModel.notifyListeners();
-                  viewModel.siginInWithEmail();},
+                  viewModel.siginInWithEmail();
+                },
                 child: Text('Sign in with Email'),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.blueAccent,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
-                  ),// Text color
+                    borderRadius:
+                        BorderRadius.circular(8.0), // Adjust the radius here
+                  ), // Text color
                 ),
               ),
               SizedBox(height: 10),
@@ -103,13 +107,13 @@ class LoginServiceProviderView
                   foregroundColor: Colors.blue,
                   backgroundColor: Colors.white, // Background color
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                    borderRadius:
+                        BorderRadius.circular(8.0), // Adjust the radius here
                   ),
                   side: BorderSide(
                     color: Colors.blue, // Border color
                     width: 1.5, // Border width
                   ),
-        
                 ),
               )
             ],

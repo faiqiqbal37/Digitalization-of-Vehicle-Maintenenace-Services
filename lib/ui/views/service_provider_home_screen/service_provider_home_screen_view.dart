@@ -5,11 +5,13 @@ import 'package:stacked/stacked.dart';
 
 import 'service_provider_home_screen_viewmodel.dart';
 
-class ServiceProviderHomeScreenView extends StackedView<ServiceProviderHomeScreenViewModel> {
+class ServiceProviderHomeScreenView
+    extends StackedView<ServiceProviderHomeScreenViewModel> {
   const ServiceProviderHomeScreenView({Key? key}) : super(key: key);
 
   @override
-  Widget builder(BuildContext context, ServiceProviderHomeScreenViewModel viewModel, Widget? child) {
+  Widget builder(BuildContext context,
+      ServiceProviderHomeScreenViewModel viewModel, Widget? child) {
     return Scaffold(
       body: ListView(
         children: [
@@ -24,26 +26,32 @@ class ServiceProviderHomeScreenView extends StackedView<ServiceProviderHomeScree
                   children: [
                     Text(
                       viewModel.serviceProviderName,
-                      style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                     ),
                     Icon(Icons.star),
                     SizedBox(width: 8),
-                    Text('4.5'),  // Assuming static rating; dynamically fetch if needed
+                    Text(
+                        '4.5'), // Assuming static rating; dynamically fetch if needed
                   ],
                 ),
                 SizedBox(height: 30),
                 Container(
-                  width: double.infinity, // This makes the container take up all available horizontal space
+                  width: double
+                      .infinity, // This makes the container take up all available horizontal space
                   child: Card(
                     color: Colors.white,
                     child: Padding(
-                      padding: const EdgeInsets.all(20.0), // Add padding for better spacing inside the card
+                      padding: const EdgeInsets.all(
+                          20.0), // Add padding for better spacing inside the card
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start, // Align text to the start of the card
+                        crossAxisAlignment: CrossAxisAlignment
+                            .start, // Align text to the start of the card
                         children: [
                           Text(
                             'Finances:',
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                           Text(
                             'Total Earnings: £${viewModel.totalEarnings.toStringAsFixed(2)}',
@@ -55,7 +63,6 @@ class ServiceProviderHomeScreenView extends StackedView<ServiceProviderHomeScree
                     ),
                   ),
                 ),
-
                 Text(
                   'Bookings:',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -85,8 +92,10 @@ class ServiceProviderHomeScreenView extends StackedView<ServiceProviderHomeScree
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 ListView.builder(
-                  shrinkWrap: true, // Ensures the ListView takes up only as much space as it needs
-                  physics: NeverScrollableScrollPhysics(), // Disables scrolling within the ListView
+                  shrinkWrap:
+                      true, // Ensures the ListView takes up only as much space as it needs
+                  physics:
+                      NeverScrollableScrollPhysics(), // Disables scrolling within the ListView
                   itemCount: viewModel.servicesNew.length,
                   itemBuilder: (context, index) {
                     return Padding(
@@ -99,7 +108,7 @@ class ServiceProviderHomeScreenView extends StackedView<ServiceProviderHomeScree
                         ),
                         child: ListTile(
                           contentPadding:
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                              EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                           leading: Icon(Icons.build, color: Colors.black),
                           title: Text(
                             viewModel.servicesNew[index].serviceName,
@@ -108,8 +117,8 @@ class ServiceProviderHomeScreenView extends StackedView<ServiceProviderHomeScree
                           ),
                           subtitle: Text(
                             '${viewModel.servicesNew[index].serviceType} - Price: \£${viewModel.servicesNew[index].price}',
-                            style:
-                            TextStyle(fontSize: 16, color: Colors.grey[600]),
+                            style: TextStyle(
+                                fontSize: 16, color: Colors.grey[600]),
                           ),
                           trailing: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -123,12 +132,12 @@ class ServiceProviderHomeScreenView extends StackedView<ServiceProviderHomeScree
                                   foregroundColor: Colors.white,
                                   backgroundColor: Colors.blue,
                                   shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                                    borderRadius: BorderRadius.circular(
+                                        8.0), // Adjust the radius here
                                   ),
                                 ),
                               ),
                               SizedBox(width: 8),
-
                             ],
                           ),
                         ),

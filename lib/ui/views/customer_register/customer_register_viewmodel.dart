@@ -18,7 +18,6 @@ class CustomerRegisterViewModel extends FormViewModel {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
   bool displayError = false;
 
-
   Future<void> showRegistrationDialog() async {
     await _dialogService.showCustomDialog(
       variant: DialogType.infoAlert,

@@ -23,7 +23,8 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
             'assets/cars.png',
             fit: BoxFit.contain,
             height: 200,
-          ),          Text("My Cars",
+          ),
+          Text("My Cars",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
@@ -65,7 +66,6 @@ class CustomerCarsView extends StackedView<CustomerCarsViewModel> {
         child: Icon(Icons.add),
         tooltip: 'Add Car',
         backgroundColor: Colors.blue,
-
       ),
     );
   }

@@ -32,7 +32,6 @@ class CustomerServicesViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-
   late List<Service> servicesNew = [];
   ServiceProvider serviceProvider = ServiceProvider(
       id: "",

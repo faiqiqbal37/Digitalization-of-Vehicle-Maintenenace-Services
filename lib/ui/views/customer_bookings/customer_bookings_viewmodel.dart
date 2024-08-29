@@ -45,7 +45,7 @@ class CustomerBookingsViewModel extends BaseViewModel {
         'price': service.price,
         'phone': serviceProvider?.phoneNumber,
         'email': serviceProvider?.email,
-        'location': serviceProvider?.location,
+        'location': serviceProvider?.location ?? ' ', // Use empty string if location is null
       });
     }
     return bookingDetailsList;

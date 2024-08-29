@@ -45,8 +45,6 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
                 categoryButton(viewModel, 'Paint'),
                 categoryButton(viewModel, 'Bodywork'),
                 categoryButton(viewModel, 'Mechanical'),
-
-
               ],
             ),
           ),
@@ -103,26 +101,25 @@ class CustomerServicesView extends StackedView<CustomerServicesViewModel> {
 
 Widget categoryButton(CustomerServicesViewModel viewModel, String category) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 5.0), // Add horizontal padding
+    padding:
+        const EdgeInsets.symmetric(horizontal: 5.0), // Add horizontal padding
     child: ElevatedButton(
       onPressed: () => viewModel.selectCategory(category),
       child: Text(category),
       style: TextButton.styleFrom(
-        foregroundColor: viewModel.selectedCategory == category
-            ? Colors.white
-            : Colors.blue,
-        backgroundColor: viewModel.selectedCategory == category
-            ? Colors.blue
-            : Colors.white,
+        foregroundColor:
+            viewModel.selectedCategory == category ? Colors.white : Colors.blue,
+        backgroundColor:
+            viewModel.selectedCategory == category ? Colors.blue : Colors.white,
         shadowColor: Colors.blueAccent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
-        ), side: BorderSide(
-        color: Colors.blue, // Border color
-        width: 1.5, // Border width
-      ),
+        ),
+        side: BorderSide(
+          color: Colors.blue, // Border color
+          width: 1.5, // Border width
+        ),
       ),
     ),
   );
 }
-

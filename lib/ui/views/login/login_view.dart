@@ -72,7 +72,8 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                 ),
               ),
               verticalSpaceTiny,
-              viewModel.hasPasswordInputValidationMessage && viewModel.displayError
+              viewModel.hasPasswordInputValidationMessage &&
+                      viewModel.displayError
                   ? Text(viewModel.passwordInputValidationMessage!,
                       style: const TextStyle(
                           color: Colors.red,
@@ -81,17 +82,19 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                   : SizedBox(height: 30),
               SizedBox(height: 30),
               ElevatedButton(
-                onPressed: (){
-                viewModel.displayError = true;
-                viewModel.notifyListeners();
-                viewModel.signInWithEmail();},
+                onPressed: () {
+                  viewModel.displayError = true;
+                  viewModel.notifyListeners();
+                  viewModel.signInWithEmail();
+                },
                 child: Text('Sign in with Email'),
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.blueAccent,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
-                  ),// Text color
+                    borderRadius:
+                        BorderRadius.circular(8.0), // Adjust the radius here
+                  ), // Text color
                 ),
               ),
               SizedBox(height: 10),
@@ -102,13 +105,13 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
                   foregroundColor: Colors.blue,
                   backgroundColor: Colors.white, // Background color
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                    borderRadius:
+                        BorderRadius.circular(8.0), // Adjust the radius here
                   ),
                   side: BorderSide(
                     color: Colors.blue, // Border color
                     width: 1.5, // Border width
                   ),
-        
                 ),
               )
             ],
@@ -129,7 +132,6 @@ class LoginView extends StackedView<LoginViewModel> with $LoginView {
     viewModel.emailInputValue = "";
     viewModel.passwordInputValue = "";
     viewModel.displayError = false;
-
   }
 
   @override

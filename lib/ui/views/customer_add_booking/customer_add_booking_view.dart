@@ -14,12 +14,12 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
 
   const CustomerAddBookingView(
       {Key? key,
-        required this.description,
-        required this.serviceName,
-        required this.serviceProviderId,
-        required this.serviceId,
-        required this.customerId,
-        required this.price})
+      required this.description,
+      required this.serviceName,
+      required this.serviceProviderId,
+      required this.serviceId,
+      required this.customerId,
+      required this.price})
       : super(key: key);
 
   @override
@@ -30,10 +30,10 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerAddBookingViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerAddBookingViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Book Service'),
@@ -58,7 +58,8 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
                 SizedBox(height: 16.0),
                 _buildSectionTitle(context, 'Service Description'),
                 SizedBox(height: 8.0),
-                _buildTextValue(context, description ?? 'No description available'),
+                _buildTextValue(
+                    context, description ?? 'No description available'),
                 SizedBox(height: 16.0),
                 _buildSectionTitle(context, 'Select Car'),
                 SizedBox(height: 8.0),
@@ -87,7 +88,8 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
                       foregroundColor: Colors.white,
                       backgroundColor: Colors.blue, // Background color
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                        borderRadius: BorderRadius.circular(
+                            8.0), // Adjust the radius here
                       ),
                     ),
                   ),
@@ -104,8 +106,8 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
     return Text(
       title,
       style: Theme.of(context).textTheme.titleLarge?.copyWith(
-        fontWeight: FontWeight.bold,
-      ),
+            fontWeight: FontWeight.bold,
+          ),
     );
   }
 
@@ -141,7 +143,8 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
         ),
-        contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
+        contentPadding:
+            const EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
       ),
       isExpanded: true,
     );
@@ -215,7 +218,6 @@ class CustomerAddBookingView extends StackedView<CustomerAddBookingViewModel> {
         amount: int.parse(price),
         date: DateTime.now());
     viewModel.addBooking(booking, payment);
-
   }
 
   @override

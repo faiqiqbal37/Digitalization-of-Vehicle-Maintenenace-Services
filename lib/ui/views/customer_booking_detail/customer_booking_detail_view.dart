@@ -13,6 +13,7 @@ class CustomerBookingDetailView
   final String email;
   final String date;
   final String status;
+  final String location;
 
   const CustomerBookingDetailView(
       {Key? key,
@@ -22,7 +23,8 @@ class CustomerBookingDetailView
       required this.date,
       required this.serviceName,
       required this.serviceProviderName,
-      required this.status})
+      required this.status,
+      required this.location})
       : super(key: key);
 
   @override
@@ -90,7 +92,7 @@ class CustomerBookingDetailView
                       ),
                       ListTile(
                         leading: Icon(Icons.location_on),
-                        title: Text("null", style: TextStyle(fontSize: 15)),
+                        title: Text(location, style: TextStyle(fontSize: 15)),
                       ),
                     ],
                   ),

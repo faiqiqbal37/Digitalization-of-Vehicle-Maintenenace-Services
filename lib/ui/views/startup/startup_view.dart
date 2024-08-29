@@ -20,7 +20,6 @@ class StartupView extends StackedView<StartupViewModel> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-
             SizedBox(height: 20), // Spacing for better layout
             Image.asset(
               'assets/car.png', // Reference the image from assets
@@ -31,7 +30,6 @@ class StartupView extends StackedView<StartupViewModel> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-
                 horizontalSpaceSmall,
                 SizedBox(
                   width: 16,

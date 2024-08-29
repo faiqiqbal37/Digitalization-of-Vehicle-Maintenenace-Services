@@ -57,19 +57,19 @@ class CustomerServiceCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 TextButton(
-                  onPressed: () {
-                    _navigationService.navigateToCustomerServiceDetailView(
-                        serviceId: serviceId);
-                  },
-                  child: Text('Details'),
-                  style: ElevatedButton.styleFrom(
-                    foregroundColor: Colors.blue,
-                    backgroundColor: Colors.white, // Background color
-                    side: BorderSide(
-                      color: Colors.blue, // Border color
-                      width: 1.5, // Border width
-                    ),)
-                ),
+                    onPressed: () {
+                      _navigationService.navigateToCustomerServiceDetailView(
+                          serviceId: serviceId);
+                    },
+                    child: Text('Details'),
+                    style: ElevatedButton.styleFrom(
+                      foregroundColor: Colors.blue,
+                      backgroundColor: Colors.white, // Background color
+                      side: BorderSide(
+                        color: Colors.blue, // Border color
+                        width: 1.5, // Border width
+                      ),
+                    )),
                 TextButton(
                   onPressed: () {
                     _navigationService.navigateToCustomerAddBookingView(

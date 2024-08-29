@@ -9,10 +9,10 @@ class InitialSelectionScreenView
 
   @override
   Widget builder(
-      BuildContext context,
-      InitialSelectionScreenViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    InitialSelectionScreenViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       body: Center(
         child: Column(
@@ -92,7 +92,7 @@ class InitialSelectionScreenView
 
   @override
   InitialSelectionScreenViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       InitialSelectionScreenViewModel();
 }

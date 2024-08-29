@@ -70,8 +70,7 @@ class ServiceProviderServicesView
                               icon: Icon(Icons.edit),
                               onPressed: () => viewModel.navigateToEditDetail(
                                   viewModel.servicesNew[index].id),
-
-                              )
+                            )
                           ],
                         ),
                       ),

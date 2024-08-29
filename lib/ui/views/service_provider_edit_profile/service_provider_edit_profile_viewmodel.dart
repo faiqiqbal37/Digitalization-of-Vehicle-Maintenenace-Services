@@ -17,7 +17,7 @@ class ServiceProviderEditProfileViewModel extends FormViewModel {
   void initializeForm() {
     // Initialize the form with existing service provider values
     if (_authService.serviceProvider != null) {
-      firstnameValue= _authService.serviceProvider!.firstname;
+      firstnameValue = _authService.serviceProvider!.firstname;
       lastnameValue = _authService.serviceProvider!.lastname;
       companyNameValue = _authService.serviceProvider!.businessName;
       phoneValue = _authService.serviceProvider!.phoneNumber;
@@ -52,9 +52,8 @@ class ServiceProviderEditProfileViewModel extends FormViewModel {
     final updatedPhone = phoneValue?.isNotEmpty == true
         ? phoneValue!
         : serviceProvider.phoneNumber;
-    final updatedEmail = emailValue?.isNotEmpty == true
-        ? emailValue!
-        : serviceProvider.email;
+    final updatedEmail =
+        emailValue?.isNotEmpty == true ? emailValue! : serviceProvider.email;
     final updatedLocation = locationValue?.isNotEmpty == true
         ? locationValue!
         : serviceProvider.location;

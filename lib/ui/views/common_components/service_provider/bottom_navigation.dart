@@ -22,14 +22,13 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   bool _hasNewBooking = false;
   int length = 0;
 
-
   @override
   void initState() {
     super.initState();
     _listenToNewBookings();
   }
 
-  void _listenToNewBookings() async{
+  void _listenToNewBookings() async {
     _firestore
         .collection('bookings')
         .where('serviceProviderId', isEqualTo: _authService.serviceProvider!.id)
@@ -52,7 +51,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         .collection('bookings')
         .where('serviceProviderId', isEqualTo: _authService.serviceProvider!.id)
         .where('status', isEqualTo: 'pending')
-        .snapshots().length;
+        .snapshots()
+        .length;
   }
 
   void _onItemTapped(int index) {
@@ -102,7 +102,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         BottomNavigationBarItem(
           icon: badges.Badge(
             showBadge: _hasNewBooking,
-            badgeContent: Text('${length}', style: TextStyle(color: Colors.white)),
+            badgeContent:
+                Text('${length}', style: TextStyle(color: Colors.white)),
             child: Icon(Icons.calendar_today),
           ),
           label: 'Bookings',

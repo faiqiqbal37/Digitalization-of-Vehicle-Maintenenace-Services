@@ -178,7 +178,6 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
     super.onDispose(viewModel);
     disposeForm();
     viewModel.displayError = false;
-
   }
 
   @override

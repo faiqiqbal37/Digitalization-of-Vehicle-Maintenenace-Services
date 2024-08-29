@@ -16,7 +16,6 @@ class LoginViewModel extends FormViewModel {
   final _dialogService = locator<DialogService>();
   bool displayError = false;
 
-
   void siginInWithGoogle() {}
 
   void signInWithEmail() async {

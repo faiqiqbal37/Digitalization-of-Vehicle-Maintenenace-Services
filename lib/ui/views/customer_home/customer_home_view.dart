@@ -115,17 +115,16 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
 
 Widget categoryButton(CustomerHomeViewModel viewModel, String category) {
   return Padding(
-    padding: const EdgeInsets.symmetric(horizontal: 5.0), // Add horizontal padding
+    padding:
+        const EdgeInsets.symmetric(horizontal: 5.0), // Add horizontal padding
     child: ElevatedButton(
       onPressed: () => viewModel.selectCategory(category),
       child: Text(category),
       style: TextButton.styleFrom(
-        foregroundColor: viewModel.selectedCategory == category
-            ? Colors.white
-            : Colors.blue,
-        backgroundColor: viewModel.selectedCategory == category
-            ? Colors.blue
-            : Colors.white,
+        foregroundColor:
+            viewModel.selectedCategory == category ? Colors.white : Colors.blue,
+        backgroundColor:
+            viewModel.selectedCategory == category ? Colors.blue : Colors.white,
         shadowColor: Colors.blueAccent,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0), // Adjust the radius here

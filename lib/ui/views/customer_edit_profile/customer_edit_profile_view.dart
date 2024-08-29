@@ -30,10 +30,10 @@ class CustomerEditProfileView extends StackedView<CustomerEditProfileViewModel>
 
   @override
   Widget builder(
-      BuildContext context,
-      CustomerEditProfileViewModel viewModel,
-      Widget? child,
-      ) {
+    BuildContext context,
+    CustomerEditProfileViewModel viewModel,
+    Widget? child,
+  ) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Edit Profile'),
@@ -63,10 +63,10 @@ class CustomerEditProfileView extends StackedView<CustomerEditProfileViewModel>
               verticalSpaceTiny,
               viewModel.hasFirstNameValidationMessage
                   ? Text(viewModel.firstNameValidationMessage!,
-                  style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700))
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
                   : SizedBox(height: 20),
               SizedBox(height: 20),
               TextField(
@@ -80,10 +80,10 @@ class CustomerEditProfileView extends StackedView<CustomerEditProfileViewModel>
               verticalSpaceTiny,
               viewModel.hasLastNameValidationMessage
                   ? Text(viewModel.lastNameValidationMessage!,
-                  style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700))
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
                   : SizedBox(height: 20),
               SizedBox(height: 20),
               TextField(
@@ -97,10 +97,10 @@ class CustomerEditProfileView extends StackedView<CustomerEditProfileViewModel>
               verticalSpaceTiny,
               viewModel.hasPhoneValidationMessage
                   ? Text(viewModel.phoneValidationMessage!,
-                  style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700))
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
                   : SizedBox(height: 20),
               SizedBox(height: 20),
               TextField(
@@ -115,10 +115,10 @@ class CustomerEditProfileView extends StackedView<CustomerEditProfileViewModel>
               verticalSpaceTiny,
               viewModel.hasEmailValidationMessage
                   ? Text(viewModel.emailValidationMessage!,
-                  style: const TextStyle(
-                      color: Colors.red,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w700))
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
                   : SizedBox(height: 20),
               SizedBox(height: 20),
               ElevatedButton(
@@ -128,9 +128,9 @@ class CustomerEditProfileView extends StackedView<CustomerEditProfileViewModel>
                   foregroundColor: Colors.white,
                   backgroundColor: Colors.blue, // Background color
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                    borderRadius:
+                        BorderRadius.circular(8.0), // Adjust the radius here
                   ),
-
                 ),
               ),
             ],
@@ -148,8 +148,8 @@ class CustomerEditProfileView extends StackedView<CustomerEditProfileViewModel>
 
   @override
   CustomerEditProfileViewModel viewModelBuilder(
-      BuildContext context,
-      ) =>
+    BuildContext context,
+  ) =>
       CustomerEditProfileViewModel();
 
   @override

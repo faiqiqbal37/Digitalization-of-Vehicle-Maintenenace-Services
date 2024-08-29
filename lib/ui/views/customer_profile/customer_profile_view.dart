@@ -26,7 +26,8 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
             'assets/profile.png',
             fit: BoxFit.contain,
             height: 200,
-          ),          SizedBox(height: 20),
+          ),
+          SizedBox(height: 20),
           ProfileItem(
               title: "Name",
               content:
@@ -44,7 +45,8 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
                 backgroundColor: Colors.blue,
                 textStyle: TextStyle(fontSize: 16),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                  borderRadius:
+                      BorderRadius.circular(8.0), // Adjust the radius here
                 ),
               ),
             ),
@@ -60,7 +62,8 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
                 backgroundColor: Colors.red,
                 textStyle: TextStyle(fontSize: 16),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                  borderRadius:
+                      BorderRadius.circular(8.0), // Adjust the radius here
                 ),
               ),
             ),

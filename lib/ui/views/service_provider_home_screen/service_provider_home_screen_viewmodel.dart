@@ -17,18 +17,13 @@ class ServiceProviderHomeScreenViewModel extends BaseViewModel {
   final _servicesService = locator<ServicesService>();
   List<Service> servicesNew = [];
 
-
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   int totalBookings = 0;
   int pendingBookings = 0;
   int completedBookings = 0;
 
-
-
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
-
-
 
   String serviceProviderName = "";
   List<Map<String, dynamic>> financeData = [];
@@ -43,7 +38,6 @@ class ServiceProviderHomeScreenViewModel extends BaseViewModel {
     _navigationService.navigateToServiceProviderEditServiceView(
         serviceId: serviceId);
   }
-
 
   Future<void> fetchServices() async {
     try {
@@ -64,7 +58,8 @@ class ServiceProviderHomeScreenViewModel extends BaseViewModel {
       // Fetch all bookings for the service provider
       var snapshot = await firestore
           .collection('bookings')
-          .where('serviceProviderId', isEqualTo: _authService.serviceProvider!.id)
+          .where('serviceProviderId',
+              isEqualTo: _authService.serviceProvider!.id)
           .get();
 
       // Calculate total bookings

@@ -17,7 +17,7 @@ const String FirstnameValueKey = 'firstname';
 const String LastnameValueKey = 'lastname';
 const String CompanyNameValueKey = 'companyName';
 const String PhoneValueKey = 'phone';
-const String LocationValueKey = 'Location';
+const String LocationValueKey = 'location';
 
 final Map<String, TextEditingController>
     _ServiceProviderEditProfileViewTextEditingControllers = {};

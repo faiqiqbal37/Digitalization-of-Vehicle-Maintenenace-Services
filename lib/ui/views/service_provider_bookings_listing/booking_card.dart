@@ -66,11 +66,13 @@ class BookingCard extends StatelessWidget {
                       ? 'Mark as Pending'
                       : 'Mark as Completed'), // Adjusted the text to properly reflect the status toggling
                   style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.white,
-                      backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                    backgroundColor: Colors.blue,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
-                    ),),
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Adjust the radius here
+                    ),
+                  ),
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -90,16 +92,17 @@ class BookingCard extends StatelessWidget {
                   },
                   child: Text('View'),
                   style: ElevatedButton.styleFrom(
-                      foregroundColor: Colors.blue,
-                      backgroundColor: Colors.white,
+                    foregroundColor: Colors.blue,
+                    backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                      borderRadius:
+                          BorderRadius.circular(8.0), // Adjust the radius here
                     ),
                     side: BorderSide(
                       color: Colors.blue, // Border color
                       width: 1.5, // Border width
-                    ),),
-
+                    ),
+                  ),
                 ),
               ],
             )

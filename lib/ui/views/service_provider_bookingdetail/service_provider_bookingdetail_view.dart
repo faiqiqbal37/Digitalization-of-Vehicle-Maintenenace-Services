@@ -48,12 +48,12 @@ class ServiceProviderBookingdetailView
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20.0),
-              child:
-              Image.asset(
+              child: Image.asset(
                 'assets/detail.png',
                 fit: BoxFit.contain,
                 height: 110,
-              ),            ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Card(
@@ -76,10 +76,7 @@ class ServiceProviderBookingdetailView
                       leading: Icon(Icons.phone),
                       title: Text(customerPhone),
                     ),
-                    ListTile(
-                      leading: Icon(Icons.location_on),
-                      title: Text(location),
-                    ),
+
                   ],
                 ),
               ),
@@ -149,7 +146,8 @@ class ServiceProviderBookingdetailView
                   backgroundColor: Colors.blue,
                   padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                    borderRadius:
+                        BorderRadius.circular(8.0), // Adjust the radius here
                   ),
                 ),
               ),

@@ -463,7 +463,8 @@ class StackedRouter extends _i1.RouterBase {
             date: args.date,
             serviceName: args.serviceName,
             serviceProviderName: args.serviceProviderName,
-            status: args.status),
+            status: args.status,
+            location: args.location),
         settings: data,
       );
     },
@@ -655,6 +656,7 @@ class CustomerBookingDetailViewArguments {
     required this.serviceName,
     required this.serviceProviderName,
     required this.status,
+    required this.location,
   });
 
   final _i35.Key? key;
@@ -673,9 +675,11 @@ class CustomerBookingDetailViewArguments {
 
   final String status;
 
+  final String location;
+
   @override
   String toString() {
-    return '{"key": "$key", "phone": "$phone", "email": "$email", "price": "$price", "date": "$date", "serviceName": "$serviceName", "serviceProviderName": "$serviceProviderName", "status": "$status"}';
+    return '{"key": "$key", "phone": "$phone", "email": "$email", "price": "$price", "date": "$date", "serviceName": "$serviceName", "serviceProviderName": "$serviceProviderName", "status": "$status", "location": "$location"}';
   }
 
   @override
@@ -688,7 +692,8 @@ class CustomerBookingDetailViewArguments {
         other.date == date &&
         other.serviceName == serviceName &&
         other.serviceProviderName == serviceProviderName &&
-        other.status == status;
+        other.status == status &&
+        other.location == location;
   }
 
   @override
@@ -700,7 +705,8 @@ class CustomerBookingDetailViewArguments {
         date.hashCode ^
         serviceName.hashCode ^
         serviceProviderName.hashCode ^
-        status.hashCode;
+        status.hashCode ^
+        location.hashCode;
   }
 }
 
@@ -1138,6 +1144,7 @@ extension NavigatorStateExtension on _i36.NavigationService {
     required String serviceName,
     required String serviceProviderName,
     required String status,
+    required String location,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -1153,7 +1160,8 @@ extension NavigatorStateExtension on _i36.NavigationService {
             date: date,
             serviceName: serviceName,
             serviceProviderName: serviceProviderName,
-            status: status),
+            status: status,
+            location: location),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,
@@ -1298,6 +1306,7 @@ extension NavigatorStateExtension on _i36.NavigationService {
         parameters: parameters,
         transition: transition);
   }
+
 
   Future<dynamic> navigateToServiceProviderFinanceView([
     int? routerId,
@@ -1667,6 +1676,7 @@ extension NavigatorStateExtension on _i36.NavigationService {
     required String serviceName,
     required String serviceProviderName,
     required String status,
+    required String location,
     int? routerId,
     bool preventDuplicates = true,
     Map<String, String>? parameters,
@@ -1682,7 +1692,8 @@ extension NavigatorStateExtension on _i36.NavigationService {
             date: date,
             serviceName: serviceName,
             serviceProviderName: serviceProviderName,
-            status: status),
+            status: status,
+            location: location),
         id: routerId,
         preventDuplicates: preventDuplicates,
         parameters: parameters,

@@ -35,10 +35,6 @@ class CustomerHomeViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-
-
-
-
   late List<Service> servicesNew = [];
   ServiceProvider serviceProvider = ServiceProvider(
       id: "",

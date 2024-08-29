@@ -19,7 +19,7 @@ class CustomerEditProfileViewModel extends FormViewModel {
     if (_authService.customer != null) {
       firstNameValue = _authService.customer!.firstname;
       lastNameValue = _authService.customer!.lastname;
-      phoneValue= _authService.customer!.phoneNumber;
+      phoneValue = _authService.customer!.phoneNumber;
       emailValue = _authService.customer!.email;
     }
   }
@@ -41,15 +41,12 @@ class CustomerEditProfileViewModel extends FormViewModel {
     final updatedFirstName = firstNameValue?.isNotEmpty == true
         ? firstNameValue!
         : customer.firstname;
-    final updatedLastName = lastNameValue?.isNotEmpty == true
-        ? lastNameValue!
-        : customer.lastname;
-    final updatedPhone = phoneValue?.isNotEmpty == true
-        ? phoneValue!
-        : customer.phoneNumber;
-    final updatedEmail = emailValue?.isNotEmpty == true
-        ? emailValue!
-        : customer.email;
+    final updatedLastName =
+        lastNameValue?.isNotEmpty == true ? lastNameValue! : customer.lastname;
+    final updatedPhone =
+        phoneValue?.isNotEmpty == true ? phoneValue! : customer.phoneNumber;
+    final updatedEmail =
+        emailValue?.isNotEmpty == true ? emailValue! : customer.email;
 
     // Update the customer with the new or existing values
     await _customerService.updateCustomer(

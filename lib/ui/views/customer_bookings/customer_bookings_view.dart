@@ -22,7 +22,8 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
             'assets/booking.png',
             fit: BoxFit.contain,
             height: 200,
-          ),          Text("Bookings",
+          ),
+          Text("Bookings",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
@@ -43,6 +44,7 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
                           email: booking['email'],
                           phone: booking['phone'],
                           price: booking['price'],
+                          location: booking['location'],
                         );
                       },
                     );

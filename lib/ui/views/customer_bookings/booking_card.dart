@@ -12,6 +12,7 @@ class BookingCard extends StatelessWidget {
   final String price;
   final String phone;
   final String email;
+  final String location;
 
   final _navigationService = locator<NavigationService>();
 
@@ -22,7 +23,8 @@ class BookingCard extends StatelessWidget {
       required this.status,
       required this.price,
       required this.email,
-      required this.phone});
+      required this.phone,
+      required this.location});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +66,8 @@ class BookingCard extends StatelessWidget {
                     email: email,
                     phone: phone,
                     serviceProviderName: serviceProviderName,
-                    status: status);
+                    status: status,
+                    location: location);
               },
               child: Text('View'),
               style: ElevatedButton.styleFrom(
