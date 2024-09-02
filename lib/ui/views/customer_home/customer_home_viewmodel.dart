@@ -1,3 +1,4 @@
+import 'package:disertation/app/app.router.dart';
 import 'package:intl/intl.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked_services/stacked_services.dart';
@@ -23,6 +24,10 @@ class CustomerHomeViewModel extends BaseViewModel {
   String? selectedCategory;
 
   String customerName = "";
+
+  void navigateToServices(){
+    _navigationService.navigateToCustomerServicesView();
+  }
 
   void selectCategory(String category) {
     if (selectedCategory == category) {
@@ -122,5 +127,37 @@ class CustomerHomeViewModel extends BaseViewModel {
       });
     }
     return bookingDetailsList;
+  }
+
+  Future<List<Map<String, dynamic>>> loadPendingBookings() async {
+    List<Booking> bookings = await _bookingService
+        .fetchBookingsByCustomerId(_authenticationService.customer!.id);
+    List<Map<String, dynamic>> pendingBookingsList = [];
+
+    for (var booking in bookings) {
+      if (booking.status == 'pending') {
+        Customer? customer =
+        await _authenticationService.fetchCustomerByUid(booking.customerId);
+        Service service =
+        await _servicesService.getServiceById(booking.serviceId);
+        ServiceProvider? serviceProvider = await _authenticationService
+            .fetchServiceProviderByUid(booking.serviceProviderId);
+
+        String formattedDate = DateFormat('MM/dd/yyyy').format(booking.date);
+
+        pendingBookingsList.add({
+          'serviceProviderName': serviceProvider?.businessName,
+          'serviceName': service.serviceName,
+          'date': formattedDate,
+          'customer': customer!.firstname + ' ' + customer.lastname,
+          'status': booking.status,
+          'price': service.price,
+          'phone': serviceProvider?.phoneNumber,
+          'email': serviceProvider?.email,
+          'location': serviceProvider?.location,
+        });
+      }
+    }
+    return pendingBookingsList;
   }
 }

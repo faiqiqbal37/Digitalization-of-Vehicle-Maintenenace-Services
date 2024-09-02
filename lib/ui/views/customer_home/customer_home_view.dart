@@ -13,10 +13,10 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
 
   @override
   Widget builder(
-    BuildContext context,
-    CustomerHomeViewModel viewModel,
-    Widget? child,
-  ) {
+      BuildContext context,
+      CustomerHomeViewModel viewModel,
+      Widget? child,
+      ) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -37,7 +37,6 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
               ),
             ),
             SizedBox(height: 10),
-            // Advertisement banners
             Container(
               height: 100,
               child: ListView.builder(
@@ -49,7 +48,7 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
                     margin: EdgeInsets.symmetric(horizontal: 5),
                     color: Colors.grey[300],
                     child: Image.asset(
-                      'assets/ad_banner1.jpg', // Example image URL
+                      'assets/ad_banner1.jpg',
                       fit: BoxFit.cover,
                     ),
                   );
@@ -57,7 +56,6 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
               ),
             ),
             SizedBox(height: 30),
-            // Category widgets
             Text('Service Categories',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             SingleChildScrollView(
@@ -71,29 +69,102 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
                 ],
               ),
             ),
-            // New section: Services List
-            ListView.builder(
-                shrinkWrap: true,
-                physics: NeverScrollableScrollPhysics(),
-                itemCount: viewModel.servicesNew.length,
-                itemBuilder: (context, index) {
-                  return CustomerServiceCard(
-                    serviceProviderName:
-                        viewModel.servicesNew[index].serviceName,
-                    serviceName: viewModel.servicesNew[index].serviceType,
-                    price: viewModel.servicesNew[index].price,
-                    eta: viewModel.servicesNew[index].eta,
-                    vehicleType: viewModel.servicesNew[index].vehicleType,
-                    description: viewModel.servicesNew[index].description,
-                    customerId: viewModel.customer.id,
-                    serviceId: viewModel.servicesNew[index].id,
-                    serviceProviderId:
-                        viewModel.servicesNew[index].serviceProviderId,
-                    onButtonPressed: viewModel.notifyListeners,
-                  );
-                }),
+            SizedBox(height: 30),
+            Text('Services',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+            SizedBox(height: 10),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: [
+                  ...viewModel.servicesNew.map((service) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: CustomerServiceCard(
+                        serviceProviderName: service.serviceName,
+                        serviceName: service.serviceType,
+                        price: service.price,
+                        eta: service.eta,
+                        vehicleType: service.vehicleType,
+                        description: service.description,
+                        customerId: viewModel.customer.id,
+                        serviceId: service.id,
+                        serviceProviderId: service.serviceProviderId,
+                        onButtonPressed: viewModel.notifyListeners,
+                      ),
+                    );
+                  }).toList(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        // Implement the navigation to the full list of services
+                        viewModel.navigateToServices();
+                      },
+                      child: Text('View All'),
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.white,
+                        backgroundColor: Colors.blue ,
+                        shadowColor: Colors.blueAccent,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0), // Adjust the radius here
+                        ),
+                        side: BorderSide(
+                          color: Colors.blue, // Border color
+                          width: 1.5, // Border width
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             SizedBox(height: 30),
             // Upcoming bookings section
+            FutureBuilder<List<Map<String, dynamic>>>(
+              future: viewModel.loadPendingBookings(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                    return Column(
+                      children: [
+                        Text('Upcoming Bookings',
+                            style: TextStyle(
+                                fontSize: 20, fontWeight: FontWeight.bold)),
+                        ListView.builder(
+                          shrinkWrap: true,
+                          physics: NeverScrollableScrollPhysics(),
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (context, index) {
+                            var booking = snapshot.data![index];
+                            return BookingCard(
+                              serviceProviderName:
+                              booking['serviceProviderName'],
+                              serviceName: booking['serviceName'],
+                              date: booking['date'],
+                              status: booking['status'],
+                              email: booking['email'],
+                              phone: booking['phone'],
+                              price: booking['price'],
+                              location: booking['location'],
+                            );
+                          },
+                        ),
+                      ],
+                    );
+                  } else if (snapshot.hasData && snapshot.data!.isEmpty) {
+                    return Center(
+                      child: Text('No upcoming bookings.'),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  }
+                }
+                return Center(child: CircularProgressIndicator());
+              },
+            ),
           ],
         ),
       ),
@@ -106,6 +177,7 @@ class CustomerHomeView extends StackedView<CustomerHomeViewModel> {
     viewModel.getCustomerName();
     viewModel.fetchServices();
     viewModel.fetchCustomer();
+    viewModel.loadPendingBookings(); // Load upcoming bookings
   }
 
   @override

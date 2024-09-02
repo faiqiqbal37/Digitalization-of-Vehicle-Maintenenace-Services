@@ -33,7 +33,11 @@ class CustomerServiceDetailView
                 children: [
                   Center(
                     child:
-                        Icon(Icons.description, size: 110, color: Colors.black),
+                    Image.asset(
+                      'assets/service.png',
+                      fit: BoxFit.contain,
+                      height: 150,
+                    ),
                   ),
                   SizedBox(height: 20),
                   Card(

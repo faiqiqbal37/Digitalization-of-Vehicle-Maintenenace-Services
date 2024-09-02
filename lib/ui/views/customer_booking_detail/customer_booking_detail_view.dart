@@ -46,7 +46,11 @@ class CustomerBookingDetailView
             children: [
               Center(
                 child:
-                    Icon(Icons.calendar_month, size: 110, color: Colors.black),
+                Image.asset(
+                  'assets/serviceProviderLogin.png',
+                  fit: BoxFit.contain,
+                  height: 150,
+                ),
               ),
               SizedBox(height: 20),
               Card(
