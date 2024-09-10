@@ -13,7 +13,7 @@ _$BookingImpl _$$BookingImplFromJson(Map<String, dynamic> json) =>
       customerId: json['customerId'] as String,
       serviceId: json['serviceId'] as String,
       vehicleId: json['vehicleId'] as String?,
-      date: DateTime.parse(json['date'] as String),
+      date: json['date'] as DateTime,
       status: json['status'] as String? ?? 'pending',
     );
 
@@ -24,6 +24,6 @@ Map<String, dynamic> _$$BookingImplToJson(_$BookingImpl instance) =>
       'customerId': instance.customerId,
       'serviceId': instance.serviceId,
       'vehicleId': instance.vehicleId,
-      'date': instance.date.toIso8601String(),
+      'date': _toJson(instance.date),
       'status': instance.status,
     };

@@ -21,9 +21,11 @@ Payment _$PaymentFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Payment {
   String get id => throw _privateConstructorUsedError;
+  String get serviceProviderId => throw _privateConstructorUsedError;
   String get customerId => throw _privateConstructorUsedError;
   String get bookingId => throw _privateConstructorUsedError;
   int get amount => throw _privateConstructorUsedError;
+  @JsonKey(fromJson: _fromJson, toJson: _toJson)
   DateTime get date => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,10 +40,11 @@ abstract class $PaymentCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
+      String serviceProviderId,
       String customerId,
       String bookingId,
       int amount,
-      DateTime date});
+      @JsonKey(fromJson: _fromJson, toJson: _toJson) DateTime date});
 }
 
 /// @nodoc
@@ -58,6 +61,7 @@ class _$PaymentCopyWithImpl<$Res, $Val extends Payment>
   @override
   $Res call({
     Object? id = null,
+    Object? serviceProviderId = null,
     Object? customerId = null,
     Object? bookingId = null,
     Object? amount = null,
@@ -67,6 +71,10 @@ class _$PaymentCopyWithImpl<$Res, $Val extends Payment>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      serviceProviderId: null == serviceProviderId
+          ? _value.serviceProviderId
+          : serviceProviderId // ignore: cast_nullable_to_non_nullable
               as String,
       customerId: null == customerId
           ? _value.customerId
@@ -97,10 +105,11 @@ abstract class _$$PaymentImplCopyWith<$Res> implements $PaymentCopyWith<$Res> {
   @useResult
   $Res call(
       {String id,
+      String serviceProviderId,
       String customerId,
       String bookingId,
       int amount,
-      DateTime date});
+      @JsonKey(fromJson: _fromJson, toJson: _toJson) DateTime date});
 }
 
 /// @nodoc
@@ -115,6 +124,7 @@ class __$$PaymentImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? serviceProviderId = null,
     Object? customerId = null,
     Object? bookingId = null,
     Object? amount = null,
@@ -124,6 +134,10 @@ class __$$PaymentImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      serviceProviderId: null == serviceProviderId
+          ? _value.serviceProviderId
+          : serviceProviderId // ignore: cast_nullable_to_non_nullable
               as String,
       customerId: null == customerId
           ? _value.customerId
@@ -150,10 +164,11 @@ class __$$PaymentImplCopyWithImpl<$Res>
 class _$PaymentImpl implements _Payment {
   const _$PaymentImpl(
       {required this.id,
+      required this.serviceProviderId,
       required this.customerId,
       required this.bookingId,
       required this.amount,
-      required this.date});
+      @JsonKey(fromJson: _fromJson, toJson: _toJson) required this.date});
 
   factory _$PaymentImpl.fromJson(Map<String, dynamic> json) =>
       _$$PaymentImplFromJson(json);
@@ -161,17 +176,20 @@ class _$PaymentImpl implements _Payment {
   @override
   final String id;
   @override
+  final String serviceProviderId;
+  @override
   final String customerId;
   @override
   final String bookingId;
   @override
   final int amount;
   @override
+  @JsonKey(fromJson: _fromJson, toJson: _toJson)
   final DateTime date;
 
   @override
   String toString() {
-    return 'Payment(id: $id, customerId: $customerId, bookingId: $bookingId, amount: $amount, date: $date)';
+    return 'Payment(id: $id, serviceProviderId: $serviceProviderId, customerId: $customerId, bookingId: $bookingId, amount: $amount, date: $date)';
   }
 
   @override
@@ -180,6 +198,8 @@ class _$PaymentImpl implements _Payment {
         (other.runtimeType == runtimeType &&
             other is _$PaymentImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.serviceProviderId, serviceProviderId) ||
+                other.serviceProviderId == serviceProviderId) &&
             (identical(other.customerId, customerId) ||
                 other.customerId == customerId) &&
             (identical(other.bookingId, bookingId) ||
@@ -190,8 +210,8 @@ class _$PaymentImpl implements _Payment {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, customerId, bookingId, amount, date);
+  int get hashCode => Object.hash(
+      runtimeType, id, serviceProviderId, customerId, bookingId, amount, date);
 
   @JsonKey(ignore: true)
   @override
@@ -210,9 +230,11 @@ class _$PaymentImpl implements _Payment {
 abstract class _Payment implements Payment {
   const factory _Payment(
       {required final String id,
+      required final String serviceProviderId,
       required final String customerId,
       required final String bookingId,
       required final int amount,
+      @JsonKey(fromJson: _fromJson, toJson: _toJson)
       required final DateTime date}) = _$PaymentImpl;
 
   factory _Payment.fromJson(Map<String, dynamic> json) = _$PaymentImpl.fromJson;
@@ -220,12 +242,15 @@ abstract class _Payment implements Payment {
   @override
   String get id;
   @override
+  String get serviceProviderId;
+  @override
   String get customerId;
   @override
   String get bookingId;
   @override
   int get amount;
   @override
+  @JsonKey(fromJson: _fromJson, toJson: _toJson)
   DateTime get date;
   @override
   @JsonKey(ignore: true)

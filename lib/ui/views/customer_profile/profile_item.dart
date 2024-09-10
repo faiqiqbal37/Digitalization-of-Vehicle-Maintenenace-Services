@@ -10,10 +10,19 @@ class ProfileItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Replace this with your app's specific item background color
+    final Color itemBackgroundColor = Theme.of(context).cardColor;
+
     return ListTile(
-      title: Text(title),
-      subtitle: Text(content),
-      tileColor: Colors.white,
+      title: Text(
+        title,
+        style: TextStyle(color: Colors.black), // Adjust color if needed
+      ),
+      subtitle: Text(
+        content,
+        style: TextStyle(color: Colors.black), // Adjust color if needed
+      ),
+      tileColor: itemBackgroundColor,
       contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
     );
   }

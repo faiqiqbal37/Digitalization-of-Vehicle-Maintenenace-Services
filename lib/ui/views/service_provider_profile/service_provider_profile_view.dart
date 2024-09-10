@@ -15,37 +15,49 @@ class ServiceProviderProfileView
     ServiceProviderProfileViewModel viewModel,
     Widget? child,
   ) {
+    final Color appBackgroundColor = Theme.of(context).scaffoldBackgroundColor;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile'),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        foregroundColor: Colors.black,
-      ),
+      backgroundColor: appBackgroundColor,
       body: ListView(
         children: [
+          SizedBox(height: 50),
+          Image.asset(
+            'assets/profile.png',
+            fit: BoxFit.contain,
+            height: 110,
+          ),
           SizedBox(height: 20),
-          Icon(Icons.account_circle, size: 100, color: Colors.black),
-          SizedBox(height: 20),
-          ProfileItem(title: "Name", content: "Michael Jordan"),
-          ProfileItem(title: "Company", content: "Edward Repairs"),
-          ProfileItem(title: "Phone", content: "+44078965125"),
-          ProfileItem(title: "Email", content: "michael@jordan.com"),
-          ProfileItem(title: "Address", content: "23 JAMES ST, S4 7TL"),
+          ProfileItem(
+              title: "Name",
+              content:
+                  "${viewModel.serviceProvider.firstname} ${viewModel.serviceProvider.lastname}"),
+          ProfileItem(
+              title: "Company",
+              content: viewModel.serviceProvider.businessName),
+          ProfileItem(
+              title: "Phone", content: viewModel.serviceProvider.phoneNumber),
+          ProfileItem(title: "Email", content: viewModel.serviceProvider.email),
+          ProfileItem(
+              title: "Address",
+              content: viewModel.serviceProvider.location.toString()),
           SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: viewModel.navigateToEditScreen,
               child: Text('Edit Details'),
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.black,
-                backgroundColor: Colors.white,
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blueAccent,
                 textStyle: TextStyle(fontSize: 16),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0),
-                  side: BorderSide(color: Colors.black),
+                  borderRadius:
+                      BorderRadius.circular(8.0), // Adjust the radius here
+                ),
+                side: BorderSide(
+                  color: Colors.blue, // Border color
+                  width: 1.5, // Border width
                 ),
               ),
             ),
@@ -60,6 +72,10 @@ class ServiceProviderProfileView
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
                 textStyle: TextStyle(fontSize: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(8.0), // Adjust the radius here
+                ),
               ),
             ),
           ),
@@ -67,6 +83,12 @@ class ServiceProviderProfileView
       ),
       bottomNavigationBar: CustomBottomNavigationBar(),
     );
+  }
+
+  @override
+  void onViewModelReady(ServiceProviderProfileViewModel viewModel) {
+    super.onViewModelReady(viewModel);
+    viewModel.returnServiceProvider();
   }
 
   @override

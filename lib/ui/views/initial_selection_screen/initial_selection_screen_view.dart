@@ -22,31 +22,66 @@ class InitialSelectionScreenView
               'Select the Portal',
               style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
             ),
-            SizedBox(height: 10),
-            // Adding a row with two buttons
+            SizedBox(height: 20),
             Row(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ElevatedButton(
-                  onPressed: viewModel.navigateToCustomerLogin,
-                  child: Text('Customer'),
+                GestureDetector(
+                  onTap: viewModel.navigateToCustomerLogin,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset(
+                            'assets/customer.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text('Customer'),
+                    ],
+                  ),
                 ),
-                SizedBox(width: 8), // Spacing between the two buttons
-                ElevatedButton(
-                  onPressed: viewModel.navigateToServiceProviderLogin,
-                  child: Text('Service Provider'),
+                SizedBox(width: 40),
+                GestureDetector(
+                  onTap: viewModel.navigateToServiceProviderLogin,
+                  child: Column(
+                    children: [
+                      Container(
+                        width: 80,
+                        height: 80,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Colors.black,
+                            width: 2.0,
+                          ),
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Image.asset(
+                            'assets/provider.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Text('Service Provider'),
+                    ],
+                  ),
                 ),
-                ElevatedButton(
-                  onPressed: viewModel.navigateToStackedHome,
-                  child: Text('Stacked Home'),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBox(
-                    width: 8), // Spacing defined earlier, assumed here as well
               ],
             ),
           ],

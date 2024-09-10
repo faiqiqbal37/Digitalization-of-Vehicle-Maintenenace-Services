@@ -18,28 +18,50 @@ class CustomerBookingsView extends StackedView<CustomerBookingsViewModel> {
       body: Column(
         children: [
           SizedBox(height: 60),
-          Icon(Icons.calendar_month, size: 80, color: Colors.black),
+          Image.asset(
+            'assets/booking.png',
+            fit: BoxFit.contain,
+            height: 200,
+          ),
           Text("Bookings",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
           SizedBox(height: 20),
           Expanded(
-            child: ListView(
-              children: [
-                BookingCard(
-                  serviceProviderName: 'Ahmad Autos',
-                  serviceName: 'AC Servicing',
-                  date: '10/10/2024',
-                  status: 'Completed',
-                ),
-                BookingCard(
-                  serviceProviderName: 'Ahmad Autos',
-                  serviceName: 'AC Servicing',
-                  date: '10/10/2024',
-                  status: 'Completed',
-                ),
-              ],
+            child: FutureBuilder<List<Map<String, dynamic>>>(
+              future: viewModel.loadCustomerBookings(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+                    return ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) {
+                        var booking = snapshot.data![index];
+                        return BookingCard(
+                          serviceProviderName: booking['serviceProviderName'],
+                          serviceName: booking['serviceName'],
+                          date: booking['date'],
+                          status: booking['status'],
+                          email: booking['email'],
+                          phone: booking['phone'],
+                          price: booking['price'],
+                          location: booking['location'],
+                        );
+                      },
+                    );
+                  } else if (snapshot.hasData && snapshot.data!.isEmpty) {
+                    return Center(
+                      child: Text('No bookings made yet.'),
+                    );
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text('Error: ${snapshot.error}'),
+                    );
+                  }
+                }
+                return Center(child: CircularProgressIndicator());
+              },
             ),
-          ),
+          )
         ],
       ),
       bottomNavigationBar: CustomerBottomNavigationBar(),

@@ -28,81 +28,112 @@ class ServiceProviderAddServiceView
       ),
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16),
-        child: Form(
-          child: Column(
-            children: <Widget>[
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Service Name:',
-                  border: OutlineInputBorder(),
+        child: Column(
+          children: <Widget>[
+            Card(
+              elevation: 4,
+              margin: const EdgeInsets.all(8),
+              color: Colors.white,
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  children: [
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Service Name:',
+                        border: OutlineInputBorder(),
+                      ),
+                      controller: serviceNameController,
+                    ),
+                    SizedBox(height: 16),
+                    DropdownButtonFormField<String>(
+                      value: viewModel.serviceType,
+                      decoration: InputDecoration(
+                        labelText: 'Service Type:',
+                        border: OutlineInputBorder(),
+                      ),
+                      items: <String>[
+                        'Mechanical',
+                        'Electrical',
+                        'Bodywork',
+                        'Painting',
+                        'Detailing',
+                        'Tire Change',
+                        'Battery Replacement'
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (value) => {viewModel.serviceType = value},
+                    ),
+                    SizedBox(height: 16),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Description:',
+                        border: OutlineInputBorder(),
+                      ),
+                      controller: descriptionController,
+                      maxLines: 3,
+                    ),
+                    SizedBox(height: 16),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Price:',
+                        border: OutlineInputBorder(),
+                      ),
+                      keyboardType: TextInputType.number,
+                      controller: priceController,
+                    ),
+                    SizedBox(height: 16),
+                    TextFormField(
+                      decoration: InputDecoration(
+                        labelText: 'Estimated Finish Time:',
+                        border: OutlineInputBorder(),
+                      ),
+                      controller: etaController,
+                    ),
+                    SizedBox(height: 16),
+                    DropdownButtonFormField<String>(
+                      value: viewModel.vehicleType,
+                      decoration: InputDecoration(
+                        labelText: 'Vehicle Type:',
+                        border: OutlineInputBorder(),
+                      ),
+                      onChanged: (value) => {viewModel.vehicleType = value},
+                      items: <String>[
+                        'SUV',
+                        'Sedan',
+                        'Coupe',
+                        'Hatchback',
+                        'Convertible',
+                        'Truck',
+                        'Motorcycle',
+                        'Van'
+                      ].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                    ),
+                  ],
                 ),
-                controller: serviceNameController,
               ),
-              SizedBox(height: 16),
-              DropdownButtonFormField<String>(
-                value: viewModel.serviceType,
-                decoration: InputDecoration(
-                  labelText: 'Service Type:',
-                  border: OutlineInputBorder(),
-                ),
-                items: <String>['Mechanical', 'Electrical', 'Bodywork']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (String) => {},
+            ),
+            SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: viewModel.addService,
+              child: Text('Add Service'),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 15),
+                textStyle: TextStyle(fontSize: 18),
+                backgroundColor: Colors.blue,
+                foregroundColor: Colors.white,
               ),
-              SizedBox(height: 16),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Description:',
-                  border: OutlineInputBorder(),
-                ),
-                controller: descriptionController,
-                maxLines: 3,
-              ),
-              SizedBox(height: 16),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Price:',
-                  border: OutlineInputBorder(),
-                ),
-                keyboardType: TextInputType.number,
-                controller: priceController,
-              ),
-              SizedBox(height: 16),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Estimated Finish Time:',
-                  border: OutlineInputBorder(),
-                ),
-                controller: etaController,
-              ),
-              SizedBox(height: 16),
-              DropdownButtonFormField<String>(
-                value: viewModel.vehicleType,
-                decoration: InputDecoration(
-                  labelText: 'Vehicle Type:',
-                  border: OutlineInputBorder(),
-                ),
-                onChanged: (String? newValue) {},
-                items: <String>['SUV', 'Sedan', 'Coupe', 'Hatchback']
-                    .map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-              ),
-              SizedBox(height: 24),
-              ElevatedButton(
-                onPressed: viewModel.addService,
-                child: Text('Add Service'),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

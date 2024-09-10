@@ -7,12 +7,14 @@ environment:
   sdk: '>=3.0.3 <4.0.0'
 
 dependencies:
+  badges: ^3.1.2
   cloud_firestore: ^5.1.0
   firebase_auth: ^5.1.2
   firebase_core: ^3.2.0
   flutter:
     sdk: flutter
   freezed_annotation: ^2.4.4
+  intl: ^0.19.0
   json_annotation: ^4.9.0
   stacked: ^3.4.0
   stacked_services: ^1.1.0
@@ -31,4 +33,21 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/car.png
+    - assets/cars.png
+    - assets/ad_banner1.jpg
+    - assets/ad_banner2.jpg
+    - assets/customer.png
+    - assets/provider.png
+    - assets/customerLogin.png
+    - assets/serviceProviderLogin.png
+    - assets/booking.png
+    - assets/service.png
+    - assets/finance.png
+    - assets/profile.png
+    - assets/serviceNew.png
+    - assets/detail.png
+
 

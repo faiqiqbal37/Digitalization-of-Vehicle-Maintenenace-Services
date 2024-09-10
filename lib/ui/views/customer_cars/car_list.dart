@@ -1,22 +1,24 @@
+import 'package:disertation/app/app.locator.dart';
+import 'package:disertation/services/cars_service_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CarListItem extends StatelessWidget {
   final String make;
-  final String modelYear;
   final String vehicleType;
   final String regNumber;
+  final String carId;
 
-  CarListItem({
-    required this.make,
-    required this.modelYear,
-    required this.vehicleType,
-    required this.regNumber,
-  });
+  CarListItem(
+      {required this.make,
+      required this.vehicleType,
+      required this.regNumber,
+      required this.carId});
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       margin: EdgeInsets.all(8),
       child: Padding(
         padding: EdgeInsets.all(16),
@@ -40,7 +42,9 @@ class CarListItem extends StatelessWidget {
                     ),
                     IconButton(
                       icon: Icon(Icons.delete),
-                      onPressed: () {
+                      onPressed: () async {
+                        final _carsService = locator<CarsServiceService>();
+                        await _carsService.deleteServiceById(carId);
                         // Implement delete functionality
                       },
                     ),
@@ -48,7 +52,6 @@ class CarListItem extends StatelessWidget {
                 ),
               ],
             ),
-            Text('Model Year: $modelYear'),
             Text('Vehicle Type: $vehicleType'),
             Text('Reg Number: $regNumber'),
           ],

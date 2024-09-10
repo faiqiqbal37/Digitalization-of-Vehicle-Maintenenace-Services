@@ -27,70 +27,97 @@ class LoginServiceProviderView
     Widget? child,
   ) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Text(
-              'Login as a Service Provider',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-            ),
-            SizedBox(height: 20),
-            TextFormField(
-              controller: emailController,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                labelText: 'Email',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.email),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              SizedBox(
+                height: 50,
               ),
-            ),
-            verticalSpaceTiny,
-            viewModel.hasEmailValidationMessage
-                ? Text(viewModel.emailValidationMessage!,
-                    style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700))
-                : SizedBox(height: 20),
-            TextFormField(
-              controller: passwordController,
-              obscureText: true,
-              decoration: InputDecoration(
-                labelText: 'Password',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.lock),
+              Text(
+                'Login as a Service Provider',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
-            ),
-            verticalSpaceTiny,
-            viewModel.hasEmailValidationMessage
-                ? Text(viewModel.passwordValidationMessage!,
-                    style: const TextStyle(
-                        color: Colors.red,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w700))
-                : SizedBox(height: 30),
-            ElevatedButton(
-              onPressed: viewModel.siginInWithEmail,
-              child: Text('Sign in with Email'),
-            ),
-            SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: viewModel.siginInWithGoogle,
-              child: Text('Sign in with Google'),
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.redAccent),
+              SizedBox(height: 20),
+              Image.asset(
+                'assets/serviceProviderLogin.png',
+                fit: BoxFit.contain,
+                height: 300,
               ),
-            ),
-            SizedBox(height: 10),
-            TextButton(
-              onPressed: viewModel.navigateToRegister,
-              child: Text('Register'),
-            ),
-          ],
+              TextFormField(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                decoration: InputDecoration(
+                  labelText: 'Email',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.email),
+                ),
+              ),
+              verticalSpaceTiny,
+              viewModel.hasEmailValidationMessage && viewModel.displayError
+                  ? Text(viewModel.emailValidationMessage!,
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
+                  : SizedBox(height: 20),
+              TextFormField(
+                controller: passwordController,
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.lock),
+                ),
+              ),
+              verticalSpaceTiny,
+              viewModel.hasEmailValidationMessage && viewModel.displayError
+                  ? Text(viewModel.passwordValidationMessage!,
+                      style: const TextStyle(
+                          color: Colors.red,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w700))
+                  : SizedBox(height: 30),
+              ElevatedButton(
+                onPressed: () {
+                  viewModel.displayError = true;
+                  viewModel.notifyListeners();
+                  viewModel.siginInWithEmail();
+                },
+                child: Text('Sign in with Email'),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.blueAccent,
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(8.0), // Adjust the radius here
+                  ), // Text color
+                ),
+              ),
+              SizedBox(height: 10),
+              SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: viewModel.navigateToRegister,
+                child: Text('Register'),
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.blue,
+                  backgroundColor: Colors.white, // Background color
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(8.0), // Adjust the radius here
+                  ),
+                  side: BorderSide(
+                    color: Colors.blue, // Border color
+                    width: 1.5, // Border width
+                  ),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -99,7 +126,9 @@ class LoginServiceProviderView
   @override
   void onDispose(LoginServiceProviderViewModel viewModel) {
     super.onDispose(viewModel);
-    disposeForm();
+    viewModel.emailValue = "";
+    viewModel.passwordValue = "";
+    viewModel.displayError = false;
   }
 
   @override

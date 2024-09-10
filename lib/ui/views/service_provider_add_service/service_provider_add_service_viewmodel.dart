@@ -28,6 +28,7 @@ class ServiceProviderAddServiceViewModel extends FormViewModel {
 
   Future<void> addService() async {
     try {
+      notifyListeners();
       Service newService = Service(
         id: DateTime.now().millisecondsSinceEpoch.toString(),
         price: priceValue.toString(),

@@ -13,7 +13,7 @@ class ProfileItem extends StatelessWidget {
     return ListTile(
       title: Text(title),
       subtitle: Text(content),
-      tileColor: Colors.white,
+      tileColor: Theme.of(context).scaffoldBackgroundColor,
       contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
     );
   }

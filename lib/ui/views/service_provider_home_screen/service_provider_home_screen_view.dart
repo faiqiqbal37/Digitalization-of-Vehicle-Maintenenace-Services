@@ -10,11 +10,8 @@ class ServiceProviderHomeScreenView
   const ServiceProviderHomeScreenView({Key? key}) : super(key: key);
 
   @override
-  Widget builder(
-    BuildContext context,
-    ServiceProviderHomeScreenViewModel viewModel,
-    Widget? child,
-  ) {
+  Widget builder(BuildContext context,
+      ServiceProviderHomeScreenViewModel viewModel, Widget? child) {
     return Scaffold(
       body: ListView(
         children: [
@@ -28,65 +25,70 @@ class ServiceProviderHomeScreenView
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      "Edward Repairs",
+                      viewModel.serviceProviderName,
                       style:
                           TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
                     ),
                     Icon(Icons.star),
                     SizedBox(width: 8),
-                    Text('4.5'),
+                    Text(
+                        '4.5'), // Assuming static rating; dynamically fetch if needed
                   ],
                 ),
                 SizedBox(height: 30),
-                Text(
-                  'Finances:',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'Total Earnings: \$1000',
-                  style: TextStyle(fontSize: 16),
-                ),
-                SizedBox(height: 20),
-                Text(
-                  'Orders:',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                DataTable(
-                  columns: const [
-                    DataColumn(label: Text('Total Orders')),
-                    DataColumn(label: Text('Pending')),
-                    DataColumn(label: Text('Completed')),
-                  ],
-                  rows: const [
-                    DataRow(
-                      cells: [
-                        DataCell(Text('202')),
-                        DataCell(Text('2')),
-                        DataCell(Text('200')),
-                      ],
+                Container(
+                  width: double
+                      .infinity, // This makes the container take up all available horizontal space
+                  child: Card(
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.all(
+                          20.0), // Add padding for better spacing inside the card
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment
+                            .start, // Align text to the start of the card
+                        children: [
+                          Text(
+                            'Finances:',
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          Text(
+                            'Total Earnings: £${viewModel.totalEarnings.toStringAsFixed(2)}',
+                            style: TextStyle(fontSize: 16),
+                          ),
+                          SizedBox(height: 20),
+                        ],
+                      ),
                     ),
-                  ],
+                  ),
                 ),
-                SizedBox(height: 20),
                 Text(
-                  'Listed Services:',
+                  'Bookings:',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
-                ServiceCard(
-                  service: 'Car Detailing',
-                  duration: '4-5 Hrs',
-                  price: '\$25',
+                Card(
+                  color: Colors.white,
+                  child: DataTable(
+                    columns: const [
+                      DataColumn(label: Text('Total Orders')),
+                      DataColumn(label: Text('Pending')),
+                      DataColumn(label: Text('Completed')),
+                    ],
+                    rows: [
+                      DataRow(
+                        cells: [
+                          DataCell(Text('${viewModel.totalBookings}')),
+                          DataCell(Text('${viewModel.pendingBookings}')),
+                          DataCell(Text('${viewModel.completedBookings}')),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
-                ServiceCard(
-                  service: 'Engine Over Haul',
-                  duration: '6-7 Hrs',
-                  price: '\$750',
-                ),
-                ServiceCard(
-                  service: 'AC Servicing',
-                  duration: '4-5 Hrs',
-                  price: '\$250',
-                ),
+                SizedBox(height: 20),
+
+
               ],
             ),
           ),
@@ -97,8 +99,15 @@ class ServiceProviderHomeScreenView
   }
 
   @override
-  ServiceProviderHomeScreenViewModel viewModelBuilder(
-    BuildContext context,
-  ) =>
+  void onViewModelReady(ServiceProviderHomeScreenViewModel viewModel) {
+    super.onViewModelReady(viewModel);
+    viewModel.getServiceProviderName();
+    viewModel.fetchFinanceData();
+    viewModel.fetchBookingSummary();
+    viewModel.fetchServices();
+  }
+
+  @override
+  ServiceProviderHomeScreenViewModel viewModelBuilder(BuildContext context) =>
       ServiceProviderHomeScreenViewModel();
 }

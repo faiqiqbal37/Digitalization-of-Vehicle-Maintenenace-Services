@@ -17,6 +17,7 @@ class ServiceProviderRegisterViewModel extends FormViewModel {
   final _navigationService = locator<NavigationService>();
   final _authService = locator<AuthenticationService>();
   final FirebaseFirestore _db = FirebaseFirestore.instance;
+  bool displayError = false;
 
   Future<void> showRegistrationDialog() async {
     await _dialogService.showCustomDialog(

@@ -14,36 +14,39 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
     CustomerProfileViewModel viewModel,
     Widget? child,
   ) {
+    // Replace this with your app's background color
+    final Color appBackgroundColor = Theme.of(context).scaffoldBackgroundColor;
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Profile'),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-        elevation: 0,
-        foregroundColor: Colors.black,
-      ),
+      backgroundColor: appBackgroundColor,
       body: ListView(
         children: [
+          SizedBox(height: 50),
+          Image.asset(
+            'assets/profile.png',
+            fit: BoxFit.contain,
+            height: 200,
+          ),
           SizedBox(height: 20),
-          Icon(Icons.account_circle, size: 100, color: Colors.black),
-          SizedBox(height: 20),
-          ProfileItem(title: "Name", content: "Michael Jordan"),
-          ProfileItem(title: "Phone", content: "+44078965125"),
-          ProfileItem(title: "Email", content: "michael@jordan.com"),
-          ProfileItem(title: "Address", content: "23 JAMES ST, S4 7TL"),
+          ProfileItem(
+              title: "Name",
+              content:
+                  "${viewModel.customer.firstname} ${viewModel.customer.lastname}"),
+          ProfileItem(title: "Phone", content: viewModel.customer.phoneNumber),
+          ProfileItem(title: "Email", content: viewModel.customer.email),
           SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: ElevatedButton(
-              onPressed: () {},
+              onPressed: viewModel.navigateToEditDetailsScreen,
               child: Text('Edit Details'),
               style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.black,
-                backgroundColor: Colors.white,
+                foregroundColor: Colors.white,
+                backgroundColor: Colors.blue,
                 textStyle: TextStyle(fontSize: 16),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(0),
-                  side: BorderSide(color: Colors.black),
+                  borderRadius:
+                      BorderRadius.circular(8.0), // Adjust the radius here
                 ),
               ),
             ),
@@ -58,6 +61,10 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
                 foregroundColor: Colors.white,
                 backgroundColor: Colors.red,
                 textStyle: TextStyle(fontSize: 16),
+                shape: RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.circular(8.0), // Adjust the radius here
+                ),
               ),
             ),
           ),
@@ -65,6 +72,12 @@ class CustomerProfileView extends StackedView<CustomerProfileViewModel> {
       ),
       bottomNavigationBar: CustomerBottomNavigationBar(),
     );
+  }
+
+  @override
+  void onViewModelReady(CustomerProfileViewModel viewModel) {
+    super.onViewModelReady(viewModel);
+    viewModel.returnCustomer();
   }
 
   @override

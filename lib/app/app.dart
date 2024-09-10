@@ -29,6 +29,20 @@ import 'package:disertation/ui/views/customer_services/customer_services_view.da
 import 'package:disertation/ui/views/customer_booking_detail/customer_booking_detail_view.dart';
 import 'package:disertation/ui/views/customer_add_booking/customer_add_booking_view.dart';
 import 'package:disertation/ui/views/customer_payment/customer_payment_view.dart';
+import 'package:disertation/services/customer_service.dart';
+import 'package:disertation/ui/views/customer_edit_profile/customer_edit_profile_view.dart';
+import 'package:disertation/ui/views/service_provider_edit_profile/service_provider_edit_profile_view.dart';
+import 'package:disertation/services/service_provider_service.dart';
+import 'package:disertation/ui/views/service_provider_service_detail/service_provider_service_detail_view.dart';
+import 'package:disertation/ui/views/service_provider_edit_service/service_provider_edit_service_view.dart';
+import 'package:disertation/ui/views/admin_home/admin_home_view.dart';
+import 'package:disertation/ui/views/customer_service_detail/customer_service_detail_view.dart';
+import 'package:disertation/ui/views/customer_service_detail/customer_service_detail_view.dart';
+import 'package:disertation/ui/views/service_provider_finance/service_provider_finance_view.dart';
+import 'package:disertation/ui/views/admin_customers/admin_customers_view.dart';
+import 'package:disertation/ui/views/admin_service_providers/admin_service_providers_view.dart';
+import 'package:disertation/ui/views/admin_bookings/admin_bookings_view.dart';
+import 'package:disertation/ui/views/admin_finances/admin_finances_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -55,6 +69,18 @@ import 'package:disertation/ui/views/customer_payment/customer_payment_view.dart
     MaterialRoute(page: CustomerBookingDetailView),
     MaterialRoute(page: CustomerAddBookingView),
     MaterialRoute(page: CustomerPaymentView),
+    MaterialRoute(page: CustomerEditProfileView),
+    MaterialRoute(page: ServiceProviderEditProfileView),
+    MaterialRoute(page: ServiceProviderServiceDetailView),
+    MaterialRoute(page: ServiceProviderEditServiceView),
+    MaterialRoute(page: AdminHomeView),
+    MaterialRoute(page: CustomerServiceDetailView),
+    MaterialRoute(page: CustomerServiceDetailView),
+    MaterialRoute(page: ServiceProviderFinanceView),
+    MaterialRoute(page: AdminCustomersView),
+    MaterialRoute(page: AdminServiceProvidersView),
+    MaterialRoute(page: AdminBookingsView),
+    MaterialRoute(page: AdminFinancesView),
 // @stacked-route
   ],
   dependencies: [
@@ -66,6 +92,8 @@ import 'package:disertation/ui/views/customer_payment/customer_payment_view.dart
     LazySingleton(classType: ServicesService),
     LazySingleton(classType: CarsServiceService),
     LazySingleton(classType: BookingService),
+    LazySingleton(classType: CustomerService),
+    LazySingleton(classType: ServiceProviderService),
 // @stacked-service
   ],
   bottomsheets: [

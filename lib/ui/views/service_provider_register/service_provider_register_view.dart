@@ -43,12 +43,17 @@ class ServiceProviderRegisterView
     Widget? child,
   ) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        body: Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: SingleChildScrollView(
+        // Add this widget
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            SizedBox(
+              height: 50,
+            ),
             Text(
               'Register as a Service Provider',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -64,7 +69,7 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasFirstNameValidationMessage
+            viewModel.hasFirstNameValidationMessage && viewModel.displayError
                 ? Text(viewModel.firstNameValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -80,7 +85,7 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasLastNameValidationMessage
+            viewModel.hasLastNameValidationMessage && viewModel.displayError
                 ? Text(viewModel.lastNameValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -95,7 +100,7 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasBusinessNameValidationMessage
+            viewModel.hasBusinessNameValidationMessage && viewModel.displayError
                 ? Text(viewModel.businessNameValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -111,7 +116,7 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasPhoneValidationMessage
+            viewModel.hasPhoneValidationMessage && viewModel.displayError
                 ? Text(viewModel.phoneValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -128,7 +133,7 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasEmailValidationMessage
+            viewModel.hasEmailValidationMessage && viewModel.displayError
                 ? Text(viewModel.emailValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -144,7 +149,7 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasPasswordValidationMessage
+            viewModel.hasPasswordValidationMessage && viewModel.displayError
                 ? Text(viewModel.passwordValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
@@ -160,27 +165,34 @@ class ServiceProviderRegisterView
               ),
             ),
             verticalSpaceTiny,
-            viewModel.hasPasswordValidationMessage
+            viewModel.hasPasswordValidationMessage && viewModel.displayError
                 ? Text(viewModel.passwordValidationMessage!,
                     style: const TextStyle(
                         color: Colors.red,
                         fontSize: 12,
                         fontWeight: FontWeight.w700))
                 : SizedBox(height: 20),
-            TextButton(
-              onPressed: viewModel.registerUser,
+            ElevatedButton(
+              onPressed: () {
+                viewModel.displayError = true;
+                viewModel.notifyListeners();
+                viewModel.registerUser();
+              },
               child: Text('Register'),
+              style: ElevatedButton.styleFrom(
+                  foregroundColor: Colors.white, backgroundColor: Colors.blue),
             ),
           ],
         ),
       ),
-    );
+    ));
   }
 
   @override
   void onDispose(ServiceProviderRegisterViewModel viewModel) {
     super.onDispose(viewModel);
     disposeForm();
+    viewModel.displayError = false;
   }
 
   @override

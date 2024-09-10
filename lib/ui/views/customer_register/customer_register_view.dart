@@ -1,17 +1,31 @@
 import 'package:disertation/ui/views/customer_register/customer_register_view.form.dart';
+import 'package:disertation/ui/views/service_provider_register/form_validators.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
 import 'package:stacked/stacked_annotations.dart';
 
+import '../../common/ui_helpers.dart';
 import 'customer_register_viewmodel.dart';
 
 @FormView(fields: [
-  FormTextField(name: 'email'),
-  FormTextField(name: 'password'),
-  FormTextField(name: 'confirmPassword'),
-  FormTextField(name: 'firstName'),
-  FormTextField(name: 'lastName'),
-  FormTextField(name: 'phone'),
+  FormTextField(
+      name: 'email',
+      validator: ServiceProviderRegistrationFormValidation.validateEmail),
+  FormTextField(
+      name: 'password',
+      validator: ServiceProviderRegistrationFormValidation.validatePassword),
+  FormTextField(
+      name: 'confirmPassword',
+      validator: ServiceProviderRegistrationFormValidation.validatePassword),
+  FormTextField(
+      name: 'firstName',
+      validator: ServiceProviderRegistrationFormValidation.validateFirstName),
+  FormTextField(
+      name: 'lastName',
+      validator: ServiceProviderRegistrationFormValidation.validateLastName),
+  FormTextField(
+      name: 'phone',
+      validator: ServiceProviderRegistrationFormValidation.validatePhoneNumber),
 ])
 class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
     with $CustomerRegisterView {
@@ -24,12 +38,15 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
     Widget? child,
   ) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        body: Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: SingleChildScrollView(
+        // Add this widget
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
+            SizedBox(height: 50),
             Text(
               'Register as a Customer',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
@@ -44,6 +61,14 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
                 prefixIcon: Icon(Icons.person),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasFirstNameValidationMessage && viewModel.displayError
+                ? Text(viewModel.firstNameValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             SizedBox(height: 20),
             TextField(
               controller: lastNameController,
@@ -53,6 +78,14 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
                 prefixIcon: Icon(Icons.person),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasLastNameValidationMessage && viewModel.displayError
+                ? Text(viewModel.lastNameValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             SizedBox(height: 20),
             TextField(
               controller: phoneController,
@@ -62,6 +95,14 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
                 prefixIcon: Icon(Icons.call),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasPhoneValidationMessage && viewModel.displayError
+                ? Text(viewModel.phoneValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             SizedBox(height: 20),
             TextField(
               controller: emailController,
@@ -72,6 +113,14 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
                 prefixIcon: Icon(Icons.email),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasEmailValidationMessage && viewModel.displayError
+                ? Text(viewModel.emailValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             SizedBox(height: 20),
             TextField(
               controller: passwordController,
@@ -81,6 +130,14 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
                 prefixIcon: Icon(Icons.password),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasPasswordValidationMessage && viewModel.displayError
+                ? Text(viewModel.passwordValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             SizedBox(height: 20),
             TextField(
               controller: confirmPasswordController,
@@ -90,20 +147,37 @@ class CustomerRegisterView extends StackedView<CustomerRegisterViewModel>
                 prefixIcon: Icon(Icons.password),
               ),
             ),
+            verticalSpaceTiny,
+            viewModel.hasPasswordValidationMessage && viewModel.displayError
+                ? Text(viewModel.passwordValidationMessage!,
+                    style: const TextStyle(
+                        color: Colors.red,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700))
+                : SizedBox(height: 20),
             SizedBox(height: 20),
-            TextButton(
-              onPressed: viewModel.register,
+            ElevatedButton(
+              onPressed: viewModel.registerCustomer,
               child: Text('Register'),
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue, foregroundColor: Colors.white),
             ),
           ],
         ),
       ),
-    );
+    ));
   }
 
   @override
-  void onModelReady(CustomerRegisterViewModel viewModel) {
+  void onViewModelReady(CustomerRegisterViewModel viewModel) {
     syncFormWithViewModel(viewModel);
+  }
+
+  @override
+  void onDispose(CustomerRegisterViewModel viewModel) {
+    super.onDispose(viewModel);
+    disposeForm();
+    viewModel.displayError = false;
   }
 
   @override

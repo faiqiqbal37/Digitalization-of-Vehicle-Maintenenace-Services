@@ -19,28 +19,64 @@ class ServiceProviderBookingsListingView
       body: Column(
         children: [
           SizedBox(height: 60),
-          Icon(Icons.calendar_month, size: 80, color: Colors.black),
-          Text("Bookings",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+          Image.asset(
+            'assets/booking.png',
+            fit: BoxFit.contain,
+            height: 180,
+          ),
+          Text(
+            "Bookings",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+          ),
           SizedBox(height: 20),
           Expanded(
-            child: ListView(
-              children: [
-                BookingCard(
-                  customerName: 'Daniel Brown',
-                  serviceName: 'AC Servicing',
-                  date: '10/10/2024',
-                  location: '80 HOYLE ST, 83 7LG',
-                  status: 'Completed',
-                ),
-                BookingCard(
-                  customerName: 'Daniel Brown',
-                  serviceName: 'AC Servicing',
-                  date: '10/10/2024',
-                  location: '80 HOYLE ST, 83 7LG',
-                  status: 'Pending',
-                ),
-              ],
+            child: FutureBuilder<List<Map<String, dynamic>>>(
+              future: viewModel.loadCustomerBookings(),
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.done) {
+                  if (snapshot.hasData) {
+                    if (snapshot.data!.isEmpty) {
+                      return Center(
+                        child: Text(
+                          'No bookings available',
+                          style: TextStyle(fontSize: 18),
+                        ),
+                      );
+                    } else {
+                      return ListView.builder(
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) {
+                          var booking = snapshot.data![index];
+                          return BookingCard(
+                            customerName: booking['customer'],
+                            serviceName: booking['serviceName'],
+                            date: booking['date'],
+                            status: booking['status'],
+                            email: booking['email'],
+                            phone: booking['phone'],
+                            price: booking['price'],
+                            category: booking['category'],
+                            location: booking['location'],
+                            updateStatus: () =>
+                                viewModel.changeStatus(booking['id']),
+                            bookingId: booking['id'],
+                          );
+                        },
+                      );
+                    }
+                  } else if (snapshot.hasError) {
+                    return Center(
+                      child: Text(
+                        'Error: ${snapshot.error}',
+                        style: TextStyle(fontSize: 18, color: Colors.red),
+                      ),
+                    );
+                  }
+                }
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              },
             ),
           ),
         ],

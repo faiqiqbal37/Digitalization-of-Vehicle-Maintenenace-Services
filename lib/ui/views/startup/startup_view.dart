@@ -14,28 +14,35 @@ class StartupView extends StackedView<StartupViewModel> {
     StartupViewModel viewModel,
     Widget? child,
   ) {
-    return const Scaffold(
+    return Scaffold(
+      backgroundColor: Colors.white, // White background
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              'STACKED',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+            SizedBox(height: 20), // Spacing for better layout
+            Image.asset(
+              'assets/car.png', // Reference the image from assets
+              width: 200, // Adjust width as needed
+              height: 200, // Adjust height as needed
             ),
+            SizedBox(height: 20), // Spacing after the image
             Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text('Loading ...', style: TextStyle(fontSize: 16)),
                 horizontalSpaceSmall,
                 SizedBox(
                   width: 16,
                   height: 16,
                   child: CircularProgressIndicator(
-                    color: Colors.black,
-                    strokeWidth: 6,
+                    backgroundColor:
+                        Colors.blue[100], // Light blue background circle
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Colors.blue[800]!, // Deep blue progress indicator
+                    ),
+                    strokeWidth: 2,
                   ),
-                )
+                ),
               ],
             ),
           ],
