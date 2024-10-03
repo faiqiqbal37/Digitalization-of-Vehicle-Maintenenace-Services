@@ -59,7 +59,7 @@ The key technologies and frameworks used in this project are:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/vehicle-maintenance-app.git
+   git clone (https://github.com/faiqiqbal37/Digitalization-of-Vehicle-Maintenenace-Services.git)
    cd vehicle-maintenance-app
    ```
 
@@ -69,10 +69,7 @@ The key technologies and frameworks used in this project are:
    flutter pub get
    ```
 
-3. **Set up Firebase**:
-   You need to configure Firebase with your project. See [Firebase Configuration](#firebase-configuration) for details.
-
-4. **Run the app**:
+3. **Run the app**:
    Use the following command to launch the app on your device/emulator:
    ```bash
    flutter run
@@ -103,8 +100,7 @@ Here are some screenshots showcasing the customer interface:
 
 | Screen | Description |
 | ------ | ----------- |
-| (https://github.com/user-attachments/assets/a21716c4-51c3-4afc-bb95-83b914896d0d)
-) | **Login Screen**: Customers can register or log in to the app to start booking services. |
+| ![Customer Login](![image](https://github.com/user-attachments/assets/1294fdeb-4d2d-4bc7-8caf-b6a3a1e2a03f)) | **Login Screen**: Customers can register or log in to the app to start booking services. |
 | ![Service Listing](path_to_service_listing_screenshot) | **Service Listing**: Customers can browse the available services offered by nearby service providers. |
 | ![Booking Screen](path_to_booking_screenshot) | **Booking Screen**: Customers can view details of selected services and confirm bookings. |
 | ![Maintenance Prediction](path_to_maintenance_prediction_screenshot) | **Maintenance Prediction**: The app provides a prediction of whether the vehicle requires maintenance based on its details. |
