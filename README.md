@@ -100,7 +100,7 @@ Here are some screenshots showcasing the customer interface:
 
 | Screen | Description |
 | ------ | ----------- |
-| ![Customer Login](![image](https://github.com/user-attachments/assets/1294fdeb-4d2d-4bc7-8caf-b6a3a1e2a03f)) | **Login Screen**: Customers can register or log in to the app to start booking services. |
+| ![Customer Login](https://github.com/user-attachments/assets/1294fdeb-4d2d-4bc7-8caf-b6a3a1e2a03f)) | **Login Screen**: Customers can register or log in to the app to start booking services. |
 | ![Service Listing](path_to_service_listing_screenshot) | **Service Listing**: Customers can browse the available services offered by nearby service providers. |
 | ![Booking Screen](path_to_booking_screenshot) | **Booking Screen**: Customers can view details of selected services and confirm bookings. |
 | ![Maintenance Prediction](path_to_maintenance_prediction_screenshot) | **Maintenance Prediction**: The app provides a prediction of whether the vehicle requires maintenance based on its details. |
