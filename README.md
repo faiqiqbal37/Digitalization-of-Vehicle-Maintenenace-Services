@@ -98,23 +98,36 @@ Once installed, the app allows users to register as either customers or service 
 
 Here are some screenshots showcasing the customer interface:
 
-| Screen | Description |
-| ------ | ----------- |
-| ![Customer Login](https://github.com/user-attachments/assets/1294fdeb-4d2d-4bc7-8caf-b6a3a1e2a03f)) | **Login Screen**: Customers can register or log in to the app to start booking services. |
-| ![Service Listing](path_to_service_listing_screenshot) | **Service Listing**: Customers can browse the available services offered by nearby service providers. |
-| ![Booking Screen](path_to_booking_screenshot) | **Booking Screen**: Customers can view details of selected services and confirm bookings. |
-| ![Maintenance Prediction](path_to_maintenance_prediction_screenshot) | **Maintenance Prediction**: The app provides a prediction of whether the vehicle requires maintenance based on its details. |
+| Screen | 
+| ![Customer Login](https://github.com/user-attachments/assets/1294fdeb-4d2d-4bc7-8caf-b6a3a1e2a03f)) 
+**Login Screen**: Customers can register or log in to the app to start booking services.
+
+| ![Customer Dashboard](https://github.com/user-attachments/assets/386c77bc-46a3-416c-b443-acd9a850b045)
+**Customer Dashboard**: Customers can view an overview of the app on the dashboard.
+
+| ![Service Listing](https://github.com/user-attachments/assets/68e36c4d-0e56-49f9-9357-d0f5a5ed4c76)
+**Service Listing**: Customers can browse the available services offered by nearby service providers.
+
+| ![Booking Screen](https://github.com/user-attachments/assets/b419e167-b508-4a1b-bea8-7ee01e5ddfd9)
+**Booking Screen**: Customers can view details of selected services and confirm bookings.
 
 ### Service Provider End
 
 Here are some screenshots showcasing the service provider interface:
 
-| Screen | Description |
-| ------ | ----------- |
-| ![Provider Login](path_to_provider_login_screenshot) | **Login Screen**: Service providers can register or log in to manage their services. |
-| ![Service Management](path_to_service_management_screenshot) | **Service Management**: Service providers can add, update, or remove services from their listings. |
-| ![Appointments](path_to_appointments_screenshot) | **Appointments**: Providers can view and manage customer appointments in real-time. |
-| ![Service Updates](path_to_service_updates_screenshot) | **Service Status Updates**: Providers can update customers on the status of their services directly through the app. |
+| Screen |
+
+| ![Provider Login](https://github.com/user-attachments/assets/95566713-1f55-434f-8677-60aed9f45ea9)
+**Login Screen**: Service providers can register or log in to manage their services.
+
+| ![Service Management](https://github.com/user-attachments/assets/d966092a-d9c8-44b9-9968-81380fa23c5e)
+**Service Management**: Service providers can add, update, or remove services from their listings.
+
+| ![Appointments](https://github.com/user-attachments/assets/2becf77c-aa7b-44b9-bbd4-1775cdb49db8)
+**Bookings**: Providers can view and manage customer bookings in real-time.
+
+| ![Finance Dashboard](https://github.com/user-attachments/assets/e21fdb6d-bdb9-4a77-b08f-f59f8cb551d3)
+**Finance Summary**: Providers can view the financial details.
 
 ## Machine Learning Model
 
@@ -126,7 +139,7 @@ The machine learning model is designed to predict when a vehicle might need main
 - Last service date
 - Any reported issues
 
-The model was trained using **TensorFlow** and is integrated into the app through **Firebase ML Kit**. It provides a binary classification on whether a vehicle requires maintenance (yes/no).
+The model was trained using **TensorFlow** and is not yet integrated into the app. It provides a binary classification on whether a vehicle requires maintenance (yes/no).
 
 ### Model Training
 
