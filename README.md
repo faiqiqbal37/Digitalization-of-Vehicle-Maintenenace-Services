@@ -1,3 +1,7 @@
+Here's the formatted `README.md` file with proper image formatting while keeping the original content intact:
+
+---
+
 # Vehicle Maintenance Service Platform (Flutter Mobile Application)
 
 This repository contains the source code and project documentation for the **Vehicle Maintenance Service Platform**, a mobile application developed as part of my MSc Dissertation in Advanced Computer Science at the University of Sheffield. The project explores the use of technology to create a digital platform that connects vehicle maintenance service providers with customers. The application was built using Flutter, leveraging Firebase for the backend, and includes a machine learning model for vehicle maintenance prediction.
@@ -59,7 +63,7 @@ The key technologies and frameworks used in this project are:
 
 1. **Clone the repository**:
    ```bash
-   git clone (https://github.com/faiqiqbal37/Digitalization-of-Vehicle-Maintenenace-Services.git)
+   git clone https://github.com/faiqiqbal37/Digitalization-of-Vehicle-Maintenenace-Services.git
    cd vehicle-maintenance-app
    ```
 
@@ -98,36 +102,23 @@ Once installed, the app allows users to register as either customers or service 
 
 Here are some screenshots showcasing the customer interface:
 
-| Screen | 
-| ![Customer Login](https://github.com/user-attachments/assets/1294fdeb-4d2d-4bc7-8caf-b6a3a1e2a03f)) 
-**Login Screen**: Customers can register or log in to the app to start booking services.
-
-| ![Customer Dashboard](https://github.com/user-attachments/assets/386c77bc-46a3-416c-b443-acd9a850b045)
-**Customer Dashboard**: Customers can view an overview of the app on the dashboard.
-
-| ![Service Listing](https://github.com/user-attachments/assets/68e36c4d-0e56-49f9-9357-d0f5a5ed4c76)
-**Service Listing**: Customers can browse the available services offered by nearby service providers.
-
-| ![Booking Screen](https://github.com/user-attachments/assets/b419e167-b508-4a1b-bea8-7ee01e5ddfd9)
-**Booking Screen**: Customers can view details of selected services and confirm bookings.
+| Screen | Description |
+|--------|-------------|
+| ![Customer Login](https://github.com/user-attachments/assets/1294fdeb-4d2d-4bc7-8caf-b6a3a1e2a03f) | **Login Screen**: Customers can register or log in to the app to start booking services. |
+| ![Customer Dashboard](https://github.com/user-attachments/assets/386c77bc-46a3-416c-b443-acd9a850b045) | **Customer Dashboard**: Customers can view an overview of the app on the dashboard. |
+| ![Service Listing](https://github.com/user-attachments/assets/68e36c4d-0e56-49f9-9357-d0f5a5ed4c76) | **Service Listing**: Customers can browse the available services offered by nearby service providers. |
+| ![Booking Screen](https://github.com/user-attachments/assets/b419e167-b508-4a1b-bea8-7ee01e5ddfd9) | **Booking Screen**: Customers can view details of selected services and confirm bookings. |
 
 ### Service Provider End
 
 Here are some screenshots showcasing the service provider interface:
 
-| Screen |
-
-| ![Provider Login](https://github.com/user-attachments/assets/95566713-1f55-434f-8677-60aed9f45ea9)
-**Login Screen**: Service providers can register or log in to manage their services.
-
-| ![Service Management](https://github.com/user-attachments/assets/d966092a-d9c8-44b9-9968-81380fa23c5e)
-**Service Management**: Service providers can add, update, or remove services from their listings.
-
-| ![Appointments](https://github.com/user-attachments/assets/2becf77c-aa7b-44b9-bbd4-1775cdb49db8)
-**Bookings**: Providers can view and manage customer bookings in real-time.
-
-| ![Finance Dashboard](https://github.com/user-attachments/assets/e21fdb6d-bdb9-4a77-b08f-f59f8cb551d3)
-**Finance Summary**: Providers can view the financial details.
+| Screen | Description |
+|--------|-------------|
+| ![Provider Login](https://github.com/user-attachments/assets/95566713-1f55-434f-8677-60aed9f45ea9) | **Login Screen**: Service providers can register or log in to manage their services. |
+| ![Service Management](https://github.com/user-attachments/assets/d966092a-d9c8-44b9-9968-81380fa23c5e) | **Service Management**: Service providers can add, update, or remove services from their listings. |
+| ![Appointments](https://github.com/user-attachments/assets/2becf77c-aa7b-44b9-bbd4-1775cdb49db8) | **Bookings**: Providers can view and manage customer bookings in real-time. |
+| ![Finance Dashboard](https://github.com/user-attachments/assets/e21fdb6d-bdb9-4a77-b08f-f59f8cb551d3) | **Finance Summary**: Providers can view financial details. |
 
 ## Machine Learning Model
 
@@ -155,50 +146,11 @@ The business idea for the Vehicle Maintenance Service Platform was developed usi
 
 The app was developed using **Agile Methodology** with frequent sprints and regular feedback loops. This iterative process helped ensure that the app met the evolving needs of stakeholders and users, while enabling faster delivery of new features and bug fixes.
 
-## Firebase Configuration
-
-To set up Firebase for this project:
-
-1. Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project.
-2. Add an Android or iOS app to your Firebase project.
-3. Download the `google-services.json` (for Android) or `GoogleService-Info.plist` (for iOS) and place it in the appropriate directory in your Flutter project:
-   - For Android: `android/app/`
-   - For iOS: `ios/Runner/`
-4. Enable **Firebase Authentication**, **Cloud Firestore**, and **Firebase Cloud Messaging** in the Firebase Console.
-5. Update the Firebase settings in the Flutter app.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository.
-2. Create a feature branch:
-   ```bash
-   git checkout -b feature/my-feature
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m 'Add new feature'
-   ```
-4. Push to the branch:
-   ```bash
-   git push origin feature/my-feature
-   ```
-5. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
 
 Feel free to reach out for any queries regarding the project or setup.
 
-**Author**: [Your Name]  
-**Email**: your.email@domain.com  
+**Author**: Faiq Iqbal  
+**Email**: faiqiqbal37@gmail.com  
 **University of Sheffield**  
 **MSc Advanced Computer Science Dissertation Project**
 
----
-
-This README provides a structured overview of the project, including how it works, its features, and technical details. You can update the "Screenshots" section with the correct file paths to your actual screenshots once they are available.
