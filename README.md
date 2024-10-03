@@ -1,6 +1,4 @@
-Here's the formatted `README.md` file with proper image formatting while keeping the original content intact:
 
----
 
 # Vehicle Maintenance Service Platform (Flutter Mobile Application)
 
